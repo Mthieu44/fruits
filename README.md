@@ -1,5 +1,6 @@
 # equipe2-1
-
+IP: 172.26.82.54
+Pass: 67jVJTg4v6nH
 
 
 ## Getting started
