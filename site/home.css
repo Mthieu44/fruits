@@ -1,0 +1,146 @@
+/*********ACCUEIL PHOTO*********/
+
+
+.accueilphoto{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.selectmenu{
+    width: 900px;
+    margin-right: 400px;
+}
+
+.selectmenu p{
+    font-size: 35px;
+    margin-top: 80px;
+    color: var(--grey-100);
+    font-style: italic;
+}
+
+.subtitle1 h1{
+    font-size: 45px;
+}
+
+.peches{
+    object-fit: cover;
+    width: 100%;
+}
+
+.textpeches{
+    color: white;
+    position: absolute;
+    display: flex;
+    align-self: center;
+    align-items: center;
+    width: 90%;
+    justify-content: space-evenly;
+}
+
+
+.textpeches img{
+    height: 60px;
+}
+
+
+/*********MEILLEURS VENTES*********/
+
+.bestsellers{
+    margin-bottom: 100px;
+    margin-top: 100px;
+}
+
+.line{
+    border-top: 3px solid #F9B814;
+    width: 1300px;
+    margin: auto;
+    margin-bottom: 70px;
+}
+
+.top-part{  
+    margin-top: 70px;
+    display: block;
+    justify-content: center;
+    margin-bottom: 70px;
+}
+
+.top-text{
+    width: 900px;
+    margin: auto;
+}
+
+.top-text h1{
+    margin-bottom: 40px;
+}
+
+.fruit-menu{
+    height: 600px;
+    width: 1700px;
+    border-radius: 25px;
+    background-color: #7DD181;
+    margin: auto;
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-product{
+    padding: 30px;
+    padding-top: 20px;
+    width: 450px;
+    height:520px;
+    background-color: white;
+    border-radius: 30px;
+}
+
+.card-product img{
+    width: 400px;
+    height: 210px;
+    margin: auto;
+}
+
+.card-product h1{
+    font-size: 40px;
+}
+
+
+.small{
+    width: 250px;
+    margin-bottom: 0px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.add-to-cart{
+    margin-bottom: 0px;
+    margin-top: 70px;
+    margin-bottom: 10px;
+}
+
+.add-to-cart p{
+    font-size: 30px;
+}
+
+.fleche{
+    height: 50px;
+}
+
+
+
+
+
+/*********FRUITS DE SAISON*********/
+
+.produits1{
+    height: 500px;
+}
+
+
+/*********INFORMATIONS*********/
+
+
+.info{
+    height: 500px;
+}
