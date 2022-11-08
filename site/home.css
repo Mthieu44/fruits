@@ -52,7 +52,8 @@
 }
 
 .line{
-    border-top: 3px solid #F9B814;
+    border: 1px solid #F9B814;
+    border-radius: 25px;
     width: 780px;
     margin: auto;
     margin-bottom: 42px;
