@@ -1,0 +1,11 @@
+header {
+  justify-content: space-around;
+  display:flex;
+  margin:auto;
+  height: 80;
+  align-items: center;
+  position: fixed;
+  background-color: white;
+  width: 100%;
+  border-bottom: 2px solid var(--yellow-100);
+}
