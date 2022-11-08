@@ -96,7 +96,9 @@ header {
   background-color: white;
   width: 100%;
   border-bottom: 2px solid var(--yellow-100);
-  z-index: 9;
+  z-index: 10;
+  position: sticky;
+  top: 0;
 }
 
 header ul {
