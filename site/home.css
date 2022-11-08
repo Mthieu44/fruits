@@ -8,19 +8,19 @@
 }
 
 .selectmenu{
-    width: 900px;
-    margin-right: 400px;
+    width: 720px;
+    margin-right: 320px;
 }
 
 .selectmenu p{
-    font-size: 35px;
-    margin-top: 80px;
+    font-size: 28px;
+    margin-top: 64px;
     color: var(--grey-100);
     font-style: italic;
 }
 
 .subtitle1 h1{
-    font-size: 45px;
+    font-size: 36px;
 }
 
 .peches{
@@ -40,91 +40,91 @@
 
 
 .textpeches img{
-    height: 60px;
+    height: 48px;
 }
 
 
 /*********MEILLEURS VENTES*********/
 
 .bestsellers{
-    margin-bottom: 100px;
-    margin-top: 100px;
+    margin-bottom: 60px;
+    margin-top: 60px;
 }
 
 .line{
     border-top: 3px solid #F9B814;
-    width: 1300px;
+    width: 780px;
     margin: auto;
-    margin-bottom: 70px;
+    margin-bottom: 42px;
 }
 
 .top-part{  
-    margin-top: 70px;
+    margin-top: 42px;
     display: block;
     justify-content: center;
-    margin-bottom: 70px;
+    margin-bottom: 42px;
 }
 
 .top-text{
-    width: 900px;
+    width: 540px;
     margin: auto;
 }
 
 .top-text h1{
-    margin-bottom: 40px;
+    margin-bottom: 24px;
 }
 
 .fruit-menu{
-    height: 600px;
-    width: 1700px;
+    height: 360px;
+    width: 1020px;
     border-radius: 25px;
     background-color: #7DD181;
     margin: auto;
     display: flex;
-    gap: 30px;
+    gap: 18px;
     justify-content: center;
     align-items: center;
 }
 
 .card-product{
-    padding: 30px;
-    padding-top: 20px;
-    width: 450px;
-    height:520px;
+    padding: 18px;
+    padding-top: 12px;
+    width: 270px;
+    height:312px;
     background-color: white;
-    border-radius: 30px;
+    border-radius: 18px;
 }
 
 .card-product img{
-    width: 400px;
-    height: 210px;
+    width: 240px;
+    height: 126px;
     margin: auto;
 }
 
 .card-product h1{
-    font-size: 40px;
+    font-size: 24px;
 }
 
 
 .small{
-    width: 250px;
+    width: 150px;
     margin-bottom: 0px;
-    margin-top: 15px;
-    margin-bottom: 15px;
+    margin-top: 9px;
+    margin-bottom: 9px;
 }
 
 .add-to-cart{
     margin-bottom: 0px;
-    margin-top: 70px;
-    margin-bottom: 10px;
+    margin-top: 42px;
+    margin-bottom: 6px;
 }
 
 .add-to-cart p{
-    font-size: 30px;
+    font-size: 18px;
 }
 
 .fleche{
-    height: 50px;
+    height: 30px;
 }
 
 
