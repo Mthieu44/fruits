@@ -40,7 +40,7 @@
     </header>
 
     <div class="accueilphoto">
-      <img src="<?= base_url('img/acceuil1.jpg')?>" alt="peches" class="peches" />
+      <img src="<?= base_url('img/acceuil1.jpg')?>" alt="image accueil" class="peches" />
       <div class="textpeches">
         <img src="img/back.png" alt="back" />
         <div class="selectmenu">
