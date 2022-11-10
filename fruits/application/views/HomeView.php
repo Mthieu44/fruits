@@ -21,19 +21,19 @@
             <img src="<?= base_url('img/logo.png') ?>" alt="fruit" class="logo2" />
             <h1><b class="yellow">F</b>RUITS</h1>
           </li>
-          <li><a href="index.html" class="yellow">Accueil</a></li>
-          <li><a href="boutique.html">Boutique</a></li>
-          <li><a href="apropos.html">A propos</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="<?=site_url('Home')?>" class="yellow" >Accueil</a></li>
+          <li><a href=" <?=site_url('Boutique')?>" >Boutique</a></li>
+          <li><a href="<?=site_url('APropos')?>"  >A propos</a></li>
+          <li><a href="<?=site_url('Contact')?>">Contact</a></li>
           <li class="connexion">
-            <img src="<?= base_url('img/bonhomme.png')?>" alt="connexion" />
-            <a href="login.html">Connexion</a>
+              <img src="<?= base_url('img/bonhomme.png')?>" alt="connexion" />
+              <a href="<?=site_url('Connexion')?>">Connexion</a> 
           </li>
           <li class="panier">
-            <a href="panier.html">
-              <img src="<?= base_url('img/panier.png')?>" alt="panier" />
-              <div><p>0</p></div>
-            </a>
+              <a href="<?=site_url('Panier')?>" >
+                  <img src="<?= base_url('img/panier.png')?>" alt="panier"  />
+                  <div><p>0</p></div>
+              </a>
           </li>
         </ul>
       </nav>
@@ -42,7 +42,7 @@
     <div class="accueilphoto">
       <img src="<?= base_url('img/acceuil1.jpg')?>" alt="image accueil" class="peches" />
       <div class="textpeches">
-        <img src="img/back.png" alt="back" />
+        <img src="<?= base_url('img/back.png')?>" alt="back" />
         <div class="selectmenu">
           <div class="subtitle1">
             <h1>Bienvenue !</h1>
@@ -73,10 +73,10 @@
       </div>
       <div class="fruit-menu">
         
-        <img src="img/back.png" class="fleche" alt="back" />
+        <img src="<?= base_url('img/back.png')?>" class="fleche" alt="back" />
 
         <div class="card-product">
-          <img src="img/orange.png" alt="oranges" />
+          <img src="<?= base_url('img/orange.png')?>" alt="oranges" />
             <h1 class="p02">Orange</h1>
             <hr class="line small">
             <p class="p02">1.99€</p>
@@ -87,7 +87,7 @@
         </div>
 
         <div class="card-product">
-          <img src="img/orange.png" alt="oranges" />
+          <img src="<?= base_url('img/orange.png')?>" alt="oranges" />
             <h1 class="p02">Orange</h1>
             <hr class="line small">
             <p class="p02">1.99€</p>
@@ -98,7 +98,7 @@
         </div>
 
         <div class="card-product">
-          <img src="img/orange.png" alt="oranges" />
+          <img src="<?= base_url('img/orange.png')?>" alt="oranges" />
             <h1 class="p02">Orange</h1>
             <hr class="line small">
             <p class="p02">1.99€</p>
@@ -108,7 +108,7 @@
             </div>
         </div>
 
-        <img src="img/next.png" class="fleche" alt="next" />
+        <img src="<?= base_url('img/next.png')?>" class="fleche" alt="next" />
       </div>
     </div>
 
@@ -122,10 +122,10 @@
       </div>
       <div class="fruit-menu">
         
-        <img src="img/back.png" class="fleche" alt="back" />
+        <img src="<?= base_url('img/back.png')?>" class="fleche" alt="back" />
 
         <div class="card-product">
-          <img src="img/mangue.png" alt="mangues" />
+          <img src="<?= base_url('img/mangue.png')?>" alt="mangues" />
             <h1 class="p02">mangue</h1>
             <hr class="line small">
             <p class="p02">1.99€</p>
@@ -136,7 +136,7 @@
         </div>
 
         <div class="card-product">
-          <img src="img/mangue.png" alt="mangues" />
+          <img src="<?= base_url('img/mangue.png')?>" alt="mangues" />
             <h1 class="p02">mangue</h1>
             <hr class="line small">
             <p class="p02">1.99€</p>
@@ -147,7 +147,7 @@
         </div>
 
         <div class="card-product">
-          <img src="img/mangue.png" alt="mangues" />
+          <img src="<?= base_url('img/mangue.png')?>" alt="mangues" />
             <h1 class="p02">Orange</h1>
             <hr class="line small">
             <p class="p02">1.99€</p>
@@ -156,8 +156,7 @@
               <p class="p02">Ajouter au panier</p>
             </div>
         </div>
-
-        <img src="img/next.png" class="fleche" alt="next" />
+        <img src="<?= base_url('img/next.png')?>" class="fleche" alt="next" />
       </div>
     </div>
 
