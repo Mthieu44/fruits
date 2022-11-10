@@ -134,14 +134,64 @@
 
 /*********FRUITS DE SAISON*********/
 
-.produits1{
-    height: 500px;
-}
-
 
 /*********INFORMATIONS*********/
 
-
 .info{
-    height: 500px;
+    width: 90%;
+    display: flex;
+    margin-top: 250px;
+    margin-bottom: 250px;
+    justify-content: center;
+    margin-left:5%;
+}
+.infoPart{
+    width: 400px;
+    display: block;
+}
+
+.infoPart img{
+    display: block;
+    height: 150px;
+    width: 150px;
+    margin: auto;
+}
+
+.infoPart h2{
+    margin-top: 50px;
+    margin-bottom: 25px;
+}
+
+.lineVertical{
+    height: 180px;
+    width: 2px;
+    margin: 50px;
+    margin-top: 70px;
+    background-color: #F9B814;
+}
+
+
+/*********FOOTER*********/
+footer{
+    position: relative;
+    width: 98%;
+    background-color: var(--green-10);
+    margin: auto;
+    height: 200px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+
+footer p{
+    position:absolute;
+    bottom:0;
+    right:0;
+    margin-bottom: 20px;
+    margin-right: 20px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 240;
+    font-size: 15px;
+    line-height: 24px;
+    color: white;
 }
