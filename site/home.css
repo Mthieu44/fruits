@@ -56,14 +56,14 @@
     border-radius: 25px;
     width: 780px;
     margin: auto;
-    margin-bottom: 42px;
+    margin-bottom: 50px;
 }
 
 .top-part{  
-    margin-top: 42px;
+    margin-top: 50px;
     display: block;
     justify-content: center;
-    margin-bottom: 42px;
+    margin-bottom: 50px;
 }
 
 .top-text{
@@ -71,7 +71,7 @@
     margin: auto;
 }
 
-.top-text h1{
+.top-text h2{
     margin-bottom: 24px;
 }
 
@@ -79,7 +79,7 @@
     height: 360px;
     width: 1020px;
     border-radius: 25px;
-    background-color: #7DD181;
+    background-color: var(--green-10);
     margin: auto;
     display: flex;
     gap: 18px;
@@ -102,7 +102,7 @@
     margin: auto;
 }
 
-.card-product h1{
+.card-product h2{
     font-size: 24px;
 }
 
