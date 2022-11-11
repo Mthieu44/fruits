@@ -40,8 +40,8 @@
 
     <div class = "top-part">
         <div class="top-text">
-            <h1 class="titre">A propos de nous</h1>
-            <p class="p02">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna </p>
+            <h1 class="titre">Contactez nous</h1>
+            <p class="p02">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut ladna Lorem ipsum dolor sit amet, consectetu</p>
         </div>
     </div>
 
@@ -57,20 +57,41 @@
         </div>
     </div>
     <div class="menu-vert3">
-        <form action="login.php" method="post">
+        <form action="login.php" method="post" class="grid">
+            <div class="one">
 
-            <label class="text" for="prenom">Prénom</label>
-            <br><input class="rectangles" type="prenom" name="prenom" id="prenom" required>
-            <label class="text" for="nom">Nom</label>
-            <br><input class="rectangles" type="nom" name="nom" id="nom" required>
-            <label class="text" for="email">Email</label>
-            <br><input class="rectangles" type="email" name="email" id="email" required>
-            <label class="text" for="objet">Objet</label>
-            <br><input class="rectangles" type="objet" name="objet" id="objet" required>
+                <label class="text" for="firstname">Prénom</label>
+                <br><input class="rectangles2" type="text" name="firstname" id="firstname" required>
+            </div>
+
+            <div class="two">
+                <label class="text" for="lastname">Nom</label>
+                <br><input class="rectangles2" type="text" name="lastname" id="lastname" required>
+            </div>
+
+            <div class="three">
+                <br><label class="text" for="email">Email</label>
+                <br><input class="rectangles2" type="email" name="email" id="email" required>
+            </div>
+
+            <div class="four">
+                <br><label class="text" for="objet">Objet</label>
+                <br><input class="rectangles2" type="text" name="objet" id="objet" required>
+            </div>
 
 
-            <br><textarea class="text" id="text" maxlength="130000" name="text" mandatory="true" >Description</textarea>
-            <br><input class="bouton" type="submit" value="Envoyer">
+
+            <div class="five">
+                <br><label class="text" for="message">Message</label>
+                <br><textarea class="rectangles2" name="message" id="message" cols="53" rows="10" required></textarea>
+            </div>
+
+            <div class="six">
+                <br><input class="bouton" type="submit" value="Envoyer">
+            </div>
+
+
+
 
 
 
