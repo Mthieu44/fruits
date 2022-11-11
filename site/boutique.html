@@ -5,46 +5,119 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Boutique</title>
+    <link rel="stylesheet" href="home.css" />
     <link rel="stylesheet" href="boutique.css" />
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     
 </head>
 <body>
     <header>
-        <div class ="left">
-            <img src="img/fruit.png" alt="fruit" class="logo">
-            <h1>FRUITS</h1>
-        </div>
-        <div class="right">
-            <nav>
-                <ul class="header">
-                    <li><a href="index.html">Accueil</a></li>
-                    <li><a href="boutique.html">Boutique</a></li>
-                    <li><a href="apropos.html">A propos</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+        <nav>
+          <ul>
+            <li class="logo">
+              <img src="images/logo.png" alt="fruit" class="logo2" />
+              <h1><b class="yellow">F</b>RUITS</h1>
+            </li>
+            <li><a href="index.html" class="yellow">Accueil</a></li>
+            <li><a href="boutique.html">Boutique</a></li>
+            <li><a href="apropos.html">A propos</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li class="connexion">
+              <img src="images/bonhomme.png" alt="connexion" />
+              <a href="login.html">Connexion</a>
+            </li>
+            <li class="panier">
+              <a href="panier.html">
+                <img src="images/panier.png" alt="panier" />
+                <div><p>0</p></div>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </header>
 
-    <div class="produit">
-        <div>
-            <img src="img/produit1.png" alt="produit1" class="image">
+    <div class="bestsellers">
+        <div class = "top-part">
+          <div class="top-text">
+            <h2>Ne manquez pas nos meilleures ventes !</h2>
+            <p class="p01">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna </p>
+          </div>
         </div>
-        <div class="nomProduit">
-            <p>Fruits de la passion</p>
+        <div class="fruit-menu">
+          
+          <img src="img/back.png" class="fleche" alt="back" />
+  
+          <div class="card-product">
+            <img src="img/orange.png" alt="oranges" />
+              <h2 class="p02">Orange</h2>
+              <hr class="line small">
+              <p class="p02">1.99€</p>
+              <div class="add-to-cart">
+                <p class="p02">- 0 +</p>
+                <p class="p02">Ajouter au panier</p>
+              </div>
+          </div>
+  
+          <div class="card-product">
+            <img src="img/orange.png" alt="oranges" />
+              <h2 class="p02">Orange</h2>
+              <hr class="line small">
+              <p class="p02">1.99€</p>
+              <div class="add-to-cart">
+                <p class="p02">- 0 +</p>
+                <p class="p02">Ajouter au panier</p>
+              </div>
+          </div>
+  
+          <div class="card-product">
+            <img src="img/orange.png" alt="oranges" />
+              <h2 class="p02">Orange</h2>
+              <hr class="line small">
+              <p class="p02">1.99€</p>
+              <div class="add-to-cart">
+                <p class="p02">- 0 +</p>
+                <p class="p02">Ajouter au panier</p>
+              </div>
+          </div>
+  
+          <img src="img/next.png" class="fleche" alt="next" />
         </div>
-        <div class="ligne"></div>
-        <div class="bottom">
-            <p class="prix">9.99€</p>
-            <div class="quantity">
-                <a class="less">-</a>
-                <p class="number">0</p>
-                <a class="plus">+</a>
-            </div>
-            <a class="add">Ajouter</a>
+      </div>
+
+      <hr class="line">
+
+      <div class="selectCategory">
+        <div class="tileSelect">
+            <img src="img/agrumes.png" alt="agrumes" />
+            <h2 class="p02">Agrumes</h2>
         </div>
-    </div>
+        <div class="tileSelect">
+            <img src="img/exotiques.png" alt="exotiques" />
+            <h2 class="p02">Fruits exotiques</h2>
+        </div>
+        <div class="tileSelect">
+            <img src="img/rouges.png" alt="rouges" />
+            <h2 class="p02">Fruits rouges</h2>
+        </div>
+        <div class="tileSelect">
+            <img src="img/pepins.png" alt="pepins" />
+            <h2 class="p02">Fruits à pépins</h2>
+        </div>
+      </div>
+      <div class="searchFruit">
+        <form action="" class="formulaire">
+            <input class="champ" type="text" placeholder="Chercher votre fruit favori" />
+            <button type="submit" class="bouton">
+                <i class="fa fa-search"></i>
+            </button>
+        </form>
+      </div>
+
+      <div class="productsMenu">
+        
+      </div>
+
 
 </body>
 </html>
