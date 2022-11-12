@@ -5,6 +5,7 @@ margin-left: 50px;
     justify-content: left;
     margin-bottom: 50px;
     display: grid;
+    padding: 50px;
 }
 
 .left-part img{
@@ -41,4 +42,13 @@ margin-left: 50px;
     margin-left: 50px;
     family: 'Inter', sans-serif;
     color: #7DD181;
+}
+
+.titre-white{
+    font-size: 40px;
+    font-weight: 700;
+    color: #FFFFFF;
+    font-family: 'Inter';
+    margin-bottom: 20px;
+    text-align: center;
 }
