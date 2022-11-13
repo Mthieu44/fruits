@@ -1,5 +1,17 @@
-table, th, td {
-  border: 1px solid;
+.imgtest {
+	width: 150px;
+	height: 150px;
+}
+
+table {
+	display: flex;
+	justify-content: center;
+	padding-top: 100px;
+}
+
+th,
+td {
+	border: 1px solid;
 }
 
 *{
