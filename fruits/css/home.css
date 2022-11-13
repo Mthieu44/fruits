@@ -56,14 +56,14 @@
     border-radius: 25px;
     width: 780px;
     margin: auto;
-    margin-bottom: 42px;
+    margin-bottom: 50px;
 }
 
 .top-part{  
-    margin-top: 42px;
+    margin-top: 50px;
     display: block;
     justify-content: center;
-    margin-bottom: 42px;
+    margin-bottom: 50px;
 }
 
 .top-text{
@@ -71,7 +71,7 @@
     margin: auto;
 }
 
-.top-text h1{
+.top-text h2{
     margin-bottom: 24px;
 }
 
@@ -79,7 +79,7 @@
     height: 360px;
     width: 1020px;
     border-radius: 25px;
-    background-color: #7DD181;
+    background-color: var(--green-10);
     margin: auto;
     display: flex;
     gap: 18px;
@@ -102,7 +102,7 @@
     margin: auto;
 }
 
-.card-product h1{
+.card-product h2{
     font-size: 24px;
 }
 
@@ -134,14 +134,64 @@
 
 /*********FRUITS DE SAISON*********/
 
-.produits1{
-    height: 500px;
-}
-
 
 /*********INFORMATIONS*********/
 
-
 .info{
-    height: 500px;
+    width: 90%;
+    display: flex;
+    margin-top: 250px;
+    margin-bottom: 250px;
+    justify-content: center;
+    margin-left:5%;
+}
+.infoPart{
+    width: 400px;
+    display: block;
+}
+
+.infoPart img{
+    display: block;
+    height: 150px;
+    width: 150px;
+    margin: auto;
+}
+
+.infoPart h2{
+    margin-top: 50px;
+    margin-bottom: 25px;
+}
+
+.lineVertical{
+    height: 180px;
+    width: 2px;
+    margin: 50px;
+    margin-top: 70px;
+    background-color: #F9B814;
+}
+
+
+/*********FOOTER*********/
+footer{
+    position: relative;
+    width: 98%;
+    background-color: var(--green-10);
+    margin: auto;
+    height: 200px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+
+footer p{
+    position:absolute;
+    bottom:0;
+    right:0;
+    margin-bottom: 20px;
+    margin-right: 20px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 240;
+    font-size: 15px;
+    line-height: 24px;
+    color: white;
 }
