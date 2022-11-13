@@ -1,101 +1,15 @@
-*{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: 'Inter';                          
+.imgtest {
+	width: 150px;
+	height: 150px;
 }
 
-
-header {
-    font-family: var(--main-font);
-    justify-content: space-around;
-    display:flex;
-    margin:auto;
-    margin-top:10px;
-    margin-bottom: 10px;
-    width: 950px;
-    align-items: center;
+table {
+	display: flex;
+	justify-content: center;
+	padding-top: 100px;
 }
 
-.left{
-    display: flex;
-    align-items: center;
-}
-
-header ul {
-    list-style-type: none;
-    display: flex;
-    gap: 37px;
-    align-items:center;
-    list-style-type: none;
-}
-
-li :hover{
-    color: var(--yellow-100);
-}
-
-a{
-    text-decoration: none;
-    color: black;
-    font-size: 22px;    
-}
-
-.logo{
-    height: 80px;
-}
-
-.produit{
-    width: 250px;
-    height: 350px;
-    border : 1px solid black;
-    border-radius: 15px;
-    margin-left: 50px;
-}
-
-
-.image{
-    width: 150px;
-    margin-top: 25px;
-    margin-left: 40px;
-}
-
-.nomProduit{
-    margin-top: 10px;
-    margin-left: 45px;
-    color: var(--green-100);
-}
-
-.ligne{
-    border : 1px solid var(--yellow-100);
-    margin-top: 25px;
-    margin-left: 75px;
-    margin-right: 75px;
-}
-
-.quantity{
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-top: 55px;
-}
-
-.bottom{
-    color: var(--green-100);
-    text-align: center;
-    margin-top: 15px;
-}
-
-.add{
-    margin-top: 10px;
-    color: var(--green-100);
-    font-size: 17px;
-}
-
-.less{
-    color: var(--green-100);
-    font-size: 17px;
-}
-.plus{
-    color: var(--green-100);
-    font-size: 17px;
+th,
+td {
+	border: 1px solid;
 }
