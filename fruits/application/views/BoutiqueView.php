@@ -7,11 +7,8 @@
 
     
   <style>
+  <?php include 'css/home.css'; ?> 
   <?php include 'css/style.css'; ?>
-<<<<<<< HEAD
-  <?php include 'css/home.css'; ?>
-=======
->>>>>>> 3d2cc01f98a5f9206756b088ae173094090beb68
   <?php include 'css/boutique.css'; ?>
   </style>
   
