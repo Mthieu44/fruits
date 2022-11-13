@@ -8,7 +8,7 @@
     
   <style>
   <?php include 'css/style.css'; ?>
-  <?php include 'css/home.css'; ?>
+  <?php include 'css/boutique.css'; ?>
   </style>
   
   </head>
