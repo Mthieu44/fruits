@@ -1,8 +1,9 @@
 create table fruit(
     id_fruit INT primary key,
-    nom VARCHAR2(20) NOT NULL,
+    nom VARCHAR(20) NOT NULL,
     prix FLOAT(2) NOT NULL, 
-    description VARCHAR2(200) NOT NULL);
+    description VARCHAR(200) NOT NULL,
+    image VARCHAR(50) NOT NULL);
 
 create table categorie(
     id_categorie INT primary key,
@@ -17,11 +18,26 @@ alter table categorisation add constraint PK_categorisation primary key (id_frui
 alter table categorisation add constraint FK_categorisation_fruit foreign key (id_fruit) references fruit(id_fruit);
 alter table categorisation add constraint FK_categorisation_categorie foreign key (id_categorie) references categorie(id_categorie);
 
+
+insert into fruit values(1, 'Bananes', 1.50, 'Des bananes jaunes. Vendues à la grappe','banane.png');
+insert into fruit values(2, 'Mangue', 1.50, 'Le meilleur fruit du monde. Vendues à lunité','mangue.png');
+
+insert into categorie values(1, 'Fruits exotiques', 'Fruit sympa');
+insert into categorie values(2, 'Fruits jaune', 'ces fruits sont jaunes, logique');
+
+insert into categorisation values(1, 1);
+insert into categorisation values(1, 2);
+insert into categorisation values(2, 1);
+
+
+
+/*
+
 create table client(
     id_client INT primary key, 
-    nom VARCHAR2(20) NOT NULL, 
-    prenom VARCHAR2(20) NOT NULL, 
-    adresse VARCHAR2(60) NOT NULL,
+    nom VARCHAR(20) NOT NULL, 
+    prenom VARCHAR(20) NOT NULL, 
+    adresse VARCHAR(60) NOT NULL,
     mail VARCHAR(60) NOT NULL,
     mdp VARCHAR(200) NOT NULL,
     status VARCHAR(20) NOT NULL);
@@ -29,7 +45,7 @@ create table client(
 create table commande(
     id_commande INT primary key,
     id_client INT NOT NULL,
-    date_commande TIMESTAMP WITH LOCAL TIME ZONE NOT NULL,
+    date_commande TIMESTAMP,
     prix FLOAT(2) NOT NULL);
     
 create table panier(
@@ -43,14 +59,6 @@ alter table panier add constraint FK_panier_commande foreign key (id_commande) r
 alter table panier add constraint FK_panier_fruit foreign key (id_fruit) references fruit(id_fruit);
 
 
-insert into fruit values(1, 'Bananes', 1.50, 'Des bananes jaunes. Vendues à la grappe');
-insert into fruit values(2, 'Mangue', 1.50, 'Le meilleur fruit du monde. Vendues à lunité');
+*/
 
-insert into categorie values(1, 'Fruits exotiques', 'Fruit venant de pays sous-développés');
 
-insert into categorisation values(1, 1);
-insert into categorisation values(2, 1);
-
-select * from fruit;
-select * from categorie;
-select * from categorisation;

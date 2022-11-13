@@ -9,7 +9,6 @@
   <style>
   <?php include 'css/style.css'; ?>
   <?php include 'css/home.css'; ?>
-  <?php include 'css/boutique.css'; ?>
   </style>
   
   </head>
@@ -39,6 +38,37 @@
             </ul>
             </nav>
         </header>
+
+        <table>
+		<tr>
+			<th> id </th>
+			<th> nom </th>
+			<th> prix </th>
+			<th> description </th>
+			<th> categories </th>
+			<th> image </th>
+		</tr>
+		<?php foreach ($fruits as  $fruit): ?>
+		<tr>
+			<td><?= $fruit->getId_fruit()?></td>
+			<td><?= $fruit->getNom()?></td>
+			<td><?= $fruit->getPrix()?></td>
+			<td><?= $fruit->getDescription()?></td>
+			<td>
+                <?php
+                    foreach ($fruit->getCategory() as $category){
+                        echo($category->getNom() . ', ' . $category->getDescription().'<br>');
+                    }
+                ?>
+            </td>
+			<td>
+                <img src="<?= base_url('img/fruit/'.$fruit->getImage())?>" class="imgtest"/>
+            </td>
+		</tr>	
+		<?php endforeach;?>
+	</table>
+
+
         <div class="bestsellers">
         <div class = "top-part">
           <div class="top-text">

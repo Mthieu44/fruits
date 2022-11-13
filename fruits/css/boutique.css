@@ -108,13 +108,23 @@
     margin-bottom: 200px;
 }
 
-.navpages a{
-    text-decoration: none;
-    color: white;
-    font-size: 25px;
-    cursor: pointer;
+.bottom{
+    color: var(--green-100);
+    text-align: center;
+    margin-top: 15px;
 }
 
+.add{
+    margin-top: 10px;
+    color: var(--green-100);
+    font-size: 17px;
+}
 
-
-
+.less{
+    color: var(--green-100);
+    font-size: 17px;
+}
+.plus{
+    color: var(--green-100);
+    font-size: 17px;
+}
