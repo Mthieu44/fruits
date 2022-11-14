@@ -63,7 +63,19 @@
                 <div class= "quantity">
                   <p class="p02">
                     <a href=""><p>-</p></a>
-                    <p><?php site_url('boutique/getQuantity/').strval($fruit->getId_fruit()) ?></p>
+                    <p><?php 
+                    if (!$this->session->fauxPanier){
+                      echo 0;
+                    }else{
+                      foreach ($this->session->fauxPanier as $fruitPanier) {
+                        if ($fruitPanier->id_fruits == $fruit->getId_fruit()) {
+                          echo $fruitPanier->quantity;
+                        }else{
+                          echo "0";
+                        }
+                      }
+                    }
+                     ?></p>
                     <a href="<?= site_url('boutique/increase_quantity/').strval($fruit->getId_fruit())?>"><p>+</p></a>
                   </p>
                 </div>

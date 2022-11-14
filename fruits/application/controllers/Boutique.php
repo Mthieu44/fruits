@@ -14,7 +14,6 @@ class Boutique extends CI_Controller
 		$this->load->model('FruitModel');
 		$this->load->library('session');
 		$this->session->set_userdata("panier",$this->panier);
-		array_push($this->fauxPanier, new ProduitEntity(1, 2));
 		$this->session->set_userdata("fauxPanier",$this->fauxPanier);
 	}
 
