@@ -1,18 +1,20 @@
 <html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Fruits • Boutique</title>
 
-    
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fruits • Boutique</title>
+
+
   <style>
-  <?php include 'css/home.css'; ?> 
-  <?php include 'css/style.css'; ?>
-  <?php include 'css/boutique.css'; ?>
+    <?php include 'css/home.css';
+    ?><?php include 'css/style.css';
+    ?><?php include 'css/boutique.css';
+    ?>
   </style>
-  
-  </head>
+
+</head>
 
     <body>
         <header>
@@ -49,240 +51,219 @@
         <div class="fruit-menu">
           
           <img src="<?= base_url('img/back.png')?>" class="fleche" alt="back" />
-  
+        <?php foreach ($fruits as $fruit): ?>
           <div class="card-product">
             <a href="<?=site_url('Produit')?>">
               <img src="<?= base_url('img/orange.png')?>" alt="oranges" />
             </a>
-              <h2 class="p02">Orange</h2>
+              <h2 class="p02"><?= $fruit->getNom() ?></h2>
               <hr class="line small">
-              <p class="p02">1.99€</p>
+              <p class="p02"><?= $fruit->getPrix() ?> €</p>
               <div class="add-to-cart">
-                <p class="p02">
-                  <a href="">
-                    <p>-</p>
-                  </a>
-                  <p>0</p>
-                  <a href="">
-                    <p>+</p>
-                  </a>
+                <div class= "quantity">
+                  <p class="p02">
+                    <a href=""><p>-</p></a>
+                    <p><?php site_url('boutique/getQuantity/').strval($fruit->getId_fruit()) ?></p>
+                    <a href="<?= site_url('boutique/increase_quantity/').strval($fruit->getId_fruit())?>"><p>+</p></a>
+                  </p>
+                </div>
                 <p class="p02">Ajouter au panier</p>
               </div>
           </div>
-  
-          <div class="card-product">
-            <img src="<?= base_url('img/orange.png')?>" alt="oranges" />
-              <h2 class="p02">Orange</h2>
-              <hr class="line small">
-              <p class="p02">1.99€</p>
-              <div class="add-to-cart">
-                <p class="p02">- 0 +</p>
-                <p class="p02">Ajouter au panier</p>
-              </div>
-          </div>
-  
-          <div class="card-product">
-            <img src="<?= base_url('img/orange.png')?>" alt="oranges" />
-              <h2 class="p02">Orange</h2>
-              <hr class="line small">
-              <p class="p02">1.99€</p>
-              <div class="add-to-cart">
-                <p class="p02">- 0 +</p>
-                <p class="p02">Ajouter au panier</p>
-              </div>
-          </div>
+        <?php endforeach; ?>  
   
           <img src="<?= base_url('img/next.png')?>" class="fleche" alt="next" />
         </div>
       </div>
 
-      <hr class="line">
+      <img src="<?= base_url('img/next.png') ?>" class="fleche" alt="next" />
+    </div>
+  </div>
 
-      <div class="selectCategory">
-        <div class="tileSelect">
-            <img src="<?= base_url('img/agrumes.png')?>" alt="agrumes" />
-            <h2 class="p02">Agrumes</h2>
-        </div>
-        <div class="tileSelect">
-            <img src="<?= base_url('img/exotiques.png')?>" alt="exotiques" />
-            <h2 class="p02">Fruits exotiques</h2>
-        </div>
-        <div class="tileSelect">
-            <img src="<?= base_url('img/rouges.png')?>" alt="rouges" />
-            <h2 class="p02">Fruits rouges</h2>
-        </div>
-        <div class="tileSelect">
-            <img src="<?= base_url('img/pepins.png')?>" alt="pepins" />
-            <h2 class="p02">Fruits à pépins</h2>
-        </div>
+  <hr class="line">
+
+  <div class="selectCategory">
+    <div class="tileSelect">
+      <img src="<?= base_url('img/agrumes.png') ?>" alt="agrumes" />
+      <h2 class="p02">Agrumes</h2>
+    </div>
+    <div class="tileSelect">
+      <img src="<?= base_url('img/exotiques.png') ?>" alt="exotiques" />
+      <h2 class="p02">Fruits exotiques</h2>
+    </div>
+    <div class="tileSelect">
+      <img src="<?= base_url('img/rouges.png') ?>" alt="rouges" />
+      <h2 class="p02">Fruits rouges</h2>
+    </div>
+    <div class="tileSelect">
+      <img src="<?= base_url('img/pepins.png') ?>" alt="pepins" />
+      <h2 class="p02">Fruits à pépins</h2>
+    </div>
+  </div>
+  <div class="searchFruit">
+    <form action="" class="formulaire">
+      <input class="champ" type="text" placeholder="Chercher votre fruit favori" />
+      <button type="submit" class="bouton">
+        <i class="fa fa-search"></i>
+      </button>
+    </form>
+  </div>
+
+
+  <div class="productsMenu">
+    <div class="card-product">
+      <a href="produit01.html">
+        <img src="<?= base_url('img/orange.png') ?>" alt="oranges" />
+      </a>
+      <h2 class="p02">Orange</h2>
+      <hr class="line small">
+      <p class="p02">1.99€</p>
+      <div class="add-to-cart">
+        <p class="p02">- 0 +</p>
+        <p class="p02">Ajouter au panier</p>
       </div>
-      <div class="searchFruit">
-        <form action="" class="formulaire">
-            <input class="champ" type="text" placeholder="Chercher votre fruit favori" />
-            <button type="submit" class="bouton">
-                <i class="fa fa-search"></i>
-            </button>
-        </form>
+    </div>
+
+    <div class="card-product">
+      <a href="produit01.html">
+        <img src="<?= base_url('img/orange.png') ?>" alt="oranges" />
+      </a>
+      <h2 class="p02">Orange</h2>
+      <hr class="line small">
+      <p class="p02">1.99€</p>
+      <div class="add-to-cart">
+        <p class="p02">- 0 +</p>
+        <p class="p02">Ajouter au panier</p>
       </div>
+    </div>
 
-      
-      <div class="productsMenu">
-        <div class="card-product">
-          <a href="produit01.html">
-            <img src="<?= base_url('img/orange.png')?>" alt="oranges" />
-          </a>
-            <h2 class="p02">Orange</h2>
-            <hr class="line small">
-            <p class="p02">1.99€</p>
-            <div class="add-to-cart">
-              <p class="p02">- 0 +</p>
-              <p class="p02">Ajouter au panier</p>
-            </div>
-        </div>
+    <div class="card-product">
+      <a href="produit01.html">
+        <img src="<?= base_url('img/orange.png') ?>" alt="oranges" />
+      </a>
+      <h2 class="p02">Orange</h2>
+      <hr class="line small">
+      <p class="p02">1.99€</p>
+      <div class="add-to-cart">
+        <p class="p02">- 0 +</p>
+        <p class="p02">Ajouter au panier</p>
+      </div>
+    </div>
 
-        <div class="card-product">
-          <a href="produit01.html">
-            <img src="<?= base_url('img/orange.png')?>" alt="oranges" />
-          </a>
-            <h2 class="p02">Orange</h2>
-            <hr class="line small">
-            <p class="p02">1.99€</p>
-            <div class="add-to-cart">
-              <p class="p02">- 0 +</p>
-              <p class="p02">Ajouter au panier</p>
-            </div>
-        </div>
+    <div class="card-product">
+      <a href="produit01.html">
+        <img src="<?= base_url('img/orange.png') ?>" alt="oranges" />
+      </a>
+      <h2 class="p02">Orange</h2>
+      <hr class="line small">
+      <p class="p02">1.99€</p>
+      <div class="add-to-cart">
+        <p class="p02">- 0 +</p>
+        <p class="p02">Ajouter au panier</p>
+      </div>
+    </div>
 
-        <div class="card-product">
-          <a href="produit01.html">
-            <img src="<?= base_url('img/orange.png')?>" alt="oranges" />
-          </a>
-            <h2 class="p02">Orange</h2>
-            <hr class="line small">
-            <p class="p02">1.99€</p>
-            <div class="add-to-cart">
-              <p class="p02">- 0 +</p>
-              <p class="p02">Ajouter au panier</p>
-            </div>
-        </div>
+    <div class="card-product">
+      <a href="produit01.html">
+        <img src="<?= base_url('img/orange.png') ?>" alt="oranges" />
+      </a>
+      <h2 class="p02">Orange</h2>
+      <hr class="line small">
+      <p class="p02">1.99€</p>
+      <div class="add-to-cart">
+        <p class="p02">- 0 +</p>
+        <p class="p02">Ajouter au panier</p>
+      </div>
+    </div>
 
-        <div class="card-product">
-          <a href="produit01.html">
-            <img src="<?= base_url('img/orange.png')?>" alt="oranges" />
-          </a>
-            <h2 class="p02">Orange</h2>
-            <hr class="line small">
-            <p class="p02">1.99€</p>
-            <div class="add-to-cart">
-              <p class="p02">- 0 +</p>
-              <p class="p02">Ajouter au panier</p>
-            </div>
-        </div>
+    <div class="card-product">
+      <a href="produit01.html">
+        <img src="<?= base_url('img/orange.png') ?>" alt="oranges" />
+      </a>
+      <h2 class="p02">Orange</h2>
+      <hr class="line small">
+      <p class="p02">1.99€</p>
+      <div class="add-to-cart">
+        <p class="p02">- 0 +</p>
+        <p class="p02">Ajouter au panier</p>
+      </div>
+    </div>
 
-        <div class="card-product">
-          <a href="produit01.html">
-            <img src="<?= base_url('img/orange.png')?>" alt="oranges" />
-          </a>
-            <h2 class="p02">Orange</h2>
-            <hr class="line small">
-            <p class="p02">1.99€</p>
-            <div class="add-to-cart">
-              <p class="p02">- 0 +</p>
-              <p class="p02">Ajouter au panier</p>
-            </div>
-        </div>
+    <div class="card-product">
+      <a href="produit01.html">
+        <img src="<?= base_url('img/orange.png') ?>" alt="oranges" />
+      </a>
+      <h2 class="p02">Orange</h2>
+      <hr class="line small">
+      <p class="p02">1.99€</p>
+      <div class="add-to-cart">
+        <p class="p02">- 0 +</p>
+        <p class="p02">Ajouter au panier</p>
+      </div>
+    </div>
 
-        <div class="card-product">
-          <a href="produit01.html">
-          <img src="<?= base_url('img/orange.png')?>" alt="oranges" />
-          </a>
-            <h2 class="p02">Orange</h2>
-            <hr class="line small">
-            <p class="p02">1.99€</p>
-            <div class="add-to-cart">
-              <p class="p02">- 0 +</p>
-              <p class="p02">Ajouter au panier</p>
-            </div>
-        </div>
+    <div class="card-product">
+      <a href="produit01.html">
+        <img src="<?= base_url('img/orange.png') ?>" alt="oranges" />
+      </a>
+      <h2 class="p02">Orange</h2>
+      <hr class="line small">
+      <p class="p02">1.99€</p>
+      <div class="add-to-cart">
+        <p class="p02">- 0 +</p>
+        <p class="p02">Ajouter au panier</p>
+      </div>
+    </div>
 
-        <div class="card-product">
-          <a href="produit01.html">
-            <img src="<?= base_url('img/orange.png')?>" alt="oranges" />
-          </a>
-            <h2 class="p02">Orange</h2>
-            <hr class="line small">
-            <p class="p02">1.99€</p>
-            <div class="add-to-cart">
-              <p class="p02">- 0 +</p>
-              <p class="p02">Ajouter au panier</p>
-            </div>
-        </div>
+    <div class="card-product">
+      <a href="produit01.html">
+        <img src="<?= base_url('img/orange.png') ?>" alt="oranges" />
+      </a>
+      <h2 class="p02">Orange</h2>
+      <hr class="line small">
+      <p class="p02">1.99€</p>
+      <div class="add-to-cart">
+        <p class="p02">- 0 +</p>
+        <p class="p02">Ajouter au panier</p>
+      </div>
+    </div>
 
-        <div class="card-product">
-          <a href="produit01.html">
-            <img src="<?= base_url('img/orange.png')?>" alt="oranges" />
-          </a>
-            <h2 class="p02">Orange</h2>
-            <hr class="line small">
-            <p class="p02">1.99€</p>
-            <div class="add-to-cart">
-              <p class="p02">- 0 +</p>
-              <p class="p02">Ajouter au panier</p>
-            </div>
-        </div>
+    <div class="card-product">
+      <a href="produit01.html">
+        <img src="<?= base_url('img/orange.png') ?>" alt="oranges" />
+      </a>
+      <h2 class="p02">Orange</h2>
+      <hr class="line small">
+      <p class="p02">1.99€</p>
+      <div class="add-to-cart">
+        <p class="p02">- 0 +</p>
+        <p class="p02">Ajouter au panier</p>
+      </div>
+    </div>
 
-        <div class="card-product">
-          <a href="produit01.html">
-          <img src="<?= base_url('img/orange.png')?>" alt="oranges" />
-          </a>
-            <h2 class="p02">Orange</h2>
-            <hr class="line small">
-            <p class="p02">1.99€</p>
-            <div class="add-to-cart">
-              <p class="p02">- 0 +</p>
-              <p class="p02">Ajouter au panier</p>
-            </div>
-        </div>
+    <div class="card-product">
+      <a href="produit01.html">
+        <img src="<?= base_url('img/orange.png') ?>" alt="oranges" />
+      </a>
+      <h2 class="p02">Orange</h2>
+      <hr class="line small">
+      <p class="p02">1.99€</p>
+      <div class="add-to-cart">
+        <p class="p02">- 0 +</p>
+        <p class="p02">Ajouter au panier</p>
+      </div>
+    </div>
 
-        <div class="card-product">
-          <a href="produit01.html">
-          <img src="<?= base_url('img/orange.png')?>" alt="oranges" />
-          </a>
-            <h2 class="p02">Orange</h2>
-            <hr class="line small">
-            <p class="p02">1.99€</p>
-            <div class="add-to-cart">
-              <p class="p02">- 0 +</p>
-              <p class="p02">Ajouter au panier</p>
-            </div>
-        </div>
-
-        <div class="card-product">
-          <a href="produit01.html">
-          <img src="<?= base_url('img/orange.png')?>" alt="oranges" />
-          </a>
-            <h2 class="p02">Orange</h2>
-            <hr class="line small">
-            <p class="p02">1.99€</p>
-            <div class="add-to-cart">
-              <p class="p02">- 0 +</p>
-              <p class="p02">Ajouter au panier</p>
-            </div>
-        </div>
-
-        <div class="card-product">
-          <a href="produit01.html">
-          <img src="<?= base_url('img/orange.png')?>" alt="oranges" />
-          </a>
-            <h2 class="p02">Orange</h2>
-            <hr class="line small">
-            <p class="p02">1.99€</p>
-            <div class="add-to-cart">
-              <p class="p02">- 0 +</p>
-              <p class="p02">Ajouter au panier</p>
-            </div>
-        </div>
-
+    <div class="card-product">
+      <a href="produit01.html">
+        <img src="<?= base_url('img/orange.png') ?>" alt="oranges" />
+      </a>
+      <h2 class="p02">Orange</h2>
+      <hr class="line small">
+      <p class="p02">1.99€</p>
+      <div class="add-to-cart">
+        <p class="p02">- 0 +</p>
+        <p class="p02">Ajouter au panier</p>
       </div>
       <div class="navpages">
         <a href="index.html"><- </a>
@@ -290,10 +271,11 @@
         <a href="index2.html">2 - </a>
         <a href="index3.html">3</a>
         <a href="index4.html"> -></a>
-      </div>
+  </div>
 
-      <footer>
-        <p>Tous droits réservés.</p>
-      </footer>
-    </body>
+  <footer>
+    <p>Tous droits réservés.</p>
+  </footer>
+</body>
+
 </html>
