@@ -58,7 +58,14 @@
               <hr class="line small">
               <p class="p02">1.99€</p>
               <div class="add-to-cart">
-                <p class="p02">- 0 +</p>
+                <p class="p02">
+                  <a href="">
+                    <p>-</p>
+                  </a>
+                  <p>0</p>
+                  <a href="">
+                    <p>+</p>
+                  </a>
                 <p class="p02">Ajouter au panier</p>
               </div>
           </div>
@@ -278,9 +285,9 @@
 
       </div>
       <div class="navpages">
-        <a href="index.html"><-</a>
-        <a href="index.html">1-</a>
-        <a href="index2.html">2-</a>
+        <a href="index.html"><- </a>
+        <a href="index.html">1 - </a>
+        <a href="index2.html">2 - </a>
         <a href="index3.html">3</a>
         <a href="index4.html"> -></a>
       </div>
