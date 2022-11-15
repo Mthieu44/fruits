@@ -33,14 +33,16 @@ insert into categorisation values(2, 1);
 
 /*
 
-create table client(
-    id_client INT primary key, 
+create table usertab(
+    id_user INT primary key, 
     nom VARCHAR(20) NOT NULL, 
     prenom VARCHAR(20) NOT NULL, 
     adresse VARCHAR(60) NOT NULL,
     mail VARCHAR(60) NOT NULL,
     mdp VARCHAR(200) NOT NULL,
+    telephone VARCHAR(30) NOT NULL,
     status VARCHAR(20) NOT NULL);
+    
     
 create table commande(
     id_commande INT primary key,
@@ -53,12 +55,15 @@ create table panier(
     id_fruit INT NOT NULL,
     quantite INT NOT NULL);
     
-alter table commande add constraint FK_commande_client foreign key (id_client) references client(id_client);
+alter table commande add constraint FK_commande_user foreign key (id_client) references usertab(id_user);
 alter table panier add constraint PK_panier primary key (id_commande, id_fruit);
 alter table panier add constraint FK_panier_commande foreign key (id_commande) references commande(id_commande);
 alter table panier add constraint FK_panier_fruit foreign key (id_fruit) references fruit(id_fruit);
 
 
+INSERT INTO usertab (id_user,nom,prenom,adresse,mail,mdp,status) VALUES ('1','Admin','Test','chez ta maman','admin@test','$2y$10$JMuuaDMCavASPKf9KBcD1eaMHJ0zkeD8eYs7HjecoD8QeUVRhKQq6','admin');
+
+INSERT INTO usertab (id_user,nom,prenom,adresse,mail,mdp,status) VALUES ('2','Client','Test','chez ta maman','client@test','$2y$10$JMuuaDMCavASPKf9KBcD1eaMHJ0zkeD8eYs7HjecoD8QeUVRhKQq6','client');
+
+INSERT INTO usertab (id_user,nom,prenom,adresse,mail,mdp,status) VALUES ('3','Responsable','Test','chez ta maman','responsable@test','$2y$10$JMuuaDMCavASPKf9KBcD1eaMHJ0zkeD8eYs7HjecoD8QeUVRhKQq6','admin');
 */
-
-
