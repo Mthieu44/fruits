@@ -33,10 +33,8 @@
                 <?php
                   if (!isset($this->session->user)) {
                     echo("Connexion");
-                    exit();
                   } else {
                     echo($this->session->user["prenom"]);
-                    exit();
                 }
                 ?>
               </a> 
