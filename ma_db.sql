@@ -1,7 +1,7 @@
 create table fruit(
     id_fruit INT primary key,
     nom VARCHAR(20) NOT NULL,
-    prix FLOAT(2) NOT NULL, 
+    prix FLOAT(2) NOT NULL check(prix > 0), 
     description VARCHAR(200) NOT NULL,
     image VARCHAR(50) NOT NULL);
 
@@ -29,8 +29,6 @@ insert into categorisation values(1, 1);
 insert into categorisation values(1, 2);
 insert into categorisation values(2, 1);
 
-
-
 /*
 
 create table client(
@@ -39,6 +37,7 @@ create table client(
     prenom VARCHAR(20) NOT NULL, 
     adresse VARCHAR(60) NOT NULL,
     mail VARCHAR(60) NOT NULL,
+    telephone VARCHAR(30) NOT NULL,
     mdp VARCHAR(200) NOT NULL,
     status VARCHAR(20) NOT NULL);
     
@@ -60,5 +59,3 @@ alter table panier add constraint FK_panier_fruit foreign key (id_fruit) referen
 
 
 */
-
-
