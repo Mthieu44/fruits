@@ -62,17 +62,20 @@
               <div class="add-to-cart">
                 <div class= "quantity">
                   <p class="p02">
-                    <a href=""><p>-</p></a>
+                    <a href="<?= site_url('boutique/decrease_quantity/').strval($fruit->getId_fruit())?>"><p>-</p></a>
                     <p><?php 
                     if (!$this->session->fauxPanier){
                       echo 0;
                     }else{
+                      $temp = true;
                       foreach ($this->session->fauxPanier as $fruitPanier) {
                         if ($fruitPanier->id_fruits == $fruit->getId_fruit()) {
-                          echo $fruitPanier->quantity;
-                        }else{
-                          echo "0";
+                            echo $fruitPanier->quantity;
+                            $temp = false;
                         }
+                      }
+                      if($temp){
+                        echo 0;
                       }
                     }
                      ?></p>
@@ -123,31 +126,41 @@
 
 
   <div class="productsMenu">
-    <div class="card-product">
-      <a href="produit01.html">
-        <img src="<?= base_url('img/orange.png') ?>" alt="oranges" />
-      </a>
-      <h2 class="p02">Orange</h2>
-      <hr class="line small">
-      <p class="p02">1.99€</p>
-      <div class="add-to-cart">
-        <p class="p02">- 0 +</p>
-        <p class="p02">Ajouter au panier</p>
-      </div>
-    </div>
-
-    <div class="card-product">
-      <a href="produit01.html">
-        <img src="<?= base_url('img/orange.png') ?>" alt="oranges" />
-      </a>
-      <h2 class="p02">Orange</h2>
-      <hr class="line small">
-      <p class="p02">1.99€</p>
-      <div class="add-to-cart">
-        <p class="p02">- 0 +</p>
-        <p class="p02">Ajouter au panier</p>
-      </div>
-    </div>
+  <?php foreach ($fruits as $fruit): ?>
+          <div class="card-product">
+            <a href="<?=site_url('Produit')?>">
+              <img src="<?= base_url('img/orange.png')?>" alt="oranges" />
+            </a>
+              <h2 class="p02"><?= $fruit->getNom() ?></h2>
+              <hr class="line small">
+              <p class="p02"><?= $fruit->getPrix() ?> €</p>
+              <div class="add-to-cart">
+                <div class= "quantity">
+                  <p class="p02">
+                    <a href="<?= site_url('boutique/decrease_quantity/').strval($fruit->getId_fruit())?>"><p>-</p></a>
+                    <p><?php 
+                    if (!$this->session->fauxPanier){
+                      echo 0;
+                    }else{
+                      $temp = true;
+                      foreach ($this->session->fauxPanier as $fruitPanier) {
+                        if ($fruitPanier->id_fruits == $fruit->getId_fruit()) {
+                            echo $fruitPanier->quantity;
+                            $temp = false;
+                        }
+                      }
+                      if($temp){
+                        echo 0;
+                      }
+                    }
+                     ?></p>
+                    <a href="<?= site_url('boutique/increase_quantity/').strval($fruit->getId_fruit())?>"><p>+</p></a>
+                  </p>
+                </div>
+                <p class="p02">Ajouter au panier</p>
+              </div>
+          </div>
+        <?php endforeach; ?> 
 
     <div class="card-product">
       <a href="produit01.html">
@@ -291,3 +304,5 @@
 </body>
 
 </html>
+
+

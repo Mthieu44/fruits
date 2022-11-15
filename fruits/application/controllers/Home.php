@@ -7,5 +7,6 @@ class Home extends CI_Controller {
 	{
         $this->load->helper('url');
 		$this->load->view('HomeView');
+		
 	}
 }
