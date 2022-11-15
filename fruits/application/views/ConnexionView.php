@@ -38,5 +38,25 @@
             </ul>
             </nav>
         </header>
+
+        <br>
+        <br>
+        <form action="<?=site_url('Connexion/loginCheck')?>" method="post">
+            <input type="text" name="mail" placeholder="mail">
+            <input type="text" name="password" placeholder="mot de passe">
+            <input type="submit">
+        </form>
+        <?php 
+            if (isset($msg)) {
+                echo('<h1>connexion refusée</h1>');
+            } 
+        ?>
+        <br>
+        <a href="<?= site_url('Connexion/logout')?>">logout</a>
+
+
+
     </body>
+
+
 </html>
