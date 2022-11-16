@@ -6,8 +6,7 @@ class Home extends CI_Controller {
 	public function index()
 	{
         $this->load->helper('url');
-		$this->load->view('HomeView');
 		$this->load->library('session');
-		$this->session->set_userdata("fauxPanier",array());
+		$this->load->view('HomeView');
 	}
 }

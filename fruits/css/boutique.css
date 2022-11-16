@@ -14,145 +14,126 @@ td {
 	border: 1px solid;
 }
 
-*{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: 'Inter';                          
+.productstitle {
+	margin-bottom: 50px;
 }
 
-.productstitle{
-    margin-bottom: 50px;
+.selectCategory {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 50px;
+	height: 280px;
+	width: 75%;
+	margin: auto;
+	background-color: var(--green-10);
+	border-radius: 20px;
+	padding-bottom: 30px;
+	justify-content: space-evenly;
 }
 
-.selectCategory{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 50px;
-    height:280px;
-    width: 75%;
-    margin: auto;
-    background-color: var(--green-10);
-    border-radius: 20px;
-    padding-bottom: 30px;
-    justify-content: space-evenly;
+.tileSelect {
+	width: 230px;
+	height: 180px;
+	border-radius: 20px;
+	background-color: white;
+	display: flex;
+	flex-direction: column;
+	padding-bottom: 20px;
 }
 
-.tileSelect{
-    width: 230px;
-    height: 180px;
-    border-radius: 20px;
-    background-color: white;
-    display: flex;
-    flex-direction: column;
-    padding-bottom: 20px;
+.selectCategory img {
+	height: 30px;
 }
 
-.selectCategory img{
-    height: 30px;
+.tileSelect img {
+	display: block;
+	height: 100px;
+	width: 200px;
+	margin: auto;
 }
 
-.tileSelect img{
-    display: block;
-    height: 100px;
-    width: 200px;
-    margin: auto;
+.searchFruit {
+	width: 500px;
+	background-color: var(--green-10);
+	height: 90px;
+	border-radius: 20px;
+	margin: auto;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-top: -50px;
+	margin-bottom: 50px;
 }
 
-.searchFruit{
-    width: 500px;
-    background-color: var(--green-10);
-    height: 90px;
-    border-radius: 20px;
-    margin: auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: -50px;
-    margin-bottom: 50px;
+.searchFruit form {
+	display: flex;
+	justify-content: center;
 }
 
-.searchFruit form{
-    display: flex;
-    justify-content: center;
+.searchFruit .champ {
+	height: 50px;
+	border-radius: 20px;
+	border-bottom-right-radius: 0;
+	border-top-right-radius: 0;
+	border: none;
+	padding-left: 20px;
+	font-size: 20px;
+	width: 400px;
 }
 
-.searchFruit .champ{
-    height: 50px;
-    border-radius: 20px;
-    border-bottom-right-radius: 0;
-    border-top-right-radius: 0;
-    border: none;
-    padding-left: 20px;
-    font-size: 20px;
-    width: 400px;
+.searchFruit .bouton {
+	height: 50px;
+	border-radius: 20px;
+	border: none;
+	padding-left: 20px;
+	font-size: 20px;
+	width: 50px;
+	border-bottom-left-radius: 0;
+	border-top-left-radius: 0;
+	padding-right: 40px;
+	cursor: pointer;
 }
 
-.searchFruit .bouton{
-    height: 50px;
-    border-radius: 20px;
-    border: none;
-    padding-left: 20px;
-    font-size: 20px;
-    width: 50px;
-    border-bottom-left-radius: 0;
-    border-top-left-radius: 0;
-    padding-right: 40px;
-    cursor: pointer;
+.productsMenu {
+	height: 1250px;
+	background-color: var(--green-10);
+	border-radius: 20px;
+	margin: auto;
+	display: grid;
+	grid-template-columns: repeat(4, 270px);
+	grid-template-rows: repeat(4, 312px);
+	gap: 30px;
+	width: 75%;
+	justify-items: center;
+	padding: 100px;
+	justify-content: center;
 }
 
-.productsMenu{
-    height: 1250px;
-    background-color: var(--green-10);
-    border-radius: 20px;
-    margin: auto;
-    display: grid;
-    grid-template-columns: repeat(4,270px);
-    grid-template-rows: repeat(4,312px);
-    gap: 30px;
-    width: 75%;
-    justify-items: center;
-    padding: 100px;
-    justify-content: center;
+.navpages {
+	display: flex;
+	justify-content: center;
+	margin-top: -50px;
+	margin-bottom: 200px;
 }
 
-.navpages{
-    display: flex;
-    justify-content: center;
-    margin-top: -50px;
-    margin-bottom: 200px;
+.bottom {
+	color: var(--green-100);
+	text-align: center;
+	margin-top: 15px;
 }
 
-.bottom{
-    color: var(--green-100);
-    text-align: center;
-    margin-top: 15px;
+.add {
+	margin-top: 10px;
+	color: var(--green-100);
+	font-size: 17px;
 }
 
-.add{
-    margin-top: 10px;
-    color: var(--green-100);
-    font-size: 17px;
+.less {
+	color: var(--green-100);
+	font-size: 17px;
 }
-
-.less{
-    color: var(--green-100);
-    font-size: 17px;
-}
-.plus{
-    color: var(--green-100);
-    font-size: 17px;
-}
-
-.quantity{
-    display: flex;
-    align-items: center;
-    color: var(--green-100);
-    justify-content: center;
-    gap: 10px;
-}
-
-.quantity a{
-    color: var(--green-100);
+.plus {
+	color: var(--green-100);
+	font-size: 17px;
 }
