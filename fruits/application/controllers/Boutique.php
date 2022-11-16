@@ -6,7 +6,6 @@ class Boutique extends CI_Controller
 {
 
 	private array $panier = [];
-	private array $fauxPanier = [];
 
 	public function __construct(){
 		parent::__construct();
@@ -14,7 +13,6 @@ class Boutique extends CI_Controller
 		$this->load->model('FruitModel');
 		$this->load->library('session');
 		$this->session->set_userdata("panier",$this->panier);
-		$this->session->set_userdata("fauxPanier",$this->fauxPanier);
 	}
 
 	public function index(){
@@ -39,13 +37,38 @@ class Boutique extends CI_Controller
 	}
 
 	public function increase_quantity($id){
-		$produit = new ProduitEntity($id, $this->getQuantity($id) + 1);
-		array_push($this->session->fauxPanier, $produit);
+		$temp = $this->session->fauxPanier;
+		$test = true;
+		foreach ($temp as $prod){
+			if ($prod->id_fruits == $id){
+				$prod->quantity++;
+				$test = false;
+			}
+		}
+		if($test){
+			$produit = new ProduitEntity($id,1);
+			$tmp = array($produit);
+			if ($temp == null){
+				$temp = $tmp;
+			}else{
+				$temp = array_merge($temp,$tmp);
+			}
+		}
+		$this->session->set_userdata("fauxPanier",$temp);
 		redirect('Boutique');
 	}
 	public function decrease_quantity($id){
-		$fruits = $this->FruitModel->findById($id);
-		$this->FruitModel->decrease_quantity($id);
+		$temp = $this->session->fauxPanier;
+		foreach ($temp as $prod){
+			if ($prod->id_fruits == $id && $prod->quantity > 0){
+				$prod->quantity--;
+				if ($prod->quantity == 0){
+					$index = array_search($prod,$temp);
+					unset($temp[$index]);
+				}
+			}
+		}
+		$this->session->set_userdata("fauxPanier",$temp);
 		redirect('Boutique');
 	}
 }
