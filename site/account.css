@@ -1,0 +1,29 @@
+.infos{
+    background-color: var(--green-10);
+    display: grid;
+    grid-template-columns: 300px 300px;
+    grid-template-rows: repeat(6,100px);
+    justify-content: center;
+    width: 85%;
+    height: 400px;
+    margin: auto;
+    border-radius: 20px;
+    column-gap: 200px;
+}
+
+.champ{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.champ p{
+    text-align: left;
+}
+
+.bouton{
+    border: 2px solid var(--green-200);
+    height: 50px;
+    border-radius: 10px;
+    font-size: 20px;
+}
