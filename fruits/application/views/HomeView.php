@@ -29,15 +29,7 @@
           <li><a href="<?=site_url('Contact')?>">Contact</a></li>
           <li class="connexion">
               <img src="<?= base_url('img/bonhomme.png')?>" alt="connexion" />
-              <a href="<?=site_url('Connexion')?>">
-                <?php
-                  if (!isset($this->session->user)) {
-                    echo("Connexion");
-                  } else {
-                    echo($this->session->user["prenom"]);
-                }
-                ?>
-              </a> 
+              <a href="<?=site_url('Connexion')?>">Connexion</a> 
           </li>
           <li class="panier">
               <a href="<?=site_url('Panier')?>" >

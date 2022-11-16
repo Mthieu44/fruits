@@ -48,9 +48,13 @@ class Boutique extends CI_Controller
 		if($test){
 			$produit = new ProduitEntity($id,1);
 			$tmp = array($produit);
-			$temp = array_merge($temp,$tmp);
-
+			if ($temp == null){
+				$temp = $tmp;
+			}else{
+				$temp = array_merge($temp,$tmp);
+			}
 		}
+		
 		$this->session->set_userdata("fauxPanier",$temp);
 		redirect('Boutique');
 	}
