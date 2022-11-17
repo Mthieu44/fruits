@@ -14,6 +14,7 @@
 	--green-200: #2d7f2f;
 	--green-300: #1f5a1d;
 	--yellow-100: #f9b814;
+	--orange-100: #ffc157ab;
 	--grey-100: #f3f3f3;
 }
 
@@ -117,6 +118,7 @@ header ul {
 
 header a{
 	font-size: 18px;
+	transition: all ease 0.2s;
 }
 
 header h1 {
@@ -124,6 +126,10 @@ header h1 {
 }
 header b {
 	font-size: 20px;
+}
+
+li svg path {
+	transition: all ease 0.2s;
 }
 
 li:hover a {

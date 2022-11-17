@@ -27,22 +27,22 @@
                 <li><a href="<?= site_url('APropos') ?>" class="propos">A propos</a></li>
                 <li><a href="<?= site_url('Contact') ?>">Contact</a></li>
                 <li class="connexion">
-          <a href="<?= site_url('Connexion') ?>" class="yellow">
-          <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="30.000000pt" height="30.000000pt" viewBox="0 0 400.000000 400.000000" preserveAspectRatio="xMidYMid meet">
-            <g transform="translate(0.000000,400.000000) scale(0.100000,-0.100000)" fill="#000000" stroke="none">
-              <path d="M1935 3315 c-321 -61 -566 -296 -640 -615 -22 -96 -20 -269 5 -366 68 -267 267 -484 519 -567 215 -72 411 -57 620 44 91 44 116 63 196 142 158 158 233 321 242 533 12 244 -70 450 -248 620 -187 179 -444 256 -694 209z" />
-              <path d="M1363 1750 c-386 -239 -625 -634 -659 -1087 l-7 -93 1381 0 1380 0 -4 78 c-12 182 -65 384 -141 537 -114 228 -333 462 -544 579 l-45 26 -60 -46 c-78 -59 -239 -138 -339 -166 -116 -32 -374 -32 -490 0 -106 29 -242 95 -333 160 -40 28 -74 52 -75 51 -1 0 -30 -18 -64 -39z" />
-            </g>
-          </svg>
-            <?php
-            if (!isset($this->session->user)) {
-              echo ("Connexion");
-            } else {
-              echo ($this->session->user["prenom"]);
-            }
-            ?>
-          </a>
-        </li>
+                    <a href="<?= site_url('Connexion') ?>" class="yellow">
+                        <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="30.000000pt" height="30.000000pt" viewBox="0 0 400.000000 400.000000" preserveAspectRatio="xMidYMid meet">
+                            <g transform="translate(0.000000,400.000000) scale(0.100000,-0.100000)" fill="#000000" stroke="none">
+                                <path d="M1935 3315 c-321 -61 -566 -296 -640 -615 -22 -96 -20 -269 5 -366 68 -267 267 -484 519 -567 215 -72 411 -57 620 44 91 44 116 63 196 142 158 158 233 321 242 533 12 244 -70 450 -248 620 -187 179 -444 256 -694 209z" />
+                                <path d="M1363 1750 c-386 -239 -625 -634 -659 -1087 l-7 -93 1381 0 1380 0 -4 78 c-12 182 -65 384 -141 537 -114 228 -333 462 -544 579 l-45 26 -60 -46 c-78 -59 -239 -138 -339 -166 -116 -32 -374 -32 -490 0 -106 29 -242 95 -333 160 -40 28 -74 52 -75 51 -1 0 -30 -18 -64 -39z" />
+                            </g>
+                        </svg>
+                        <?php
+                        if (!isset($this->session->user)) {
+                            echo ("Connexion");
+                        } else {
+                            echo ($this->session->user["prenom"]);
+                        }
+                        ?>
+                    </a>
+                </li>
                 <li class="panier">
                     <a href="<?= site_url('Panier') ?>">
                         <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="40.000000pt" height="40.000000pt" viewBox="0 0 400.000000 400.000000" preserveAspectRatio="xMidYMid meet">
@@ -60,25 +60,33 @@
         </nav>
     </header>
 
-    
+
 
 
     <div class="login">
-        <h1> Connexion </h1>
+        <h2> Connexion </h2>
         <form action="<?= site_url('Connexion/loginCheck') ?>" method="post">
-            <input type="text" name="mail" placeholder="mail">
-            <input type="text" name="password" placeholder="mot de passe">
-            <a>mdp oublié</a>
-            <?php
-                if (isset($msg)) {
-                echo ('<h1>connexion refusée</h1>');
-                }
-            ?>
-            <input type="submit">
+            <label for="mail">Mail :</label>
+            <input id="mail" type="email" name="mail" placeholder="Votre mail">
+            <label for="password">Mot de passe :</label>
+            <input id="password" type="text" name="password" placeholder="Votre mot de passe">
+            <div class="bottom-text">
+
+                <p class="erreur">
+                    <?php
+                    if (isset($msg)) {
+                        echo ('connexion refusée');
+                    }
+                    ?>
+                </p>
+                <a class="mdp">mot de passe oublié</a>
+            </div>
+
+            <input type="submit" class="hvr-bounce-to-top" value="Connexion">
         </form>
-        <a>ou S'inscrire</a>
+        <a class="inscription">S'inscrire</a>
     </div>
-    
+
     <a href="<?= site_url('Connexion/logout') ?>">logout</a>
 
 
