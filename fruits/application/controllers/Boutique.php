@@ -4,7 +4,6 @@ require_once APPPATH.DIRECTORY_SEPARATOR.'models'.DIRECTORY_SEPARATOR."ProduitEn
 
 class Boutique extends CI_Controller
 {
-
 	private array $panier = [];
 
 	public function __construct(){
@@ -13,6 +12,8 @@ class Boutique extends CI_Controller
 		$this->load->model('FruitModel');
 		$this->load->library('session');
 		$this->session->set_userdata("panier",$this->panier);
+		$this->session->set_userdata("fauxPanier",array());
+		
 	}
 
 	public function index(){
@@ -24,16 +25,6 @@ class Boutique extends CI_Controller
 	public function test(){
 		$fruits = $this->FruitModel->findAll();
 		$this->load->view('testBoutique', array('fruits' => $fruits));
-	}
-
-	public function getQuantity($id){
-		for ($i = 0; $i < count($this->session->fauxPanier); $i++) {
-			if ($this->session->fauxPanier[$i]->id_fruits == $id) {
-				return $this->session->fauxPanier[$i]->quantity;
-			}else{
-				return "0";
-			}
-		}
 	}
 
 	public function increase_quantity($id){
@@ -49,7 +40,6 @@ class Boutique extends CI_Controller
 			$produit = new ProduitEntity($id,1);
 			$tmp = array($produit);
 			$temp = array_merge($temp,$tmp);
-
 		}
 		$this->session->set_userdata("fauxPanier",$temp);
 		redirect('Boutique');

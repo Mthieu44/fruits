@@ -64,9 +64,6 @@
                   <p class="p02">
                     <a href="<?= site_url('boutique/decrease_quantity/').strval($fruit->getId_fruit())?>"><p>-</p></a>
                     <p><?php 
-                    if (!$this->session->fauxPanier){
-                      echo 0;
-                    }else{
                       $temp = true;
                       foreach ($this->session->fauxPanier as $fruitPanier) {
                         if ($fruitPanier->id_fruits == $fruit->getId_fruit()) {
@@ -77,7 +74,7 @@
                       if($temp){
                         echo 0;
                       }
-                    }
+                
                      ?></p>
                     <a href="<?= site_url('boutique/increase_quantity/').strval($fruit->getId_fruit())?>"><p>+</p></a>
                   </p>
