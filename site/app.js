@@ -3,11 +3,11 @@ let btnIcon = document.getElementById("btn-icon");
 let details = document.getElementById("details");
 
 const toggleDetails = () => {
-  if (btnIcon.name === "chevron-down") {
-    btnIcon.name = "chevron-up";
+  if (btnIcon.name === "add-outline") {
+    btnIcon.name = "add";
     details.style.height = "max-content";
   } else {
-    btnIcon.name = "chevron-down";
+    btnIcon.name = "add-outline";
     details.style.height = 0;
   }
 };
