@@ -146,6 +146,13 @@ td {
     gap: 10px;
 }
 
-.quantity a{
-    color: var(--green-100);
+.quantity button{
+	border: none;
+	background-color: white;
+	color: var(--green-100);
+	border-radius: 50%;
+	width: 30px;
+	height: 30px;
+	cursor: pointer;
 }
+
