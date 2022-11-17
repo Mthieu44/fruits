@@ -4,26 +4,45 @@
     grid-template-columns: 300px 300px;
     grid-template-rows: repeat(6,100px);
     justify-content: center;
-    width: 85%;
-    height: 400px;
+    width: 75%;
+    height: 500px;
     margin: auto;
     border-radius: 20px;
     column-gap: 200px;
+    padding: 50px;
 }
 
 .champ{
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    row-gap: 10px;
 }
 
 .champ p{
     text-align: left;
+    padding: 10px;
 }
 
 .bouton{
+    margin-top: 35px;
     border: 2px solid var(--green-200);
     height: 50px;
     border-radius: 10px;
     font-size: 20px;
+    background-color: rgb(241, 241, 241);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h2{
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+
+.editfield{
+    height: 50px;
+    border: none;
+    border-radius: 15px;
+    padding: 10px;
 }
