@@ -27,6 +27,16 @@ class Boutique extends CI_Controller
 		$this->load->view('testBoutique', array('fruits' => $fruits));
 	}
 
+	public function getQuantity($id){
+		for ($i = 0; $i < count($this->session->fauxPanier); $i++) {
+			if ($this->session->fauxPanier[$i]->id_fruits == $id) {
+				echo($this->session->fauxPanier[$i]->quantity);
+			}else{
+				echo("0");
+			}
+		}
+	}
+
 	public function increase_quantity($id){
 		$temp = $this->session->fauxPanier;
 		$test = true;
@@ -39,7 +49,11 @@ class Boutique extends CI_Controller
 		if($test){
 			$produit = new ProduitEntity($id,1);
 			$tmp = array($produit);
-			$temp = array_merge($temp,$tmp);
+			if ($temp == null){
+				$temp = $tmp;
+			}else{
+				$temp = array_merge($temp,$tmp);
+			}
 		}
 		$this->session->set_userdata("fauxPanier",$temp);
 		redirect('Boutique');

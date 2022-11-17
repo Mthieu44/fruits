@@ -13,32 +13,25 @@ class Connexion extends CI_Controller
 	}
 
 	function index()
-	{
+	{	
 		$in = $this->session->flashdata('in');
 		if ($in == 1) {
 			$this->load->view('ConnexionView', array('msg' => "Connexion refusée : Mot de passe pas bon"));
 		} else if ($in == 1) {
 			$this->load->view('ConnexionView', array('msg' => "Connexion refusée : Mail pas bon"));
+		} elseif (isset($this->session->user["status"])){
+			if ($this->session->user["status"] == 'admin'){
+				$this->load->view('AdminView');
+			} elseif ($this->session->user["status"] == 'reponsable'){
+				$this->load->view('ResponsableView');
+			} elseif ($this->session->user["status"] == 'client'){
+				$this->load->view('ProfilView');
+				}
 		} else {
 			$this->load->view('ConnexionView');
 		}
 
 	}
-
-	/*function loginCheck()
-	{
-		$mail = $this->input->post('mail');
-		$password = $this->input->post('mdp');
-		$user = $this->UserModel->findByMail($mail);
-
-		if ($user != null && $user->isValidMdp($password)) {
-			$this->session->set_userdata("user", array("prenom" => $user->getPrenom(), "status" => $user->getStatus()));
-			redirect("home");
-			die();
-		}
-		$this->session->set_flashdata('in', 1);
-		redirect("connexion");
-	}*/
 
 	function loginCheck(){
 		$mail = $this->input->post('mail');
@@ -46,11 +39,12 @@ class Connexion extends CI_Controller
 		$user = $this->UserModel->findByMail($mail);
 
 		if ($user !=null && $user->isValidPassword($password)) {
-			$this->session->set_userdata("user",array("prenom"=>$user->getPrenom(), "status"=>$user->getStatus()));
+			$this->session->set_userdata("user",array("prenom"=>$user->getPrenom(), "status"=>$user->getStatus(), "id_user" =>$user->getId_user()));
 			redirect("home");
 			die();
 		}
-		$this->load->view('accessDenied.php');
+		$this->session->set_flashdata('in', 1);
+		redirect("connexion");
 	}
 
 	function logout()

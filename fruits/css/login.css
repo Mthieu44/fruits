@@ -1,120 +1,93 @@
-.text{
-font-family: 'Inter';
-font-style: normal;
-font-weight: 240;
-font-size: 19px;
-line-height: 23px;
-color: #027B08;
-
+html {
+	height: 100%;
 }
 
-.titre{
-  margin-top: 50px;
-  margin-bottom: 50px;
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 240;
-  font-size: 24px;
-  line-height: 29px;
-  text-align: center;
+body {
+	background-color: #ffc052a8;
 
-  color: #027B08;
+	height: 100%;
 }
 
-.menu-vert{
-
-    height: 360px;
-    width: 1020px;
-    border-radius: 25px;
-    background-color: #7DD181;
-    margin: auto;
-    display: flex;
-    gap: 18px;
-    justify-content: center;
-    align-items: center;
+.login {
+	display: flex;
+	flex-direction: column;
+	width: 600px;
+	height: 600px;
+	background-color: white;
+	padding: 2vw;
+	border-radius: 20px;
+	position: absolute;
+	position: fixed;
+	top: 50vh;
+	left: 50vw;
+	transform: translate(-50%, -50%);
+	align-items: center;
+	justify-content: center;
+	gap: 20px;
 }
 
-.menu-vert2{
-    margin-top: 20px;
-    padding: 2% ;
-
-    width: 597px;
-    border-radius: 25px;
-    background-color: #7DD181;
-    margin: auto;
-    display: flex;
-    gap: 18px;
-    justify-content: center;
-    align-items: center;
+form {
+	display: flex;
+	flex-direction: column;
+	width: 70%;
 }
 
-
-
-.text2{
-font-family: 'Inter';
-font-style: normal;
-font-weight: 240;
-font-size: 19px;
-line-height: 23px;
-color: #027B08;
+label {
+	margin-top: 25px;
+	padding: 5px;
+	padding-left: 10px;
 }
 
-.text-min{
-font-family: 'Inter';
-font-style: normal;
-font-weight: 240;
-font-size: 13px;
-line-height: 23px;
-color: #027B08;
+input {
+	padding: 5px;
+	border: 2px solid rgb(54, 54, 54);
+	border-radius: 4px;
+	font-size: 18px;
+	min-width: 250px;
+	padding: 0.5rem;
 }
 
-.text-min2{
-font-family: 'Inter';
-font-style: normal;
-font-weight: 240;
-font-size: 13px;
-line-height: 23px;
-color: #027B08;
-    margin: auto;
-    display: flex;
+h2 {
+	color: black;
 }
 
-.rectangles{
-box-sizing: border-box;
-background: #FFFFFF;
-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0);
-border-style: hidden;
-border-radius: 10px;
-    margin: auto;
-    display: flex;
+input[type="submit"] {
+	cursor: pointer;
+  border-radius: 10px;
+  border: 0px;
+	background-color: var(--orange-100);
+	height: 70px;
+	width: 250px;
+	align-self: center;
+	transition: all ease 0.5s;
+  font-size: 22px;
 }
 
-.rectangles1{
-box-sizing: border-box;
-background: #FFFFFF;
-border: 2px solid #027B08;
-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0);
-border-radius: 10px;
-border-style: hidden;
-    margin: auto;
-
-
+input[type="submit"]:hover {
+	cursor: pointer;
+	background-color: var(--yellow-100);
 }
 
-.bouton{
-box-sizing: border-box;
-background: #FFFFFF;
-border: 2px solid #F9B814;
-border-radius: 10px;
+.bottom-text {
+	margin-top: 8px;
+	display: flex;
+	padding: 2px;
+	justify-content: space-between;
+  margin-bottom: 25px;
+}
 
-width: 185px;
-height: 40px;
+.erreur {
+	width: 50%;
+	color: rgb(194, 30, 30);
+  font-size: 17px;
+}
+.mdp {
+	width: 50%;
+	justify-self: center;
+  font-size: 17px;
+  text-align: end;
+}
 
-font-family: 'Inter';
-font-style: normal;
-font-weight: 240;
-font-size: 15px;
-line-height: 23px;
-
-color: #F9B814;
+.inscription{
+  font-size: 22px;
 }
