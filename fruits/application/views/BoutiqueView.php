@@ -72,7 +72,7 @@
       <?php foreach ($fruits as $fruit) : ?>
         <div class="card-product">
           <a href="<?= site_url('Produit') ?>">
-            <img src="<?= base_url('img/orange.png') ?>" alt="oranges" />
+            <img src="<?= base_url('img/fruit/' . $fruit->getImage()) ?>" alt="<?= $fruit->getImage() ?>" />
           </a>
           <h2 class="p02"><?= $fruit->getNom() ?></h2>
           <hr class="line small">
@@ -80,32 +80,42 @@
           <div class="add-to-cart">
             <div class="quantity">
               <p class="p02">
-                <a href="">
-                  <p>-</p>
-                </a>
-              <p><?php
-                  if (!$this->session->fauxPanier) {
-                    echo 0;
-                  } else {
-                    foreach ($this->session->fauxPanier as $fruitPanier) {
-                      if ($fruitPanier->id_fruits == $fruit->getId_fruit()) {
+                <button onclick = "totalQuantity(-1,<?= $fruit->getId_fruit() ?>)">-</button>
+                <span id = "<?="totalQuantity".$fruit->getId_fruit()?>" ><?php 
+                  $temp = true;
+                  foreach ($this->session->fauxPanier as $fruitPanier) {
+                    if ($fruitPanier->id_fruits == $fruit->getId_fruit()) {
                         echo $fruitPanier->quantity;
-                      } else {
-                        echo "0";
-                      }
+                        $temp = false;
+                        }
                     }
-                  }
-                  ?></p>
-              <a href="<?= site_url('boutique/increase_quantity/') . strval($fruit->getId_fruit()) ?>">
-                <p>+</p>
-              </a>
+                    if($temp){
+                        echo "0";
+                    }?></span>
+                <button onclick = "totalQuantity(1,<?= $fruit->getId_fruit() ?>)">+</button>
               </p>
             </div>
             <p class="p02">Ajouter au panier</p>
           </div>
         </div>
       <?php endforeach; ?>
-
+      <script>
+        function totalQuantity(n,id){
+          var totalQuantity = document.getElementById("totalQuantity".concat(id));
+          var totalQuantityValue = parseInt(totalQuantity.innerHTML);
+          totalQuantity.innerHTML = totalQuantityValue + n;
+          // si on clique sur le bouton - et que la quantité est à 0, on ne peut pas descendre en dessous
+          if(totalQuantity.innerHTML < 0){
+            totalQuantity.innerHTML = 0;
+          }
+          /*if(n == 1){
+            <?=site_url('boutique/increase_quantity/').strval($id)?>
+          }
+          if(n == -1){
+            <?=site_url('boutique/decrease_quantity/').strval($id)?>
+          }*/
+        }
+      </script> 
       <img src="<?= base_url('img/next.png') ?>" class="fleche" alt="next" />
     </div>
   </div>
@@ -145,160 +155,40 @@
 
 
   <div class="productsMenu">
-    <div class="card-product">
-      <a href="produit01.html">
-        <img src="<?= base_url('img/orange.png') ?>" alt="oranges" />
-      </a>
-      <h2 class="p02">Orange</h2>
-      <hr class="line small">
-      <p class="p02">1.99€</p>
-      <div class="add-to-cart">
-        <p class="p02">- 0 +</p>
-        <p class="p02">Ajouter au panier</p>
-      </div>
+    <?php foreach ($fruits as $fruit) : ?>
+          <div class="card-product">
+            <a href="<?= site_url('Produit') ?>">
+              <img src="<?= base_url('img/fruit/' . $fruit->getImage()) ?>" alt="<?= $fruit->getImage() ?>" />
+            </a>
+            <h2 class="p02"><?= $fruit->getNom() ?></h2>
+            <hr class="line small">
+            <p class="p02"><?= $fruit->getPrix() ?> €</p>
+            <div class="add-to-cart">
+              <div class="quantity">
+                <p class="p02">
+                <a href="<?= site_url('boutique/decrease_quantity/').strval($fruit->getId_fruit())?>"><p>-</p></a>
+                      <p><?php 
+                        $temp = true;
+                        foreach ($this->session->fauxPanier as $fruitPanier) {
+                          if ($fruitPanier->id_fruits == $fruit->getId_fruit()) {
+                              echo $fruitPanier->quantity;
+                              $temp = false;
+                          }
+                        }
+                        if($temp){
+                          echo "0";
+                        }
+                      
+                      ?></p>
+                      <a href="<?= site_url('boutique/increase_quantity/').strval($fruit->getId_fruit())?>"><p>+</p></a>
+                </a>
+                </p>
+              </div>
+              <p class="p02">Ajouter au panier</p>
+            </div>
+          </div>
+      <?php endforeach; ?>
     </div>
-
-    <div class="card-product">
-      <a href="produit01.html">
-        <img src="<?= base_url('img/orange.png') ?>" alt="oranges" />
-      </a>
-      <h2 class="p02">Orange</h2>
-      <hr class="line small">
-      <p class="p02">1.99€</p>
-      <div class="add-to-cart">
-        <p class="p02">- 0 +</p>
-        <p class="p02">Ajouter au panier</p>
-      </div>
-    </div>
-
-    <div class="card-product">
-      <a href="produit01.html">
-        <img src="<?= base_url('img/orange.png') ?>" alt="oranges" />
-      </a>
-      <h2 class="p02">Orange</h2>
-      <hr class="line small">
-      <p class="p02">1.99€</p>
-      <div class="add-to-cart">
-        <p class="p02">- 0 +</p>
-        <p class="p02">Ajouter au panier</p>
-      </div>
-    </div>
-
-    <div class="card-product">
-      <a href="produit01.html">
-        <img src="<?= base_url('img/orange.png') ?>" alt="oranges" />
-      </a>
-      <h2 class="p02">Orange</h2>
-      <hr class="line small">
-      <p class="p02">1.99€</p>
-      <div class="add-to-cart">
-        <p class="p02">- 0 +</p>
-        <p class="p02">Ajouter au panier</p>
-      </div>
-    </div>
-
-    <div class="card-product">
-      <a href="produit01.html">
-        <img src="<?= base_url('img/orange.png') ?>" alt="oranges" />
-      </a>
-      <h2 class="p02">Orange</h2>
-      <hr class="line small">
-      <p class="p02">1.99€</p>
-      <div class="add-to-cart">
-        <p class="p02">- 0 +</p>
-        <p class="p02">Ajouter au panier</p>
-      </div>
-    </div>
-
-    <div class="card-product">
-      <a href="produit01.html">
-        <img src="<?= base_url('img/orange.png') ?>" alt="oranges" />
-      </a>
-      <h2 class="p02">Orange</h2>
-      <hr class="line small">
-      <p class="p02">1.99€</p>
-      <div class="add-to-cart">
-        <p class="p02">- 0 +</p>
-        <p class="p02">Ajouter au panier</p>
-      </div>
-    </div>
-
-    <div class="card-product">
-      <a href="produit01.html">
-        <img src="<?= base_url('img/orange.png') ?>" alt="oranges" />
-      </a>
-      <h2 class="p02">Orange</h2>
-      <hr class="line small">
-      <p class="p02">1.99€</p>
-      <div class="add-to-cart">
-        <p class="p02">- 0 +</p>
-        <p class="p02">Ajouter au panier</p>
-      </div>
-    </div>
-
-    <div class="card-product">
-      <a href="produit01.html">
-        <img src="<?= base_url('img/orange.png') ?>" alt="oranges" />
-      </a>
-      <h2 class="p02">Orange</h2>
-      <hr class="line small">
-      <p class="p02">1.99€</p>
-      <div class="add-to-cart">
-        <p class="p02">- 0 +</p>
-        <p class="p02">Ajouter au panier</p>
-      </div>
-    </div>
-
-    <div class="card-product">
-      <a href="produit01.html">
-        <img src="<?= base_url('img/orange.png') ?>" alt="oranges" />
-      </a>
-      <h2 class="p02">Orange</h2>
-      <hr class="line small">
-      <p class="p02">1.99€</p>
-      <div class="add-to-cart">
-        <p class="p02">- 0 +</p>
-        <p class="p02">Ajouter au panier</p>
-      </div>
-    </div>
-
-    <div class="card-product">
-      <a href="produit01.html">
-        <img src="<?= base_url('img/orange.png') ?>" alt="oranges" />
-      </a>
-      <h2 class="p02">Orange</h2>
-      <hr class="line small">
-      <p class="p02">1.99€</p>
-      <div class="add-to-cart">
-        <p class="p02">- 0 +</p>
-        <p class="p02">Ajouter au panier</p>
-      </div>
-    </div>
-
-    <div class="card-product">
-      <a href="produit01.html">
-        <img src="<?= base_url('img/orange.png') ?>" alt="oranges" />
-      </a>
-      <h2 class="p02">Orange</h2>
-      <hr class="line small">
-      <p class="p02">1.99€</p>
-      <div class="add-to-cart">
-        <p class="p02">- 0 +</p>
-        <p class="p02">Ajouter au panier</p>
-      </div>
-    </div>
-
-    <div class="card-product">
-      <a href="produit01.html">
-        <img src="<?= base_url('img/orange.png') ?>" alt="oranges" />
-      </a>
-      <h2 class="p02">Orange</h2>
-      <hr class="line small">
-      <p class="p02">1.99€</p>
-      <div class="add-to-cart">
-        <p class="p02">- 0 +</p>
-        <p class="p02">Ajouter au panier</p>
-      </div>
       <div class="navpages">
         <a href="index.html">
           <- </a>
