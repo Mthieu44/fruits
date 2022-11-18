@@ -1,0 +1,70 @@
+1,'Avocat',1.00,"C'est un fruit à la maturation originale qui ne peut mûrir que lorsqu'il est détaché de l'arbre. L'avocat est un fruit très calorique, riche en matières grasses. Vendu à l'unité."
+2,'Abricot',0.15,"L'abricot est un fruit charnu, de forme arrondie, possédant un noyau dur contenant une seule grosse graine. La chair est sucrée, peu juteuse, jaune orangé et ferme. Vendu à l'unité."
+3,'Pasteque',3.00,"Fruit lisse, à chair rouge et à graines noires, pesant entre 2 et 5kg. Vendu à l'unité."
+4,'Prune Quetsche',0.14,"C'est une petite prune qui mûrit dès mi-août, et qui est disponible dans les marchés jusqu'en octobre. Sous sa robe violette, elle cache une chair sucrée, acidulée, d’un jaune d’or légèrement foncé. Sa forme est oblongue et charnue."
+5,'Poire',0.30,"La poire est un fruit à pépins comestible au goût doux et sucré, produit par le poirier commun. Vendue à l'unité."
+6,'Mûres',3.00,"La mûre est un fruit rouge comestible de la ronce commune, buisson épineux très enbahissant. Elle est de couleur noir bleuâtre à maturité, à la fin de l'été. Vendues en barquette de 125g environ."
+7,'Mangue',3.20,"La mangue est un fruit charnu, pesant de 300 g à 2 kg. Sa chair est jaune foncé, onctueuse, grasse et sucrée avec un faux goût de pêche et de fleur. Vendue à l'unité."
+8,'Orange',0.26,"Comestible, elle est réputée pour sa grande teneur en vitamine C. C'est le quatrième fruit le plus cultivé au monde. L’orange a donné son nom à la couleur. Vendue à l'unité."
+9,'Raison rouge',0.32,"Le raisin, fruit de la vigne, est un des fruits les plus cultivés au monde. Il se présente sous la forme de grappes composées de nombreux grains. Vendu à la grappe de 120g environ."
+10,'Ananas',1.50,""
+11,'Citron'
+12,'Kiwi'
+13,'Citron'
+14,fraise
+15,datte
+16,papaye
+17,myrtille
+18,cerise
+19,pomme rouge
+20,pomme verte
+21,goyave
+22,mûre blanche
+23,fruit de la passion
+24,framboise
+25,banane
+26,cantaloup
+27,litchi
+28,tangerine
+29,orange sanguine
+30,peche
+31,nectarine
+32,brugnon
+33,kaki
+34,grenade
+35,groseille
+36,cassis
+37,cramberry
+38,fruit du dragon
+39,figue
+40,pamplemousse
+41,raisin blanc
+42,honeydew
+43,noix de coco
+44,carambole
+45,physalis
+46,kumquat
+47,groseille blanche
+48,'Prune Reine-Claude'
+49,'Prune Mirabelle'
+50,'Tomate',
+
+CATEGORIE
+
+Agrumes
+Fruits exotiques
+Fruits à coque
+Fruits rouges et baies
+Fruits à pépins
+Fruits à noyau
+
+CATEGORISATION
+avocat : fruits rouges et baies
+abricot : fruits à noyau
+pastèque : fruits rouges et baies
+prune quetsche : fruits à noyau
+poire : fruit à pépins
+mûres : fruits rouges et baies
+mangue : fruit exotique
+orange : Agrumes
+raisin rouge : fruits rouges et baies
