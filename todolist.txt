@@ -1,0 +1,24 @@
+BD:
+  - Remplir de fruits
+  - Trigger
+  - Procedure ?
+  - lien entre client et commande / panier
+
+Analyse/Gestion:
+  - Réadapter schéma etc
+
+Site:
+  - Carrousel
+  - page produit + Carte produit -> redesign
+  - Animation en savoir plus quand on passe la souris sur l'image d'un fruit
+  - Version mobile
+  - Voir mail pour mdp
+  - Verifier sécurité
+  - Loader avec fruit qui tourne -> https://www.youtube.com/watch?v=q76TexbMXJg
+  - Footer
+  - page aPropos avec TierList
+  - page responsable (ajouter produit avec image etc)
+  - page admin (gerer les utilisateurs)
+  - input label animation -> https://codepen.io/katrina-isabelle/pen/PQBqyq
+  - finir partit compte
+  - faire commande et panier
