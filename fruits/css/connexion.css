@@ -7,8 +7,8 @@ html {
 body {
 	background: linear-gradient(
 		145deg,
-		var(--orange-100) 45%,
-		rgb(236, 160, 97) 85%
+		var(--orange-100) 40%,
+		rgb(235, 184, 117) 60%
 	);
 	height: 100%;
 }
@@ -66,10 +66,10 @@ input[type="submit"] {
 	border-radius: 10px;
 	border: 0px;
 	background: linear-gradient(
-		90deg,
+		135deg,
 		var(--orange-100) 16%,
-		rgb(255, 213, 75) 30%,
-		rgb(255, 213, 75) 53%
+		rgb(255, 207, 144) 40%,
+		rgb(235, 184, 117) 53%
 	);
 	background-size: 300% 100%;
 	height: 70px;
