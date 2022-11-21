@@ -1,5 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+require_once APPPATH.DIRECTORY_SEPARATOR.'models'.DIRECTORY_SEPARATOR."ProduitEntity.php";
 
 class Home extends CI_Controller {
 
@@ -8,16 +9,18 @@ class Home extends CI_Controller {
 		$this->load->helper('url');
 		$this->load->model('FruitModel');
 		$this->load->library('session');
+		$this->session->set_userdata("panier",array());
 		if (!isset($this->session->fauxPanier)){
 			$this->session->set_userdata("fauxPanier",array());
 		}
+		
 	}
 
 	public function index(){
-		
         $this->load->helper('url');
 		$fruits = $this->FruitModel->findAll();
 		$this->load->view('HomeView', array('fruits' => $fruits));
 	}
-}
 
+
+}

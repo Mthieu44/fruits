@@ -156,3 +156,15 @@ td {
 	cursor: pointer;
 }
 
+.addPanier{
+	border: none;
+	background-color: white;
+	color: var(--green-100);
+	border-radius: 50%;
+	height: 20px;
+	cursor: pointer;
+	font-size: 17px;
+	margin-left: 19%;
+}
+
+

@@ -1,22 +1,57 @@
 function totalQuantity(n,id){
     var totalQuantity = document.getElementById("totalQuantity".concat(id));
-    var totalQuantityValue = parseInt(totalQuantity.innerHTML);    
-    totalQuantity.innerHTML = totalQuantityValue + n;
-    // si on clique sur le bouton - et que la quantité est à 0, on ne peut pas descendre en dessous
-    if(totalQuantity.innerHTML < 0){
-      totalQuantity.innerHTML = 0;
+    var totalQuantityValue = parseInt(totalQuantity.innerHTML);
+    totalQuantity.innerHTML = totalQuantityValue + n
+    if (totalQuantity.innerHTML < 0){
+        totalQuantity.innerHTML = 0;
     }
-    // on met à jour la quantité dans le panier
-    modifyProductsQuantity(id, totalQuantity.innerHTML);
+    modifyQuantity(id,totalQuantity.innerHTML);
 }
 
-function modifyProductsQuantity(id, quantity) {
+
+function modifyQuantity(id,quantity){
     var data = new FormData();
-    data.append('id', id);
-    data.append('quantity', quantity);
-    var url = "http://localhost/public_html/equipe2-1/fruits/index.php/boutique/modifyProductsQuantity";
+    data.append("id",id);
+    data.append("quantity",quantity);
+
     var xhr = new XMLHttpRequest();
-    xhr.open("POST", url, true);
+    xhr.open("POST","http://localhost/public_html/equipe2-1/fruits/index.php/boutique/modifyProductsQuantity",true);
+    xhr.responseType = "json";
+    xhr.onload = function() {
+        if (xhr.status === 200) {
+            console.log(xhr.response);
+        }
+    };
     xhr.send(data);
 }
 
+
+function addPanier(id,n){
+    var nbElementPanier = document.getElementById("quantityPanier");
+    var nbElementValue = parseInt(nbElementPanier.innerHTML);
+
+    var totalQuantity = document.getElementById("totalQuantity".concat(id));
+    var totalQuantityValue = parseInt(totalQuantity.innerHTML);
+
+    var data = new FormData();
+    data.append("id",id);
+    data.append("quantity",totalQuantityValue);
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            console.log(this.response);
+            var res = this.response;
+            if (res.success) {
+                console.log("Fruit ajouter au panier");
+            } else {
+                alert(res.msg);
+            }
+        } else if (this.readyState == 4) {
+            alert("Une erreur est survenue...");
+        }
+    };
+
+    xhr.open("POST","http://localhost/public_html/equipe2-1/fruits/index.php/boutique/addPanier",true);
+    xhr.responseType = "json";
+    xhr.send(data);
+}
