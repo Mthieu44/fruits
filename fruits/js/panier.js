@@ -18,7 +18,7 @@ function modifyQuantity(id,quantity){
     xhr.responseType = "json";
 
     xhr.send(data);
-
+}
 
 
 function addPanier(id,n){
