@@ -205,3 +205,21 @@ color: #027B08;
     margin-bottom: 50px;
     align-text: center;
 }
+
+.right{
+display: flex;
+margin-left: 40%;
+
+}
+
+.description{
+margin-top: 15px;
+
+font-family: 'Inter';
+font-style: normal;
+
+text-align: center;
+
+color: #027B08;
+
+}

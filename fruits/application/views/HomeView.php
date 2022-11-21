@@ -58,15 +58,17 @@
     </nav>
   </header>
 
-  <div class="accueilphoto">
-    <img src="<?= base_url('img/acceuil1.jpg') ?>" alt="image accueil" class="peches" />
-    <div class="textpeches">
-      <img src="<?= base_url('img/back.png') ?>" alt="back" />
-      <div class="selectmenu">
-        <div class="subtitle1">
-          <h1>Bienvenue !</h1>
-          <h1>Salivez, cliquez, mangez !</h1>
-        </div>
+
+
+
+
+    
+  <div class="slider">
+    <div class="sliderinside">
+      <img src="<?= base_url('img/acceuil1.jpg') ?>" alt="image accueil" class="sliderimage"/>
+      <div class="slidertext">
+        <h1>Bienvenue !</h1>
+        <h1>Salivez, cliquez, mangez !</h1>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna Lorem ipsum
@@ -78,9 +80,45 @@
           dolore magna
         </p>
       </div>
-      <img src="<?= base_url('img/next.png') ?>" alt="next" />
     </div>
+
+    <div class="sliderinside">
+      <img src="<?= base_url('img/acceuil2.jpg') ?>" alt="image accueil" class="sliderimage"/>
+      <div class="slidertext">
+        <h1>Bienvenue !</h1>
+        <h1>Des fruits frais, toute l'année !</h1>
+        <p>
+          Miam miam les fruits
+        </p>
+      </div>
+    </div>
+
+    <div class="sliderinside">
+      <img src="<?= base_url('img/acceuil3.jpg') ?>" alt="image accueil" class="sliderimage"/>
+      <div class="slidertext">
+        <h1>Bienvenue !</h1>
+        <h1>Salivez, cliquez, mangez vos morts!</h1>
+        <p>
+          Voici les agrumes
+        </p>
+      </div>
+    </div>
+
+
+      <img src="<?= base_url('img/back.png') ?>" alt="back" class="prev" onclick="plusSlides(-1)"/>
+      <img src="<?= base_url('img/next.png') ?>" alt="next"  class="next" onclick="plusSlides(1)"/>
   </div>
+
+
+
+
+
+
+
+
+
+
+
 
   <div class="bestsellers">
     <div class="top-part">
@@ -94,43 +132,47 @@
 
       <img src="<?= base_url('img/back.png') ?>" class="fleche" alt="back" />
 
-      <?php foreach ($fruits as $fruit) : ?>
-        <div class="card-product">
-          <a href="<?= site_url('Produit') ?>">
-            <img src="<?= base_url('img/fruit/' . $fruit->getImage()) ?>" alt="<?= $fruit->getImage() ?>" />
-          </a>
-          <h2 class="p02"><?= $fruit->getNom() ?></h2>
-          <hr class="line small">
-          <p class="p02"><?= $fruit->getPrix() ?> €</p>
-          <div class="add-to-cart">
-            <div class="quantity">
-              <p class="p02">
-                <button onclick = "totalQuantity(-1,<?= $fruit->getId_fruit() ?>)">-</button>
-                <span id = "<?="totalQuantity".$fruit->getId_fruit()?>">
-                <?php 
-                      $temp = true;
-                      foreach ($this->session->fauxPanier as $fruitPanier) {
-                        if ($fruitPanier->id_fruits == $fruit->getId_fruit()) {
-                            echo $fruitPanier->quantity;
-                            $temp = false;
-                        }
-                      }
-                      if($temp){
-                              echo "0";
-                            }
-                ?>      
-              </span>
-                <button onclick = "totalQuantity(1,<?= $fruit->getId_fruit() ?>)">+</button>
-              </p>
-            </div>
-            <p class="p02">Ajouter au panier</p>
-          </div>
+      <div class="card-product">
+        <img src="<?= base_url('img/orange.png') ?>" alt="oranges" />
+        <h1 class="p02">Orange</h1>
+        <hr class="line small">
+        <p class="p02">1.99€</p>
+        <div class="add-to-cart">
+          <p class="p02">- 0 +</p>
+          <p class="p02">Ajouter au panier</p>
         </div>
-      <?php endforeach; ?>
-      
+      </div>
+
+      <div class="card-product">
+        <img src="<?= base_url('img/orange.png') ?>" alt="oranges" />
+        <h1 class="p02">Orange</h1>
+        <hr class="line small">
+        <p class="p02">1.99€</p>
+        <div class="add-to-cart">
+          <p class="p02">- 0 +</p>
+          <p class="p02">Ajouter au panier</p>
+        </div>
+      </div>
+
+      <div class="card-product">
+        <img src="<?= base_url('img/orange.png') ?>" alt="oranges" />
+        <h1 class="p02">Orange</h1>
+        <hr class="line small">
+        <p class="p02">1.99€</p>
+        <div class="add-to-cart">
+          <p class="p02">- 0 +</p>
+          <p class="p02">Ajouter au panier</p>
+        </div>
+      </div>
       <div class="loader-wrapper">
         <span class="loader"><span class="loader-inner"></span></span>
       </div>
+
+      <script>
+        $(window).on("load", function() {
+          $(".loader-wrapper").fadeOut("slow");
+        });
+      </script>
 
       <img src="<?= base_url('img/next.png') ?>" class="fleche" alt="next" />
     </div>
@@ -148,41 +190,38 @@
 
       <img src="<?= base_url('img/back.png') ?>" class="fleche" alt="back" />
 
-      <?php foreach ($fruits as $fruit) : ?>
-        <div class="card-product">
-          <a href="<?= site_url('Produit') ?>">
-            <img src="<?= base_url('img/fruit/' . $fruit->getImage()) ?>" alt="<?= $fruit->getImage() ?>" />
-          </a>
-          <h2 class="p02"><?= $fruit->getNom() ?></h2>
-          <hr class="line small">
-          <p class="p02"><?= $fruit->getPrix() ?> €</p>
-          <div class="add-to-cart">
-          <div class="quantity">
-              <p class="p02">
-                <button onclick = "totalQuantity(-1,<?= $fruit->getId_fruit() ?>)">-</button>
-                <span id = "<?="totalQuantity".$fruit->getId_fruit()?>">
-                <?php 
-                      $temp = true;
-                      foreach ($this->session->fauxPanier as $fruitPanier) {
-                        if ($fruitPanier->id_fruits == $fruit->getId_fruit()) {
-                            echo $fruitPanier->quantity;
-                            $temp = false;
-                        }
-                      }
-                      if($temp){
-                              echo "0";
-                            }
-                ?>      
-              </span>
-                <button onclick = "totalQuantity(1,<?= $fruit->getId_fruit() ?>)">+</button>
-              </p>
-            </div>
-            <p class="p02">Ajouter au panier</p>
-          </div>
+      <div class="card-product">
+        <img src="<?= base_url('img/mangue.png') ?>" alt="mangues" />
+        <h1 class="p02">mangue</h1>
+        <hr class="line small">
+        <p class="p02">1.99€</p>
+        <div class="add-to-cart">
+          <p class="p02">- 0 +</p>
+          <p class="p02">Ajouter au panier</p>
         </div>
-      <?php endforeach; ?>
+      </div>
 
+      <div class="card-product">
+        <img src="<?= base_url('img/mangue.png') ?>" alt="mangues" />
+        <h1 class="p02">mangue</h1>
+        <hr class="line small">
+        <p class="p02">1.99€</p>
+        <div class="add-to-cart">
+          <p class="p02">- 0 +</p>
+          <p class="p02">Ajouter au panier</p>
+        </div>
+      </div>
 
+      <div class="card-product">
+        <img src="<?= base_url('img/mangue.png') ?>" alt="mangues" />
+        <h1 class="p02">Orange</h1>
+        <hr class="line small">
+        <p class="p02">1.99€</p>
+        <div class="add-to-cart">
+          <p class="p02">- 0 +</p>
+          <p class="p02">Ajouter au panier</p>
+        </div>
+      </div>
       <img src="<?= base_url('img/next.png') ?>" class="fleche" alt="next" />
     </div>
   </div>
@@ -193,9 +232,4 @@
 
 </html>
 
-<script type="text/javascript" src="<?= base_url("js/panier.js")?>"></script>
-
-
-Message: CI_Loader::main(): The script tried to execute a method or access a property of an incomplete object. Please ensure
- that the class definition "ProduitEntity" of the object you are trying to operate on was loaded _before_ unserialize() 
- gets called or provide an autoloader to load the class definition
+<script type="text/javascript" src="<?= base_url('js/carrousel.js')?>"></script>
