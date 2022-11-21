@@ -20,5 +20,5 @@ Site:
   - page responsable (ajouter produit avec image etc)
   - page admin (gerer les utilisateurs)
   - input label animation -> https://codepen.io/katrina-isabelle/pen/PQBqyq
-  - finir partit compte
-  - faire commande et panier
+  - finir partie compte
+  - commande et panier
