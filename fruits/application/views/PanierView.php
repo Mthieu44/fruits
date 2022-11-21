@@ -8,7 +8,7 @@
 
 
     <style>
-        <?php include 'css/style.css'; ?><?php include 'css/home.css'; ?>
+        <?php include 'css/style.css'; ?><?php include 'css/home.css'; ?><?php include 'css/panier.css'; ?>
     </style>
 
 </head>
@@ -52,13 +52,36 @@
                             </g>
                         </svg>
                         <div>
-                            <p>0</p>
+                            <p id = "quantityPanier">0</p>
                         </div>
                     </a>
                 </li>
             </ul>
         </nav>
     </header>
+
+    <h2>Votre panier</h2>
+    <div class="toutPanier">
+        <div class="panierLabel">
+            <p class="p02">Article</p>
+            <div class="right">
+                <p class="p02">Quantité</p>
+                <p class="p02">Prix</p>
+            </div>
+        </div>
+        <div class="panierContent">
+            <div class="article">
+                
+            </div>
+            <div class="article">
+                
+            </div>
+            <div class="article">
+                
+            </div>
+        </div>
+    </div>
+
 </body>
 
 </html>

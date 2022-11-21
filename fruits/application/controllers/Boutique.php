@@ -68,9 +68,7 @@ class Boutique extends CI_Controller
 	}*/
 
 	public function modifyProductsQuantity(){
-		$succes = 0;
 		if (isset($_POST['id'], $_POST['quantity'])) {
-			$succes = 1;
 			$id = $_POST['id'];
 			$quantity = $_POST['quantity'];
 			$temp = $this->session->fauxPanier;
@@ -95,8 +93,36 @@ class Boutique extends CI_Controller
 				}
 			}
 			$this->session->set_userdata("fauxPanier",$temp);
-			$res = array("succes" => $succes, "id" => $id, "quantity" => $quantity, "panier" => $this->session->fauxPanier);
-			echo(json_encode($res));
+		}
+	}
+	public function addPanier(){
+		if (isset($_POST['id'], $_POST['quantity'])) {
+			$id = $_POST['id'];
+			$quantity = $_POST['quantity'];
+			$temp = $this->session->panier;
+			$test = true;
+			foreach ($temp as $prod){
+				if ($prod->id_fruits == $id){
+					$prod->quantity = $quantity;
+					$test = false;
+					if ($prod->quantity == 0){
+						$index = array_search($prod,$temp);
+						unset($temp[$index]);
+					}
+				}
+			}
+			if($test){
+				$produit = new ProduitEntity($id,$quantity);
+				$tmp = array($produit);
+				if ($temp == null){
+					$temp = $tmp;
+				}else{
+					$temp = array_merge($temp,$tmp);
+				}
+			}
+			$this->session->set_userdata("panier",$temp);
+			$res = ["size" => count($this->session->panier)];
+			echo json_encode($res);
 		}
 	}
 }

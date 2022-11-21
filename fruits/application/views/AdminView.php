@@ -8,6 +8,6 @@
 </head>
 <body>
     <p>admin</p>
-    <a href="<?= site_url('Connexion/logout') ?>">logout</a>
 </body>
 </html>
+

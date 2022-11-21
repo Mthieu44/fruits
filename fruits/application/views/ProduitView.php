@@ -60,27 +60,106 @@
 
 
 
-    <div class="left-part">
-        <img src="img/orange.png" alt="orange">
-        <div class="rightmenu">
-            <div class="top-part">
-                <label class="titre-white">Mangue</label>
-                <label class="prix">Prix :</label>
-                <label class="prix">2.50€</label>
-                <label class="prix">Quantité :</label>
-                <input type="number" name="quantite" id="quantite" min="1" max="10" value="1">
-                <button class="ajouter">Ajouter au panier</button>
-                <button class="ajouter">Commandez et payer</button>
+    
+
+<div class="left-part">
+    <img src="img/orange.png" alt="orange">
+    <div class="rightmenu">
+        <div class="top-part2">
+                <h2 class="titre-white">Mangue</h2>
+                <p class="text2">Origine :<a class="titre-white2"> Listenbourg</a> </p>
+                <p class="text2">Prix :<a class="titre-white2"> 2.50€ </a></p>
+                <p class="text2">Quantité :<a class="titre-white3"> - 0 +</a></p>
+                <br><button class="button2">Ajouter au panier</button>
+                <br><button class="button2">Commandez et payer</button>
+        </div>
+    </div>
+    <div class="left-text-orange">
+        <p>La mangue est le fruit du manguier, grand arbre tropical de la famille des Anacardiaceae, originaire des forêts d'Inde, du Pakistan et de la Birmanie, où il pousse encore à l'état sauvage. </p>
+    </div>
+
+
+
+
+</div>
+<hr class="line">
+<h1>Description</h1>
+<div id="btn">
+    <ion-icon id="btn-icon" name="add-outline"></ion-icon>
+
+</div>
+
+<div id="details" class="left-text-orange">
+    La mangue est un fruit charnu, pesant de 300g à 2kg.
+
+    C'est une drupe, sa chair adhère à un noyau large, plat et glissant. Elle peut être ronde, ovale ou réniforme, et présente une peau jaune, verte ou rouge, qu'il est recommandé d'enlever, car son goût est peu agréable, et elle contient des substances irritantes la rendant peu comestible.
+
+    Sa chair est jaune foncé, onctueuse, grasse et sucrée avec un faux goût de pêche et de fleur. Selon les variétés ou lorsque le fruit est trop mûr, la chair devient parfois filandreuse.
+</div>
+
+<script src="./app.js"></script>
+<script
+        type="module"
+        src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+></script>
+<script
+        nomodule
+        src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+></script>
+
+<div class="bestsellers">
+    <div class = "top-part">
+        <hr class="line">
+        <div class="top-text">
+            <h2>Produits qui pourraient vous plaire</h2>
+        </div>
+    </div>
+    <div class="fruit-menu">
+
+        <img src="img/back.png" class="fleche" alt="back" />
+
+        <div class="card-product">
+            <a href="produit01.html">
+                <img src="img/orange.png" alt="oranges" />
+            </a>
+            <h2 class="p02">Orange</h2>
+            <hr class="line small">
+            <p class="p02">1.99€</p>
+            <div class="add-to-cart">
+                <p class="p02">- 0 +</p>
+                <p class="p02">Ajouter au panier</p>
             </div>
         </div>
-        <div class="left-text">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut ladna Lorem ipsum dolor sit amet, consectetu Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut ladna Lorem ipsum dolor sit amet, consectetu</p>
-        </div>
-        <div class="menu-description">
-            <label class="titre-green">Description</label>
 
-
+        <div class="card-product">
+            <a href="produit01.html">
+                <img src="img/orange.png" alt="oranges" />
+            </a>
+            <h2 class="p02">Mangue</h2>
+            <hr class="line small">
+            <p class="p02">1.99€</p>
+            <div class="add-to-cart">
+                <p class="p02">- 0 +</p>
+                <p class="p02">Ajouter au panier</p>
+            </div>
         </div>
+
+        <div class="card-product">
+            <a href="produit01.html">
+                <img src="img/orange.png" alt="oranges" />
+            </a>
+            <h2 class="p02">Orange</h2>
+            <hr class="line small">
+            <p class="p02">1.99€</p>
+            <div class="add-to-cart">
+                <p class="p02">- 0 +</p>
+                <p class="p02">Ajouter au panier</p>
+            </div>
+        </div>
+
+        <img src="img/next.png" class="fleche" alt="next" />
+    </div>
+</div>
 
 
     </div>
