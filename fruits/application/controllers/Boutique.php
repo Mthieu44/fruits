@@ -12,8 +12,6 @@ class Boutique extends CI_Controller
 		$this->load->model('FruitModel');
 		$this->load->library('session');
 		$this->session->set_userdata("panier",$this->panier);
-		$this->session->set_userdata("fauxPanier",array());
-		
 	}
 
 	public function index(){
@@ -22,12 +20,8 @@ class Boutique extends CI_Controller
 		$this->load->view('BoutiqueView', array('fruits' => $fruits));
 	}
 
-	public function test(){
-		$fruits = $this->FruitModel->findAll();
-		$this->load->view('testBoutique', array('fruits' => $fruits));
-	}
 
-	public function getQuantity($id){
+	/*public function getQuantity($id){
 		for ($i = 0; $i < count($this->session->fauxPanier); $i++) {
 			if ($this->session->fauxPanier[$i]->id_fruits == $id) {
 				echo($this->session->fauxPanier[$i]->quantity);
@@ -71,5 +65,38 @@ class Boutique extends CI_Controller
 		}
 		$this->session->set_userdata("fauxPanier",$temp);
 		redirect('Boutique');
+	}*/
+
+	public function modifyProductsQuantity(){
+		$succes = 0;
+		if (isset($_POST['id'], $_POST['quantity'])) {
+			$succes = 1;
+			$id = $_POST['id'];
+			$quantity = $_POST['quantity'];
+			$temp = $this->session->fauxPanier;
+			$test = true;
+			foreach ($temp as $prod){
+				if ($prod->id_fruits == $id){
+					$prod->quantity = $quantity;
+					$test = false;
+					if ($prod->quantity == 0){
+						$index = array_search($prod,$temp);
+						unset($temp[$index]);
+					}
+				}
+			}
+			if($test){
+				$produit = new ProduitEntity($id,$quantity);
+				$tmp = array($produit);
+				if ($temp == null){
+					$temp = $tmp;
+				}else{
+					$temp = array_merge($temp,$tmp);
+				}
+			}
+			$this->session->set_userdata("fauxPanier",$temp);
+			$res = array("succes" => $succes, "id" => $id, "quantity" => $quantity, "panier" => $this->session->fauxPanier);
+			echo(json_encode($res));
+		}
 	}
 }
