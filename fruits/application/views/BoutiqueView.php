@@ -81,30 +81,41 @@
             <div class="quantity">
               <p class="p02">
                 <button onclick = "totalQuantity(-1,<?= $fruit->getId_fruit() ?>)">-</button>
-                <span id = "<?="totalQuantity".$fruit->getId_fruit()?>">
-                <?php 
-                        $temp = true;
-                        
-                        foreach ($this->session->fauxPanier as $fruitPanier) {
-                          if ($fruitPanier->id_fruits == $fruit->getId_fruit()) {
-                              echo $fruitPanier->quantity;
-                              $temp = false;
-                          }
+                <span id = "<?="totalQuantity".$fruit->getId_fruit()?>" ><?php 
+                  $temp = true;
+                  foreach ($this->session->fauxPanier as $fruitPanier) {
+                    if ($fruitPanier->id_fruits == $fruit->getId_fruit()) {
+                        echo $fruitPanier->quantity;
+                        $temp = false;
                         }
-                        if($temp){
-                          echo "0";
-                        }
-                      
-                      ?>
-                </span>
+                    }
+                    if($temp){
+                        echo "0";
+                    }?></span>
                 <button onclick = "totalQuantity(1,<?= $fruit->getId_fruit() ?>)">+</button>
               </p>
             </div>
             <p class="p02">Ajouter au panier</p>
           </div>
         </div>
-
       <?php endforeach; ?>
+      <script>
+        function totalQuantity(n,id){
+          var totalQuantity = document.getElementById("totalQuantity".concat(id));
+          var totalQuantityValue = parseInt(totalQuantity.innerHTML);
+          totalQuantity.innerHTML = totalQuantityValue + n;
+          // si on clique sur le bouton - et que la quantité est à 0, on ne peut pas descendre en dessous
+          if(totalQuantity.innerHTML < 0){
+            totalQuantity.innerHTML = 0;
+          }
+          /*if(n == 1){
+            <?=site_url('boutique/increase_quantity/').strval($id)?>
+          }
+          if(n == -1){
+            <?=site_url('boutique/decrease_quantity/').strval($id)?>
+          }*/
+        }
+      </script> 
       <img src="<?= base_url('img/next.png') ?>" class="fleche" alt="next" />
     </div>
   </div>
@@ -153,13 +164,11 @@
             <hr class="line small">
             <p class="p02"><?= $fruit->getPrix() ?> €</p>
             <div class="add-to-cart">
-            <div class="quantity">
-              <p class="p02">
-                <button onclick = "totalQuantity(-1,<?= $fruit->getId_fruit() ?>)">-</button>
-                <span id = "<?="totalQuantity".$fruit->getId_fruit()?>">
-                <?php 
+              <div class="quantity">
+                <p class="p02">
+                <a href="<?= site_url('boutique/decrease_quantity/').strval($fruit->getId_fruit())?>"><p>-</p></a>
+                      <p><?php 
                         $temp = true;
-                        
                         foreach ($this->session->fauxPanier as $fruitPanier) {
                           if ($fruitPanier->id_fruits == $fruit->getId_fruit()) {
                               echo $fruitPanier->quantity;
@@ -170,11 +179,11 @@
                           echo "0";
                         }
                       
-                      ?>
-                </span>
-                <button onclick = "totalQuantity(1,<?= $fruit->getId_fruit() ?>)">+</button>
-              </p>
-            </div>
+                      ?></p>
+                      <a href="<?= site_url('boutique/increase_quantity/').strval($fruit->getId_fruit())?>"><p>+</p></a>
+                </a>
+                </p>
+              </div>
               <p class="p02">Ajouter au panier</p>
             </div>
           </div>
@@ -195,6 +204,3 @@
 </body>
 
 </html>
-
-
-<script type="text/javascript" src="<?= base_url("js/panier.js")?>"></script>

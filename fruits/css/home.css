@@ -1,46 +1,65 @@
 /*********ACCUEIL PHOTO*********/
 
 
-.accueilphoto{
+.slider{
+    position: relative;
     height: 95%;
+    transition: 1s ease-in-out;
+}
+.sliderinside{
+    display: none;
+    animation-name: fadeIn;
+    animation-duration: 1s;
+}
+.sliderimage{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.prev, .next{
+    height: 48px;
+    cursor: pointer;
+    position: absolute;
+    margin-left: 12%;
+    top: 45vh;
+    transition: 0.1s ease-in-out;
+}
+
+.next{
+    right:12%;
+}
+
+.prev:hover, .next:hover{
+    transform: scale(1.2);
+    transition: 0.1s ease-in-out;
+}
+
+
+
+.slidertext{
     display: flex;
-    justify-content: center;
-}
-
-.selectmenu{
-    width: 720px;
-    margin-right: 320px;
-}
-
-.selectmenu p{
-    font-size: 28px;
-    margin-top: 64px;
+    flex-direction: column;
+    position: relative;
     color: var(--grey-100);
-    font-style: italic;
+    width: 40%;
+    margin-left: 23%;
+    margin-top: -700px;
 }
 
-.subtitle1 h1{
+.slidertext h1{
     font-size: 36px;
 }
 
-.peches{
-    object-fit: cover;
-    width: 100%;
+.slidertext p{
+    margin-top: 50px;
+    font-size: 28px;
+    font-style: italic;
 }
-
-.textpeches{
-    color: white;
-    position: absolute;
-    display: flex;
-    align-self: center;
-    align-items: center;
-    width: 90%;
-    justify-content: space-evenly;
-}
-
-
-.textpeches img{
-    height: 48px;
+  
+@keyframes fadeIn {
+    from {opacity: .90}
+    to {opacity: 1}
 }
 
 

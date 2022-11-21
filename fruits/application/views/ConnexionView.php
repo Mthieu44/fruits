@@ -8,7 +8,7 @@
 
 
     <style>
-        <?php include 'css/style.css'; ?><?php include 'css/connexion.css'; ?>
+        <?php include 'css/style.css'; ?><?php include 'css/login.css'; ?>
     </style>
 
 </head>
@@ -75,17 +75,21 @@
                 <p class="erreur">
                     <?php
                     if (isset($msg)) {
-                        echo ($msg);
+                        echo ('connexion refusée');
                     }
                     ?>
                 </p>
-                <a class="mdp" href="<?= site_url('Connexion') ?>">mot de passe oublié</a>
+                <a class="mdp">mot de passe oublié</a>
             </div>
 
             <input type="submit" class="hvr-bounce-to-top" value="Connexion">
         </form>
-        <a href="<?= site_url('Connexion/register') ?>" class="inscription">S'inscrire</a>
+        <a class="inscription">S'inscrire</a>
     </div>
+
+    <a href="<?= site_url('Connexion/logout') ?>">logout</a>
+
+
 
 </body>
 
