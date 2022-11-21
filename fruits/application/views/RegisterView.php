@@ -5,8 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Fruits • Connexion </title>
-
-
     <style>
         <?php include 'css/style.css'; ?><?php include 'css/connexion.css'; ?>
     </style>
@@ -59,35 +57,25 @@
             </ul>
         </nav>
     </header>
+    <form action=".php" method="post" class="register">
+        <h1>Inscrivez vous</h1>
+        <p>Renseignez ce formulaire pour pouvoir vous inscrire</p>
+        <div class="name">
+            <input class="inputname" type="text" name="prenom" id="prenom" placeholder="Prenom" required>
+            <input class="inputname" type="text" name="nom" id="nom" placeholder="nom" required>
+        </div>
+        <input type="email" name="email" id="email" placeholder="email" required>
+        <input type="adresse" name="adresse" id="adresse" placeholder="adresse" required>
+        <input type="telephone" name="telephone" id="telephone" placeholder="telephone" required>
+        <input type="password" name="password" id="password" placeholder="mot de passe" required>
+        <input type="password" name="password2" id="password2" placeholder=" confirmer mot de passe" required>
+        <input type="status" value="client" hidden>
+        <input class="bouton" type="submit" value="S'inscrire">
+
+        <a class="text-min" href="<?= site_url('Connexion') ?>">Déjà Inscrit ?</a>
 
 
-
-
-    <div class="login">
-        <h2> Connexion </h2>
-        <form action="<?= site_url('Connexion/loginCheck') ?>" method="post">
-            <label for="mail">Mail :</label>
-            <input id="mail" type="email" name="mail" placeholder="Votre mail">
-            <label for="password">Mot de passe :</label>
-            <input id="password" type="text" name="password" placeholder="Votre mot de passe">
-            <div class="bottom-text">
-
-                <p class="erreur">
-                    <?php
-                    if (isset($msg)) {
-                        echo ($msg);
-                    }
-                    ?>
-                </p>
-                <a class="mdp" href="<?= site_url('Connexion') ?>">mot de passe oublié</a>
-            </div>
-
-            <input type="submit" class="hvr-bounce-to-top" value="Connexion">
-        </form>
-        <a href="<?= site_url('Connexion/register') ?>" class="inscription">S'inscrire</a>
-    </div>
-
+    </form>
 </body>
-
 
 </html>
