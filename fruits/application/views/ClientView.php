@@ -1,16 +1,13 @@
-<html lang="fr">
+<html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Fruits • Connexion </title>
-
-
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fruits • Profil </title>
     <style>
         <?php include 'css/style.css'; ?><?php include 'css/connexion.css'; ?>
     </style>
-
 </head>
 
 <body>
@@ -61,33 +58,43 @@
     </header>
 
 
-
-
-    <div class="login">
-        <h2> Connexion </h2>
-        <form action="<?= site_url('Connexion/loginCheck') ?>" method="post">
-            <label for="mail">Mail :</label>
-            <input id="mail" type="email" name="mail" placeholder="Votre mail">
-            <label for="password">Mot de passe :</label>
-            <input id="password" type="text" name="password" placeholder="Votre mot de passe">
-            <div class="bottom-text">
-
-                <p class="erreur">
-                    <?php
-                    if (isset($msg)) {
-                        echo ($msg);
-                    }
-                    ?>
-                </p>
-                <a class="mdp" href="<?= site_url('Connexion') ?>">mot de passe oublié</a>
-            </div>
-
-            <input type="submit" class="hvr-bounce-to-top" value="Connexion">
-        </form>
-        <a href="<?= site_url('Connexion/register') ?>" class="inscription">S'inscrire</a>
+    <h2>Votre compte</h2>
+    <div class="infos">
+        <div class="champ">
+            <p class="p02">Prénom</p>
+            <p class="fieldtext">Djemila</p>
+        </div>
+        <div class="champ">
+            <p class="p02">Adresse Mail </p>
+            <p class="fieldtext">djemila.table@gmail.com</p>
+        </div>
+        <div class="champ">
+            <p class="p02">Nom</p>
+            <p class="fieldtext">Table</p>
+        </div>
+        <div class="champ">
+            <p class="p02">Mot de passe</p>
+            <p class="fieldtext">********</p>
+        </div>
+        <div class="champ">
+            <p class="p02">N° de téléphone</p>
+            <p class="fieldtext">0648554954</p>
+        </div>
+        <div>
+        </div>
+        <div class="champ">
+            <p class="p02">Adresse</p>
+            <p class="fieldtext">84 place de la canneberge</p>
+        </div>
+        <div class="champ">
+            <a href="editAccount.html" class="bouton">Modifier mes informations</a>
+        </div>
     </div>
 
-</body>
 
+
+    <p>Client</p>
+    <a href="<?= site_url('Connexion/logout') ?>">logout</a>
+</body>
 
 </html>
