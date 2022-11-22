@@ -233,3 +233,4 @@
 
 <script type="text/javascript" src="<?= base_url('js/carrousel.js') ?>"></script>
 <script type="text/javascript" src="<?= base_url('js/loader.js') ?>"></script>
+<script type="text/javascript" src="<?= base_url('js/panier.js') ?>"></script>
