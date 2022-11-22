@@ -205,15 +205,3 @@ BEGIN
     WHERE id_categorie = _id_categ and id_fruit = _id_fruit;
 END //
 DELIMITER ;
-
-
-
-
-DELIMITER //
-CREATE PROCEDURE getFruitById(
-    IN _id_fruit TEXT
-)
-BEGIN
-    SELECT * FROM fruit,categorie where id_fruit = _id_fruit;
-END //
-DELIMITER ;
