@@ -205,3 +205,6 @@ li:hover svg path {
 	transition: 0.5s ease;
 	opacity: 1;
 }
+
+.preloader image {
+}
