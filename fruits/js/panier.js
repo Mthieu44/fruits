@@ -19,7 +19,7 @@ function modifyQuantity(id,quantity){
 
     xhr.send(data);
 
-
+}
 
 function addPanier(id,n){
     var nbElementPanier = document.getElementById("quantityPanier");
