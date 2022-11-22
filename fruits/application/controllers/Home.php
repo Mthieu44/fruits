@@ -19,6 +19,6 @@ class Home extends CI_Controller
 	{
 		$this->load->helper('url');
 		$fruits = $this->FruitModel->findAll();
-		$this->load->view('PanierView', array('fruits' => $fruits));
+		$this->load->view('HomeView', array('fruits' => $fruits));
 	}
 }
