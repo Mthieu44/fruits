@@ -183,6 +183,20 @@ input[type="submit"]:hover {
 	gap: 3%;
 }
 
+.sexe {
+	display: flex;
+	color: 2px solid rgb(156, 156, 156);
+	align-self: flex-start;
+	margin-left: 16%;
+	gap: 10px;
+}
+
+.sexe label {
+	margin: 0;
+	padding: 5;
+	font-size: 18px;
+}
+
 /*********CLIENTVIEW*********/
 
 .infos {

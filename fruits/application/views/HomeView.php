@@ -12,6 +12,11 @@
 </head>
 
 <body>
+  <div id="preloader" class="preloader">
+    <h1>Fruits</h1>
+    <span class="loader"></span>
+  </div>
+
   <header>
     <a href="<?= site_url('Home') ?>" class="logo">
       <img src="<?= base_url('img/header/logo.png') ?>" alt="fruit" class="logo2" />
@@ -26,12 +31,12 @@
         <li><a href="<?= site_url('Contact') ?>">Contact</a></li>
         <li class="connexion">
           <a href="<?= site_url('Connexion') ?>">
-          <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="30.000000pt" height="30.000000pt" viewBox="0 0 400.000000 400.000000" preserveAspectRatio="xMidYMid meet">
-            <g transform="translate(0.000000,400.000000) scale(0.100000,-0.100000)" fill="#000000" stroke="none">
-              <path d="M1935 3315 c-321 -61 -566 -296 -640 -615 -22 -96 -20 -269 5 -366 68 -267 267 -484 519 -567 215 -72 411 -57 620 44 91 44 116 63 196 142 158 158 233 321 242 533 12 244 -70 450 -248 620 -187 179 -444 256 -694 209z" />
-              <path d="M1363 1750 c-386 -239 -625 -634 -659 -1087 l-7 -93 1381 0 1380 0 -4 78 c-12 182 -65 384 -141 537 -114 228 -333 462 -544 579 l-45 26 -60 -46 c-78 -59 -239 -138 -339 -166 -116 -32 -374 -32 -490 0 -106 29 -242 95 -333 160 -40 28 -74 52 -75 51 -1 0 -30 -18 -64 -39z" />
-            </g>
-          </svg>
+            <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="30.000000pt" height="30.000000pt" viewBox="0 0 400.000000 400.000000" preserveAspectRatio="xMidYMid meet">
+              <g transform="translate(0.000000,400.000000) scale(0.100000,-0.100000)" fill="#000000" stroke="none">
+                <path d="M1935 3315 c-321 -61 -566 -296 -640 -615 -22 -96 -20 -269 5 -366 68 -267 267 -484 519 -567 215 -72 411 -57 620 44 91 44 116 63 196 142 158 158 233 321 242 533 12 244 -70 450 -248 620 -187 179 -444 256 -694 209z" />
+                <path d="M1363 1750 c-386 -239 -625 -634 -659 -1087 l-7 -93 1381 0 1380 0 -4 78 c-12 182 -65 384 -141 537 -114 228 -333 462 -544 579 l-45 26 -60 -46 c-78 -59 -239 -138 -339 -166 -116 -32 -374 -32 -490 0 -106 29 -242 95 -333 160 -40 28 -74 52 -75 51 -1 0 -30 -18 -64 -39z" />
+              </g>
+            </svg>
             <?php
             if (!isset($this->session->user)) {
               echo ("Connexion");
@@ -62,10 +67,10 @@
 
 
 
-    
+
   <div class="slider">
     <div class="sliderinside">
-      <img src="<?= base_url('img/acceuil1.jpg') ?>" alt="image accueil" class="sliderimage"/>
+      <img src="<?= base_url('img/acceuil1.jpg') ?>" alt="image accueil" class="sliderimage" />
       <div class="slidertext">
         <h1>Bienvenue !</h1>
         <h1>Salivez, cliquez, mangez !</h1>
@@ -83,7 +88,7 @@
     </div>
 
     <div class="sliderinside">
-      <img src="<?= base_url('img/acceuil2.jpg') ?>" alt="image accueil" class="sliderimage"/>
+      <img src="<?= base_url('img/acceuil2.jpg') ?>" alt="image accueil" class="sliderimage" />
       <div class="slidertext">
         <h1>Bienvenue !</h1>
         <h1>Des fruits frais, toute l'année !</h1>
@@ -94,7 +99,7 @@
     </div>
 
     <div class="sliderinside">
-      <img src="<?= base_url('img/acceuil3.jpg') ?>" alt="image accueil" class="sliderimage"/>
+      <img src="<?= base_url('img/acceuil3.jpg') ?>" alt="image accueil" class="sliderimage" />
       <div class="slidertext">
         <h1>Bienvenue !</h1>
         <h1>Salivez, cliquez, mangez vos morts!</h1>
@@ -105,8 +110,8 @@
     </div>
 
 
-      <img src="<?= base_url('img/back.png') ?>" alt="back" class="prev" onclick="plusSlides(-1)"/>
-      <img src="<?= base_url('img/next.png') ?>" alt="next"  class="next" onclick="plusSlides(1)"/>
+    <img src="<?= base_url('img/back.png') ?>" alt="back" class="prev" onclick="plusSlides(-1)" />
+    <img src="<?= base_url('img/next.png') ?>" alt="next" class="next" onclick="plusSlides(1)" />
   </div>
 
 
@@ -168,12 +173,6 @@
         <span class="loader"><span class="loader-inner"></span></span>
       </div>
 
-      <script>
-        $(window).on("load", function() {
-          $(".loader-wrapper").fadeOut("slow");
-        });
-      </script>
-
       <img src="<?= base_url('img/next.png') ?>" class="fleche" alt="next" />
     </div>
   </div>
@@ -232,4 +231,5 @@
 
 </html>
 
-<script type="text/javascript" src="<?= base_url('js/carrousel.js')?>"></script>
+<script type="text/javascript" src="<?= base_url('js/carrousel.js') ?>"></script>
+<script type="text/javascript" src="<?= base_url('js/loader.js') ?>"></script>

@@ -116,7 +116,7 @@ header ul {
 	list-style-type: none;
 }
 
-header a{
+header a {
 	font-size: 18px;
 	transition: all ease 0.2s;
 }
@@ -153,7 +153,7 @@ li:hover svg path {
 	margin-top: -7px;
 }
 
-.connexion a{
+.connexion a {
 	display: flex;
 	align-items: center;
 }
@@ -190,3 +190,18 @@ li:hover svg path {
 /*********FOOTER*********/
 
 /*********LOADING*********/
+
+.preloader {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgb(255, 255, 255);
+	z-index: 20;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: 0.5s ease;
+	opacity: 1;
+}

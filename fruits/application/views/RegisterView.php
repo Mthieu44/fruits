@@ -62,13 +62,21 @@
         <p>Renseignez ce formulaire pour pouvoir vous inscrire</p>
         <div class="name">
             <input class="inputname" type="text" name="prenom" id="prenom" placeholder="Prenom" required>
-            <input class="inputname" type="text" name="nom" id="nom" placeholder="nom" required>
+            <input class="inputname" type="text" name="nom" id="nom" placeholder="Nom" required>
         </div>
-        <input type="email" name="email" id="email" placeholder="email" required>
-        <input type="adresse" name="adresse" id="adresse" placeholder="adresse" required>
-        <input type="telephone" name="telephone" id="telephone" placeholder="telephone" required>
-        <input type="password" name="password" id="password" placeholder="mot de passe" required>
-        <input type="password" name="password2" id="password2" placeholder=" confirmer mot de passe" required>
+        <input type="email" name="email" id="email" placeholder="Email" required>
+        <input type="adresse" name="adresse" id="adresse" placeholder="Adresse" required>
+        <input type="telephone" name="telephone" id="telephone" placeholder="Telephone" required>
+        <div class="sexe">
+            <input type="radio" name="sexe" value="homme" id="homme">
+            <label for="homme">Homme</label>
+            <input type="radio" name="sexe" value="femme" id="femme">
+            <label for="femme">Femme</label>
+            <input type="radio" name="sexe" value="autre" id="autre">
+            <label for="autre">Autre</label>
+        </div>
+        <input type="password" name="password" id="password" placeholder="Mot de passe" required>
+        <input type="password" name="password2" id="password2" placeholder=" Confirmer mot de passe" required>
         <input type="status" value="client" hidden>
         <input class="bouton" type="submit" value="S'inscrire">
 
