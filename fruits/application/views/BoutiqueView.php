@@ -52,7 +52,12 @@
               </g>
             </svg>
             <div>
-              <p>0</p>
+              <p id ="quantityPanier" >
+              <?= 
+                count($this->session->panier);
+              ?>
+
+              </p>
             </div>
           </a>
         </li>
@@ -99,23 +104,6 @@
           </div>
         </div>
       <?php endforeach; ?>
-      <script>
-        function totalQuantity(n,id){
-          var totalQuantity = document.getElementById("totalQuantity".concat(id));
-          var totalQuantityValue = parseInt(totalQuantity.innerHTML);
-          totalQuantity.innerHTML = totalQuantityValue + n;
-          // si on clique sur le bouton - et que la quantité est à 0, on ne peut pas descendre en dessous
-          if(totalQuantity.innerHTML < 0){
-            totalQuantity.innerHTML = 0;
-          }
-          /*if(n == 1){
-            <?=site_url('boutique/increase_quantity/').strval($id)?>
-          }
-          if(n == -1){
-            <?=site_url('boutique/decrease_quantity/').strval($id)?>
-          }*/
-        }
-      </script> 
       <img src="<?= base_url('img/next.png') ?>" class="fleche" alt="next" />
     </div>
   </div>
@@ -184,7 +172,20 @@
                 </a>
                 </p>
               </div>
-              <p class="p02">Ajouter au panier</p>
+              <button class = "addPanier" onclick="addPanier(<?= $fruit->getId_fruit() ?>)" id = "addPanierButton">Ajouter au panier</button>
+              <script src="<?= base_url('js/notiflix-Notiflix-dfaf93f/dist/notiflix-aio-3.2.5.min.js') ?>"></script>
+              <script>
+                var totalQuantity = document.getElementById("totalQuantity".concat(id));
+                var button = document.getElementById("addPanierButton");
+                totalQuantity.addEventListener('change', (event) => {
+                    if (totalQuantity.innerHTML > 0){
+                        button.disabled = false;
+                    }else{
+                        button.disabled = true;
+                        
+                    }
+                });
+              </script>
             </div>
           </div>
       <?php endforeach; ?>
@@ -206,3 +207,5 @@
 </html>
 
 <script type="text/javascript" src="<?= base_url('js/panier.js') ?>"></script>
+
+
