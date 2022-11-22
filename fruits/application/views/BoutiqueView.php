@@ -95,7 +95,7 @@
                 <button onclick = "totalQuantity(1,<?= $fruit->getId_fruit() ?>)">+</button>
               </p>
             </div>
-            <button onclick="addPanier(<?= $fruit->getId_fruit() ?>)">Ajouter au panier</button>
+            <button class = "addPanier" onclick="addPanier(<?= $fruit->getId_fruit() ?>)">Ajouter au panier</button>
           </div>
         </div>
       <?php endforeach; ?>
@@ -204,3 +204,5 @@
 </body>
 
 </html>
+
+<script type="text/javascript" src="<?= base_url('js/panier.js') ?>"></script>

@@ -63,7 +63,7 @@
     
 
 <div class="left-part">
-    <img src="img/orange.png" alt="orange">
+	<img src="<?= base_url('img/orange.png') ?>" alt="orange" />
     <div class="rightmenu">
         <div class="top-part2">
                 <h2 class="titre-white">Mangue</h2>
