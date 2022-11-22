@@ -9,6 +9,7 @@
     <style>
         <?php include 'css/style.css'; ?><?php include 'css/home.css'; ?><?php include 'css/produit.css'; ?>
     </style>
+
 </head>
 
 <body>
@@ -63,7 +64,8 @@
     
 
 <div class="left-part">
-	<img src="<?= base_url('img/orange.png') ?>" alt="orange" />
+
+	<img src="<?= base_url('img/fruit/' . $fruit->getImage()) ?>" alt="<?= $fruit->getImage() ?>" />
     <div class="rightmenu">
         <div class="top-part2">
                 <h2 class="titre-white">Mangue</h2>
@@ -116,50 +118,97 @@
     </div>
     <div class="fruit-menu">
 
-        <img src="img/back.png" class="fleche" alt="back" />
+    <img src="<?= base_url('img/back.png') ?>" class="fleche" alt="back" />
 
+      <?php foreach ($fruits as $fruit) : ?>
         <div class="card-product">
-            <a href="produit01.html">
-                <img src="img/orange.png" alt="oranges" />
-            </a>
-            <h2 class="p02">Orange</h2>
-            <hr class="line small">
-            <p class="p02">1.99€</p>
-            <div class="add-to-cart">
-                <p class="p02">- 0 +</p>
-                <p class="p02">Ajouter au panier</p>
+          <a href="<?= site_url('Produit') ?>">
+            <img src="<?= base_url('img/fruit/' . $fruit->getImage()) ?>" alt="<?= $fruit->getImage() ?>" />
+          </a>
+          <h2 class="p02"><?= $fruit->getNom() ?></h2>
+          <hr class="line small">
+          <p class="p02"><?= $fruit->getPrix() ?> €</p>
+          <div class="add-to-cart">
+            <div class="quantity">
+              <p class="p02">
+                <button onclick="totalQuantity(-1,<?= $fruit->getId_fruit() ?>)">-</button>
+                <span id="<?= "totalQuantity" . $fruit->getId_fruit() ?>">
+                  <?php
+                  $temp = true;
+                  foreach ($this->session->fauxPanier as $fruitPanier) {
+                    if ($fruitPanier->id_fruits == $fruit->getId_fruit()) {
+                      echo $fruitPanier->quantity;
+                      $temp = false;
+                    }
+                  }
+                  if ($temp) {
+                    echo "0";
+                  }
+                  ?>
+                </span>
+                <button onclick="totalQuantity(1,<?= $fruit->getId_fruit() ?>)">+</button>
+              </p>
             </div>
+            <p class="addPanier">Ajouter au panier</p>
+          </div>
         </div>
+      <?php endforeach; ?>
 
-        <div class="card-product">
-            <a href="produit01.html">
-                <img src="img/orange.png" alt="oranges" />
-            </a>
-            <h2 class="p02">Mangue</h2>
-            <hr class="line small">
-            <p class="p02">1.99€</p>
-            <div class="add-to-cart">
-                <p class="p02">- 0 +</p>
-                <p class="p02">Ajouter au panier</p>
-            </div>
-        </div>
 
-        <div class="card-product">
-            <a href="produit01.html">
-                <img src="img/orange.png" alt="oranges" />
-            </a>
-            <h2 class="p02">Orange</h2>
-            <hr class="line small">
-            <p class="p02">1.99€</p>
-            <div class="add-to-cart">
-                <p class="p02">- 0 +</p>
-                <p class="p02">Ajouter au panier</p>
-            </div>
-        </div>
-
-        <img src="img/next.png" class="fleche" alt="next" />
+      <img src="<?= base_url('img/next.png') ?>" class="fleche" alt="next" />
     </div>
-</div>
+  </div>
 
-
+  <div class="bestsellers">
+    <div class="top-part">
+      <hr class="line">
+      <div class="top-text">
+        <h1 class="h01">Fruits de saison</h1>
+        <p class="p01">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna </p>
+      </div>
     </div>
+    <div class="fruit-menu">
+
+      <img src="<?= base_url('img/back.png') ?>" class="fleche" alt="back" />
+
+      <?php foreach ($fruits as $fruit) : ?>
+        <div class="card-product">
+          <a href="<?= site_url('Produit') ?>">
+            <img src="<?= base_url('img/fruit/' . $fruit->getImage()) ?>" alt="<?= $fruit->getImage() ?>" />
+          </a>
+          <h2 class="p02"><?= $fruit->getNom() ?></h2>
+          <hr class="line small">
+          <p class="p02"><?= $fruit->getPrix() ?> €</p>
+          <div class="add-to-cart">
+            <div class="quantity">
+              <p class="p02">
+                <button onclick="totalQuantity(-1,<?= $fruit->getId_fruit() ?>)">-</button>
+                <span id="<?= "totalQuantity" . $fruit->getId_fruit() ?>">
+                  <?php
+                  $temp = true;
+                  foreach ($this->session->fauxPanier as $fruitPanier) {
+                    if ($fruitPanier->id_fruits == $fruit->getId_fruit()) {
+                      echo $fruitPanier->quantity;
+                      $temp = false;
+                    }
+                  }
+                  if ($temp) {
+                    echo "0";
+                  }
+                  ?>
+                </span>
+                <button onclick="totalQuantity(1,<?= $fruit->getId_fruit() ?>)">+</button>
+              </p>
+            </div>
+            <p class="addPanier">Ajouter au panier</p>
+          </div>
+        </div>
+      <?php endforeach; ?>
+      <img src="<?= base_url('img/next.png') ?>" class="fleche" alt="next" />
+    </div>
+  </div>
+    <footer></footer>
+  </body>
+  </html>
+
+    <script type="text/javascript" src="<?= base_url('js/app.js') ?>"></script>
