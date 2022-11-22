@@ -22,3 +22,8 @@ Site:
   - input label animation -> https://codepen.io/katrina-isabelle/pen/PQBqyq
   - finir partie compte
   - commande et panier
+
+DESIGN PATTERN
+->singleton BD ?
+->factory pour produit en mode pour fruit avec un construct pour faire creer le produit avec la ?
++ 

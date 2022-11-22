@@ -6,6 +6,7 @@ CREATE PROCEDURE addUser(
     IN _mail TEXT,
     IN _mdp TEXT,
     IN _telephone TEXT,
+    IN _sexe TEXT,
     IN _status TEXT
 )
 BEGIN
@@ -16,7 +17,8 @@ BEGIN
         mail,
         mdp,
         telephone,
-    STATUS
+        sexe,
+        status
     )
 VALUES(
     _prenom,
@@ -25,6 +27,7 @@ VALUES(
     _mail,
     _mdp,
     _telephone,
+    _sexe,
     _status
 );
 END //
@@ -39,6 +42,7 @@ CREATE PROCEDURE modifUser(
     IN _mail TEXT,
     IN _mdp TEXT,
     IN _telephone TEXT,
+    IN _sexe TEXT,
     IN _status TEXT
 )
 BEGIN
@@ -50,6 +54,7 @@ BEGIN
         mail = _mail,
         mdp = _mdp,
         telephone = _telephone,
+        sexe = _sexe,
         status = _status
     WHERE id_user = _id;
 END //
@@ -65,13 +70,6 @@ BEGIN
     WHERE id_user = _id;
 END //
 DELIMITER ;
-
-
-call addUser('test','test','test','test','test','test','test');
-call modifUser(8,'cbien','cbien','cbien','cbien','cbien','cbien','cbien');
-call deleteUser(8);
-
-
 
 
 DELIMITER //
@@ -132,6 +130,90 @@ END //
 DELIMITER ;
 
 
-call addFruit('banananan','10','c bon','france','banane.png');
-call modifFruit(3,'banananan','10','c bon','france','banane.png');
-call deleteFruit(3);
+
+DELIMITER //
+CREATE PROCEDURE addCategorie(
+    IN _nom TEXT,
+    IN _description TEXT
+)
+BEGIN
+    INSERT INTO categorie(
+        nom,
+        description
+    )
+VALUES(
+    _nom,
+    _description
+);
+
+END //
+DELIMITER ;
+
+DELIMITER //
+CREATE PROCEDURE modifCategorie(
+    IN _id TEXT,
+    IN _nom TEXT,
+    IN _description TEXT
+)
+BEGIN
+    UPDATE categorie
+    SET
+        nom = _nom,
+        description = _description
+    WHERE id_categorie = _id;
+END //
+DELIMITER ;
+
+DELIMITER //
+CREATE PROCEDURE deleteCategorie(
+    IN _id TEXT
+)
+BEGIN
+    DELETE FROM categorie
+    WHERE id_categorie = _id;
+END //
+DELIMITER ;
+
+
+
+DELIMITER //
+CREATE PROCEDURE addCategorieToFruit(
+    IN _id_fruit TEXT,
+    IN _id_categ TEXT
+)
+BEGIN
+    INSERT INTO categorisation(
+        id_fruit,
+        id_categorie
+    )
+VALUES(
+    _id_fruit,
+    _id_categ
+);
+
+END //
+DELIMITER ;
+
+
+DELIMITER //
+CREATE PROCEDURE deleteCategorieToFruit(
+    IN _id_fruit TEXT,
+    IN _id_categ TEXT
+)
+BEGIN
+    DELETE FROM categorie
+    WHERE id_categorie = _id_categ and id_fruit = _id_fruit;
+END //
+DELIMITER ;
+
+
+
+
+DELIMITER //
+CREATE PROCEDURE getFruitById(
+    IN _id_fruit TEXT
+)
+BEGIN
+    SELECT * FROM fruit,categorie where id_fruit = _id_fruit;
+END //
+DELIMITER ;

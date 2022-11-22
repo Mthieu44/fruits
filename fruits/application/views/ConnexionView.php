@@ -69,7 +69,7 @@
             <label for="mail">Mail :</label>
             <input id="mail" type="email" name="mail" placeholder="Votre mail">
             <label for="password">Mot de passe :</label>
-            <input id="password" type="text" name="password" placeholder="Votre mot de passe">
+            <input id="password" type="password" name="password" placeholder="Votre mot de passe">
             <div class="bottom-text">
 
                 <p class="erreur">
