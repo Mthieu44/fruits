@@ -49,7 +49,11 @@
                             </g>
                         </svg>
                         <div>
-                            <p>0</p>
+                        <p id ="quantityPanier" >
+                        <?= 
+                        count($this->session->panier);
+                        ?>
+                        </p>
                         </div>
                     </a>
                 </li>

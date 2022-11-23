@@ -16,7 +16,6 @@ class UserModel extends CI_Model
 			$user->setEncryptedPassword($response->mdp);
 			$user->setStatus($response->status);
 			$user->setAdresse($response->adresse);
-			$user->setSexe($response->sexe);
 			$user->settelephone($response->telephone);
 		}
 		return $user;
@@ -101,3 +100,4 @@ class UserModel extends CI_Model
 		);
 	}
 }
+?>

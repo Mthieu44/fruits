@@ -50,7 +50,11 @@
                             </g>
                         </svg>
                         <div>
-                            <p>0</p>
+                        <p id ="quantityPanier" >
+                        <?= 
+                        count($this->session->panier);
+                        ?>
+                        </p>
                         </div>
                     </a>
                 </li>
@@ -63,7 +67,7 @@
     
 
 <div class="left-part">
-	<img src="<?= base_url('img/orange.png') ?>" alt="orange" />
+    <img src="img/orange.png" alt="orange">
     <div class="rightmenu">
         <div class="top-part2">
                 <h2 class="titre-white">Mangue</h2>

@@ -1,33 +1,30 @@
 <?php
-require_once APPPATH . DIRECTORY_SEPARATOR . 'models' . DIRECTORY_SEPARATOR . "FruitEntity.php";
-require_once APPPATH . DIRECTORY_SEPARATOR . 'models' . DIRECTORY_SEPARATOR . "CategoryEntity.php";
-class FruitModel extends CI_Model
-{
+require_once APPPATH.DIRECTORY_SEPARATOR.'models'.DIRECTORY_SEPARATOR."FruitEntity.php";
+require_once APPPATH.DIRECTORY_SEPARATOR.'models'.DIRECTORY_SEPARATOR."CategoryEntity.php";
+class FruitModel extends CI_Model {
 
-	function findAll()
-	{
-		$this->db->select('*');
-		$q = $this->db->get('fruit');
-		$response = array();
-
+    function findAll(){
+	    $this->db->select('*');
+	    $q = $this->db->get('fruit');
+		$response = array(); 
+		
 		foreach ($q->result() as $row) {
 			$fruit = new FruitEntity();
 			$fruit->setId_fruit($row->id_fruit);
-			$fruit->setNom($row->nom);
+        	$fruit->setNom($row->nom);
 			$fruit->setPrix($row->prix);
 			$fruit->setDescription($row->description);
-			$fruit->setOrigine($row->origine);
 			$fruit->setImage($row->image);
+			
 			$q_category = $this->db->query('SELECT c.* FROM categorie c, categorisation ca where c.id_categorie = ca.id_categorie and ca.id_fruit = ' . $row->id_fruit);
 			$fruit->setCategory($q_category->custom_result_object('CategoryEntity'));
 
-			array_push($response, $fruit);
+			array_push($response,$fruit);
 		}
-		return $response;
+	    return $response;
 	}
 
-	function findById($id)
-	{
+	function findById($id){
 		$this->db->select('*');
 		$this->db->where('id_fruit', $id);
 		$q = $this->db->get('fruit');
@@ -38,11 +35,11 @@ class FruitModel extends CI_Model
 			$fruit->setPrix($row->prix);
 			$fruit->setDescription($row->description);
 			$fruit->setImage($row->image);
-			$fruit->setOrigine($row->origine);
-
+			
 			$q_category = $this->db->query('SELECT c.* FROM categorie c, categorisation ca where c.id_categorie = ca.id_categorie and ca.id_fruit = ' . $row->id_fruit);
 			$fruit->setCategory($q_category->custom_result_object('CategoryEntity'));
 		}
 		return $fruit;
 	}
 }
+
