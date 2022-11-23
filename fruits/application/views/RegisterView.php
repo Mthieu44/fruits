@@ -57,16 +57,16 @@
             </ul>
         </nav>
     </header>
-    <form action=".php" method="post" class="register">
+    <form action="<?= site_url('User/register') ?>" method="post" class="register">
         <h1>Inscrivez vous</h1>
         <p>Renseignez ce formulaire pour pouvoir vous inscrire</p>
         <div class="name">
-            <input class="inputname" type="text" name="prenom" id="prenom" placeholder="Prenom" required>
-            <input class="inputname" type="text" name="nom" id="nom" placeholder="Nom" required>
+            <input class="inputname" type="text" name="prenom" id="prenom" placeholder="Prenom" maxlength="20" required>
+            <input class="inputname" type="text" name="nom" id="nom" placeholder="Nom" maxlength="20" required>
         </div>
-        <input type="email" name="email" id="email" placeholder="Email" required>
-        <input type="adresse" name="adresse" id="adresse" placeholder="Adresse" required>
-        <input type="telephone" name="telephone" id="telephone" placeholder="Telephone" required>
+        <input type="email" name="email" id="email" placeholder="Email" maxlength="60" required>
+        <input type="adresse" name="adresse" id="adresse" placeholder="Adresse" maxlength="60" required>
+        <input type="tel" pattern="^((\+\d{1,3}(-| )?\(?\d\)?(-| )?\d{1,5})|(\(?\d{2,6}\)?))(-| )?(\d{3,4})(-| )?(\d{4})(( x| ext)\d{1,5}){0,1}$" name="telephone" id="telephone" placeholder="Telephone (10 chiffres)" required>
         <div class="sexe">
             <input type="radio" name="sexe" value="homme" id="homme">
             <label for="homme">Homme</label>
@@ -75,9 +75,9 @@
             <input type="radio" name="sexe" value="autre" id="autre">
             <label for="autre">Autre</label>
         </div>
-        <input type="password" name="password" id="password" placeholder="Mot de passe" required>
-        <input type="password" name="password2" id="password2" placeholder=" Confirmer mot de passe" required>
-        <input type="status" value="client" hidden>
+        <input type="password" name="password" id="password" placeholder="Mot de passe" maxlength="20" required>
+        <input type="password" name="password2" id="password2" placeholder=" Confirmer mot de passe" maxlength="20" required>
+        <input type="hidden" name="status" value="client">
         <input class="bouton" type="submit" value="S'inscrire">
 
         <a class="text-min" href="<?= site_url('Connexion') ?>">Déjà Inscrit ?</a>

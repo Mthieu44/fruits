@@ -35,7 +35,7 @@
                         if (!isset($this->session->user)) {
                             echo ("Connexion");
                         } else {
-                            echo ($this->session->user["prenom"]);
+                            echo ($this->session->user["user"]->getPrenom());
                         }
                         ?>
                     </a>
@@ -60,41 +60,30 @@
 
     <h2>Votre compte</h2>
     <div class="infos">
-        <div class="champ">
-            <p class="p02">Prénom</p>
-            <p class="fieldtext">Djemila</p>
+        <div class="profil">
+            <div class="case nom">
+                <h1><?= $this->session->user["user"]->getPrenom() ?></h1>
+                <h1><?= $this->session->user["user"]->getNOm() ?></h1>
+            </div>
+            <div class="case">
+                <p>Telephone :</p>
+                <p><?= $this->session->user["user"]->getTelephone() ?></p>
+            </div>
+            <div class="case">
+                <p>Email :</p>
+                <p><?= $this->session->user["user"]->getMail() ?></p>
+            </div>
+            <div class="case">
+                <p>Adresse :</p>
+                <p><?= $this->session->user["user"]->getAdresse() ?></p>
+            </div>
+            <a href="<?= site_url('User/todo') ?>" class="button">Modifier informations</a>
+            <a href="<?= site_url('Connexion/logout') ?>" class="button">logout</a>
         </div>
-        <div class="champ">
-            <p class="p02">Adresse Mail </p>
-            <p class="fieldtext">djemila.table@gmail.com</p>
-        </div>
-        <div class="champ">
-            <p class="p02">Nom</p>
-            <p class="fieldtext">Table</p>
-        </div>
-        <div class="champ">
-            <p class="p02">Mot de passe</p>
-            <p class="fieldtext">********</p>
-        </div>
-        <div class="champ">
-            <p class="p02">N° de téléphone</p>
-            <p class="fieldtext">0648554954</p>
-        </div>
-        <div>
-        </div>
-        <div class="champ">
-            <p class="p02">Adresse</p>
-            <p class="fieldtext">84 place de la canneberge</p>
-        </div>
-        <div class="champ">
-            <a href="editAccount.html" class="bouton">Modifier mes informations</a>
+        <div class="commandes">
+            <p>Historique des commandes :</p>
         </div>
     </div>
-
-
-
-    <p>Client</p>
-    <a href="<?= site_url('Connexion/logout') ?>">logout</a>
 </body>
 
 </html>

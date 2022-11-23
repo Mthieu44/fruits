@@ -202,9 +202,22 @@ li:hover svg path {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	transition: 0.5s ease;
+	transition: 0.3s ease-in-out;
 	opacity: 1;
 }
 
-.preloader image {
+.loader {
+	height: 150px;
+	width: 150px;
+	transform-origin: center center;
+	animation: spin 1.2s linear infinite;
+}
+
+@keyframes spin {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
 }

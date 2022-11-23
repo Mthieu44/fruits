@@ -19,10 +19,12 @@ class Connexion extends CI_Controller
 			$this->load->view('ConnexionView', array('msg' => "Identifiants invalides"));
 		} elseif (isset($this->session->user["status"])) {
 			if ($this->session->user["status"] == 'admin') {
-				$this->load->view('AdminView');
-			} elseif ($this->session->user["status"] == 'reponsable') {
+				$users = $this->UserModel->findAll();
+				$this->load->view('AdminView', array('users' => $users));
+			} elseif ($this->session->user["status"] == 'responsable') {
 				$this->load->view('ResponsableView');
 			} elseif ($this->session->user["status"] == 'client') {
+				$users = $this->UserModel->findAll();
 				$this->load->view('ClientView');
 			}
 		} else {
@@ -37,7 +39,7 @@ class Connexion extends CI_Controller
 		$user = $this->UserModel->findByMail($mail);
 
 		if ($user != null && $user->isValidPassword($password)) {
-			$this->session->set_userdata("user", array("prenom" => $user->getPrenom(), "status" => $user->getStatus(), "id_user" => $user->getId_user()));
+			$this->session->set_userdata("user", array("prenom" => $user->getPrenom(), "status" => $user->getStatus(), "user" => $user));
 			redirect("home");
 			die();
 		}
@@ -55,5 +57,11 @@ class Connexion extends CI_Controller
 	function register()
 	{
 		$this->load->view('RegisterView');
+	}
+
+	function user($id)
+	{
+		$user = $this->UserModel->findById($id);
+		$this->load->view('AdminView', array('user' => $user));
 	}
 }

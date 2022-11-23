@@ -1,15 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fruits • Admin</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fruits • Panier </title>
+
 
     <style>
-        <?php include 'css/style.css'; ?><?php include 'css/connexion.css'; ?>
+        <?php include 'css/style.css'; ?><?php include 'css/connexion.css'; ?>?>
     </style>
+
 </head>
 
 <body>
@@ -28,7 +29,7 @@
                 <li class="connexion">
                     <a href="<?= site_url('Connexion') ?>" class="yellow">
                         <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="30.000000pt" height="30.000000pt" viewBox="0 0 400.000000 400.000000" preserveAspectRatio="xMidYMid meet">
-                            <g transform="translate(0.000000,400.000000) scale(0.100000,-0.100000)" fill="#000000" stroke="none">
+                            <g transform="translate(0.000000,400.000000) scale(0.100000,-0.100000)" fill="#f9b814" stroke="none">
                                 <path d="M1935 3315 c-321 -61 -566 -296 -640 -615 -22 -96 -20 -269 5 -366 68 -267 267 -484 519 -567 215 -72 411 -57 620 44 91 44 116 63 196 142 158 158 233 321 242 533 12 244 -70 450 -248 620 -187 179 -444 256 -694 209z" />
                                 <path d="M1363 1750 c-386 -239 -625 -634 -659 -1087 l-7 -93 1381 0 1380 0 -4 78 c-12 182 -65 384 -141 537 -114 228 -333 462 -544 579 l-45 26 -60 -46 c-78 -59 -239 -138 -339 -166 -116 -32 -374 -32 -490 0 -106 29 -242 95 -333 160 -40 28 -74 52 -75 51 -1 0 -30 -18 -64 -39z" />
                             </g>
@@ -51,99 +52,56 @@
                             </g>
                         </svg>
                         <div>
-                            <p>0</p>
+                            <p id="quantityPanier">0</p>
                         </div>
                     </a>
                 </li>
             </ul>
         </nav>
     </header>
-    <p>admin</p>
 
-    <h2>Votre compte</h2>
-    <div class="infos">
-        <div class="profil">
-            <div class="case nom">
-                <h1><?= $this->session->user["user"]->getPrenom() ?></h1>
-                <h1><?= $this->session->user["user"]->getNOm() ?></h1>
-            </div>
-            <div class="case">
-                <p>Telephone :</p>
-                <p><?= $this->session->user["user"]->getTelephone() ?></p>
-            </div>
-            <div class="case">
-                <p>Email :</p>
-                <p><?= $this->session->user["user"]->getMail() ?></p>
-            </div>
-            <div class="case">
-                <p>Adresse :</p>
-                <p><?= $this->session->user["user"]->getAdresse() ?></p>
-            </div>
-            <a href="<?= site_url('User/todo') ?>" class="button">Modifier informations</a>
-            <a href="<?= site_url('Connexion/logout') ?>" class="button">logout</a>
+    <form action="<?= site_url('User/modifUser') ?>" method="post" class="register">
+        <p>Modifier un utilisateur</p>
+        <input name="id_user" value="<?= $user->getId_user() ?>" hidden>
+        <input class="inputname" type="text" name="prenom" id="prenom" placeholder="Prenom" maxlength="20" required value="<?= $user->getPrenom() ?>">
+        <input class="inputname" type="text" name="nom" id="nom" placeholder="Nom" maxlength="20" required value="<?= $user->getNom() ?>">
+        <input type="email" name="email" id="email" placeholder="Email" maxlength="60" required value="<?= $user->getMail() ?>">
+        <input type="adresse" name="adresse" id="adresse" placeholder="Adresse" maxlength="60" required value="<?= $user->getAdresse() ?>">
+        <input type="tel" pattern="^((\+\d{1,3}(-| )?\(?\d\)?(-| )?\d{1,5})|(\(?\d{2,6}\)?))(-| )?(\d{3,4})(-| )?(\d{4})(( x| ext)\d{1,5}){0,1}$" name="telephone" id="telephone" placeholder="Telephone" required value="<?= $user->getTelephone() ?>">
+        <div class="sexe">
+            <input type="radio" name="sexe" value="homme" id="homme" <?php if ($user->getSexe() == 'homme') {
+                                                                            echo ('checked');
+                                                                        } ?>>
+            <label for="homme">Homme</label>
+            <input type="radio" name="sexe" value="femme" id="femme" <?php if ($user->getSexe() == 'femme') {
+                                                                            echo ('checked');
+                                                                        } ?>>
+            <label for="femme">Femme</label>
+            <input type="radio" name="sexe" value="autre" id="autre" <?php if ($user->getSexe() == 'autre') {
+                                                                            echo ('checked');
+                                                                        } ?>>
+            <label for="autre">Autre</label>
         </div>
-        <div class="commandes">
-            <p>Historique des commandes :</p>
+        <a class="reset" href="<?= site_url('User/ResetMdp') ?>">Reset Mot de passe</a>
+        <div class="sexe">
+            <input type="radio" name="status" value="client" id="client" <?php if ($user->getStatus() == 'client') {
+                                                                                echo ('checked');
+                                                                            } ?>>
+            <label for="client">Client</label>
+            <input type="radio" name="status" value="responsable" id="responsable" <?php if ($user->getStatus() == 'responsable') {
+                                                                                        echo ('checked');
+                                                                                    } ?>>
+            <label for="responsable">Responsable</label>
+            <input type="radio" name="status" value="admin" id="admin" <?php if ($user->getStatus() == 'admin') {
+                                                                            echo ('checked');
+                                                                        } ?>>
+            <label for="admin">Admin</label>
         </div>
-    </div>
+        <input class="bouton" type="submit" value="Valider">
+        <a href="<?= site_url('Connexion') ?>">Retour à la page</a>
 
 
-    <div class="table">
-        <a href=" <?= site_url('User/add/') ?>">Ajouter User</a>
-        <table>
-            <tr>
-                <th> id </th>
-                <th> prenom </th>
-                <th> nom </th>
-                <th> adresse </th>
-                <th> mail </th>
-                <th> telephone </th>
-                <th> sexe </th>
-                <th> mdp </th>
-                <th> status </th>
-            </tr>
-
-            <?php foreach ($users as $user) : ?>
-                <tr>
-                    <td>
-                        <?= $user->getId_user() ?>
-                    </td>
-                    <td>
-                        <?= $user->getNom() ?>
-                    </td>
-                    <td>
-                        <?= $user->getPrenom() ?>
-                    </td>
-                    <td>
-                        <?= $user->getAdresse() ?>
-                    </td>
-                    <td>
-                        <?= $user->getMail() ?>
-                    </td>
-                    <td>
-                        <?= $user->getTelephone() ?>
-                    </td>
-                    <td>
-                        <?= $user->getSexe() ?>
-                    </td>
-                    <td>
-                        <p>******</p>
-                    </td>
-                    <td>
-                        <?= $user->getStatus() ?>
-                    </td>
-                    <td>
-                        <a href="<?= site_url('User/modif/' . $user->getId_user()) ?>"> modif</a>
-                    </td>
-                    <td>
-                        <a href="<?= site_url('User/delete/' . $user->getId_user()) ?>"> delete</a>
-                    </td>
-                </tr>
-            <?php endforeach; ?>
-        </table>
-    </div>
-
-
+    </form>
 
 </body>
 

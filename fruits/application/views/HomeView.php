@@ -1,3 +1,8 @@
+<?php
+$tab = array("apple.png", "grapefruit.png", "kiwi.png", "lemon.png", "lime.png", "orange.png", "watermelon.png");
+$loader = $tab[random_int(0, 6)];
+?>
+
 <html lang="fr">
 
 <head>
@@ -13,8 +18,7 @@
 
 <body>
   <div id="preloader" class="preloader">
-    <h1>Fruits</h1>
-    <span class="loader"></span>
+    <img src="<?= base_url('img/loader/' . $loader) ?>" class="loader">
   </div>
 
   <header>
@@ -135,7 +139,7 @@
     </div>
     <div class="fruit-menu">
 
-    <img src="<?= base_url('img/back.png') ?>" class="fleche" alt="back" />
+      <img src="<?= base_url('img/back.png') ?>" class="fleche" alt="back" />
 
       <?php foreach ($fruits as $fruit) : ?>
         <div class="card-product">
