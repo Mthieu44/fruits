@@ -1,3 +1,8 @@
+<?php
+$tab = array("apple.png", "grapefruit.png", "kiwi.png", "lemon.png", "lime.png", "orange.png", "watermelon.png");
+$loader = $tab[random_int(0, 6)];
+?>
+
 <html lang="fr">
 
 <head>
@@ -14,6 +19,10 @@
 </head>
 
 <body>
+    <div id="preloader" class="preloader">
+        <img src="<?= base_url('img/loader/' . $loader) ?>" class="loader">
+    </div>
+
     <header>
         <a href="<?= site_url('Home') ?>" class="logo">
             <img src="<?= base_url('img/header/logo.png') ?>" alt="fruit" class="logo2" />
@@ -22,12 +31,12 @@
         <nav>
 
             <ul>
-                <li><a href="<?= site_url('Home') ?>">Accueil</a></li>
+                <li><a href="<?= site_url('Home') ?>" class="yellow">Accueil</a></li>
                 <li><a href=" <?= site_url('Boutique') ?>">Boutique</a></li>
                 <li><a href="<?= site_url('APropos') ?>" class="propos">A propos</a></li>
                 <li><a href="<?= site_url('Contact') ?>">Contact</a></li>
                 <li class="connexion">
-                    <a href="<?= site_url('Connexion') ?>" class="yellow">
+                    <a href="<?= site_url('Connexion') ?>">
                         <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="30.000000pt" height="30.000000pt" viewBox="0 0 400.000000 400.000000" preserveAspectRatio="xMidYMid meet">
                             <g transform="translate(0.000000,400.000000) scale(0.100000,-0.100000)" fill="#000000" stroke="none">
                                 <path d="M1935 3315 c-321 -61 -566 -296 -640 -615 -22 -96 -20 -269 5 -366 68 -267 267 -484 519 -567 215 -72 411 -57 620 44 91 44 116 63 196 142 158 158 233 321 242 533 12 244 -70 450 -248 620 -187 179 -444 256 -694 209z" />
@@ -52,11 +61,11 @@
                             </g>
                         </svg>
                         <div>
-                        <p id ="quantityPanier" >
-                        <?= 
-                        count($this->session->panier);
-                        ?>
-                        </p>
+                            <p id="quantityPanier">
+                                <?=
+                                count($this->session->panier);
+                                ?>
+                            </p>
                         </div>
                     </a>
                 </li>
@@ -95,3 +104,6 @@
 
 
 </html>
+
+<script type="text/javascript" src="<?= base_url('js/loader.js') ?>"></script>
+<script type="text/javascript" src="<?= base_url('js/panier.js') ?>"></script>

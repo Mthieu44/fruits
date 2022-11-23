@@ -59,7 +59,11 @@ $loader = $tab[random_int(0, 6)];
               </g>
             </svg>
             <div>
-              <p>120</p>
+              <p id="quantityPanier">
+                <?=
+                count($this->session->panier);
+                ?>
+              </p>
             </div>
           </a>
         </li>

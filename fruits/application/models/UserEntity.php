@@ -9,8 +9,9 @@ class UserEntity
     private string $password = "";
     private string $status;
     private string $adresse;
+    private string $sexe;
     private string $telephone;
-    
+
 
     public function getId_user(): string
     {
@@ -59,10 +60,11 @@ class UserEntity
         return $this->mdp;
     }
 
-    public function isValidPassword(string $password):bool {
+    public function isValidPassword(string $password): bool
+    {
         return password_verify($password, $this->password);
     }
-    
+
     public function getPassword()
     {
         return $this->password;
@@ -70,7 +72,7 @@ class UserEntity
 
     public function setPassword($password): void
     {
-        $this->password =password_hash($password, PASSWORD_DEFAULT);
+        $this->password = password_hash($password, PASSWORD_DEFAULT);
     }
 
     public function setEncryptedPassword($password): void
@@ -106,5 +108,14 @@ class UserEntity
     public function setTelephone(string $telephone): void
     {
         $this->telephone = $telephone;
+    }
+    public function getSexe(): string
+    {
+        return $this->sexe;
+    }
+
+    public function setSexe(string $sexe): void
+    {
+        $this->sexe = $sexe;
     }
 }

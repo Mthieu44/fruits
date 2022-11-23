@@ -1,3 +1,8 @@
+<?php
+$tab = array("apple.png", "grapefruit.png", "kiwi.png", "lemon.png", "lime.png", "orange.png", "watermelon.png");
+$loader = $tab[random_int(0, 6)];
+?>
+
 <html lang="fr">
 
 <head>
@@ -8,12 +13,16 @@
 
 
   <style>
-    <?php include 'css/style.css';?><?php include 'css/boutique.css';?><?php include 'css/home.css';?>
+    <?php include 'css/style.css'; ?><?php include 'css/boutique.css'; ?><?php include 'css/home.css'; ?>
   </style>
 
 </head>
 
 <body>
+  <div id="preloader" class="preloader">
+    <img src="<?= base_url('img/loader/' . $loader) ?>" class="loader">
+  </div>
+
   <header>
     <a href="<?= site_url('Home') ?>" class="logo">
       <img src="<?= base_url('img/header/logo.png') ?>" alt="fruit" class="logo2" />
@@ -22,18 +31,18 @@
     <nav>
 
       <ul>
-        <li><a href="<?= site_url('Home') ?>">Accueil</a></li>
-        <li><a href=" <?= site_url('Boutique') ?>" class="yellow">Boutique</a></li>
+        <li><a href="<?= site_url('Home') ?>" class="yellow">Accueil</a></li>
+        <li><a href=" <?= site_url('Boutique') ?>">Boutique</a></li>
         <li><a href="<?= site_url('APropos') ?>" class="propos">A propos</a></li>
         <li><a href="<?= site_url('Contact') ?>">Contact</a></li>
         <li class="connexion">
           <a href="<?= site_url('Connexion') ?>">
-          <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="30.000000pt" height="30.000000pt" viewBox="0 0 400.000000 400.000000" preserveAspectRatio="xMidYMid meet">
-            <g transform="translate(0.000000,400.000000) scale(0.100000,-0.100000)" fill="#000000" stroke="none">
-              <path d="M1935 3315 c-321 -61 -566 -296 -640 -615 -22 -96 -20 -269 5 -366 68 -267 267 -484 519 -567 215 -72 411 -57 620 44 91 44 116 63 196 142 158 158 233 321 242 533 12 244 -70 450 -248 620 -187 179 -444 256 -694 209z" />
-              <path d="M1363 1750 c-386 -239 -625 -634 -659 -1087 l-7 -93 1381 0 1380 0 -4 78 c-12 182 -65 384 -141 537 -114 228 -333 462 -544 579 l-45 26 -60 -46 c-78 -59 -239 -138 -339 -166 -116 -32 -374 -32 -490 0 -106 29 -242 95 -333 160 -40 28 -74 52 -75 51 -1 0 -30 -18 -64 -39z" />
-            </g>
-          </svg>
+            <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="30.000000pt" height="30.000000pt" viewBox="0 0 400.000000 400.000000" preserveAspectRatio="xMidYMid meet">
+              <g transform="translate(0.000000,400.000000) scale(0.100000,-0.100000)" fill="#000000" stroke="none">
+                <path d="M1935 3315 c-321 -61 -566 -296 -640 -615 -22 -96 -20 -269 5 -366 68 -267 267 -484 519 -567 215 -72 411 -57 620 44 91 44 116 63 196 142 158 158 233 321 242 533 12 244 -70 450 -248 620 -187 179 -444 256 -694 209z" />
+                <path d="M1363 1750 c-386 -239 -625 -634 -659 -1087 l-7 -93 1381 0 1380 0 -4 78 c-12 182 -65 384 -141 537 -114 228 -333 462 -544 579 l-45 26 -60 -46 c-78 -59 -239 -138 -339 -166 -116 -32 -374 -32 -490 0 -106 29 -242 95 -333 160 -40 28 -74 52 -75 51 -1 0 -30 -18 -64 -39z" />
+              </g>
+            </svg>
             <?php
             if (!isset($this->session->user)) {
               echo ("Connexion");
@@ -52,11 +61,10 @@
               </g>
             </svg>
             <div>
-              <p id ="quantityPanier" >
-              <?= 
+              <p id="quantityPanier">
+                <?=
                 count($this->session->panier);
-              ?>
-
+                ?>
               </p>
             </div>
           </a>
@@ -64,6 +72,7 @@
       </ul>
     </nav>
   </header>
+
   <div class="bestsellers">
     <div class="top-part">
       <div class="top-text">
@@ -85,35 +94,35 @@
           <div class="add-to-cart">
             <div class="quantity">
               <p class="p02">
-                <button onclick = "totalQuantity(-1,<?= $fruit->getId_fruit() ?>)">-</button>
-                <span id = "<?="totalQuantity".$fruit->getId_fruit()?>" ><?php 
-                  $temp = true;
-                  foreach ($this->session->fauxPanier as $fruitPanier) {
-                    if ($fruitPanier->id_fruits == $fruit->getId_fruit()) {
-                        echo $fruitPanier->quantity;
-                        $temp = false;
-                        }
-                    }
-                    if($temp){
-                        echo "0";
-                    }?></span>
-                <button onclick = "totalQuantity(1,<?= $fruit->getId_fruit() ?>)">+</button>
+                <button onclick="totalQuantity(-1,<?= $fruit->getId_fruit() ?>)">-</button>
+                <span id="<?= "totalQuantity" . $fruit->getId_fruit() ?>"><?php
+                                                                          $temp = true;
+                                                                          foreach ($this->session->fauxPanier as $fruitPanier) {
+                                                                            if ($fruitPanier->id_fruits == $fruit->getId_fruit()) {
+                                                                              echo $fruitPanier->quantity;
+                                                                              $temp = false;
+                                                                            }
+                                                                          }
+                                                                          if ($temp) {
+                                                                            echo "0";
+                                                                          } ?></span>
+                <button onclick="totalQuantity(1,<?= $fruit->getId_fruit() ?>)">+</button>
               </p>
             </div>
-            <button class = "addPanier" onclick="addPanier(<?= $fruit->getId_fruit() ?>)">Ajouter au panier</button>
+            <button class="addPanier" onclick="addPanier(<?= $fruit->getId_fruit() ?>)">Ajouter au panier</button>
             <script src="<?= base_url('js/notiflix-Notiflix-dfaf93f/dist/notiflix-aio-3.2.5.min.js') ?>"></script>
-              <script>
-                var totalQuantity = document.getElementById("totalQuantity".concat(<?= $fruit->getId_fruit() ?>));
-                var button = document.getElementById("addPanierButton");
-                totalQuantity.addEventListener('change', (event) => {
-                    if (totalQuantity.innerHTML > 0){
-                        button.disabled = false;
-                    }else{
-                        button.disabled = true;
-                        
-                    }
-                });
-              </script>
+            <script>
+              var totalQuantity = document.getElementById("totalQuantity".concat(<?= $fruit->getId_fruit() ?>));
+              var button = document.getElementById("addPanierButton");
+              totalQuantity.addEventListener('change', (event) => {
+                if (totalQuantity.innerHTML > 0) {
+                  button.disabled = false;
+                } else {
+                  button.disabled = true;
+
+                }
+              });
+            </script>
           </div>
         </div>
       <?php endforeach; ?>
@@ -156,66 +165,65 @@
 
 
   <div class="productsMenu">
-  <?php foreach ($fruits as $fruit) : ?>
-        <div class="card-product">
-          <a href="<?= site_url('Produit') ?>">
-            <img src="<?= base_url('img/fruit/' . $fruit->getImage()) ?>" alt="<?= $fruit->getImage() ?>" />
-          </a>
-          <h2 class="p02"><?= $fruit->getNom() ?></h2>
-          <hr class="line small">
-          <p class="p02"><?= $fruit->getPrix() ?> €</p>
-          <div class="add-to-cart">
-            <div class="quantity">
-              <p class="p02">
-                <button onclick = "totalQuantity(-1,<?= $fruit->getId_fruit() ?>)">-</button>
-                <span id = "<?="totalQuantity".$fruit->getId_fruit()?>" ><?php 
-                  $temp = true;
-                  foreach ($this->session->fauxPanier as $fruitPanier) {
-                    if ($fruitPanier->id_fruits == $fruit->getId_fruit()) {
-                        echo $fruitPanier->quantity;
-                        $temp = false;
-                        }
-                    }
-                    if($temp){
-                        echo "0";
-                    }?></span>
-                <button onclick = "totalQuantity(1,<?= $fruit->getId_fruit() ?>)">+</button>
-              </p>
-            </div>
-            <button class = "addPanier" onclick="addPanier(<?= $fruit->getId_fruit() ?>)">Ajouter au panier</button>
-            <script src="<?= base_url('js/notiflix-Notiflix-dfaf93f/dist/notiflix-aio-3.2.5.min.js') ?>"></script>
-              <script>
-                var totalQuantity = document.getElementById("totalQuantity".concat(<?= $fruit->getId_fruit() ?>));
-                var button = document.getElementById("addPanierButton");
-                totalQuantity.addEventListener('change', (event) => {
-                    if (totalQuantity.innerHTML > 0){
-                        button.disabled = false;
-                    }else{
-                        button.disabled = true;
-                        
-                    }
-                });
-              </script>
+    <?php foreach ($fruits as $fruit) : ?>
+      <div class="card-product">
+        <a href="<?= site_url('Produit') ?>">
+          <img src="<?= base_url('img/fruit/' . $fruit->getImage()) ?>" alt="<?= $fruit->getImage() ?>" />
+        </a>
+        <h2 class="p02"><?= $fruit->getNom() ?></h2>
+        <hr class="line small">
+        <p class="p02"><?= $fruit->getPrix() ?> €</p>
+        <div class="add-to-cart">
+          <div class="quantity">
+            <p class="p02">
+              <button onclick="totalQuantity(-1,<?= $fruit->getId_fruit() ?>)">-</button>
+              <span id="<?= "totalQuantity" . $fruit->getId_fruit() ?>"><?php
+                                                                        $temp = true;
+                                                                        foreach ($this->session->fauxPanier as $fruitPanier) {
+                                                                          if ($fruitPanier->id_fruits == $fruit->getId_fruit()) {
+                                                                            echo $fruitPanier->quantity;
+                                                                            $temp = false;
+                                                                          }
+                                                                        }
+                                                                        if ($temp) {
+                                                                          echo "0";
+                                                                        } ?></span>
+              <button onclick="totalQuantity(1,<?= $fruit->getId_fruit() ?>)">+</button>
+            </p>
           </div>
-        </div>
-      <?php endforeach; ?>
-    </div>
-      <div class="navpages">
-        <a href="index.html">
-          <- </a>
-            <a href="index.html">1 - </a>
-            <a href="index2.html">2 - </a>
-            <a href="index3.html">3</a>
-            <a href="index4.html"> -></a>
-      </div>
+          <button class="addPanier" onclick="addPanier(<?= $fruit->getId_fruit() ?>)">Ajouter au panier</button>
+          <script src="<?= base_url('js/notiflix-Notiflix-dfaf93f/dist/notiflix-aio-3.2.5.min.js') ?>"></script>
+          <script>
+            var totalQuantity = document.getElementById("totalQuantity".concat(<?= $fruit->getId_fruit() ?>));
+            var button = document.getElementById("addPanierButton");
+            totalQuantity.addEventListener('change', (event) => {
+              if (totalQuantity.innerHTML > 0) {
+                button.disabled = false;
+              } else {
+                button.disabled = true;
 
-      <footer>
-        <p>Tous droits réservés.</p>
-      </footer>
+              }
+            });
+          </script>
+        </div>
+      </div>
+    <?php endforeach; ?>
+  </div>
+  <div class="navpages">
+    <a href="index.html">
+      <- </a>
+        <a href="index.html">1 - </a>
+        <a href="index2.html">2 - </a>
+        <a href="index3.html">3</a>
+        <a href="index4.html"> -></a>
+  </div>
+
+  <footer>
+    <p>Tous droits réservés.</p>
+  </footer>
 </body>
 
 </html>
 
 <script type="text/javascript" src="<?= base_url('js/panier.js') ?>"></script>
-
-
+<script type="text/javascript" src="<?= base_url('js/loader.js') ?>"></script>
