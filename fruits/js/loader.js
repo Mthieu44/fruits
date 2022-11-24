@@ -1,4 +1,14 @@
+/*
 function fade() {
+	
+}
+
+window.addEventListener("load", (event) => {
+	fade();
+});
+*/
+
+window.addEventListener('load', function () {
 	var styleBySelector = {};
 	for (var j = 0; j < document.styleSheets.length; j++) {
 		var styleList =
@@ -13,8 +23,4 @@ function fade() {
 		el = document.getElementById("preloader");
 		el.parentNode.removeChild(el);
 	}, 500);
-}
-
-window.addEventListener("load", (event) => {
-	fade();
-});
+  })
