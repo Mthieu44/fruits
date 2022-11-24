@@ -109,7 +109,6 @@ class UserEntity
     {
         $this->telephone = $telephone;
     }
-
     public function getSexe(): string
     {
         return $this->sexe;

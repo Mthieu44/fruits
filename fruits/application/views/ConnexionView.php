@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="fr">
 
 <head>
@@ -5,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Fruits • Connexion </title>
-
-
+    <link rel="icon" href="<?= base_url('img/header/logo.png') ?>" />
+    <?php require('loader.php'); ?>
     <style>
         <?php include 'css/style.css'; ?><?php include 'css/connexion.css'; ?>
     </style>
@@ -14,6 +15,10 @@
 </head>
 
 <body>
+    <div id="preloader" class="preloader">
+        <img src="<?= base_url('img/loader/' . $loader) ?>" class="loader">
+    </div>
+
     <header>
         <a href="<?= site_url('Home') ?>" class="logo">
             <img src="<?= base_url('img/header/logo.png') ?>" alt="fruit" class="logo2" />
@@ -52,7 +57,11 @@
                             </g>
                         </svg>
                         <div>
-                            <p>0</p>
+                            <p id="quantityPanier">
+                                <?=
+                                count($this->session->panier);
+                                ?>
+                            </p>
                         </div>
                     </a>
                 </li>
@@ -90,4 +99,5 @@
 
 </html>
 
-<script type="text/javascript" src="<?= base_url('js/panierDroite.js') ?>"></script>
+<script type="text/javascript" src="<?= base_url('js/loader.js') ?>"></script>
+<script type="text/javascript" src="<?= base_url('js/panier.js') ?>"></script>

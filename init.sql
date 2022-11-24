@@ -1,4 +1,4 @@
-call addUser('responsable','Admin','chez ta maman','admin@test','$2y$10$JMuuaDMCavASPKf9KBcD1eaMHJ0zkeD8eYs7HjecoD8QeUVRhKQq6','123456789','homme', 'admin');
+call addUser('Admin','Admin','chez ta maman','admin@test','$2y$10$JMuuaDMCavASPKf9KBcD1eaMHJ0zkeD8eYs7HjecoD8QeUVRhKQq6','123456789','homme', 'admin');
 call addUser('Client','Client','chez ta maman','client@test','$2y$10$JMuuaDMCavASPKf9KBcD1eaMHJ0zkeD8eYs7HjecoD8QeUVRhKQq6','123456789','femme', 'client');
 call addUser('Responsable','Responsable','chez ta maman','responsable@test','$2y$10$JMuuaDMCavASPKf9KBcD1eaMHJ0zkeD8eYs7HjecoD8QeUVRhKQq6','123456789','autre', 'responsable');
 /*

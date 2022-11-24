@@ -35,7 +35,7 @@
         height: auto   ;
         width: 658px;
         margin-left: 0 auto;
-        family: 'Inter', sans-serif;
+        font-family: 'Inter', sans-serif;
         color: #7DD181;
         text-align: center;
     }
@@ -63,7 +63,8 @@
       width: 60px;
       height: 60px;
       border-radius: 50%;
-      border: 3px solid black;
+      border: 1px solid black;
+      border-color:  var(--green-300);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -73,20 +74,28 @@
     }
     
     #btn:hover {
-      background-color: #fad961;
+      background-color: #FFFFFF;
+    ;
     }
     
     #btn:hover ion-icon {
-      animation: upAndDown 0.3s alternate infinite;
+      animation: roll 0.3s alternate ;
     }
     
-    @keyframes upAndDown {
-      0% {
-        transform: translateY(3px);
-      }
-      100% {
-        transform: translateY(-3px);
-      }
+    
+    @-webkit-keyframes roll {
+    from { -webkit-transform: rotate(0deg) }
+    to   { -webkit-transform: rotate(360deg) }
+    }
+    
+    @-moz-keyframes roll {
+    from { -moz-transform: rotate(0deg) }
+    to   { -moz-transform: rotate(360deg) }
+    }
+    
+    @keyframes roll {
+    from { transform: rotate(0deg) }
+    to   { transform: rotate(360deg) }
     }
     
     

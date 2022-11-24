@@ -31,6 +31,8 @@ CREATE TABLE usertab(
         (20) NOT NULL
 );
 
+ALTER TABLE `usertab` ADD UNIQUE(`mail`);
+
 /*
 CREATE TABLE commande(
     id_commande INT PRIMARY KEY AUTO_INCREMENT,
