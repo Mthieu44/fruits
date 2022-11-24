@@ -4,7 +4,6 @@ require_once APPPATH.DIRECTORY_SEPARATOR.'models'.DIRECTORY_SEPARATOR."ProduitEn
 
 class Boutique extends CI_Controller
 {
-	private array $panier = [];
 
 	public function __construct(){
 		parent::__construct();
