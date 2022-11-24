@@ -89,7 +89,7 @@ $loader = $tab[random_int(0, 6)];
             <img src="<?= base_url('img/fruit/' . $fruit->getImage()) ?>" alt="<?= $fruit->getImage() ?>" />
           </a>
           <h2 class="p02"><?= $fruit->getNom() ?></h2>
-          <hr class="line small">
+          
           <p class="p02"><?= $fruit->getPrix() ?> €</p>
           <div class="add-to-cart">
             <div class="quantity">
@@ -109,20 +109,8 @@ $loader = $tab[random_int(0, 6)];
                 <button onclick="totalQuantity(1,<?= $fruit->getId_fruit() ?>)">+</button>
               </p>
             </div>
-            <button class="addPanier" onclick="addPanier(<?= $fruit->getId_fruit() ?>)">Ajouter au panier</button>
             <script src="<?= base_url('js/notiflix-Notiflix-dfaf93f/dist/notiflix-aio-3.2.5.min.js') ?>"></script>
-            <script>
-              var totalQuantity = document.getElementById("totalQuantity".concat(<?= $fruit->getId_fruit() ?>));
-              var button = document.getElementById("addPanierButton");
-              totalQuantity.addEventListener('change', (event) => {
-                if (totalQuantity.innerHTML > 0) {
-                  button.disabled = false;
-                } else {
-                  button.disabled = true;
-
-                }
-              });
-            </script>
+            
           </div>
         </div>
       <?php endforeach; ?>

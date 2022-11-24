@@ -10,6 +10,12 @@ class Connexion extends CI_Controller
 		$this->load->helper('url');
 		$this->load->library('session');
 		$this->load->model('UserModel');
+		if (!isset($this->session->panier)){
+			$this->session->set_userdata("panier",array());
+		}
+		if (!isset($this->session->fauxPanier)){
+			$this->session->set_userdata("fauxPanier",array());
+		}
 	}
 
 	function index()

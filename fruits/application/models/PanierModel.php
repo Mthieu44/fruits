@@ -28,7 +28,7 @@ class PanierModel extends CI_Model{
 				}
 			}
 			$this->session->set_userdata($tab,$temp);
-			$res = ["size" => count($this->session->$tab),"panier" => $this->session->$tab];
+			$res = ["size" => count($this->session->$tab),"panier" => $this->session->$tab,"fauxPanier" => $this->session->fauxPanier];
 			return json_encode($res);
 		}
 	}
