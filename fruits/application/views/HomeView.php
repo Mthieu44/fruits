@@ -10,6 +10,7 @@ $loader = $tab[random_int(0, 6)];
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Fruits • Home</title>
+  <link rel="icon" href="<?= base_url('img/header/logo.png') ?>" />
 
   <style>
     <?php include 'css/style.css'; ?><?php include 'css/home.css'; ?><?php include 'css/boutique.css'; ?><?php include 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'; ?>
@@ -60,8 +61,12 @@ $loader = $tab[random_int(0, 6)];
             </svg>
             <div>
               <p id="quantityPanier">
-                <?=
-                count($this->session->panier);
+                <?php if (isset($this->session->panier)) {
+                  echo (count($this->session->panier));
+                } else {
+                  echo ('0');
+                }
+
                 ?>
               </p>
             </div>

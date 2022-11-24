@@ -10,6 +10,7 @@ $loader = $tab[random_int(0, 6)];
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Fruits • Boutique</title>
+  <link rel="icon" href="<?= base_url('img/header/logo.png') ?>" />
 
 
   <style>
@@ -31,8 +32,8 @@ $loader = $tab[random_int(0, 6)];
     <nav>
 
       <ul>
-        <li><a href="<?= site_url('Home') ?>" class="yellow">Accueil</a></li>
-        <li><a href=" <?= site_url('Boutique') ?>">Boutique</a></li>
+        <li><a href="<?= site_url('Home') ?>">Accueil</a></li>
+        <li><a href=" <?= site_url('Boutique') ?>"class="yellow">Boutique</a></li>
         <li><a href="<?= site_url('APropos') ?>" class="propos">A propos</a></li>
         <li><a href="<?= site_url('Contact') ?>">Contact</a></li>
         <li class="connexion">
