@@ -137,7 +137,7 @@ $loader = $tab[random_int(0, 6)];
     <div class="top-part">
       <hr class="line">
       <div class="top-text">
-        <h1 class="h01">Meilleures ventes</h1>
+        <h2>Meilleures ventes</h2>
         <p class="p01">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna </p>
       </div>
     </div>
@@ -188,7 +188,7 @@ $loader = $tab[random_int(0, 6)];
     <div class="top-part">
       <hr class="line">
       <div class="top-text">
-        <h1 class="h01">Fruits de saison</h1>
+        <h2>Fruits de saison</h2>
         <p class="p01">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna </p>
       </div>
     </div>
