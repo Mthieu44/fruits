@@ -1,8 +1,4 @@
-<?php
-$tab = array("apple.png", "grapefruit.png", "kiwi.png", "lemon.png", "lime.png", "orange.png", "watermelon.png");
-$loader = $tab[random_int(0, 6)];
-?>
-
+<!DOCTYPE html>
 <html lang="fr">
 
 <head>
@@ -11,12 +7,10 @@ $loader = $tab[random_int(0, 6)];
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Fruits • AddUser </title>
     <link rel="icon" href="<?= base_url('img/header/logo.png') ?>" />
-
-
+    <?php require('loader.php'); ?>
     <style>
         <?php include 'css/style.css'; ?><?php include 'css/connexion.css'; ?>?>
     </style>
-
 </head>
 
 <body>
