@@ -21,13 +21,13 @@
     height: 48px;
     cursor: pointer;
     position: absolute;
-    margin-left: 12%;
+    margin-left: 20%;
     top: 45vh;
     transition: 0.1s ease-in-out;
 }
 
 .next{
-    right:12%;
+    right:20%;
 }
 
 .prev:hover, .next:hover{
@@ -35,15 +35,13 @@
     transition: 0.1s ease-in-out;
 }
 
-
-
 .slidertext{
     display: flex;
     flex-direction: column;
     position: relative;
     color: var(--grey-100);
     width: 40%;
-    margin-left: 23%;
+    margin-left: 25%;
     margin-top: -700px;
 }
 

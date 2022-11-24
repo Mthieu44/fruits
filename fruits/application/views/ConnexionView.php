@@ -61,8 +61,6 @@
     </header>
 
 
-
-
     <div class="login">
         <h2> Connexion </h2>
         <form action="<?= site_url('Connexion/loginCheck') ?>" method="post">
@@ -91,3 +89,5 @@
 
 
 </html>
+
+<script type="text/javascript" src="<?= base_url('js/panierDroite.js') ?>"></script>

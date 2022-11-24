@@ -58,6 +58,7 @@
     </header>
 
 
+
     <h2>Votre compte</h2>
     <div class="infos">
         <div class="champ">
@@ -98,3 +99,6 @@
 </body>
 
 </html>
+
+
+<script type="text/javascript" src="<?= base_url('js/panierDroite.js') ?>"></script>

@@ -59,6 +59,10 @@
             </ul>
         </nav>
     </header>
+
+
 </body>
 
 </html>
+
+<script type="text/javascript" src="<?= base_url('js/panierDroite.js') ?>"></script>

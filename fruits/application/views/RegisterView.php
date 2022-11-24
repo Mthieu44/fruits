@@ -57,6 +57,8 @@
             </ul>
         </nav>
     </header>
+
+
     <form action=".php" method="post" class="register">
         <h1>Inscrivez vous</h1>
         <p>Renseignez ce formulaire pour pouvoir vous inscrire</p>
@@ -87,3 +89,5 @@
 </body>
 
 </html>
+
+<script type="text/javascript" src="<?= base_url('js/panierDroite.js') ?>"></script>
