@@ -18,6 +18,13 @@ class User extends CI_Controller
         } else {
             $this->load->view('accessDeniedView');
         }
+
+        if (!isset($this->session->panier)){
+			$this->session->set_userdata("panier",array());
+		}
+		if (!isset($this->session->fauxPanier)){
+			$this->session->set_userdata("fauxPanier",array());
+		}
     }
 
 

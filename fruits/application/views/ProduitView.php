@@ -1,8 +1,4 @@
-<?php
-$tab = array("apple.png", "grapefruit.png", "kiwi.png", "lemon.png", "lime.png", "orange.png", "watermelon.png");
-$loader = $tab[random_int(0, 6)];
-?>
-
+<!DOCTYPE html>
 <html lang="fr">
 
 <head>
@@ -10,7 +6,8 @@ $loader = $tab[random_int(0, 6)];
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Fruits • Produit</title>
-
+    <link rel="icon" href="<?= base_url('img/header/logo.png') ?>" />
+    <?php require('loader.php'); ?>
     <style>
         <?php include 'css/style.css'; ?><?php include 'css/home.css'; ?><?php include 'css/produit.css'; ?>
     </style>
@@ -29,9 +26,9 @@ $loader = $tab[random_int(0, 6)];
         <nav>
 
             <ul>
-                <li><a href="<?= site_url('Home') ?>" class="yellow">Accueil</a></li>
-                <li><a href=" <?= site_url('Boutique') ?>">Boutique</a></li>
-                <li><a href="<?= site_url('APropos') ?>" class="propos">A propos</a></li>
+                <li><a href="<?= site_url('Home') ?>">Accueil</a></li>
+                <li><a href=" <?= site_url('Boutique') ?>" class="yellow">Boutique</a></li>
+                <li><a href=" <?= site_url('APropos') ?>" class="propos">A propos</a></li>
                 <li><a href="<?= site_url('Contact') ?>">Contact</a></li>
                 <li class="connexion">
                     <a href="<?= site_url('Connexion') ?>">
@@ -76,7 +73,7 @@ $loader = $tab[random_int(0, 6)];
 
 
     <div class="left-part">
-        <img src="img/orange.png" alt="orange">
+        <img src="http://172.26.82.54/img/fruit/mangue.png" alt="mangue">
         <div class="rightmenu">
             <div class="top-part2">
                 <h2 class="titre-white">Mangue</h2>
@@ -110,9 +107,15 @@ $loader = $tab[random_int(0, 6)];
         Sa chair est jaune foncé, onctueuse, grasse et sucrée avec un faux goût de pêche et de fleur. Selon les variétés ou lorsque le fruit est trop mûr, la chair devient parfois filandreuse.
     </div>
 
-    <script src="./app.js"></script>
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="./Sylvain_ne_supprime_pas_stp.js"></script>
+    <<script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
 
     <div class="bestsellers">
         <div class="top-part">
@@ -123,13 +126,13 @@ $loader = $tab[random_int(0, 6)];
         </div>
         <div class="fruit-menu">
 
-            <img src="img/back.png" class="fleche" alt="back" />
+            <img src="http://172.26.82.54/img/back.png" class="fleche" alt="back" />
 
             <div class="card-product">
-                <a href="produit01.html">
-                    <img src="img/orange.png" alt="oranges" />
+                <a href="http://172.26.82.54/index.php/Produit">
+                    <img src="http://172.26.82.54/img/fruit/banane.png" alt="banane" />
                 </a>
-                <h2 class="p02">Orange</h2>
+                <h2 class="p02">Banane</h2>
                 <hr class="line small">
                 <p class="p02">1.99€</p>
                 <div class="add-to-cart">
@@ -139,10 +142,10 @@ $loader = $tab[random_int(0, 6)];
             </div>
 
             <div class="card-product">
-                <a href="produit01.html">
-                    <img src="img/orange.png" alt="oranges" />
+                <a href="http://172.26.82.54/index.php/Produit">
+                    <img src="http://172.26.82.54/img/fruit/banane.png" alt="banane" />
                 </a>
-                <h2 class="p02">Mangue</h2>
+                <h2 class="p02">Banane</h2>
                 <hr class="line small">
                 <p class="p02">1.99€</p>
                 <div class="add-to-cart">
@@ -152,10 +155,10 @@ $loader = $tab[random_int(0, 6)];
             </div>
 
             <div class="card-product">
-                <a href="produit01.html">
-                    <img src="img/orange.png" alt="oranges" />
+                <a href="http://172.26.82.54/index.php/Produit">
+                    <img src="http://172.26.82.54/img/fruit/banane.png" alt="banane" />
                 </a>
-                <h2 class="p02">Orange</h2>
+                <h2 class="p02">Banane</h2>
                 <hr class="line small">
                 <p class="p02">1.99€</p>
                 <div class="add-to-cart">
@@ -164,7 +167,7 @@ $loader = $tab[random_int(0, 6)];
                 </div>
             </div>
 
-            <img src="img/next.png" class="fleche" alt="next" />
+            <img src="http://172.26.82.54/img/next.png" class="fleche" alt="next" />
         </div>
     </div>
 </body>
@@ -174,3 +177,4 @@ $loader = $tab[random_int(0, 6)];
 
 <script type="text/javascript" src="<?= base_url('js/loader.js') ?>"></script>
 <script type="text/javascript" src="<?= base_url('js/panier.js') ?>"></script>
+<script type="text/javascript" src="<?= base_url('js/Sylvain_ne_supprime_pas_stp.js') ?>"></script>

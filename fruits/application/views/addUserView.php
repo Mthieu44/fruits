@@ -1,21 +1,16 @@
-<?php
-$tab = array("apple.png", "grapefruit.png", "kiwi.png", "lemon.png", "lime.png", "orange.png", "watermelon.png");
-$loader = $tab[random_int(0, 6)];
-?>
-
+<!DOCTYPE html>
 <html lang="fr">
 
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Fruits • Panier </title>
-
-
+    <title>Fruits • AddUser </title>
+    <link rel="icon" href="<?= base_url('img/header/logo.png') ?>" />
+    <?php require('loader.php'); ?>
     <style>
         <?php include 'css/style.css'; ?><?php include 'css/connexion.css'; ?>?>
     </style>
-
 </head>
 
 <body>
@@ -31,12 +26,12 @@ $loader = $tab[random_int(0, 6)];
         <nav>
 
             <ul>
-                <li><a href="<?= site_url('Home') ?>" class="yellow">Accueil</a></li>
+                <li><a href="<?= site_url('Home') ?>">Accueil</a></li>
                 <li><a href=" <?= site_url('Boutique') ?>">Boutique</a></li>
                 <li><a href="<?= site_url('APropos') ?>" class="propos">A propos</a></li>
                 <li><a href="<?= site_url('Contact') ?>">Contact</a></li>
                 <li class="connexion">
-                    <a href="<?= site_url('Connexion') ?>">
+                    <a href="<?= site_url('Connexion') ?>" class="yellow">
                         <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="30.000000pt" height="30.000000pt" viewBox="0 0 400.000000 400.000000" preserveAspectRatio="xMidYMid meet">
                             <g transform="translate(0.000000,400.000000) scale(0.100000,-0.100000)" fill="#000000" stroke="none">
                                 <path d="M1935 3315 c-321 -61 -566 -296 -640 -615 -22 -96 -20 -269 5 -366 68 -267 267 -484 519 -567 215 -72 411 -57 620 44 91 44 116 63 196 142 158 158 233 321 242 533 12 244 -70 450 -248 620 -187 179 -444 256 -694 209z" />

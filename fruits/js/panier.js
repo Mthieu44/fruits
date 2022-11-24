@@ -1,11 +1,12 @@
-var url = "http://127.0.0.1/"
+var url = "http://srv-infoweb.iut-nantes.univ-nantes.prive/~E216351P/fruits/"
 
 function totalQuantity(n,id){
     let totalQuantity = document.getElementById("totalQuantity".concat(id));
     let totalQuantityValue = parseInt(totalQuantity.innerHTML);
-    totalQuantity.innerHTML = totalQuantityValue + n
+    totalQuantity.innerHTML = totalQuantityValue + n;
+
     if (totalQuantity.innerHTML < 0){
-        totalQuantity.innerHTML = 0
+        totalQuantity.innerHTML = 0;
     }
     modifyQuantity(id,totalQuantity.innerHTML);
 }
@@ -39,7 +40,7 @@ function addPanier(id){
     data.append("quantity",totalQuantityValue);
     data.append("tab", "panier");
 
-    if (totalQuantityValue == 0){
+    if (totalQuantityValue == 0){ 
         Notiflix.Notify.info("Quantité invalide", {timeout:1000, distance:'90px', width:"400px", fontSize:"16px"});
 
     }
@@ -50,6 +51,7 @@ function addPanier(id){
             console.log(res.panier);
             nbElementPanier.innerHTML = res.panier.length;
             totalQuantity.innerHTML = 0;
+            modifyQuantity(id,0);
             Notiflix.Notify.info('Produit ajouté au panier.', {timeout:1000, distance:'90px', width:"400px", fontSize:"16px"});
         } else if (this.readyState == 4) {
             alert("Une erreur est survenue...");
