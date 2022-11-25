@@ -67,20 +67,27 @@
     <h2>Votre panier</h2>
     <div class="toutPanier">
         <div class="panierLabel">
-            <p class="p02">Article</p>
+            <th class="p02">Article</th>
             <div class="right">
-                <p class="p02">Quantité</p>
-                <p class="p02">Prix</p>
+                <th class="p02">Quantité</th>
+                <th class="p02">Prix</th>
             </div>
         </div>
         <div class="panierContent">
         <?php foreach ($fruits as $fruit) : ?>
+          <div class="right">
+            <tr>
+              <td class="p02"><?= $fruit->getNom() ?></td>
+              <td class="p02"><?= $fruit->getPrix() ?></td>
+              <td class="p02"><?= $fruit->getId_fruit() ?></td>
+            </tr>
+          </div>
+          
         <div class="card-product">
           <a href="<?= site_url('Produit') ?>">
             <img src="<?= base_url('img/fruit/' . $fruit->getImage()) ?>" alt="<?= $fruit->getImage() ?>" />
           </a>
           <h2 class="p02"><?= $fruit->getNom() ?></h2>
-          <hr class="line small">
           <p class="p02"><?= $fruit->getPrix() ?> €</p>
           <div class="add-to-cart">
             <div class="quantity">
@@ -100,7 +107,6 @@
                 <button onclick = "totalQuantity(1,<?= $fruit->getId_fruit() ?>)">+</button>
               </p>
             </div>
-            <button class = "addPanier" onclick="addPanier(<?= $fruit->getId_fruit() ?>)">Ajouter au panier</button>
             <script src="<?= base_url('js/notiflix-Notiflix-dfaf93f/dist/notiflix-aio-3.2.5.min.js') ?>"></script>
               <script>
                 var totalQuantity = document.getElementById("totalQuantity".concat(<?= $fruit->getId_fruit() ?>));
