@@ -103,7 +103,7 @@
 
   <div class="slider blur">
     <div class="sliderinside">
-      <img src="<?= base_url('img/acceuil1.jpg') ?>" alt="image accueil" class="sliderimage" onclick="showPanier()"/>
+      <img src="<?= base_url('img/acceuil1.jpg') ?>" alt="image accueil" class="sliderimage"/>
       <div class="slidertext">
         <h1>Bienvenue !</h1>
         <h1>Salivez, cliquez, mangez !</h1>
