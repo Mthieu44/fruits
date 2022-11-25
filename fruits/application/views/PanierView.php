@@ -69,44 +69,48 @@
     </nav>
   </header>
 
-  <h2>Votre panier</h2>
   <div class="toutPanier">
+    <h2>Votre panier</h2>
     <div class="panierLabel">
-      <p class="p02">Article</p>
-      <div class="right">
-        <p class="p02">Quantité</p>
-        <p class="p02">Prix</p>
+      <div class = "left">
+        <p class="p02">Article</p>
+        <p class="p02">Prix unitaire</p>
       </div>
+      <p class="p02">Quantité</p>
+      <p class="p02">Prix total</p>
     </div>
+
     <div class="panierContent">
+
       <?php foreach ($fruits as $fruit) : ?>
-        <div class="card-product">
+        <div class="article">
           <a href="<?= site_url('Produit') ?>">
-            <img src="<?= base_url('img/fruit/' . $fruit->getImage()) ?>" alt="<?= $fruit->getImage() ?>" />
+            <img src="<?= base_url('img/fruit/' . $fruit->getImage()) ?>" alt="<?= $fruit->getImage() ?>" class="fruit"/>
           </a>
           <h2 class="p02"><?= $fruit->getNom() ?></h2>
-          
           <p class="p02"><?= $fruit->getPrix() ?> €</p>
           <div class="add-to-cart">
             <div class="quantity">
               <p class="p02">
                 <button onclick="totalQuantity(-1,<?= $fruit->getId_fruit() ?>)">-</button>
                 <span id="<?= "totalQuantity" . $fruit->getId_fruit() ?>"><?php
-                                                                          $temp = true;
-                                                                          foreach ($this->session->panier as $fruitPanier) {
-                                                                            if ($fruitPanier->id_fruits == $fruit->getId_fruit()) {
-                                                                              echo $fruitPanier->quantity;
-                                                                              $temp = false;
-                                                                            }
-                                                                          }
-                                                                          if ($temp) {
-                                                                            echo "0";
-                                                                          } ?></span>
+                  $temp = true;
+                  foreach ($this->session->panier as $fruitPanier) {
+                    if ($fruitPanier->id_fruits == $fruit->getId_fruit()) {
+                      echo $fruitPanier->quantity;
+                      $temp = false;
+                    }
+                  }
+                  if ($temp) {
+                    echo "0";
+                  } 
+                  $res =  $fruitPanier->quantity * $fruit->getPrix()
+                  ?></span>
                 <button onclick="totalQuantity(1,<?= $fruit->getId_fruit() ?>)">+</button>
               </p>
             </div>
+            <p class="p02"><?= $res ?></p>
             <script src="<?= base_url('js/notiflix-Notiflix-dfaf93f/dist/notiflix-aio-3.2.5.min.js') ?>"></script>
-            
           </div>
         </div>
       <?php endforeach; ?>
