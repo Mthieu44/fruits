@@ -1,16 +1,19 @@
-h2{
-    margin: 50px;
+.left{
+    display: flex;
+    gap: 120px;
 }
+
 
 .panierLabel{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    width: 70%;
+    margin: auto;
 }
 
-.right{
-    display:flex;
-    width: 300px;
-    justify-content: space-between;
+a{
+    height: 100%;
+    width: auto;
 }
 
 .panierContent{
@@ -22,8 +25,25 @@ h2{
     border: 2px solid var(--green-100);
     height: 150px;
     border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
 }
 
-.card-product{
-    display: flex;
+.fruit{
+margin-left: 5%;
+border-radius: 20px;
+height:100%;
+}
+
+.prix{
+margin-top :3%;
+margin-left : 10%;
+color : #000000;
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 40px;
+line-height: 48px;
+
 }
