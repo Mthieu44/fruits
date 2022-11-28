@@ -23,7 +23,7 @@
   </div>
 
 
-  <div id="hider"></div>
+  <div id="hider" onclick="flechePanier()"></div>
   
   <header>
     <a href="<?= site_url('Home') ?>" class="logo">

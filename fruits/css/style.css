@@ -248,6 +248,10 @@ li:hover svg path {
 	display: flex;
 }
 
+#voletFleche:hover{
+	transform: scale(1.2);
+}
+
 #voletFleche svg{
 	width: 100%;
 	height: 100%;
