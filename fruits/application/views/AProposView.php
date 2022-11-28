@@ -9,7 +9,7 @@
   <link rel="icon" href="<?= base_url('img/header/logo.png') ?>" />
   <?php require('loader.php'); ?>
   <style>
-    <?php include 'css/style.css'; ?><?php include 'css/home.css'; ?>
+    <?php include 'css/style.css'; ?><?php include 'css/apropos.css'; ?>
   </style>
 
 </head>
@@ -68,6 +68,14 @@
       </ul>
     </nav>
   </header>
+
+  <div class="content">
+    <h2>A propos de nous</h2>
+    <p class="p01">Nous sommes des passionés de fruits, et nous souhaitons partager au plus grand nombre cette passion qui nous tient tant à cœur. Nous faisons appel aux producteurs locaux pour vous proposer les fruits de la plus grande qualité possible.</p>
+    <img src="<?= base_url('img/tierlist.png') ?>" alt="tierlist">
+    <p class="p01">Site réalisé par Mathieu BERGERON, Tom FRERET, Fabien NICOU, Sylvain BAUDOUIN, Tomas MARTINEAU dans le cadre de la SAE "Développement d'une application" à l'IUT de Nantes. </p>
+  </div>
+
 </body>
 
 </html>
