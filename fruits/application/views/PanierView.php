@@ -71,24 +71,23 @@
 
   <div class="toutPanier">
     <h2>Votre panier</h2>
-    <div class="panierLabel">
-      <div class = "left">
-        <p class="p02">Article</p>
-        <p class="p02">Prix unitaire</p>
-      </div>
-      <p class="p02">Quantité</p>
-      <p class="p02">Prix total</p>
-    </div>
-
-    <div class="panierContent">
-
+    <table>
+      <tr>
+        <th>Article</th>
+        <th>Prix unitaire</th>
+        <th>Quantité</th>
+        <th>Prix total</th>
+      </tr>
+      
       <?php foreach ($fruits as $fruit) : ?>
+        <tr>
         <div class="article">
+          
+          <td class="p02"><?= $fruit->getNom() ?>
           <a href="<?= site_url('Produit') ?>">
             <img src="<?= base_url('img/fruit/' . $fruit->getImage()) ?>" alt="<?= $fruit->getImage() ?>" class="fruit"/>
-          </a>
-          <h2 class="p02"><?= $fruit->getNom() ?></h2>
-          <p class="p02"><?= $fruit->getPrix() ?> €</p>
+          </a></td>
+          <td class="p02"><?= $fruit->getPrix() ?> €</td>
           <div class="add-to-cart">
             <div class="quantity">
               <p class="p02">
@@ -109,12 +108,13 @@
                 <button onclick="totalQuantity(1,<?= $fruit->getId_fruit() ?>)">+</button>
               </p>
             </div>
-            <p class="p02"><?= $res ?></p>
+            <td class="p02"><?= $res ?></td>
             <script src="<?= base_url('js/notiflix-Notiflix-dfaf93f/dist/notiflix-aio-3.2.5.min.js') ?>"></script>
           </div>
         </div>
+      </tr>
       <?php endforeach; ?>
-    </div>
+    </table> 
   </div>
 
 </body>

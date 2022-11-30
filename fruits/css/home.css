@@ -3,7 +3,7 @@
 
 .slider{
     position: relative;
-    height: calc(100vh - 60px);
+    height: 95%;
     transition: 1s ease-in-out;
 }
 .sliderinside{
@@ -14,7 +14,7 @@
 .sliderimage{
     object-fit: cover;
     width: 100%;
-    height: calc(100vh - 60px);
+    height: 100%;
 }
 
 .prev, .next{
@@ -36,11 +36,13 @@
 }
 
 .slidertext{
-    position: absolute;
+    display: flex;
+    flex-direction: column;
+    position: relative;
     color: var(--grey-100);
     width: 40%;
     margin-left: 25%;
-    top: 30vh;
+    margin-top: -700px;
 }
 
 .slidertext h1{

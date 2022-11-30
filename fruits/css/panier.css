@@ -1,78 +1,24 @@
-.left{
-    display: flex;
-    gap: 120px;
+th{
+    width: 500px;
+    border: none;
 }
 
+tr{
+    border: 2px green solid;
+    border-radius: 20px;
+    margin: 20px;
+}
 
-.panierLabel{
-    display: flex;
-    justify-content: space-between;
+tr:nth-child(1){
+    border: none;
+}
+
+table{
+    border-collapse:collapse;
     width: 70%;
     margin: auto;
 }
 
-<<<<<<< HEAD
-=======
-a{
-    height: 100%;
-    width: auto;
+td img{
+    height: 200px;
 }
->>>>>>> ea873ef942b68ae5dfffee183ccabbefbe6becc6
-
-.panierContent{
-    width: 75%;
-    margin: auto;
-}
-
-.article{
-    border: 2px solid var(--green-100);
-    height: 150px;
-    border-radius: 20px;
-<<<<<<< HEAD
-}
-
-.card-product{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px;
-}
-
-.quantity{
-    display: flex;
-}
-
-.add-to-cart{
-    display: flex;
-}
-.p02{
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: space-between;
-    height: 30px;
-}
-=======
-    display: flex;
-    justify-content: space-between;
-    margin: auto;
-}
-
-.fruit{
-margin-left: 5%;
-border-radius: 20px;
-height:100%;
-}
-
-.prix{
-margin-top :3%;
-margin-left : 10%;
-color : #000000;
-font-family: 'Inter';
-font-style: normal;
-font-weight: 400;
-font-size: 40px;
-line-height: 48px;
-
-}
->>>>>>> ea873ef942b68ae5dfffee183ccabbefbe6becc6

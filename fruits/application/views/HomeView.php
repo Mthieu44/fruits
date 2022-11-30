@@ -21,7 +21,7 @@
     <img src="<?= base_url('img/loader/' . $loader) ?>" class="loader">
   </div>
 
-  <div id="hider"></div>
+  <div id="hider" onclick="flechePanier()"></div>
 
   <header>
     <a href="<?= site_url('Home') ?>" class="logo">
@@ -103,7 +103,7 @@
 
   <div class="slider blur">
     <div class="sliderinside">
-      <img src="<?= base_url('img/acceuil1.jpg') ?>" alt="image accueil" class="sliderimage"/>
+      <img src="<?= base_url('img/acceuil1.jpg') ?>" alt="image accueil" class="sliderimage" onclick="showPanier()"/>
       <div class="slidertext">
         <h1>Bienvenue !</h1>
         <h1>Salivez, cliquez, mangez !</h1>
