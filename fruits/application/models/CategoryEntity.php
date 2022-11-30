@@ -2,11 +2,9 @@
 
 class CategoryEntity
 {
-    private int $id_categorie;
-    private string $nom;
-    private string $description;
-
-
+    public int $id_categorie;
+    public string $nom;
+    public string $description;
 
     public function setId_categorie(int $id_categorie): void
 	{

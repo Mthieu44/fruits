@@ -4,7 +4,6 @@ require_once APPPATH.DIRECTORY_SEPARATOR.'models'.DIRECTORY_SEPARATOR."ProduitEn
 
 class Boutique extends CI_Controller
 {
-	private array $panier = [];
 
 	public function __construct(){
 		parent::__construct();
@@ -27,13 +26,16 @@ class Boutique extends CI_Controller
 		$this->load->view('BoutiqueView', array('fruits' => $fruits));
 	}
 
-
 	public function addToPanier(){
+		$id = $this->input->post('id');
+		$quantity = $this->input->post('quantity');
+		$tab = $this->input->post('tab');
+		echo $tab,$id,$quantity;
 		if (isset($_POST['id'], $_POST['quantity'], $_POST['tab'])) {
-			$id = $_POST['id'];
+			$fruit = $this->FruitModel->findById($_POST['id']);
 			$quantity = $_POST['quantity'];
 			$tab = $_POST['tab'];
-			$panier = $this->PanierModel->addPanier($id,$quantity,$tab);
+			$panier = $this->PanierModel->addPanier($fruit,$quantity,$tab);
 			echo $panier;
 		}
 	}

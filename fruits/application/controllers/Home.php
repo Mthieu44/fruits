@@ -12,15 +12,18 @@ class Home extends CI_Controller
 		$this->load->helper('url');
 		$this->load->model('FruitModel');
 		$this->load->library('session');
-		if (!isset($this->session->fauxPanier)) {
-			$this->session->set_userdata("fauxPanier", array());
+		if (!isset($this->session->panier)){
+			$this->session->set_userdata("panier",array());
+		}
+		if (!isset($this->session->fauxPanier)){
+			$this->session->set_userdata("fauxPanier",array());
 		}
 	}
 
-	public function index()
-	{
+	public function index(){
 		$this->load->helper('url');
 		$fruits = $this->FruitModel->findAll();
 		$this->load->view('HomeView', array('fruits' => $fruits));
 	}
+
 }

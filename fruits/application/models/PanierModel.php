@@ -4,12 +4,12 @@ require_once APPPATH.DIRECTORY_SEPARATOR.'models'.DIRECTORY_SEPARATOR."ProduitEn
 
 class PanierModel extends CI_Model{
 
-    public function addPanier($id,$quantity,$tab){
+    public function addPanier($fruit,$quantity,$tab){
 		if ($quantity != 0) {
 			$temp = $this->session->$tab;
 			$test = true;
 			foreach ($temp as $prod){
-				if ($prod->id_fruits == $id){
+				if ($prod->fruit->getId_fruit() == $fruit->getId_fruit()){
 					$prod->quantity = $quantity;
 					$test = false;
 				    if ($prod->quantity == 0){
@@ -19,7 +19,7 @@ class PanierModel extends CI_Model{
 				}
 			}
 			if($test){
-				$produit = new ProduitEntity($id,$quantity);
+				$produit = new ProduitEntity($fruit,$quantity);
 				$tmp = array($produit);
 				if ($temp == null){
 					$temp = $tmp;
@@ -28,9 +28,18 @@ class PanierModel extends CI_Model{
 				}
 			}
 			$this->session->set_userdata($tab,$temp);
-			$res = ["size" => count($this->session->$tab),"panier" => $this->session->$tab];
+			$res = ["size" => count($this->session->$tab),"panier" => $this->session->$tab,"fauxPanier" => $this->session->fauxPanier];
 			return json_encode($res);
 		}
+	}
+
+	public function getPanier(){
+		$fruits = array();
+		foreach ($this->session->panier as $fruit){
+			$new = $this->FruitModel->findById($fruit->id_fruits);
+			array_push($fruits,$new);
+		}
+		return $fruits;
 	}
     
 }

@@ -3,7 +3,7 @@
 
 .slider{
     position: relative;
-    height: 95%;
+    height: calc(100vh - 60px);
     transition: 1s ease-in-out;
 }
 .sliderinside{
@@ -14,20 +14,20 @@
 .sliderimage{
     object-fit: cover;
     width: 100%;
-    height: 100%;
+    height: calc(100vh - 60px);
 }
 
 .prev, .next{
     height: 48px;
     cursor: pointer;
     position: absolute;
-    margin-left: 12%;
+    margin-left: 20%;
     top: 45vh;
     transition: 0.1s ease-in-out;
 }
 
 .next{
-    right:12%;
+    right:20%;
 }
 
 .prev:hover, .next:hover{
@@ -35,16 +35,12 @@
     transition: 0.1s ease-in-out;
 }
 
-
-
 .slidertext{
-    display: flex;
-    flex-direction: column;
-    position: relative;
+    position: absolute;
     color: var(--grey-100);
     width: 40%;
-    margin-left: 23%;
-    margin-top: -700px;
+    margin-left: 25%;
+    top: 30vh;
 }
 
 .slidertext h1{

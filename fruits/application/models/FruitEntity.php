@@ -3,12 +3,12 @@ require_once APPPATH.DIRECTORY_SEPARATOR.'models'.DIRECTORY_SEPARATOR."CategoryE
 
 class FruitEntity
 {   
-    private int $id_fruit;
-    private string $nom;
-    private string $prix;
-    private string $description;
-    private array $category = [];
-	private string $image;
+    public int $id_fruit;
+    public string $nom;
+    public string $prix;
+    public string $description;
+    public array $category = [];
+	public string $image;
 
 
 
@@ -77,5 +77,3 @@ class FruitEntity
 		return $this->image;
 	}
 }
-
-
