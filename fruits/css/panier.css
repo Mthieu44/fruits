@@ -1,29 +1,24 @@
-h2{
-    margin: 50px;
+th{
+    width: 500px;
+    border: none;
 }
 
-.panierLabel{
-    display: flex;
-    justify-content: space-around;
+tr{
+    border: 2px green solid;
+    border-radius: 20px;
+    margin: 20px;
 }
 
-.right{
-    display:flex;
-    width: 300px;
-    justify-content: space-between;
+tr:nth-child(1){
+    border: none;
 }
 
-.panierContent{
-    width: 75%;
+table{
+    border-collapse:collapse;
+    width: 70%;
     margin: auto;
 }
 
-.article{
-    border: 2px solid var(--green-100);
-    height: 150px;
-    border-radius: 20px;
-}
-
-.card-product{
-    display: flex;
+td img{
+    height: 200px;
 }

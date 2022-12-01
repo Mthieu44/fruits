@@ -70,8 +70,6 @@
     </header>
 
 
-
-
     <div class="login">
         <h2> Connexion </h2>
         <form action="<?= site_url('Connexion/loginCheck') ?>" method="post">

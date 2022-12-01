@@ -1,4 +1,4 @@
-var url = "http://srv-infoweb.iut-nantes.univ-nantes.prive/~E216351P/fruits/"
+var url = "http://localhost/public_html/equipe2-1/fruits/"
 
 function totalQuantity(n,id){
     let totalQuantity = document.getElementById("totalQuantity".concat(id));
@@ -20,9 +20,7 @@ function modifyQuantity(id,quantity){
     let xhr = new XMLHttpRequest();
     xhr.open("POST",url.concat("index.php/boutique/addToPanier"),true);
     xhr.responseType = "json";
-
     xhr.send(data);
-
 }
 
 function addPanier(id){

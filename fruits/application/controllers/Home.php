@@ -20,10 +20,10 @@ class Home extends CI_Controller
 		}
 	}
 
-	public function index()
-	{
+	public function index(){
 		$this->load->helper('url');
 		$fruits = $this->FruitModel->findAll();
 		$this->load->view('HomeView', array('fruits' => $fruits));
 	}
+
 }

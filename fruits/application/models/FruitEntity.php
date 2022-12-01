@@ -88,5 +88,3 @@ class FruitEntity
 		return $this->origine;
 	}
 }
-
-

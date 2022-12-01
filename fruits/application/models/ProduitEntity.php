@@ -1,12 +1,14 @@
 <?php
 
+require_once APPPATH.DIRECTORY_SEPARATOR.'models'.DIRECTORY_SEPARATOR."FruitEntity.php";
+
 class ProduitEntity{
 
-    public int $id_fruits;
+    public FruitEntity $fruits;
     public int $quantity;
 
-    public function __construct($id_fruits, $quantity){
-        $this->id_fruits = $id_fruits;
+    public function __construct($fruits, $quantity){
+        $this->fruits = $fruits;
         $this->quantity = $quantity;
     }
 

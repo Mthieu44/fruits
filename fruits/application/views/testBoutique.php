@@ -75,6 +75,7 @@ $loader = $tab[random_int(0, 6)];
     </nav>
   </header>
 
+
   <table>
     <tr>
       <th> id </th>
