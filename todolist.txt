@@ -22,6 +22,7 @@ Site:
   - input label animation -> https://codepen.io/katrina-isabelle/pen/PQBqyq
   - finir partie compte
   - commande et panier
+  - CAPTCHA
 
 DESIGN PATTERN
 ->singleton BD ?

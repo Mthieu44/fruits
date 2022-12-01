@@ -83,7 +83,8 @@
             <input type="radio" name="sexe" value="autre" id="autre">
             <label for="autre">Autre</label>
         </div>
-        <input type="password" name="password" id="password" placeholder="Mot de passe" maxlength="20" required>
+        <input type="password" name="password" id="pass" placeholder="Mot de passe" maxlength="20" required>
+        <input type="password" name="password2" id="pass2" placeholder=" Confirmer mot de passe" maxlength="20" required>
         <div class="sexe">
             <input type="radio" name="status" value="client" id="client">
             <label for="client">Client</label>

@@ -5,13 +5,12 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Fruits • Connexion </title>
+    <title>Fruits • AddUser </title>
     <link rel="icon" href="<?= base_url('img/header/logo.png') ?>" />
     <?php require('loader.php'); ?>
     <style>
-        <?php include 'css/style.css'; ?><?php include 'css/connexion.css'; ?>
+        <?php include 'css/style.css'; ?><?php include 'css/connexion.css'; ?>?>
     </style>
-
 </head>
 
 <body>
@@ -27,7 +26,7 @@
         <nav>
 
             <ul>
-                <li><a href="<?= site_url('Home') ?>" class="yellow">Accueil</a></li>
+                <li><a href="<?= site_url('Home') ?>">Accueil</a></li>
                 <li><a href=" <?= site_url('Boutique') ?>">Boutique</a></li>
                 <li><a href="<?= site_url('APropos') ?>" class="propos">A propos</a></li>
                 <li><a href="<?= site_url('Contact') ?>">Contact</a></li>
@@ -69,33 +68,31 @@
         </nav>
     </header>
 
-    <form action="<?= site_url('User/register') ?>" method="post" class="register">
-        <h1>Inscrivez vous</h1>
-        <p>Renseignez ce formulaire pour pouvoir vous inscrire</p>
-        <div class="name">
-            <input class="inputname" type="text" name="prenom" id="prenom" placeholder="Prenom" maxlength="20" required>
-            <input class="inputname" type="text" name="nom" id="nom" placeholder="Nom" maxlength="20" required>
+    <form action="<?= site_url('Fruit/addFruit') ?>" method="post" class="register">
+        <p>Ajouter un Fruit</p>
+        <input type="text" name="nom" id="nom" placeholder="Nom" maxlength="20" value="<?= $fruit->getNom() ?>" required>
+        <input type="text" name="prix" id="prix" placeholder="Prix" maxlength="5" value="<?= $fruit->getPrix() ?>" required>
+        <input type="text" name="description" id="description" placeholder="Description" maxlength="2000" value="<?= $fruit->getDescription() ?>"required>
+        <input type="text" name="origine" id="origine" placeholder="Origine" maxlength="20" value="<?= $fruit->getOrigine() ?>" required>
+        <div class="categories">
+        <?php $fruitCategory = $this->FruitModel->findFruitCategotiId($fruit); $categories = $this->CategoryModel->findAll();?>
+        <?php foreach ($categories as $category) : ?>
+            <div>
+            <input type="checkbox" name="<?= $category->getNom() ?>" value="<?= $category->getId_Categorie() ?>" <?php foreach($fruitCategory as $id_cat){ if ($category->getId_Categorie() == (int)$id_cat) {  echo('checked');}} ?>>
+            <label for="<?= $category->getNom() ?>"><?= $category->getNom() ?></label>
+            </div>
+        <?php endforeach; ?>
         </div>
-        <input type="email" name="email" id="email" placeholder="Email" maxlength="60" required>
-        <input type="adresse" name="adresse" id="adresse" placeholder="Adresse" maxlength="60" required>
-        <input type="tel" pattern="^((\+\d{1,3}(-| )?\(?\d\)?(-| )?\d{1,5})|(\(?\d{2,6}\)?))(-| )?(\d{3,4})(-| )?(\d{4})(( x| ext)\d{1,5}){0,1}$" name="telephone" id="telephone" placeholder="Telephone (10 chiffres)" required>
-        <div class="sexe">
-            <input type="radio" name="sexe" value="homme" id="homme">
-            <label for="homme">Homme</label>
-            <input type="radio" name="sexe" value="femme" id="femme">
-            <label for="femme">Femme</label>
-            <input type="radio" name="sexe" value="autre" id="autre">
-            <label for="autre">Autre</label>
-        </div>
-        <input type="password" name="password" id="pass" placeholder="Mot de passe" maxlength="20" required>
-        <input type="password" name="password2" id="pass2" placeholder=" Confirmer mot de passe" maxlength="20" required>
-        <input type="hidden" name="status" value="client">
-        <input class="bouton" type="submit" value="S'inscrire">
+        <input type="file" name="image" id="image" placeholder="Image" accept="image/png">
 
-        <a class="text-min" href="<?= site_url('Connexion') ?>">Déjà Inscrit ?</a>
+        
+        
+        <input class="bouton" type="submit" value="Valider">
+        <a href="<?= site_url('Connexion') ?>">Retour à la page</a>
 
 
     </form>
+
 </body>
 
 </html>

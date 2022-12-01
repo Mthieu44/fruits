@@ -10,6 +10,7 @@ class Connexion extends CI_Controller
 		$this->load->helper('url');
 		$this->load->library('session');
 		$this->load->model('UserModel');
+		$this->load->model('FruitModel');
 		if (!isset($this->session->panier)){
 			$this->session->set_userdata("panier",array());
 		}
@@ -25,10 +26,12 @@ class Connexion extends CI_Controller
 			$this->load->view('ConnexionView', array('msg' => "Identifiants invalides"));
 		} elseif (isset($this->session->user["status"])) {
 			if ($this->session->user["status"] == 'admin') {
-				$users = $this->UserModel->findAll();
-				$this->load->view('AdminView', array('users' => $users));
+				$data['users'] = $this->UserModel->findAll();
+				$data['fruits'] = $this->FruitModel->findAll();
+				$this->load->view('AdminView', $data);
 			} elseif ($this->session->user["status"] == 'responsable') {
-				$this->load->view('ResponsableView');
+				$data['fruits'] = $this->FruitModel->findAll();
+				$this->load->view('ResponsableView', $data);
 			} elseif ($this->session->user["status"] == 'client') {
 				$users = $this->UserModel->findAll();
 				$this->load->view('ClientView');

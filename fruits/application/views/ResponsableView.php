@@ -5,9 +5,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Fruits • Admin</title>
     <link rel="icon" href="<?= base_url('img/header/logo.png') ?>" />
     <?php require('loader.php'); ?>
+    <style>
+        <?php include 'css/style.css'; ?><?php include 'css/connexion.css'; ?>
+    </style>
 </head>
 
 <body>
@@ -65,8 +68,84 @@
         </nav>
     </header>
 
-    <p>responsable</p>
-    <a href="<?= site_url('Connexion/logout') ?>">logout</a>
+    <h2>Votre compte</h2>
+    <div class="infos">
+        <div class="profil">
+            <div class="case nom">
+                <h1><?= $this->session->user["user"]->getPrenom() ?></h1>
+                <h1><?= $this->session->user["user"]->getNOm() ?></h1>
+            </div>
+            <div class="case">
+                <p>Telephone :</p>
+                <p><?= $this->session->user["user"]->getTelephone() ?></p>
+            </div>
+            <div class="case">
+                <p>Email :</p>
+                <p><?= $this->session->user["user"]->getMail() ?></p>
+            </div>
+            <div class="case">
+                <p>Adresse :</p>
+                <p><?= $this->session->user["user"]->getAdresse() ?></p>
+            </div>
+            <a href="<?= site_url('User/todo') ?>" class="button">Modifier informations</a>
+            <a href="<?= site_url('Connexion/logout') ?>" class="button">logout</a>
+        </div>
+        <div class="commandes">
+            <p>Historique des commandes :</p>
+        </div>
+    </div>
+
+    <div class="table">
+        <a href=" <?= site_url('Fruit/add/') ?>">Ajouter Produit</a>
+        <table>
+            <tr>
+                <th> id </th>
+                <th> nom </th>
+                <th> description </th>
+                <th> prix</th>
+                <th> origine </th>
+                <th> description</th>
+                <th> image </th>
+            </tr>
+
+            <?php foreach ($fruits as $fruit) : ?>
+                <tr>
+                    <td>
+                        <?= $fruit->getId_fruit() ?>
+                    </td>
+                    <td>
+                        <?= $fruit->getNom() ?>
+                    </td>
+                    <td>
+                        <?= $fruit->getDescription() ?>
+                    </td>
+                    <td>
+                        <?= $fruit->getPrix() ?>
+                    </td>
+                    <td>
+                        <?= $fruit->getOrigine() ?>
+                    </td>
+                    <td>
+                        <?php
+                            foreach ($fruit->getCategory() as $category) {
+                                 echo ($category->getNom().'<br>');
+                             }
+                        ?>
+                    </td>
+                    
+                    <td>
+                        <img src="<?= base_url('img/fruit/' . $fruit->getImage()) ?>"/>
+                    </td>
+                    <td>
+                        <a href="<?= site_url('Fruit/modif/' . $fruit->getId_fruit()) ?>"> modif</a>
+                    </td>
+                    <td>
+                        <a href="<?= site_url('Fruit/delete/' . $fruit->getId_fruit()) ?>"> delete</a>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+        </table>
+    </div>
 </body>
 
 </html>

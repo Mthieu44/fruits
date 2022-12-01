@@ -124,6 +124,8 @@ CREATE PROCEDURE deleteFruit(
     IN _id TEXT
 )
 BEGIN
+    DELETE FROM categorisation
+    where id_fruit = _id;
     DELETE FROM fruit
     WHERE id_fruit = _id;
 END //
@@ -203,5 +205,21 @@ CREATE PROCEDURE deleteCategorieToFruit(
 BEGIN
     DELETE FROM categorie
     WHERE id_categorie = _id_categ and id_fruit = _id_fruit;
+END //
+DELIMITER ;
+
+DELIMITER //
+CREATE PROCEDURE getAllCategorie()
+BEGIN
+    SELECT * FROM categorie;
+END //
+DELIMITER ;
+
+DELIMITER //
+CREATE PROCEDURE getCategorieByFruitId(
+    IN _id_fruit TEXT
+)
+BEGIN
+    SELECT id_categorie FROM categorisation WHERE id_fruit = _id_fruit;
 END //
 DELIMITER ;

@@ -8,6 +8,7 @@ class FruitEntity
     private string $prix;
     private string $description;
     private array $category = [];
+	private string $origine;
 	private string $image;
 
 
@@ -75,6 +76,16 @@ class FruitEntity
     public function getImage(): string
 	{
 		return $this->image;
+	}
+
+	public function setOrigine(string $origine): void
+	{
+		$this->origine = $origine;
+	}
+    
+    public function getOrigine(): string
+	{
+		return $this->origine;
 	}
 }
 

@@ -2,13 +2,13 @@ CREATE TABLE fruit(
     id_fruit INT PRIMARY KEY AUTO_INCREMENT,
     nom VARCHAR(20) NOT NULL,
     prix FLOAT(2) NOT NULL,
-    description VARCHAR(200) NOT NULL,
+    description VARCHAR(2000) NOT NULL,
     origine VARCHAR(200) NOT NULL,
     image VARCHAR(50) NOT NULL
 ); CREATE TABLE categorie(
     id_categorie INT PRIMARY KEY AUTO_INCREMENT,
-    nom VARCHAR(20) NOT NULL,
-    description VARCHAR(200) NOT NULL
+    nom VARCHAR(50) NOT NULL,
+    description VARCHAR(2000) NOT NULL
 );
 
 CREATE TABLE categorisation(id_fruit INT, id_categorie INT); ALTER TABLE
