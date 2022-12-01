@@ -35,10 +35,10 @@ class Fruit extends CI_Controller
         $this->load->view('modifFruitView', array('fruit' => $fruit));
     }
 
-    function modifFruit()
+    function modifFruit($id)
     {
         $fruit = new fruitEntity();
-        $fruit->setId_fruit($this->input->post('id-fruit'));
+        $fruit->setId_fruit($id);
         $fruit->setNom($this->input->post('nom'));
         $fruit->setDescription($this->input->post('description'));
         $fruit->setPrix($this->input->post('prix'));
@@ -47,11 +47,21 @@ class Fruit extends CI_Controller
         $this->FruitModel->modif($fruit);
         $fruit = $this->FruitModel->findByName($fruit->getNom());
         $categories = $this->CategoryModel->findAll();
+        $fruitCategory = $this->FruitModel->findFruitCategotiId($fruit);
         foreach($categories as $categoriy){
             if (null !== $this->input->post(str_replace(' ','_',$categoriy->getNom()))){
-                $this->FruitModel->addCategorieToFruit($fruit->getId_fruit(),$categoriy->getId_Categorie());
+                $bool = true;
+                foreach($fruitCategory as $fruitcat){
+                    if ($fruitcat == $categoriy->getId_Categorie()){
+                        $bool=false;
+                    }
+                }
+
+                if ($bool){
+                    $this->FruitModel->addCategorieToFruit($fruit->getId_fruit(),$categoriy->getId_Categorie());
+                }
             } else {
-                $this->FruitModel->CategorieToFruit($fruit->getId_fruit(),$categoriy->getId_Categorie());
+                $this->FruitModel->deleteCategorieToFruit($fruit->getId_fruit(),$categoriy->getId_Categorie());
             }
         }
         redirect('Connexion');

@@ -90,11 +90,10 @@ class FruitModel extends CI_Model {
 
 		$q = $this->db->query(
 			'CALL modifFruit(' . $fruit->getId_fruit() . ',' . '
-			\'' . str_replace("'","\'",$fruit->getPrenom()) . '\',
+			\'' . str_replace("'","\'",$fruit->getNom()) . '\',
 			\'' . str_replace("'","\'",$fruit->getPrix()) . '\',\'' .
 					str_replace("'","\'",$fruit->getDescription()) . '\',\'' .
 					str_replace("'","\'",$fruit->getOrigine()) . '\',\'' .
-					str_replace("'","\'",$fruit->getPassword()) . '\',\'' .
 					str_replace("'","\'",$fruit->getImage()) . '\'' . ')'
 		);
 	}

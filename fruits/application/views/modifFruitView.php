@@ -68,11 +68,11 @@
         </nav>
     </header>
 
-    <form action="<?= site_url('Fruit/addFruit') ?>" method="post" class="register">
-        <p>Ajouter un Fruit</p>
+    <form action="<?= site_url('Fruit/modifFruit'. DIRECTORY_SEPARATOR . $this->uri->segment(3)) ?>" method="post" class="register">
+        <p>Modifer un Fruit</p>
         <input type="text" name="nom" id="nom" placeholder="Nom" maxlength="20" value="<?= $fruit->getNom() ?>" required>
         <input type="text" name="prix" id="prix" placeholder="Prix" maxlength="5" value="<?= $fruit->getPrix() ?>" required>
-        <input type="text" name="description" id="description" placeholder="Description" maxlength="2000" value="<?= $fruit->getDescription() ?>"required>
+        <input class="description" type="text" name="description" id="description" placeholder="Description" maxlength="2000" value="<?= $fruit->getDescription() ?>"required>
         <input type="text" name="origine" id="origine" placeholder="Origine" maxlength="20" value="<?= $fruit->getOrigine() ?>" required>
         <div class="categories">
         <?php $fruitCategory = $this->FruitModel->findFruitCategotiId($fruit); $categories = $this->CategoryModel->findAll();?>

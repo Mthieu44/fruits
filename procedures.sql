@@ -203,7 +203,7 @@ CREATE PROCEDURE deleteCategorieToFruit(
     IN _id_categ TEXT
 )
 BEGIN
-    DELETE FROM categorie
+    DELETE FROM categorisation
     WHERE id_categorie = _id_categ and id_fruit = _id_fruit;
 END //
 DELIMITER ;
