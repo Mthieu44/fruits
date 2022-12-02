@@ -18,7 +18,7 @@ function showPanier(){
 
 function closePanier(){
     let volet = document.getElementById("panierVolet");
-    volet.style.right = -0.2*window.innerWidth; 
+    volet.style.right = "-20%"; 
     let fleche = document.getElementById("voletFlecheImage");
     angle += 180
     fleche.style.transform = `rotate(${angle}deg)`;
