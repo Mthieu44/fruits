@@ -21,6 +21,9 @@
 <body>
   <div id = "app-vue">
     <div id="hider"></div>
+    <div id="preloader" class="preloader">
+      <img src="<?= base_url('img/loader/' . $loader) ?>" class="loader">
+    </div>
     
     <header>
       <a href="<?= site_url('Home') ?>" class="logo">
