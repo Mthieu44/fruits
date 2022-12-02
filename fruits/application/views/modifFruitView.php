@@ -72,7 +72,7 @@
         <p>Modifer un Fruit</p>
         <input type="text" name="nom" id="nom" placeholder="Nom" maxlength="20" value="<?= $fruit->getNom() ?>" required>
         <input type="text" name="prix" id="prix" placeholder="Prix" maxlength="5" value="<?= $fruit->getPrix() ?>" required>
-        <input class="description" type="text" name="description" id="description" placeholder="Description" maxlength="2000" value="<?= $fruit->getDescription() ?>"required>
+        <textarea class="description" name="description" placeholder="Description" maxlength="2000" required><?= $fruit->getDescription() ?></textarea>
         <input type="text" name="origine" id="origine" placeholder="Origine" maxlength="20" value="<?= $fruit->getOrigine() ?>" required>
         <div class="categories">
         <?php $fruitCategory = $this->FruitModel->findFruitCategotiId($fruit); $categories = $this->CategoryModel->findAll();?>
