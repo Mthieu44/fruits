@@ -53,6 +53,16 @@ const vue = new Vue({
 				}
 			}
 		},
+        totalQuantityPanier(n, id) {
+			for (let i = 0; i < this.panier.length; i++) {
+				if (this.panier[i].id_fruit == id) {
+					this.panier[i].quantity += n;
+					if (this.panier[i].quantity < 0) {
+						this.panier[i].quantity = 0; // Rajouter une pop up ou autre pour prévenir que mettre une quantity à 0 va supprimer le produit du panier.
+					}
+				}
+			}
+		},
 		getImg(id) {
 			for (let i = 0; i < this.fruits.length; i++) {
 				if (this.fruits[i].id_fruit == id) {

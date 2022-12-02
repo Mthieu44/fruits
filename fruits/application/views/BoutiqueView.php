@@ -109,9 +109,15 @@
 				<p class="p02">
 					{{fruit.prix }} €
 				</p>
-				<p>
-					{{fruit.quantity}}
-				</p>
+				<div class="quantity">
+					<p class="p02">
+						<button v-on:click="totalQuantityPanier(-1,fruit.id_fruit)">-</button>
+						<span>
+							{{fruit.quantity}}
+						</span>
+						<button v-on:click="totalQuantityPanier(1,fruit.id_fruit)">+</button>
+					</p>
+				</div>
         <button v-on:click = "retirerDuPanier(fruit.id_fruit)"> Delete</button>
 			</div>
 		</div>
