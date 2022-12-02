@@ -1,9 +1,10 @@
+
 const vue = new Vue({
     data : () => {
         return {
             fruits : [],
             panier : [],
-            url : "http://localhost/public_html/equipe2-1/fruits/",
+            url : "http://srv-infoweb.iut-nantes.univ-nantes.prive/~E216351P/fruits/",
         }
     },
     methods : {

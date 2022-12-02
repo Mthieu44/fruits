@@ -29,7 +29,9 @@ class Panier extends CI_Controller {
 	}
 	public function getAllFruits(){
 		$res = $this->FruitModel->findAll();
+		$quant = array();
 		for ($i = 0; $i < count($res); $i++){
+			
 			$res[$i]->quantity = 0;
 		}
 		echo json_encode($res);
