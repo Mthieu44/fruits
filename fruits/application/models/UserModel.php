@@ -5,7 +5,11 @@ class UserModel extends CI_Model
 {
 	function findByMail($mail)
 	{
-		$q = $this->db->query('SELECT * FROM usertab where mail = ' . '"' . $mail . '"');
+		$sql = 'SELECT * FROM usertab where mail = ?';
+		$q = $this->db->query($sql, array($mail));
+
+
+
 		$user = new UserEntity();
 		$response = $q->row(0);
 		if (isset($response)) {
