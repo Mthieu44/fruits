@@ -16,6 +16,9 @@
 		?><?php include 'css/home.css';
 		?>
 
+
+
+
 	</style>
 
 
@@ -42,9 +45,11 @@
 					<li><a href="<?= site_url('Contact') ?>">Contact</a></li>
 					<li class="connexion">
 						<a href="<?= site_url('Connexion') ?>">
-							<svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="30.000000pt" height="30.000000pt"
-								viewBox="0 0 400.000000 400.000000" preserveAspectRatio="xMidYMid meet">
-								<g transform="translate(0.000000,400.000000) scale(0.100000,-0.100000)" fill="#000000" stroke="none">
+							<svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="30.000000pt"
+								height="30.000000pt" viewBox="0 0 400.000000 400.000000"
+								preserveAspectRatio="xMidYMid meet">
+								<g transform="translate(0.000000,400.000000) scale(0.100000,-0.100000)" fill="#000000"
+									stroke="none">
 									<path
 										d="M1935 3315 c-321 -61 -566 -296 -640 -615 -22 -96 -20 -269 5 -366 68 -267 267 -484 519 -567 215 -72 411 -57 620 44 91 44 116 63 196 142 158 158 233 321 242 533 12 244 -70 450 -248 620 -187 179 -444 256 -694 209z" />
 									<path
@@ -62,9 +67,11 @@
 					</li>
 					<li class="panier">
 						<a href="<?= site_url('Panier') ?>">
-							<svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="40.000000pt" height="40.000000pt"
-								viewBox="0 0 400.000000 400.000000" preserveAspectRatio="xMidYMid meet">
-								<g transform="translate(0.000000,400.000000) scale(0.100000,-0.100000)" fill="#000000" stroke="none">
+							<svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="40.000000pt"
+								height="40.000000pt" viewBox="0 0 400.000000 400.000000"
+								preserveAspectRatio="xMidYMid meet">
+								<g transform="translate(0.000000,400.000000) scale(0.100000,-0.100000)" fill="#000000"
+									stroke="none">
 									<path
 										d="M1990 3530 c0 -6 -27 -10 -60 -10 -33 0 -60 -4 -60 -10 0 -5 -13 -10 -30 -10 -16 0 -30 -4 -30 -10 0 -5 -11 -10 -25 -10 -14 0 -25 -4 -25 -10 0 -5 -9 -10 -20 -10 -11 0 -20 -4 -20 -10 0 -5 -7 -10 -15 -10 -18 0 -165 -144 -165 -162 0 -7 -11 -22 -25 -32 -17 -13 -23 -25 -20 -38 4 -12 1 -18 -9 -18 -11 0 -16 -9 -16 -30 0 -16 -4 -30 -10 -30 -5 0 -10 -24 -10 -54 0 -30 -4 -58 -10 -61 -6 -4 -10 -113 -10 -296 l0 -289 40 -40 c35 -35 46 -40 85 -40 25 0 45 4 45 9 0 5 10 11 23 13 14 2 23 11 25 26 2 12 8 22 13 22 5 0 9 122 9 300 0 193 4 300 10 300 6 0 10 9 10 20 0 11 5 20 10 20 6 0 10 9 10 19 0 10 7 21 15 25 8 3 15 12 15 21 0 8 18 34 40 56 22 23 40 45 40 50 0 5 11 9 25 9 14 0 25 5 25 10 0 6 9 10 20 10 11 0 20 5 20 10 0 6 20 10 45 10 25 0 45 5 45 10 0 6 20 10 45 10 25 0 45 -4 45 -10 0 -5 16 -10 35 -10 19 0 35 -4 35 -10 0 -5 11 -10 25 -10 14 0 25 -4 25 -10 0 -5 9 -10 20 -10 11 0 20 -3 20 -7 0 -10 45 -63 54 -63 15 0 56 -51 56 -70 0 -11 5 -20 10 -20 6 0 10 -9 10 -20 0 -11 5 -20 10 -20 6 0 10 -107 10 -300 0 -193 4 -300 10 -300 6 0 10 -7 10 -15 0 -9 7 -18 15 -21 8 -4 15 -10 15 -16 0 -5 6 -16 14 -24 17 -16 106 -20 106 -4 0 6 11 10 25 10 20 0 25 5 25 25 0 14 5 25 10 25 6 0 10 113 10 320 0 207 -4 320 -10 320 -5 0 -10 20 -10 45 0 25 -4 45 -10 45 -5 0 -10 9 -10 20 0 11 -4 20 -10 20 -5 0 -10 11 -10 25 0 16 -6 25 -16 25 -8 0 -12 5 -9 10 4 6 -10 27 -29 46 -20 20 -36 40 -36 45 0 5 -5 9 -10 9 -14 0 -80 66 -80 80 0 5 -11 10 -25 10 -14 0 -25 5 -25 10 0 6 -7 10 -15 10 -8 0 -15 5 -15 10 0 6 -11 10 -25 10 -14 0 -25 5 -25 10 0 6 -11 10 -24 10 -14 0 -28 5 -31 10 -3 6 -33 10 -65 10 -32 0 -62 5 -65 10 -3 6 -26 10 -51 10 -24 0 -44 -4 -44 -10z" />
 									<path
@@ -87,7 +94,8 @@
 				<img id="voletFlecheImage" src="<?= base_url('img/back_green.png') ?>" alt="flechePanier" />
 				<svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="40.000000pt" height="40.000000pt"
 					viewBox="0 0 400.000000 400.000000" preserveAspectRatio="xMidYMid meet">
-					<g transform="translate(0.000000,400.000000) scale(0.100000,-0.100000)" fill="#7dd181" stroke="none">
+					<g transform="translate(0.000000,400.000000) scale(0.100000,-0.100000)" fill="#7dd181"
+						stroke="none">
 						<path
 							d="M1990 3530 c0 -6 -27 -10 -60 -10 -33 0 -60 -4 -60 -10 0 -5 -13 -10 -30 -10 -16 0 -30 -4 -30 -10 0 -5 -11 -10 -25 -10 -14 0 -25 -4 -25 -10 0 -5 -9 -10 -20 -10 -11 0 -20 -4 -20 -10 0 -5 -7 -10 -15 -10 -18 0 -165 -144 -165 -162 0 -7 -11 -22 -25 -32 -17 -13 -23 -25 -20 -38 4 -12 1 -18 -9 -18 -11 0 -16 -9 -16 -30 0 -16 -4 -30 -10 -30 -5 0 -10 -24 -10 -54 0 -30 -4 -58 -10 -61 -6 -4 -10 -113 -10 -296 l0 -289 40 -40 c35 -35 46 -40 85 -40 25 0 45 4 45 9 0 5 10 11 23 13 14 2 23 11 25 26 2 12 8 22 13 22 5 0 9 122 9 300 0 193 4 300 10 300 6 0 10 9 10 20 0 11 5 20 10 20 6 0 10 9 10 19 0 10 7 21 15 25 8 3 15 12 15 21 0 8 18 34 40 56 22 23 40 45 40 50 0 5 11 9 25 9 14 0 25 5 25 10 0 6 9 10 20 10 11 0 20 5 20 10 0 6 20 10 45 10 25 0 45 5 45 10 0 6 20 10 45 10 25 0 45 -4 45 -10 0 -5 16 -10 35 -10 19 0 35 -4 35 -10 0 -5 11 -10 25 -10 14 0 25 -4 25 -10 0 -5 9 -10 20 -10 11 0 20 -3 20 -7 0 -10 45 -63 54 -63 15 0 56 -51 56 -70 0 -11 5 -20 10 -20 6 0 10 -9 10 -20 0 -11 5 -20 10 -20 6 0 10 -107 10 -300 0 -193 4 -300 10 -300 6 0 10 -7 10 -15 0 -9 7 -18 15 -21 8 -4 15 -10 15 -16 0 -5 6 -16 14 -24 17 -16 106 -20 106 -4 0 6 11 10 25 10 20 0 25 5 25 25 0 14 5 25 10 25 6 0 10 113 10 320 0 207 -4 320 -10 320 -5 0 -10 20 -10 45 0 25 -4 45 -10 45 -5 0 -10 9 -10 20 0 11 -4 20 -10 20 -5 0 -10 11 -10 25 0 16 -6 25 -16 25 -8 0 -12 5 -9 10 4 6 -10 27 -29 46 -20 20 -36 40 -36 45 0 5 -5 9 -10 9 -14 0 -80 66 -80 80 0 5 -11 10 -25 10 -14 0 -25 5 -25 10 0 6 -7 10 -15 10 -8 0 -15 5 -15 10 0 6 -11 10 -25 10 -14 0 -25 5 -25 10 0 6 -11 10 -24 10 -14 0 -28 5 -31 10 -3 6 -33 10 -65 10 -32 0 -62 5 -65 10 -3 6 -26 10 -51 10 -24 0 -44 -4 -44 -10z" />
 						<path
@@ -95,80 +103,44 @@
 					</g>
 				</svg>
 			</div>
-			<h1>Volet panier</h1>
+			<h1 v-if = "panier.length == 0 ">Votre panier est vide ! </h1>
 			<div v-for="fruit in panier" v-bind:key="fruit.id_fruit" class="fruitDansPanier">
 				<a href="<?= site_url('Produit') ?>">
 					<img :src="getImg(fruit.id_fruit)" alt="image du fruit" />
 				</a>
-				<h2 class="p02">
-					{{fruit.nom}}
-				</h2>
-        <p class ="p02">
-          {{fruit.categorie}}
-        </p>
-				<p class="p02">
-					{{fruit.prix }} €
-				</p>
-				<div class="quantity">
-					<p class="p02">
-						<button v-on:click="totalQuantityPanier(-1,fruit.id_fruit)">-</button>
-						<span>
-							{{fruit.quantity}}
-						</span>
-						<button v-on:click="totalQuantityPanier(1,fruit.id_fruit)">+</button>
-					</p>
-				</div>
-        <button v-on:click = "retirerDuPanier(fruit.id_fruit)"> Delete</button>
-			</div>
-		</div>
-
-
-
-
-		<div class="bestsellers blur">
-			<div class="top-part">
-				<div class="top-text">
-					<h2>Ne manquez pas nos meilleures ventes !</h2>
-					<p class="p01">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-						labore et dolore magna </p>
-				</div>
-			</div>
-			<div class="fruit-menu">
-
-				<img src="<?= base_url('img/back.png') ?>" class="fleche" alt="back" />
-				<div v-for="fruit in fruits" v-bind:key="fruit.id_fruit" class="card-product">
-					<a href="<?= site_url('Produit') ?>">
-						<img :src="getImg(fruit.id_fruit)" alt="image du fruit" />
-					</a>
-					<h2 class="p02">
+				<div class="content">
+					<h2 class="p02" class="name">
 						{{fruit.nom}}
 					</h2>
-					<hr class="line small">
-					<p class="p02">
-						{{fruit.prix }} €
-					</p>
-					<div class="add-to-cart">
-						<div class="quantity">
-							<p class="p02">
-								<button v-on:click="totalQuantity(-1,fruit.id_fruit)">-</button>
-								<span>
-									{{fruit.quantity}}
-								</span>
-								<button v-on:click="totalQuantity(1,fruit.id_fruit)">+</button>
-							</p>
-						</div>
-						<button class="addPanier" v-on:click="ajouterAuPanier(fruit.id_fruit)">Ajouter au panier</button>
-						<script type="application/javascript"
-							src="<?= base_url('js/notiflix-Notiflix-dfaf93f/dist/notiflix-aio-3.2.5.min.js') ?>"></script>
+					<div class="quantityPanier">
+						<p class="p02">
+							<button v-on:click="totalQuantityPanier(-1,fruit.id_fruit)">-</button>
+							<span>
+								{{fruit.quantity}}
+							</span>
+							<button v-on:click="totalQuantityPanier(1,fruit.id_fruit)">+</button>
+						</p>
+					</div>
+					<div class="contenuPanier">
+						<p class="p02">
+							{{fruit.category.nom}}
+						</p>
+						<p class="p02">
+							{{fruit.prix }} €
+						</p>
+						<p class="p02">
+							Total : {{fruit.prix * fruit.quantity}} €
+						</p>
 					</div>
 				</div>
-
-				<img src="<?= base_url('img/next.png') ?>" class="fleche" alt="next" />
+				<button v-on:click="retirerDuPanier(fruit.id_fruit)" > D</button>
+			</div>
+			<div class="totalPanier">
+				<p class="p02">
+					Total : {{getTotalPanier()}} €
+				</p>
 			</div>
 		</div>
-
-
-		<hr class="line">
 
 		<div class="selectCategory blur">
 			<div class="tileSelect">
@@ -190,7 +162,7 @@
 		</div>
 		<div class="searchFruit blur">
 			<form action="" class="formulaire">
-				<input class="champ" type="text" placeholder="Chercher votre fruit favori" />
+				<input class="champ" type="search" v-model="searchKey" placeholder="Chercher votre fruit favori" />
 				<button type="submit" class="bouton">
 					<i class="fa fa-search"></i>
 				</button>
@@ -199,7 +171,7 @@
 
 
 		<div class="productsMenu blur">
-			<div v-for="fruit in fruits" v-bind:key="fruit.id_fruit" class="card-product blur">
+			<div v-for="fruit in search" v-bind:key="fruit.id_fruit" class="card-product blur">
 				<a href="<?= site_url('Produit') ?>">
 					<img :src="getImg(fruit.id_fruit)" alt="une mangue" />
 				</a>

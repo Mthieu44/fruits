@@ -4,8 +4,24 @@ require_once APPPATH.DIRECTORY_SEPARATOR.'models'.DIRECTORY_SEPARATOR."ProduitEn
 
 class PanierModel extends CI_Model{
 
-    public function addPanier($fruit,$quantity,$tab){
-		if ($quantity != 0) {
+    public function addPanier($fruits, $tab){
+		if (is_array($fruits)){
+			$this->session->set_userdata($tab,$fruits);
+		}
+	}
+
+	public function getPanier(){
+		$fruits = array();
+		foreach ($this->session->panier as $fruit){
+			$new = $this->FruitModel->findById($fruit->id_fruits);
+			array_push($fruits,$new);
+		}
+		return $fruits;
+	}
+    
+}
+/*
+if ($quantity != 0) {
 			$temp = $this->session->$tab;
 			$test = true;
 			foreach ($temp as $prod){
@@ -31,17 +47,7 @@ class PanierModel extends CI_Model{
 			$res = ["size" => count($this->session->$tab),"panier" => $this->session->$tab,"fauxPanier" => $this->session->fauxPanier];
 			return json_encode($res);
 		}
-	}
-
-	public function getPanier(){
-		$fruits = array();
-		foreach ($this->session->panier as $fruit){
-			$new = $this->FruitModel->findById($fruit->id_fruits);
-			array_push($fruits,$new);
-		}
-		return $fruits;
-	}
-    
-}
-
+*/ 
 ?>
+
+

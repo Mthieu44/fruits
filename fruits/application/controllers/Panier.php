@@ -24,15 +24,35 @@ class Panier extends CI_Controller {
 		$this->load->view('PanierView', array('fruits' => $fruits));
 	}
 
+	public function addToPanier(){
+		if (isset($_POST['fruits'],$_POST['tab'])){
+			$fruits = $_POST['fruits'];
+			$tab = $_POST['tab'];
+			$this->PanierModel->addPanier($fruits,$tab);
+			var_dump($this->session->$tab);
+			echo json_encode($this->session->$tab);
+		}
+	}
 	public function getPanier(){
 		echo json_encode($this->session->panier);
 	}
 	public function getAllFruits(){
 		$res = $this->FruitModel->findAll();
-		$quant = array();
+		$test = true;
 		for ($i = 0; $i < count($res); $i++){
-			
-			$res[$i]->quantity = 0;
+			for ($j = 0; $j < count($this->session->fauxPanier); $j++){
+				if ($res[$i]->fruits->id == $this->session->fauxPanier[$j]->fruits->id){
+					$test = false;
+					if($this->session->fauxPanier[$j]->quantity > 0){
+						$res[$i]->quantity = $this->session->fauxPanier[$j]->quantity;
+					}else{
+						$res[$i]->quantity = 0;					
+					}
+				}
+			}
+			if ($test){
+				$res[$i]->quantity = 0;
+			}
 		}
 		echo json_encode($res);
 	}

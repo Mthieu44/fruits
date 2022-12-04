@@ -12,7 +12,6 @@ class FruitEntity
 	public string $image;
 
 
-
     public function setId_fruit(int $id_fruit): void
 	{
 		$this->id_fruit = $id_fruit;

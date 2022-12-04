@@ -3,7 +3,15 @@ const vue = new Vue({
 		return {
 			fruits: [],
 			panier: [],
-			url: "http://srv-infoweb.iut-nantes.univ-nantes.prive/~E216351P/fruits/",
+			url: "http://localhost/public_html/equipe2-1/fruits/",
+			searchKey : "",
+		}
+	},
+	computed: {
+		search(){
+			return this.fruits.filter((fruit) =>{
+				return fruit.nom.toLowerCase().includes(this.searchKey.toLowerCase());
+			})		
 		}
 	},
 	methods: {
@@ -43,6 +51,13 @@ const vue = new Vue({
 				}
 			}
 		},
+		getTotalPanier() {
+			let total = 0;
+			this.panier.forEach(element => {
+				total += element.quantity * element.prix;
+			});
+			return total;
+		},
 		totalQuantity(n, id) {
 			for (let i = 0; i < this.fruits.length; i++) {
 				if (this.fruits[i].id_fruit == id) {
@@ -52,6 +67,19 @@ const vue = new Vue({
 					}
 				}
 			}
+			// Envoyer le tableau de fruits au tableau de session fauxPanier dans le php
+			axios({
+				method: 'post',
+				url: 'http://localhost/public_html/equipe2-1/fruits/index.php/panier/addToPanier',
+				data: {
+					fruits: this.fruits,
+					tab: "fauxPanier"
+				}
+			}).then(function (response) {
+				console.log(response);
+			}).catch(function (error) {
+				console.log(error);
+			});
 		},
         totalQuantityPanier(n, id) {
 			for (let i = 0; i < this.panier.length; i++) {
@@ -84,19 +112,3 @@ const vue = new Vue({
 			})
 	},
 }).$mount('#app-vue');
-
-/*
-for (let i = 0; i < this.fruits.length; i++) {
-                if (this.fruits[i].id_fruit == id) {
-                    if (this.fruits[i].quantity == 0){
-                        Notiflix.Notify.info("Quantité invalide", {timeout:1000, distance:'90px', width:"400px", fontSize:"16px"});
-                        break;
-                    }else{
-                        this.panier.push(this.fruits[i]);
-                        this.fruits[i].quantity = 0;
-                        showPanier();
-                        break;
-                    }
-                }
-            }
-*/
