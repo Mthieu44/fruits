@@ -129,7 +129,7 @@
 							{{fruit.prix }} €
 						</p>
 						<p class="p02">
-							Total : {{fruit.prix * fruit.quantity}} €
+							Total : {{getTotalProduit(fruit.id_fruit)}} €
 						</p>
 					</div>
 				</div>
