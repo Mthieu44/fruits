@@ -127,14 +127,14 @@
                     </td>
                     <td>
                         <?php
-                            foreach ($fruit->getCategory() as $category) {
-                                 echo ($category->getNom().'<br>');
-                             }
+                        foreach ($fruit->getCategory() as $category) {
+                            echo ($category->getNom() . '<br>');
+                        }
                         ?>
                     </td>
-                    
+
                     <td>
-                        <img src="<?= base_url('img/fruit/' . $fruit->getImage()) ?>"/>
+                        <img src="<?= base_url('img/fruit/' . $fruit->getImage()) ?>" />
                     </td>
                     <td>
                         <a href="<?= site_url('Fruit/modif/' . $fruit->getId_fruit()) ?>"> modif</a>
@@ -152,8 +152,8 @@
         <table>
             <tr>
                 <th> id </th>
-                <th> prenom </th>
                 <th> nom </th>
+                <th> prenom </th>
                 <th> adresse </th>
                 <th> mail </th>
                 <th> telephone </th>

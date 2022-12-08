@@ -69,31 +69,31 @@
         </nav>
     </header>
 
-    <form action="<?= site_url('User/register') ?>" method="post" class="register">
+    <form action="<?= site_url('Connexion/registerRequest') ?>" method="post" class="register">
         <h1>Inscrivez vous</h1>
         <p>Renseignez ce formulaire pour pouvoir vous inscrire</p>
         <div class="name">
-            <input class="inputname" type="text" name="prenom" id="prenom" placeholder="Prenom" maxlength="20" required>
-            <input class="inputname" type="text" name="nom" id="nom" placeholder="Nom" maxlength="20" required>
+            <input class="inputname" type="text" name="prenom" placeholder="Prenom" maxlength="20" required>
+            <input class="inputname" type="text" name="nom" placeholder="Nom" maxlength="20" required>
         </div>
-        <input type="email" name="email" id="email" placeholder="Email" maxlength="60" required>
-        <input type="adresse" name="adresse" id="adresse" placeholder="Adresse" maxlength="60" required>
-        <input type="tel" pattern="^((\+\d{1,3}(-| )?\(?\d\)?(-| )?\d{1,5})|(\(?\d{2,6}\)?))(-| )?(\d{3,4})(-| )?(\d{4})(( x| ext)\d{1,5}){0,1}$" name="telephone" id="telephone" placeholder="Telephone (10 chiffres)" required>
+        <input type="email" name="email" placeholder="Email" maxlength="60" required>
+        <input type="adresse" name="adresse" placeholder="Adresse" maxlength="60" required>
+        <input type="tel" pattern="^((\+\d{1,3}(-| )?\(?\d\)?(-| )?\d{1,5})|(\(?\d{2,6}\)?))(-| )?(\d{3,4})(-| )?(\d{4})(( x| ext)\d{1,5}){0,1}$" name="telephone" placeholder="Telephone (10 chiffres)" required>
         <div class="sexe">
-            <input type="radio" name="sexe" value="homme" id="homme">
+            <input type="radio" name="sexe" value="homme">
             <label for="homme">Homme</label>
-            <input type="radio" name="sexe" value="femme" id="femme">
+            <input type="radio" name="sexe" value="femme">
             <label for="femme">Femme</label>
-            <input type="radio" name="sexe" value="autre" id="autre">
+            <input type="radio" name="sexe" value="autre">
             <label for="autre">Autre</label>
         </div>
-        <input type="password" name="password" id="pass" placeholder="Mot de passe" maxlength="20" required>
-        <input type="password" name="password2" id="pass2" placeholder=" Confirmer mot de passe" maxlength="20" required>
+        <input type="password" name="password" placeholder="Mot de passe" maxlength="20" required>
+        <input type="password" name="passwordComfirm" placeholder=" Confirmer mot de passe" maxlength="20" required>
+        <?php echo validation_errors(); ?>
         <input type="hidden" name="status" value="client">
         <input class="bouton" type="submit" value="S'inscrire">
 
         <a class="text-min" href="<?= site_url('Connexion') ?>">Déjà Inscrit ?</a>
-
 
     </form>
 </body>

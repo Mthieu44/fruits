@@ -1,5 +1,5 @@
 <?php
-require_once APPPATH.DIRECTORY_SEPARATOR.'models'.DIRECTORY_SEPARATOR."CategoryEntity.php";
+require_once APPPATH . DIRECTORY_SEPARATOR . 'models' . DIRECTORY_SEPARATOR . "CategoryEntity.php";
 
 class FruitEntity
 {   
@@ -12,57 +12,65 @@ class FruitEntity
 	public string $image;
 
 
-    public function setId_fruit(int $id_fruit): void
+	public function setId_fruit(int $id_fruit): void
 	{
 		$this->id_fruit = $id_fruit;
 	}
 
-    public function getId_fruit(): int
+	public function getId_fruit(): int
 	{
 		return $this->id_fruit;
 	}
- 
 
-    public function setNom(string $nom): void
+
+	public function setNom(string $nom): void
 	{
 		$this->nom = $nom;
 	}
-    
-    public function getNom(): string
+
+	public function getNom(): string
 	{
 		return $this->nom;
 	}
 
 
-    public function setPrix(string $prix): void
+	public function setPrix(string $prix): void
 	{
 		$this->prix = $prix;
 	}
-    
 
-    public function getPrix(): string
+
+	public function getPrix(): string
 	{
 		return $this->prix;
 	}
 
 
-    public function setDescription(string $description): void
+	public function setDescription(string $description): void
 	{
 		$this->description = $description;
 	}
-    
-    public function getDescription(): string
+
+	public function getDescription(): string
 	{
 		return $this->description;
 	}
 
+	public function addCategory(int $idCategory, string $nom, string $description): void
+	{
+		$category = new CategoryEntity();
+		$category->setId_categorie($idCategory);
+		$category->setNom($nom);
+		$category->setDescription($description);
+		array_push($this->category, $category);
+	}
 
 	public function setCategory(array $category): void
 	{
 		$this->category = $category;
 	}
-    
-    public function getCategory(): array
+
+	public function getCategory(): array
 	{
 		return $this->category;
 	}
@@ -71,8 +79,8 @@ class FruitEntity
 	{
 		$this->image = $image;
 	}
-    
-    public function getImage(): string
+
+	public function getImage(): string
 	{
 		return $this->image;
 	}
@@ -81,8 +89,8 @@ class FruitEntity
 	{
 		$this->origine = $origine;
 	}
-    
-    public function getOrigine(): string
+
+	public function getOrigine(): string
 	{
 		return $this->origine;
 	}

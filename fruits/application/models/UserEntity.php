@@ -36,12 +36,12 @@ class UserEntity
 
     public function getPrenom(): string
     {
-        return $this->Prenom;
+        return $this->prenom;
     }
 
-    public function setPrenom(string $Prenom): void
+    public function setPrenom(string $prenom): void
     {
-        $this->Prenom = $Prenom;
+        $this->prenom = $prenom;
     }
 
     public function getMail(): string

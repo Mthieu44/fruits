@@ -223,3 +223,28 @@ BEGIN
     SELECT id_categorie FROM categorisation WHERE id_fruit = _id_fruit;
 END //
 DELIMITER ;
+
+DELIMITER //
+CREATE PROCEDURE getAllFruit()
+BEGIN
+    SELECT fruit.id_fruit, fruit.nom, fruit.prix, fruit.description, fruit.origine, fruit.image, categorie.id_categorie, categorie.nom as nomc, categorie.description as descriptionc FROM fruit, categorisation, categorie where fruit.id_fruit = categorisation.id_fruit and categorie.id_categorie = categorisation.id_categorie ;
+END //
+DELIMITER ;
+
+DELIMITER //
+
+DELIMITER //
+CREATE PROCEDURE getFruitById(
+    IN _id_fruit TEXT
+)
+BEGIN
+    SELECT fruit.id_fruit, fruit.nom, fruit.prix, fruit.description, fruit.origine, fruit.image, categorie.id_categorie, categorie.nom as nomc, categorie.description as descriptionc FROM fruit, categorisation, categorie where fruit.id_fruit = _id_fruit and fruit.id_fruit = categorisation.id_fruit and categorie.id_categorie = categorisation.id_categorie ;
+END //
+DELIMITER ;
+
+DELIMITER //
+CREATE PROCEDURE getAllUser()
+BEGIN
+    SELECT * FROM usertab;
+END //
+DELIMITER ;

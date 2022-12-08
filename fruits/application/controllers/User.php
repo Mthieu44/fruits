@@ -19,12 +19,12 @@ class User extends CI_Controller
             $this->load->view('accessDeniedView');
         }
 
-        if (!isset($this->session->panier)){
-			$this->session->set_userdata("panier",array());
-		}
-		if (!isset($this->session->fauxPanier)){
-			$this->session->set_userdata("fauxPanier",array());
-		}
+        if (!isset($this->session->panier)) {
+            $this->session->set_userdata("panier", array());
+        }
+        if (!isset($this->session->fauxPanier)) {
+            $this->session->set_userdata("fauxPanier", array());
+        }
     }
 
 
@@ -78,16 +78,40 @@ class User extends CI_Controller
 
     function register()
     {
-        $user = new UserEntity();
-        $user->setPrenom($this->input->post('prenom'));
-        $user->setNom($this->input->post('nom'));
-        $user->setMail($this->input->post('email'));
-        $user->setAdresse($this->input->post('adresse'));
-        $user->setTelephone($this->input->post('telephone'));
-        $user->setSexe($this->input->post('sexe'));
-        $user->setStatus($this->input->post('status'));
-        $user->setPassword($this->input->post('password'));
-        $this->UserModel->add($user);
-        redirect('Connexion');
+        $this->load->library('form_validation');
+
+        $config = array(
+            array(
+                'field' => 'username',
+                'label' => 'Username',
+                'rules' => 'required'
+            ),
+            array(
+                'field' => 'password',
+                'label' => 'Password',
+                'rules' => 'required',
+                'errors' => array(
+                    'required' => 'You must provide a %s.',
+                ),
+            )
+        );
+
+        $this->form_validation->set_rules($config);
+        if ($this->form_validation->run() == FALSE) {
+            $this->load->view('RegisterView');
+        } else {
+            $this->load->library('form_validation');
+            $user = new UserEntity();
+            $user->setPrenom($this->input->post('prenom'));
+            $user->setNom($this->input->post('nom'));
+            $user->setMail($this->input->post('email'));
+            $user->setAdresse($this->input->post('adresse'));
+            $user->setTelephone($this->input->post('telephone'));
+            $user->setSexe($this->input->post('sexe'));
+            $user->setStatus($this->input->post('status'));
+            $user->setPassword($this->input->post('password'));
+            $this->UserModel->add($user);
+            redirect('Connexion');
+        }
     }
 }
