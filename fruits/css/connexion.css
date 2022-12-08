@@ -289,12 +289,8 @@ input[type="checkbox"] {
 	column-gap: 10px;
 }
 .description {
-	height: 150px;
-	width: 70%;
-	padding: 5px;
-	resize: none;
-	border: 2px solid rgb(156, 156, 156);
-	border-radius: 4px;
+	height: 300px;
+	
 }
 
 /*********ADMIN VIEW*********/
