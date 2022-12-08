@@ -8,8 +8,6 @@ class UserModel extends CI_Model
 		$sql = 'SELECT * FROM usertab where mail = ?';
 		$q = $this->db->query($sql, array($mail));
 
-
-
 		$user = new UserEntity();
 		$response = $q->row(0);
 		if (isset($response)) {
@@ -21,12 +19,15 @@ class UserModel extends CI_Model
 			$user->setStatus($response->status);
 			$user->setAdresse($response->adresse);
 			$user->settelephone($response->telephone);
+		} else {
+			return null;
 		}
 		return $user;
 	}
 
 	function findAll()
 	{
+		/*$q = $this->db->query('CALL getAllUser())');*/
 		$this->db->select('*');
 		$q = $this->db->get('usertab');
 		$response = array();
@@ -104,4 +105,3 @@ class UserModel extends CI_Model
 		);
 	}
 }
-?>
