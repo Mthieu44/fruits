@@ -13,8 +13,8 @@ class Fruit extends CI_Controller
         $this->load->model('FruitModel');
         $this->load->model('CategoryModel');
 
-        if (isset($this->session->user["status"])) {
-            if ($this->session->user["status"] == 'admin') {
+        if (isset($this->session->user["user"])) {
+            if ($this->session->user["user"]->getStatus() == 'admin') {
             } else {
                 $this->load->view('accessDeniedView');
             }
