@@ -42,7 +42,7 @@
                         if (!isset($this->session->user)) {
                             echo ("Connexion");
                         } else {
-                            echo ($this->session->user["prenom"]);
+                            echo ($this->session->user["user"]->getPrenom());
                         }
                         ?>
                     </a>
@@ -68,25 +68,30 @@
         </nav>
     </header>
 
-    <form action="<?= site_url('Fruit/modifFruit'. DIRECTORY_SEPARATOR . $this->uri->segment(3)) ?>" method="post" class="register">
+    <form action="<?= site_url('Fruit/modifFruit' . DIRECTORY_SEPARATOR . $this->uri->segment(3)) ?>" method="post" class="register">
         <p>Modifer un Fruit</p>
         <input type="text" name="nom" id="nom" placeholder="Nom" maxlength="20" value="<?= $fruit->getNom() ?>" required>
         <input type="text" name="prix" id="prix" placeholder="Prix" maxlength="5" value="<?= $fruit->getPrix() ?>" required>
-        <input class="description" type="text" name="description" id="description" placeholder="Description" maxlength="2000" value="<?= $fruit->getDescription() ?>"required>
+        <input class="description" type="text" name="description" id="description" placeholder="Description" maxlength="2000" value="<?= $fruit->getDescription() ?>" required>
         <input type="text" name="origine" id="origine" placeholder="Origine" maxlength="20" value="<?= $fruit->getOrigine() ?>" required>
         <div class="categories">
-        <?php $fruitCategory = $this->FruitModel->findFruitCategotiId($fruit); $categories = $this->CategoryModel->findAll();?>
-        <?php foreach ($categories as $category) : ?>
-            <div>
-            <input type="checkbox" name="<?= $category->getNom() ?>" value="<?= $category->getId_Categorie() ?>" <?php foreach($fruitCategory as $id_cat){ if ($category->getId_Categorie() == (int)$id_cat) {  echo('checked');}} ?>>
-            <label for="<?= $category->getNom() ?>"><?= $category->getNom() ?></label>
-            </div>
-        <?php endforeach; ?>
+            <?php $fruitCategory = $this->FruitModel->findFruitCategotiId($fruit);
+            $categories = $this->CategoryModel->findAll(); ?>
+            <?php foreach ($categories as $category) : ?>
+                <div>
+                    <input type="checkbox" name="<?= $category->getNom() ?>" value="<?= $category->getId_Categorie() ?>" <?php foreach ($fruitCategory as $id_cat) {
+                                                                                                                                if ($category->getId_Categorie() == (int)$id_cat) {
+                                                                                                                                    echo ('checked');
+                                                                                                                                }
+                                                                                                                            } ?>>
+                    <label for="<?= $category->getNom() ?>"><?= $category->getNom() ?></label>
+                </div>
+            <?php endforeach; ?>
         </div>
         <input type="file" name="image" id="image" placeholder="Image" accept="image/png">
 
-        
-        
+
+
         <input class="bouton" type="submit" value="Valider">
         <a href="<?= site_url('Connexion') ?>">Retour à la page</a>
 

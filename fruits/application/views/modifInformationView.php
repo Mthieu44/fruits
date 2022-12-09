@@ -27,7 +27,7 @@
         <nav>
 
             <ul>
-                <li><a href="<?= site_url('Home') ?>">Accueil</a></li>
+                <li><a href="<?= site_url('Home') ?>" class="yellow">Accueil</a></li>
                 <li><a href=" <?= site_url('Boutique') ?>">Boutique</a></li>
                 <li><a href="<?= site_url('APropos') ?>" class="propos">A propos</a></li>
                 <li><a href="<?= site_url('Contact') ?>">Contact</a></li>
@@ -69,33 +69,33 @@
         </nav>
     </header>
 
+    <form action="<?= site_url('User/modifInformationUser') ?>" method="post" class="register modif">
+        <h1>Vous pouvez modifier vos informations ici</h1>
+        <div class="name">
+            <input class="inputname" type="text" name="prenom" placeholder="Prenom" maxlength="20" value="<?= $user["user"]->getPrenom() ?>" required>
+            <input class="inputname" type="text" name="nom" placeholder="Nom" maxlength="20" value="<?= $user["user"]->getNom() ?>" required>
+        </div>
+        <input type="email" name="email" placeholder="Email" maxlength="60" value="<?= $user["user"]->getMail() ?>" disabled>
+        <input type=" adresse" name="adresse" placeholder="Adresse" maxlength="60" value="<?= $user["user"]->getAdresse() ?>" required>
+        <input type="tel" pattern="^((\+\d{1,3}(-| )?\(?\d\)?(-| )?\d{1,5})|(\(?\d{2,6}\)?))(-| )?(\d{3,4})(-| )?(\d{4})(( x| ext)\d{1,5}){0,1}$" name="telephone" placeholder="Telephone (10 chiffres)" value="<?= $user["user"]->getTelephone() ?> " required>
+        <div class="sexe">
+            <input type="radio" name="sexe" value="homme" id="homme" <?php if ($user["user"]->getSexe() == 'homme') {
+                                                                            echo ('checked');
+                                                                        } ?>>
+            <label for="homme">Homme</label>
+            <input type="radio" name="sexe" value="femme" id="femme" <?php if ($user["user"]->getSexe() == 'femme') {
+                                                                            echo ('checked');
+                                                                        } ?>>
+            <label for="femme">Femme</label>
+            <input type="radio" name="sexe" value="autre" id="autre" <?php if ($user["user"]->getSexe() == 'autre') {
+                                                                            echo ('checked');
+                                                                        } ?>>
+            <label for="autre">Autre</label>
+        </div>
+        <input class="bouton" type="submit" value="Valider">
 
-    <div class="login">
-        <h2> Connexion </h2>
-        <form action="<?= site_url('Connexion/loginCheck') ?>" method="post">
-            <label for="mail">Mail :</label>
-            <input id="mail" type="email" name="mail" placeholder="Votre mail">
-            <label for="password">Mot de passe :</label>
-            <input id="password" type="password" name="password" placeholder="Votre mot de passe">
-            <div class="bottom-text">
-
-                <p class="erreur">
-                    <?php
-                    if (isset($msg)) {
-                        echo ($msg);
-                    }
-                    ?>
-                </p>
-                <a class="mdp" href="<?= site_url('Connexion') ?>">mot de passe oublié</a>
-            </div>
-
-            <input type="submit" class="hvr-bounce-to-top" value="Connexion">
-        </form>
-        <a href="<?= site_url('Connexion/register') ?>" class="inscription">S'inscrire</a>
-    </div>
-
+    </form>
 </body>
-
 
 </html>
 

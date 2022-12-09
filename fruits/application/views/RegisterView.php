@@ -43,7 +43,7 @@
                         if (!isset($this->session->user)) {
                             echo ("Connexion");
                         } else {
-                            echo ($this->session->user["prenom"]);
+                            echo ($this->session->user["user"]->getPrenom());
                         }
                         ?>
                     </a>
@@ -90,7 +90,7 @@
         <input type="password" name="password" placeholder="Mot de passe" maxlength="20" required>
         <input type="password" name="passwordComfirm" placeholder=" Confirmer mot de passe" maxlength="20" required>
         <?php echo validation_errors(); ?>
-        <input type="hidden" name="status" value="client">
+
         <input class="bouton" type="submit" value="S'inscrire">
 
         <a class="text-min" href="<?= site_url('Connexion') ?>">Déjà Inscrit ?</a>

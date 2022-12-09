@@ -5,7 +5,8 @@ CREATE TABLE fruit(
     description VARCHAR(2000) NOT NULL,
     origine VARCHAR(200) NOT NULL,
     image VARCHAR(50) NOT NULL
-); CREATE TABLE categorie(
+); 
+CREATE TABLE categorie(
     id_categorie INT PRIMARY KEY AUTO_INCREMENT,
     nom VARCHAR(50) NOT NULL,
     description VARCHAR(2000) NOT NULL
@@ -32,6 +33,7 @@ CREATE TABLE usertab(
 );
 
 ALTER TABLE `usertab` ADD UNIQUE(`mail`);
+ALTER TABLE `fruit` ADD UNIQUE(`nom`);
 
 /*
 CREATE TABLE commande(

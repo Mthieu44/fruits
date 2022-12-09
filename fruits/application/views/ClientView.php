@@ -42,7 +42,7 @@
                         if (!isset($this->session->user)) {
                             echo ("Connexion");
                         } else {
-                            echo ($this->session->user["prenom"]);
+                            echo ($this->session->user["user"]->getPrenom());
                         }
                         ?>
                     </a>
@@ -75,7 +75,7 @@
         <div class="profil">
             <div class="case nom">
                 <h1><?= $this->session->user["user"]->getPrenom() ?></h1>
-                <h1><?= $this->session->user["user"]->getNOm() ?></h1>
+                <h1><?= $this->session->user["user"]->getNom() ?></h1>
             </div>
             <div class="case">
                 <p>Telephone :</p>
@@ -89,7 +89,7 @@
                 <p>Adresse :</p>
                 <p><?= $this->session->user["user"]->getAdresse() ?></p>
             </div>
-            <a href="<?= site_url('User/todo') ?>" class="button">Modifier informations</a>
+            <a href="<?= site_url('User/modifInformation') ?>" class="button">Modifier informations</a>
             <a href="<?= site_url('Connexion/logout') ?>" class="button">logout</a>
         </div>
         <div class="commandes">

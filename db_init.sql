@@ -11,7 +11,6 @@ call addCategorie('Fruits à noyau','De bons et tendres fruits au coeur de pierr
 call addCategorie('Fruits à pépins','A consommer régulièrement pour une vie sans trop de pépins !');
 call addCategorie('Promo',"Ne pas s'en priver, votre porte-monnaie vous remerciera.");
 call addCategorie('Indisponible',"Ce fruit n'est plus dans nos stock")
-
 call addFruit('Avocat',1.00,"C'est un fruit à la maturation originale qui ne peut mûrir que lorsqu'il est détaché de l'arbre. L'avocat est un fruit très calorique, riche en matières grasses. Vendu à l'unité.","Mexique","avocat.png");
 call addFruit('Abricot',0.15,"L'abricot est un fruit charnu, de forme arrondie, possédant un noyau dur contenant une seule grosse graine. La chair est sucrée, peu juteuse, jaune orangé et ferme. Vendu à l'unité.","France, Rhône","abricot.png");
 call addFruit('Pasteque',3.00,"Fruit lisse, à chair rouge et à graines noires, pesant entre 2 et 5kg. Vendu à l'unité.","France, Midi","pasteque.png");

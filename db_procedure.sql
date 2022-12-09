@@ -1,5 +1,5 @@
 DELIMITER //
-CREATE PROCEDURE addUser(
+CREATE OR REPLACE PROCEDURE addUser(
     IN _prenom TEXT,
     IN _nom TEXT,
     IN _adresse TEXT,
@@ -34,7 +34,7 @@ END //
 DELIMITER ;
 
 DELIMITER //
-CREATE PROCEDURE modifUser(
+CREATE OR REPLACE PROCEDURE modifUser(
     IN _id TEXT,
     IN _prenom TEXT,
     IN _nom TEXT,
@@ -62,7 +62,7 @@ DELIMITER ;
 
 
 DELIMITER //
-CREATE PROCEDURE deleteUser(
+CREATE OR REPLACE PROCEDURE deleteUser(
     IN _id TEXT
 )
 BEGIN
@@ -73,7 +73,7 @@ DELIMITER ;
 
 
 DELIMITER //
-CREATE PROCEDURE addFruit(
+CREATE OR REPLACE PROCEDURE addFruit(
     IN _nom TEXT,
     IN _prix TEXT,
     IN _description TEXT,
@@ -99,7 +99,7 @@ END //
 DELIMITER ;
 
 DELIMITER //
-CREATE PROCEDURE modifFruit(
+CREATE OR REPLACE PROCEDURE modifFruit(
     IN _id TEXT,
     IN _nom TEXT,
     IN _prix TEXT,
@@ -120,7 +120,7 @@ END //
 DELIMITER ;
 
 DELIMITER //
-CREATE PROCEDURE deleteFruit(
+CREATE OR REPLACE PROCEDURE deleteFruit(
     IN _id TEXT
 )
 BEGIN
@@ -134,7 +134,7 @@ DELIMITER ;
 
 
 DELIMITER //
-CREATE PROCEDURE addCategorie(
+CREATE OR REPLACE PROCEDURE addCategorie(
     IN _nom TEXT,
     IN _description TEXT
 )
@@ -152,7 +152,7 @@ END //
 DELIMITER ;
 
 DELIMITER //
-CREATE PROCEDURE modifCategorie(
+CREATE OR REPLACE PROCEDURE modifCategorie(
     IN _id TEXT,
     IN _nom TEXT,
     IN _description TEXT
@@ -167,7 +167,7 @@ END //
 DELIMITER ;
 
 DELIMITER //
-CREATE PROCEDURE deleteCategorie(
+CREATE OR REPLACE PROCEDURE deleteCategorie(
     IN _id TEXT
 )
 BEGIN
@@ -179,7 +179,7 @@ DELIMITER ;
 
 
 DELIMITER //
-CREATE PROCEDURE addCategorieToFruit(
+CREATE OR REPLACE PROCEDURE addCategorieToFruit(
     IN _id_fruit TEXT,
     IN _id_categ TEXT
 )
@@ -198,7 +198,7 @@ DELIMITER ;
 
 
 DELIMITER //
-CREATE PROCEDURE deleteCategorieToFruit(
+CREATE OR REPLACE PROCEDURE deleteCategorieToFruit(
     IN _id_fruit TEXT,
     IN _id_categ TEXT
 )
@@ -209,14 +209,14 @@ END //
 DELIMITER ;
 
 DELIMITER //
-CREATE PROCEDURE getAllCategorie()
+CREATE OR REPLACE PROCEDURE getAllCategorie()
 BEGIN
     SELECT * FROM categorie;
 END //
 DELIMITER ;
 
 DELIMITER //
-CREATE PROCEDURE getCategorieByFruitId(
+CREATE OR REPLACE PROCEDURE getCategorieByFruitId(
     IN _id_fruit TEXT
 )
 BEGIN
@@ -225,7 +225,7 @@ END //
 DELIMITER ;
 
 DELIMITER //
-CREATE PROCEDURE getAllFruit()
+CREATE OR REPLACE PROCEDURE getAllFruit()
 BEGIN
     SELECT fruit.id_fruit, fruit.nom, fruit.prix, fruit.description, fruit.origine, fruit.image, categorie.id_categorie, categorie.nom as nomc, categorie.description as descriptionc FROM fruit, categorisation, categorie where fruit.id_fruit = categorisation.id_fruit and categorie.id_categorie = categorisation.id_categorie ;
 END //
@@ -234,7 +234,7 @@ DELIMITER ;
 DELIMITER //
 
 DELIMITER //
-CREATE PROCEDURE getFruitById(
+CREATE OR REPLACE PROCEDURE getFruitById(
     IN _id_fruit TEXT
 )
 BEGIN
@@ -243,8 +243,17 @@ END //
 DELIMITER ;
 
 DELIMITER //
-CREATE PROCEDURE getAllUser()
+CREATE PROCEDURE getFruitByName(
+    IN _nom_fruit TEXT
+)
+BEGIN
+    SELECT fruit.id_fruit, fruit.nom, fruit.prix, fruit.description, fruit.origine, fruit.image, categorie.id_categorie, categorie.nom as nomc, categorie.description as descriptionc FROM fruit, categorisation, categorie where fruit.nom = _nom_fruit and fruit.id_fruit = categorisation.id_fruit and categorie.id_categorie = categorisation.id_categorie ;
+END //
+DELIMITER ;
+
+DELIMITER //
+CREATE OR REPLACE PROCEDURE getAllUser()
 BEGIN
     SELECT * FROM usertab;
 END //
-DELIMITER ;
+DELIMITER ; 

@@ -42,7 +42,7 @@
                         if (!isset($this->session->user)) {
                             echo ("Connexion");
                         } else {
-                            echo ($this->session->user["prenom"]);
+                            echo ($this->session->user["user"]->getPrenom());
                         }
                         ?>
                     </a>
@@ -75,17 +75,17 @@
         <input type="text" name="description" id="description" placeholder="Description" maxlength="2000" required>
         <input type="text" name="origine" id="origine" placeholder="Origine" maxlength="20" required>
         <div class="categories">
-        <?php foreach ($categories as $category) : ?>
-            <div>
-            <input type="checkbox" name="<?= $category->getNom() ?>" value="<?= $category->getId_Categorie() ?>" id="<?= $category->getNom() ?>">
-            <label for="<?= $category->getNom() ?>"><?= $category->getNom() ?></label>
-            </div>
-        <?php endforeach; ?>
+            <?php foreach ($categories as $category) : ?>
+                <div>
+                    <input type="checkbox" name="<?= $category->getNom() ?>" value="<?= $category->getId_Categorie() ?>" id="<?= $category->getNom() ?>">
+                    <label for="<?= $category->getNom() ?>"><?= $category->getNom() ?></label>
+                </div>
+            <?php endforeach; ?>
         </div>
         <input type="file" name="image" id="image" placeholder="Image" accept="image/png">
 
-        
-        
+
+
         <input class="bouton" type="submit" value="Valider">
         <a href="<?= site_url('Connexion') ?>">Retour à la page</a>
 

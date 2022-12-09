@@ -1,4 +1,4 @@
-var url = "http://localhost/public_html/equipe2-1/fruits/"
+var url = "http://127.0.0.1/"
 
 function totalQuantity(n,id){
     let totalQuantity = document.getElementById("totalQuantity".concat(id));

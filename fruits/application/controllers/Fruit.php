@@ -1,11 +1,13 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 require APPPATH . DIRECTORY_SEPARATOR . 'models' . DIRECTORY_SEPARATOR . "FruitEntity.php";
+require APPPATH . DIRECTORY_SEPARATOR . 'models' . DIRECTORY_SEPARATOR . "UserEntity.php";
+
 class Fruit extends CI_Controller
 {
     public function __construct()
     {
-        parent::__construct();   
+        parent::__construct();
         $this->load->helper('url');
         $this->load->library('session');
         $this->load->model('FruitModel');
@@ -20,12 +22,12 @@ class Fruit extends CI_Controller
             $this->load->view('accessDeniedView');
         }
 
-        if (!isset($this->session->panier)){
-			$this->session->set_userdata("panier",array());
-		}
-		if (!isset($this->session->fauxPanier)){
-			$this->session->set_userdata("fauxPanier",array());
-		}
+        if (!isset($this->session->panier)) {
+            $this->session->set_userdata("panier", array());
+        }
+        if (!isset($this->session->fauxPanier)) {
+            $this->session->set_userdata("fauxPanier", array());
+        }
     }
 
 
@@ -48,20 +50,20 @@ class Fruit extends CI_Controller
         $fruit = $this->FruitModel->findByName($fruit->getNom());
         $categories = $this->CategoryModel->findAll();
         $fruitCategory = $this->FruitModel->findFruitCategotiId($fruit);
-        foreach($categories as $categoriy){
-            if (null !== $this->input->post(str_replace(' ','_',$categoriy->getNom()))){
+        foreach ($categories as $categoriy) {
+            if (null !== $this->input->post(str_replace(' ', '_', $categoriy->getNom()))) {
                 $bool = true;
-                foreach($fruitCategory as $fruitcat){
-                    if ($fruitcat == $categoriy->getId_Categorie()){
-                        $bool=false;
+                foreach ($fruitCategory as $fruitcat) {
+                    if ($fruitcat == $categoriy->getId_Categorie()) {
+                        $bool = false;
                     }
                 }
 
-                if ($bool){
-                    $this->FruitModel->addCategorieToFruit($fruit->getId_fruit(),$categoriy->getId_Categorie());
+                if ($bool) {
+                    $this->FruitModel->addCategorieToFruit($fruit->getId_fruit(), $categoriy->getId_Categorie());
                 }
             } else {
-                $this->FruitModel->deleteCategorieToFruit($fruit->getId_fruit(),$categoriy->getId_Categorie());
+                $this->FruitModel->deleteCategorieToFruit($fruit->getId_fruit(), $categoriy->getId_Categorie());
             }
         }
         redirect('Connexion');
@@ -70,7 +72,7 @@ class Fruit extends CI_Controller
     function add()
     {
         $categories = $this->CategoryModel->findAll();
-        $this->load->view('addFruitView',array('categories' => $categories));
+        $this->load->view('addFruitView', array('categories' => $categories));
     }
 
     function addFruit()
@@ -84,9 +86,9 @@ class Fruit extends CI_Controller
         $this->FruitModel->add($fruit);
         $fruit = $this->FruitModel->findByName($fruit->getNom());
         $categories = $this->CategoryModel->findAll();
-        foreach($categories as $categoriy){
-            if (null !== $this->input->post(str_replace(' ','_',$categoriy->getNom()))){
-                $this->FruitModel->addCategorieToFruit($fruit->getId_fruit(),$categoriy->getId_Categorie());
+        foreach ($categories as $categoriy) {
+            if (null !== $this->input->post(str_replace(' ', '_', $categoriy->getNom()))) {
+                $this->FruitModel->addCategorieToFruit($fruit->getId_fruit(), $categoriy->getId_Categorie());
             }
         }
         redirect('Connexion');

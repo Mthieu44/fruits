@@ -42,7 +42,7 @@
                         if (!isset($this->session->user)) {
                             echo ("Connexion");
                         } else {
-                            echo ($this->session->user["prenom"]);
+                            echo ($this->session->user["user"]->getPrenom());
                         }
                         ?>
                     </a>
@@ -114,3 +114,6 @@
 </body>
 
 </html>
+
+<script type="text/javascript" src="<?= base_url('js/loader.js') ?>"></script>
+<script type="text/javascript" src="<?= base_url('js/panier.js') ?>"></script>
