@@ -1,9 +1,10 @@
+let url = "http://localhost/public_html/equipe2-1/fruits/"
+
 const vue = new Vue({
 	data: () => {
 		return {
 			fruits: [],
 			panier: [],
-			url: "http://srv-infoweb.iut-nantes.univ-nantes.prive/~E216351P/fruits/",
 			searchKey: "",
 		}
 	},
@@ -92,7 +93,7 @@ const vue = new Vue({
 			formData.append('quantity', quantity)
 			formData.append('tab', 'fauxPanier');
 
-			axios.post('http://srv-infoweb.iut-nantes.univ-nantes.prive/~E216351P/fruits/index.php/panier/addToPanier', formData).catch(function (error) {
+			axios.post(url.concat('index.php/panier/addToPanier'), formData).catch(function (error) {
 				console.log(error);
 			});
 
@@ -118,7 +119,7 @@ const vue = new Vue({
 			formData.append('quantity', quantity)
 			formData.append('tab', 'panier');
 
-			axios.post('http://srv-infoweb.iut-nantes.univ-nantes.prive/~E216351P/fruits/index.php/panier/addToPanier', formData).then(function (response) {
+			axios.post(url.concat('index.php/panier/addToPanier'), formData).then(function (response) {
 				console.log(response);
 			}).catch(function (error) {
 				console.log(error);
@@ -128,18 +129,12 @@ const vue = new Vue({
 		getImg(id) {
 			for (let i = 0; i < this.fruits.length; i++) {
 				if (this.fruits[i].id_fruit == id) {
-					return this.url.concat("/img/fruit/").concat(this.fruits[i].image);
+					return url.concat("img/fruit/").concat(this.fruits[i].image);
 				}
 			}
 		},
 	},
 	mounted() {
-		axios.get(url.concat('index.php/panier/getPanier'))
-			.then((res) => res.data)
-			.then((res) => {
-				this.panier = res;
-				console.log(res)
-			})
 		axios.get(url.concat('index.php/panier/getAllFruits'))
 			.then((res) => res.data)
 			.then((res) => {
@@ -147,5 +142,10 @@ const vue = new Vue({
 			}).catch(function (error) {
 				console.log(error);
 			});
+		axios.get(url.concat('index.php/panier/getPanier'))
+			.then((res) => res.data)
+			.then((res) => {
+				this.panier = res;
+			})
 	},
 }).$mount('#app-vue');

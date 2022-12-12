@@ -17,7 +17,7 @@
     </style>
 </head>
 
-<body>
+<body onmouseover="initSliders()">
     <div id="app-vue">
         <div id="preloader" class="preloader">
             <img src="<?= base_url('img/loader/' . $loader) ?>" class="loader">
@@ -185,80 +185,93 @@
                         labore et dolore magna </p>
                 </div>
             </div>
+
             <div class="fruit-menu">
-
-                <img src="<?= base_url('img/back.png') ?>" class="fleche" alt="back" />
-
-                <div v-for="fruit in fruits" v-bind:key="fruit.id_fruit" class="card-product">
-                    <a href="<?= site_url('Produit') ?>">
-                        <img :src="getImg(fruit.id_fruit)" alt="image du fruit" />
-                    </a>
-                    <h2 class="p02">
-                        {{fruit.nom}}
-                    </h2>
-                    <hr class="line small">
-                    <p class="p02">
-                        {{fruit.prix }} €
-                    </p>
-                    <div class="add-to-cart">
-                        <div class="quantity">
+                <div class="slider-hider left"></div>
+                <img src="<?= base_url('img/back.png') ?>" class="fleche left" alt="back" onclick="slideBestsellers.slideLeft()" />
+                
+                <div class="slider-inside-bestsellers" id="slider-bestsellers">
+                    <div v-for="fruit in fruits" v-bind:key="fruit.id_fruit">
+                        <div class="card-product card-product-top">
+                            <a href="<?= site_url('Produit') ?>">
+                                <img :src="getImg(fruit.id_fruit)" alt="image du fruit" />
+                            </a>
+                            <h2 class="p02">
+                                {{fruit.nom}}
+                            </h2>
+                            <hr class="line small">
                             <p class="p02">
-                                <button v-on:click="totalQuantity(-1,fruit.id_fruit)">-</button>
-                                <span>
-                                    {{fruit.quantity}}
-                                </span>
-                                <button v-on:click="totalQuantity(1,fruit.id_fruit)">+</button>
+                                {{fruit.prix }} €
                             </p>
+                            <div class="add-to-cart">
+                                <div class="quantity">
+                                    <p class="p02">
+                                        <button v-on:click="totalQuantity(-1,fruit.id_fruit)">-</button>
+                                        <span>
+                                            {{fruit.quantity}}
+                                        </span>
+                                        <button v-on:click="totalQuantity(1,fruit.id_fruit)">+</button>
+                                    </p>
+                                </div>
+                                <button class="addPanier" v-on:click="ajouterAuPanier(fruit.id_fruit)">Ajouter au panier</button>
+                                <script type="application/javascript" src="<?= base_url('js/notiflix-Notiflix-dfaf93f/dist/notiflix-aio-3.2.5.min.js') ?>"></script>
+                            </div>
                         </div>
-                        <button class="addPanier" v-on:click="ajouterAuPanier(fruit.id_fruit)">Ajouter au panier</button>
-                        <script type="application/javascript" src="<?= base_url('js/notiflix-Notiflix-dfaf93f/dist/notiflix-aio-3.2.5.min.js') ?>"></script>
                     </div>
                 </div>
 
-
-                <img src="<?= base_url('img/next.png') ?>" class="fleche" alt="next" />
+                <img src="<?= base_url('img/next.png') ?>" class="fleche right" alt="next" onclick="slideBestsellers.slideRight()"/>
+                <div class="slider-hider right"></div>
             </div>
         </div>
+
 
         <div class="bestsellers blur">
             <div class="top-part">
                 <hr class="line">
                 <div class="top-text">
-                    <h2>Fruits de saison</h2>
+                    <h2>Meilleures ventes</h2>
                     <p class="p01">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
                         labore et dolore magna </p>
                 </div>
             </div>
+
             <div class="fruit-menu">
-
-                <img src="<?= base_url('img/back.png') ?>" class="fleche" alt="back" />
-
-                <div v-for="fruit in fruits" v-bind:key="fruit.id_fruit" class="card-product">
-                    <a href="<?= site_url('Produit') ?>">
-                        <img :src="getImg(fruit.id_fruit)" alt="image du fruit" />
-                    </a>
-                    <h2 class="p02">
-                        {{fruit.nom}}
-                    </h2>
-                    <hr class="line small">
-                    <p class="p02">
-                        {{fruit.prix }} €
-                    </p>
-                    <div class="add-to-cart">
-                        <div class="quantity">
+                <div class="slider-hider left"></div>
+                <img src="<?= base_url('img/back.png') ?>" class="fleche left" alt="back" onclick="slideSeasonal.slideLeft()" />
+                
+                <div class="slider-inside-seasonal" id="slider-season">
+                    <div v-for="fruit in fruits" v-bind:key="fruit.id_fruit">
+                        <div class="card-product card-product-bottom">
+                            <a href="<?= site_url('Produit') ?>">
+                                <img :src="getImg(fruit.id_fruit)" alt="image du fruit" />
+                            </a>
+                            <h2 class="p02">
+                                {{fruit.nom}}
+                            </h2>
+                            <hr class="line small">
                             <p class="p02">
-                                <button v-on:click="totalQuantity(-1,fruit.id_fruit)">-</button>
-                                <span>
-                                    {{fruit.quantity}}
-                                </span>
-                                <button v-on:click="totalQuantity(1,fruit.id_fruit)">+</button>
+                                {{fruit.prix }} €
                             </p>
+                            <div class="add-to-cart">
+                                <div class="quantity">
+                                    <p class="p02">
+                                        <button v-on:click="totalQuantity(-1,fruit.id_fruit)">-</button>
+                                        <span>
+                                            {{fruit.quantity}}
+                                        </span>
+                                        <button v-on:click="totalQuantity(1,fruit.id_fruit)">+</button>
+                                    </p>
+                                </div>
+                                <button class="addPanier" v-on:click="ajouterAuPanier(fruit.id_fruit)">Ajouter au panier</button>
+                                <script type="application/javascript" src="<?= base_url('js/notiflix-Notiflix-dfaf93f/dist/notiflix-aio-3.2.5.min.js') ?>"></script>
+                            </div>
                         </div>
-                        <button class="addPanier" v-on:click="ajouterAuPanier(fruit.id_fruit)">Ajouter au panier</button>
-                        <script type="application/javascript" src="<?= base_url('js/notiflix-Notiflix-dfaf93f/dist/notiflix-aio-3.2.5.min.js') ?>"></script>
                     </div>
                 </div>
-                <img src="<?= base_url('img/next.png') ?>" class="fleche" alt="next" />
+
+                <img src="<?= base_url('img/next.png') ?>" class="fleche right" alt="next" onclick="slideSeasonal.slideRight()"/>
+                <div class="slider-hider right"></div>
             </div>
         </div>
 
@@ -267,6 +280,7 @@
     </div>
 </body>
 
+<script type="text/javascript" src="<?= base_url('js/sliderProduit.js') ?>"></script>
 </html>
 
 <script type="text/javascript" src="<?= base_url('js/carrousel.js') ?>"></script>

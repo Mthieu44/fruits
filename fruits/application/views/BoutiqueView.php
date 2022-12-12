@@ -109,7 +109,7 @@
                             {{fruit.prix }} €
                         </p>
                         <p class="p02">
-                            Total : {{fruit.prix * fruit.quantity}} €
+                            Total : {{getTotalProduit(fruit.id_fruit)}} €
                         </p>
                     </div>
                 </div>
@@ -152,8 +152,8 @@
 
         <div class="productsMenu blur">
             <div v-for="fruit in search" v-bind:key="fruit.id_fruit" class="card-product blur">
-                <a href="<?= site_url('Produit') ?>">
-                    <img :src="getImg(fruit.id_fruit)" alt="une mangue" />
+                <a href="<?= site_url('(fruit.id_fruit)') ?>">
+                    <img :src="getImg(fruit.id_fruit)" alt="(fruit.id_fruit)" />
                 </a>
                 <h2 class="p02">
                     {{fruit.nom}}
