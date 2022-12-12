@@ -1,216 +1,118 @@
-.left-part{
-    margin-left: 0px;
-    
-        display: block;
-        justify-content: center;
-        margin-bottom: 100px;
-        display: grid;
-        padding: 40px;
-    }
-    
-    .left-part img{
-        grid-column: 1 / 3;
-        grid-row: 1 / 3;
-        height: 350px;
-        width: auto;
-        border-radius: 10px;
-    
-        margin-right: 50px;
-    
-    }
-    .left-text-mangue {
-        grid-column: 1 / 3;
-        grid-row: 3 / 5;
-        height: auto   ;
-        width: 525px;
-        margin-left: 0 auto;
-        family: 'Inter', sans-serif;
-        color: #7DD181;
-        text-align: center;
-    }
-    
-    .left-text-orange {
-        grid-column: 1 / 3;
-        grid-row: 3 / 5;
-        height: auto   ;
-        width: 658px;
-        margin-left: 0 auto;
-        font-family: 'Inter', sans-serif;
-        color: #7DD181;
-        text-align: center;
-    }
-    
-    .rightmenu{
-        height: 475px;
-        width: 400px;
-        border-radius: 25px;
-        background-color: #7DD181;
-    
-    
-        justify-content: center;
-    
-      grid-template-columns:80px 100px 150px;
-      grid-template-rows:100px 200px;
-      grid-gap:12px;
-      gap:12px;
-      padding:20px;
-      grid-column: 3 / 5;
-      grid-row: 1 / 5;
-    
-    }
-    
-    #btn {
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      border: 1px solid black;
-      border-color:  var(--green-300);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 40px;
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-    
-    #btn:hover {
-      background-color: #FFFFFF;
-    ;
-    }
-    
-    #btn:hover ion-icon {
-      animation: roll 0.3s alternate ;
-    }
-    
-    
-    @-webkit-keyframes roll {
-    from { -webkit-transform: rotate(0deg) }
-    to   { -webkit-transform: rotate(360deg) }
-    }
-    
-    @-moz-keyframes roll {
-    from { -moz-transform: rotate(0deg) }
-    to   { -moz-transform: rotate(360deg) }
-    }
-    
-    @keyframes roll {
-    from { transform: rotate(0deg) }
-    to   { transform: rotate(360deg) }
-    }
-    
-    
-    
-    .titre-white{
-        font-size: 40px;
-        font-weight: 700;
-        color: var(--green-300);
-        font-family: 'Inter';
-        margin-bottom: 20px;
-    
-    }
-    
-    .titre-white2{
-        font-size: 25px;
-        font-weight: 700;
-        color: #FFFFFF;
-        font-family: 'Inter';
-        margin-bottom: 20px;
-    
-    }
-    
-    .titre-white3{
-      font-family: 'Inter';
-      font-style: normal;
-      font-weight: 240;
-      font-size: 19px;
-      line-height: 24px;
-      color: #FFFFFF;
-    }
-    
-    .titre-green{
-        margin-top: 0px;
-        font-size: 20px;
-        font-weight: 700;
-        color: #7DD181;
-        font-family: 'Inter';
-        margin-bottom: 20px;
-        text-align: center;
-    }
-    
-    .menu-description{
-        font-size: 15px;
-        font-weight: 300;
-        color: #FFFFFF;
-        font-family: 'Inter';
-        margin-bottom: 20px;
-    
-        grid-column: 3/4;
-        grid-row: 5;
-    }
-    
-    .text2{
-    margin-top: 30px;
-    
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 25px;
-    line-height: 39px;
-    
-    color: var(--green-300);
-    
-    }
-    .text3{
-    margin-top: 30px;
-    
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 25px;
-    line-height: 39px;
-    
-        color: #027B08;
-    
-    }
-    
-    .button2{
-    margin-right: 50px;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 44px;
-    
-    color: #027B08;
-    width: 100%;
-    box-sizing: border-box;
-    background: #FFFFFF;
-    border: 1px solid #FFFFFF;
-    border-radius: 20px;
-    margin-top: 30px;
-    
-    }
-    
-    .buttonquant{
-    background: #FFFFFF;
-    border-radius: 20px;
-    
-    border: 1px solid #FFFFFF;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 4px;
-    font-size: 15px;
-    line-height: 4px;
-    text-align: center;
-    height: 50px;
-    width: 50px;
-    color: #027B08;
-    }
-    
-    .top-part2{
-    
-        display: block;
-        justify-content: center;
-        margin-bottom: 50px;   
-        text-align: center;
-    }
+@import url("https://fonts.googleapis.com/css?family=Inter%22");
+
+.flex{
+display: flex;
+padding: 0;
+}
+
+body{
+background-color: #FFE0AA;
+}
+
+.img{
+
+margin-left: 20%;
+
+margin-top: 5%;
+height: 400px;
+width: 400px;
+
+border-radius: 8px;
+
+}
+
+.rightsquare{
+
+background-color: white;
+border-radius: 8px;
+height: 400px;
+width: 492px;
+margin-top: 5%;
+margin-right: 20%;
+margin-left: 7%;
+}
+
+.titre{
+font-family: 'Mango Sans', sans-serif;
+font-style: normal;
+font-weight: 400;
+font-size: 50px;
+line-height: 61px;
+text-align: center;
+margin-top: 5%;
+color: #000000;
+}
+
+.text{
+font-family: Inter;
+font-style: normal;
+font-weight: 400;
+font-size: 40px;
+line-height: 48px;
+margin-left: 10%;
+}
+
+.plusoumoins{
+font-family: Inter;
+
+display: flex;
+box-sizing: border-box;
+margin-left: 10%
+width: 209px;
+height: 50px;
+left: 1142px;
+top: 611px;
+
+
+background: #FFFFFF;
+border: 3px solid #FACE5F;
+}
+
+.bascadre{
+display : flex ;
+margin-left: 10%;
+
+}
+
+.bouton-plusoumoins{
+font-family: Inter;
+border: medium none;
+background-color: white;
+color: green;
+border-radius: 50%;
+width: 30px;
+height: 30px;
+cursor: pointer;
+font-size: 30px;
+margin-right: 10%;
+
+}
+.bouton-ajouter{
+font-family: Inter;
+background: #FACE5F;
+width: 233px;
+height: auto;
+left: auto;
+top: 500px;
+font-size: 30px;
+border: 2px solid #F9B814;
+border-radius: 10px;
+margin-left: 15%;
+}
+
+.zéro{
+margin-top: 5%;
+font-size: 30px;
+}
+
+.desciption{
+font-family: Inter;
+margin-left: 20%;
+width: 1000px;
+height: auto;
+padding: 1%;
+
+background: #FACE5F;
+border-radius: 20px;
+margin-top: 7%;
+}

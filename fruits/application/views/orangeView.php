@@ -122,81 +122,80 @@
     </div>
 
 
-
     <div class="flex">
-        	<img class="img" src="http://172.26.82.54/img/fruit/mangue.png" alt="mangue">
-        	<div class="rightsquare">
-        		<h1 class="titre">Mangue</h1>
-        		<h2 class="text">Prix : ?</h2>
-        		<h2 class="text">Origine : ?</h2>
-        		<div class="bascadre">
-        			<div class="plusoumoins">
-        				<button class="bouton-plusoumoins">-</button>
-        				<p class="zéro">0</p>
-        				<button class="bouton-plusoumoins">+</button>
-        			</div>
-        			<button class="bouton-ajouter">Ajouter</button>
-        		</div>
-        	</div>
-        </div>
-        <div class="desciption">
-        	<p>La mangue est un fruit charnu, pesant de 300 g à 2 kg. Sa chair est jaune foncé, onctueuse, grasse et sucrée avec un faux goût de pêche et de fleur. Vendue à l'unité.
-        	</p>
-        </div>
+    	<img class="img" src="http://172.26.82.54/img/fruit/orange.png" alt="orange">
+    	<div class="rightsquare">
+    		<h1 class="titre">Orange</h1>
+    		<h2 class="text">Prix : ?</h2>
+    		<h2 class="text">Origine : ?</h2>
+    		<div class="bascadre">
+    			<div class="plusoumoins">
+    				<button class="bouton-plusoumoins">-</button>
+    				<p class="zéro">0</p>
+    				<button class="bouton-plusoumoins">+</button>
+    			</div>
+    			<button class="bouton-ajouter">Ajouter</button>
+    		</div>
+    	</div>
+    </div>
+    <div class="desciption">
+    	<p>La mangue est un fruit charnu, pesant de 300 g à 2 kg. Sa chair est jaune foncé, onctueuse, grasse et sucrée avec un faux goût de pêche et de fleur. Vendue à l'unité.
+    	</p>
+    </div>
 
-            <div class="bestsellers">
-                <div class="top-part">
-                    <hr class="line">
-                    <div class="top-text">
-                        <h2>Produits qui pourraient vous plaire</h2>
-                    </div>
-                </div>
-                <div class="fruit-menu">
-
-                    <img src="http://172.26.82.54/img/back.png" class="fleche" alt="back" />
-
-                    <div class="card-product">
-                        <a href="http://172.26.82.54/index.php/Produit">
-                            <img src="http://172.26.82.54/img/fruit/banane.png" alt="banane" />
-                        </a>
-                        <h2 class="p02">Banane</h2>
-                        <hr class="line small">
-                        <p class="p02">1.99€</p>
-                        <div class="add-to-cart">
-                            <p class="p02">- 0 +</p>
-                            <p class="p02">Ajouter au panier</p>
-                        </div>
-                    </div>
-
-                    <div class="card-product">
-                        <a href="http://172.26.82.54/index.php/Produit">
-                            <img src="http://172.26.82.54/img/fruit/banane.png" alt="banane" />
-                        </a>
-                        <h2 class="p02">Banane</h2>
-                        <hr class="line small">
-                        <p class="p02">1.99€</p>
-                        <div class="add-to-cart">
-                            <p class="p02">- 0 +</p>
-                            <p class="p02">Ajouter au panier</p>
-                        </div>
-                    </div>
-
-                    <div class="card-product">
-                        <a href="http://172.26.82.54/index.php/Produit">
-                            <img src="http://172.26.82.54/img/fruit/banane.png" alt="banane" />
-                        </a>
-                        <h2 class="p02">Banane</h2>
-                        <hr class="line small">
-                        <p class="p02">1.99€</p>
-                        <div class="add-to-cart">
-                            <p class="p02">- 0 +</p>
-                            <p class="p02">Ajouter au panier</p>
-                        </div>
-                    </div>
-
-                    <img src="http://172.26.82.54/img/next.png" class="fleche" alt="next" />
+        <div class="bestsellers">
+            <div class="top-part">
+                <hr class="line">
+                <div class="top-text">
+                    <h2>Produits qui pourraient vous plaire</h2>
                 </div>
             </div>
+            <div class="fruit-menu">
+
+                <img src="http://172.26.82.54/img/back.png" class="fleche" alt="back" />
+
+                <div class="card-product">
+                    <a href="http://172.26.82.54/index.php/Produit">
+                        <img src="http://172.26.82.54/img/fruit/banane.png" alt="banane" />
+                    </a>
+                    <h2 class="p02">Banane</h2>
+                    <hr class="line small">
+                    <p class="p02">1.99€</p>
+                    <div class="add-to-cart">
+                        <p class="p02">- 0 +</p>
+                        <p class="p02">Ajouter au panier</p>
+                    </div>
+                </div>
+
+                <div class="card-product">
+                    <a href="http://172.26.82.54/index.php/Produit">
+                        <img src="http://172.26.82.54/img/fruit/banane.png" alt="banane" />
+                    </a>
+                    <h2 class="p02">Banane</h2>
+                    <hr class="line small">
+                    <p class="p02">1.99€</p>
+                    <div class="add-to-cart">
+                        <p class="p02">- 0 +</p>
+                        <p class="p02">Ajouter au panier</p>
+                    </div>
+                </div>
+
+                <div class="card-product">
+                    <a href="http://172.26.82.54/index.php/Produit">
+                        <img src="http://172.26.82.54/img/fruit/banane.png" alt="banane" />
+                    </a>
+                    <h2 class="p02">Banane</h2>
+                    <hr class="line small">
+                    <p class="p02">1.99€</p>
+                    <div class="add-to-cart">
+                        <p class="p02">- 0 +</p>
+                        <p class="p02">Ajouter au panier</p>
+                    </div>
+                </div>
+
+                <img src="http://172.26.82.54/img/next.png" class="fleche" alt="next" />
+            </div>
+        </div>
 </body>
 
 </html>
@@ -204,5 +203,6 @@
 
 <script type="text/javascript" src="<?= base_url('js/loader.js') ?>"></script>
 <script type="text/javascript" src="<?= base_url('js/panier.js') ?>"></script>
+<script type="text/javascript" src="<?= base_url('js/Sylvain_ne_supprime_pas_stp.js') ?>"></script>
 
 <script type="text/javascript" src="<?= base_url('js/panierDroite.js') ?>"></script>
