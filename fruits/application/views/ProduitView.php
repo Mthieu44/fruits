@@ -138,11 +138,12 @@
         			<button class="bouton-ajouter">Ajouter</button>
         		</div>
         	</div>
-        </div>
-        <div class="desciption">
-        	<p>La mangue est un fruit charnu, pesant de 300 g à 2 kg. Sa chair est jaune foncé, onctueuse, grasse et sucrée avec un faux goût de pêche et de fleur. Vendue à l'unité.
-        	</p>
-        </div>
+    </div>
+    <div class="desciption">
+       	<p>La mangue est un fruit charnu, pesant de 300 g à 2 kg. Sa chair est jaune foncé, onctueuse, grasse et sucrée avec un faux goût de pêche et de fleur. Vendue à l'unité.
+        </p>
+    </div>
+
 
             <div class="bestsellers">
                 <div class="top-part">
