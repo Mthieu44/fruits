@@ -3,7 +3,7 @@ const vue = new Vue({
 		return {
 			fruits: [],
 			panier: [],
-			url: "http://srv-infoweb.iut-nantes.univ-nantes.prive/~E216351P/fruits/",
+			url: "http://srv-infoweb.iut-nantes.univ-nantes.prive/~E210826J/equipe2-1/fruits/",
 			searchKey: "",
 		}
 	},
@@ -92,7 +92,7 @@ const vue = new Vue({
 			formData.append('quantity', quantity)
 			formData.append('tab', 'fauxPanier');
 
-			axios.post('http://srv-infoweb.iut-nantes.univ-nantes.prive/~E216351P/fruits/index.php/panier/addToPanier', formData).catch(function (error) {
+			axios.post('http://srv-infoweb.iut-nantes.univ-nantes.prive/~E210826J/equipe2-1/fruits/index.php/panier/addToPanier', formData).catch(function (error) {
 				console.log(error);
 			});
 
@@ -118,7 +118,7 @@ const vue = new Vue({
 			formData.append('quantity', quantity)
 			formData.append('tab', 'panier');
 
-			axios.post('http://srv-infoweb.iut-nantes.univ-nantes.prive/~E216351P/fruits/index.php/panier/addToPanier', formData).then(function (response) {
+			axios.post('http://srv-infoweb.iut-nantes.univ-nantes.prive/~E210826J/equipe2-1/fruits/index.php/panier/addToPanier', formData).then(function (response) {
 				console.log(response);
 			}).catch(function (error) {
 				console.log(error);

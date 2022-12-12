@@ -1,4 +1,4 @@
-var url = "http://srv-infoweb.iut-nantes.univ-nantes.prive/~E216351P/fruits/"
+var url = "http://srv-infoweb.iut-nantes.univ-nantes.prive/~E210826J/equipe2-1/fruits/"
 
 function totalQuantity(n,id){
     let totalQuantity = document.getElementById("totalQuantity".concat(id));
