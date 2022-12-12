@@ -152,7 +152,7 @@
 
         <div class="productsMenu blur">
             <div v-for="fruit in search" v-bind:key="fruit.id_fruit" class="card-product blur">
-                <a href="<?= site_url('(fruit.id_fruit)') ?>">
+                <a href="<?= site_url('Produit') ?>">
                     <img :src="getImg(fruit.id_fruit)" alt="(fruit.id_fruit)" />
                 </a>
                 <h2 class="p02">
