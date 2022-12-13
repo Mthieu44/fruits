@@ -93,71 +93,71 @@ class FruitModel extends CI_Model
         }
         $q->next_result();
         $q->free_result();
-        return $response[0];
+        if (count($response) > 0)
+            return $response[0];
+    }
+
+    function findByNameWithoutCat($nom)
+    {
+        $sql = 'CALL getFruitByNameWithoutCat(?)';
+        $q = $this->db->query($sql, array($nom));
+        $response = array();
+        foreach ($q->result() as $row) {
+            $fruit = new FruitEntity();
+            $fruit->setId_fruit($row->id_fruit);
+            $fruit->setNom($row->nom);
+            $fruit->setPrix($row->prix);
+            $fruit->setDescription($row->description);
+            $fruit->setImage($row->image);
+            $fruit->setOrigine($row->origine);
+            array_push($response, $fruit);
+        }
+        $q->next_result();
+        $q->free_result();
+        if (count($response) > 0)
+            return $response[0];
     }
 
 
 
     function deleteById($id)
     {
-        $q = $this->db->query('CALL deleteFruit(' . $id . ')');
+        $sql = 'CALL deleteFruit(?)';
+        $q = $this->db->query($sql, array($id));
     }
 
     function add($fruit)
     {
-        /*$sql = 'CALL addFruit(?,?,?,?,?)';
-		$q = $this->db->query($sql, array($fruit->getNom(), $fruit->getPrix(), $fruit->getDescription(), $fruit->getOrigine(), $fruit->getImage()));*/
-        try {
-            $q = $this->db->query(
-                'CALL addFruit(
-				\'' . str_replace("'", "\'", $fruit->getNom()) . '\',
-				\'' . str_replace("'", "\'", $fruit->getPrix()) . '\',\'' .
-                    str_replace("'", "\'", $fruit->getDescription()) . '\',\'' .
-                    str_replace("'", "\'", $fruit->getOrigine()) . '\',\'' .
-                    str_replace("'", "\'", $fruit->getImage()) . '\'' . ')'
-            );
-        } catch (Exception $e) {
-        }
+        $sql = 'CALL addFruit(?,?,?,?,?)';
+        $q = $this->db->query($sql, array($fruit->getNom(), $fruit->getPrix(), $fruit->getDescription(), $fruit->getOrigine(), $fruit->getImage()));
     }
 
     function modif($fruit)
     {
-
-        $q = $this->db->query(
-            'CALL modifFruit(' . $fruit->getId_fruit() . ',' . '
-			\'' . str_replace("'", "\'", $fruit->getNom()) . '\',
-			\'' . str_replace("'", "\'", $fruit->getPrix()) . '\',\'' .
-                str_replace("'", "\'", $fruit->getDescription()) . '\',\'' .
-                str_replace("'", "\'", $fruit->getOrigine()) . '\',\'' .
-                str_replace("'", "\'", $fruit->getImage()) . '\'' . ')'
-        );
+        $sql = 'CALL modifFruit(?,?,?,?,?,?)';
+        $q = $this->db->query($sql, array($fruit->getId_fruit(), $fruit->getNom(), $fruit->getPrix(), $fruit->getDescription(), $fruit->getOrigine(), $fruit->getImage()));
     }
 
     function addCategorieToFruit($id_fruit, $id_category)
     {
-        $q = $this->db->query(
-            'CALL addCategorieToFruit(' . $id_fruit . ',' . $id_category . ')'
-        );
+        $sql = 'CALL addCategorieToFruit(?,?)';
+        $q = $this->db->query($sql, array($id_fruit, $id_category));
     }
 
     function deleteCategorieToFruit($id_fruit, $id_category)
     {
-        $q = $this->db->query(
-            'CALL deleteCategorieToFruit(' . $id_fruit . ',' . $id_category . ')'
-        );
     }
 
     function findFruitCategotiId($fruit)
     {
-        $this->db->select('*');
-        $this->db->where('id_fruit', $fruit->getId_fruit());
-        $q = $this->db->get('categorisation');
+        $sql = 'CALL getCategorieFromFruit(?)';
+        $q = $this->db->query($sql, array($fruit->getId_fruit()));
         $response = array();
-
         foreach ($q->result() as $row) {
             array_push($response, $row->id_categorie);
         }
-
+        $q->next_result();
+        $q->free_result();
         return $response;
     }
 }

@@ -1,5 +1,5 @@
 DELIMITER //
-CREATE OR REPLACE PROCEDURE addUser(
+CREATE PROCEDURE addUser(
     IN _prenom TEXT,
     IN _nom TEXT,
     IN _adresse TEXT,
@@ -34,7 +34,7 @@ END //
 DELIMITER ;
 
 DELIMITER //
-CREATE OR REPLACE PROCEDURE modifUser(
+CREATE PROCEDURE modifUser(
     IN _id TEXT,
     IN _prenom TEXT,
     IN _nom TEXT,
@@ -52,8 +52,8 @@ BEGIN
         nom = _nom,
         adresse = _adresse,
         mail = _mail,
-        mdp = _mdp,
         telephone = _telephone,
+        mdp = _mdp,
         sexe = _sexe,
         status = _status
     WHERE id_user = _id;
@@ -62,7 +62,7 @@ DELIMITER ;
 
 
 DELIMITER //
-CREATE OR REPLACE PROCEDURE deleteUser(
+CREATE PROCEDURE deleteUser(
     IN _id TEXT
 )
 BEGIN
@@ -73,7 +73,7 @@ DELIMITER ;
 
 
 DELIMITER //
-CREATE OR REPLACE PROCEDURE addFruit(
+CREATE PROCEDURE addFruit(
     IN _nom TEXT,
     IN _prix TEXT,
     IN _description TEXT,
@@ -99,7 +99,7 @@ END //
 DELIMITER ;
 
 DELIMITER //
-CREATE OR REPLACE PROCEDURE modifFruit(
+CREATE PROCEDURE modifFruit(
     IN _id TEXT,
     IN _nom TEXT,
     IN _prix TEXT,
@@ -120,7 +120,7 @@ END //
 DELIMITER ;
 
 DELIMITER //
-CREATE OR REPLACE PROCEDURE deleteFruit(
+CREATE PROCEDURE deleteFruit(
     IN _id TEXT
 )
 BEGIN
@@ -134,7 +134,7 @@ DELIMITER ;
 
 
 DELIMITER //
-CREATE OR REPLACE PROCEDURE addCategorie(
+CREATE PROCEDURE addCategorie(
     IN _nom TEXT,
     IN _description TEXT
 )
@@ -152,7 +152,7 @@ END //
 DELIMITER ;
 
 DELIMITER //
-CREATE OR REPLACE PROCEDURE modifCategorie(
+CREATE PROCEDURE modifCategorie(
     IN _id TEXT,
     IN _nom TEXT,
     IN _description TEXT
@@ -167,7 +167,7 @@ END //
 DELIMITER ;
 
 DELIMITER //
-CREATE OR REPLACE PROCEDURE deleteCategorie(
+CREATE PROCEDURE deleteCategorie(
     IN _id TEXT
 )
 BEGIN
@@ -179,7 +179,7 @@ DELIMITER ;
 
 
 DELIMITER //
-CREATE OR REPLACE PROCEDURE addCategorieToFruit(
+CREATE PROCEDURE addCategorieToFruit(
     IN _id_fruit TEXT,
     IN _id_categ TEXT
 )
@@ -198,7 +198,7 @@ DELIMITER ;
 
 
 DELIMITER //
-CREATE OR REPLACE PROCEDURE deleteCategorieToFruit(
+CREATE PROCEDURE deleteCategorieToFruit(
     IN _id_fruit TEXT,
     IN _id_categ TEXT
 )
@@ -209,14 +209,14 @@ END //
 DELIMITER ;
 
 DELIMITER //
-CREATE OR REPLACE PROCEDURE getAllCategorie()
+CREATE PROCEDURE getAllCategorie()
 BEGIN
     SELECT * FROM categorie;
 END //
 DELIMITER ;
 
 DELIMITER //
-CREATE OR REPLACE PROCEDURE getCategorieByFruitId(
+CREATE PROCEDURE getCategorieByFruitId(
     IN _id_fruit TEXT
 )
 BEGIN
@@ -225,7 +225,7 @@ END //
 DELIMITER ;
 
 DELIMITER //
-CREATE OR REPLACE PROCEDURE getAllFruit()
+CREATE PROCEDURE getAllFruit()
 BEGIN
     SELECT fruit.id_fruit, fruit.nom, fruit.prix, fruit.description, fruit.origine, fruit.image, categorie.id_categorie, categorie.nom as nomc, categorie.description as descriptionc FROM fruit, categorisation, categorie where fruit.id_fruit = categorisation.id_fruit and categorie.id_categorie = categorisation.id_categorie ;
 END //
@@ -234,7 +234,7 @@ DELIMITER ;
 DELIMITER //
 
 DELIMITER //
-CREATE OR REPLACE PROCEDURE getFruitById(
+CREATE PROCEDURE getFruitById(
     IN _id_fruit TEXT
 )
 BEGIN
@@ -252,8 +252,54 @@ END //
 DELIMITER ;
 
 DELIMITER //
-CREATE OR REPLACE PROCEDURE getAllUser()
+CREATE PROCEDURE getFruitByNameWithoutCat(
+    IN _nom_fruit TEXT
+)
+BEGIN
+    SELECT * FROM fruit where fruit.nom = _nom_fruit;
+END //
+DELIMITER ;
+
+DELIMITER //
+CREATE PROCEDURE getAllUser()
 BEGIN
     SELECT * FROM usertab;
+END //
+DELIMITER ;
+
+DELIMITER //
+CREATE PROCEDURE getUserById(
+    IN _id_user TEXT
+)
+BEGIN
+    SELECT * FROM usertab where id_user = _id_user;
+END //
+DELIMITER ;
+
+DELIMITER //
+CREATE PROCEDURE getUserByMail(
+    IN _mail TEXT
+)
+BEGIN
+    SELECT * FROM usertab where mail = _mail;
+END //
+DELIMITER ;
+
+
+DELIMITER //
+CREATE PROCEDURE getUserByMail(
+    IN _mail TEXT
+)
+BEGIN
+    SELECT * FROM usertab where mail = _mail;
+END //
+DELIMITER ;
+
+DELIMITER //
+CREATE PROCEDURE getCategorieFromFruit(
+    IN _id_fruit TEXT
+)
+BEGIN
+    SELECT * FROM categorisation where id_fruit = _id_fruit;
 END //
 DELIMITER ; 

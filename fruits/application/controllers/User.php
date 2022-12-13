@@ -15,9 +15,11 @@ class User extends CI_Controller
             if ($this->session->user["user"]->getStatus() == 'admin') {
             } else {
                 $this->load->view('accessDeniedView');
+                die();
             }
         } else {
             $this->load->view('accessDeniedView');
+            die();
         }
 
         if (!isset($this->session->panier)) {
@@ -32,25 +34,6 @@ class User extends CI_Controller
     {
         $user = $this->UserModel->findById($id);
         $this->load->view('modifUserView', array('user' => $user));
-    }
-
-    function modifInformation()
-    {
-        $user = $this->session->user;
-        $this->load->view('modifInformationView', array('user' => $user));
-    }
-
-    function modifInformationUser()
-    {
-        $user = $this->UserModel->findByMail($this->session->user["user"]->getMail());
-        $user->setPrenom($this->input->post('prenom'));
-        $user->setNom($this->input->post('nom'));
-        $user->setAdresse($this->input->post('adresse'));
-        $user->setTelephone($this->input->post('telephone'));
-        $user->setSexe($this->input->post('sexe'));
-        $this->UserModel->modif($user);
-        $this->session->set_userdata("user", array("user" => $user));
-        redirect('Connexion');
     }
 
     function modifUser()

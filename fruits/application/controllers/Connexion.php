@@ -59,6 +59,25 @@ class Connexion extends CI_Controller
         redirect("connexion");
     }
 
+    function modifInformation()
+    {
+        $user = $this->session->user;
+        $this->load->view('modifInformationView', array('user' => $user));
+    }
+
+    function modifInformationUser()
+    {
+        $user = $this->UserModel->findByMail($this->session->user["user"]->getMail());
+        $user->setPrenom($this->input->post('prenom'));
+        $user->setNom($this->input->post('nom'));
+        $user->setAdresse($this->input->post('adresse'));
+        $user->setTelephone($this->input->post('telephone'));
+        $user->setSexe($this->input->post('sexe'));
+        $this->UserModel->modif($user);
+        $this->session->set_userdata("user", array("user" => $user));
+        redirect('Connexion');
+    }
+
     function logout()
     {
         $this->session->unset_userdata("login");
