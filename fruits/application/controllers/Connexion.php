@@ -56,7 +56,7 @@ class Connexion extends CI_Controller
             die();
         }
         $this->session->set_flashdata('in', 1);
-        redirect("connexion");
+        redirect("Connexion");
     }
 
     function logout()
@@ -75,7 +75,7 @@ class Connexion extends CI_Controller
     function registerRequest()
     {
         $valid = true;
-        if ($this->UserModel->findByMail($this->input->post('email') == null)) {
+        if ($this->UserModel->findByMail($this->input->post('email')) != null) {
             $msg = 'Mail dèjà utilisé';
             $valid = false;
         }
@@ -83,7 +83,7 @@ class Connexion extends CI_Controller
             $msg = 'Mot de passe incorrect';
             $valid = false;
         }
-        if ($valid) {
+        if (!$valid) {
             $this->load->view('RegisterView');
         } else {
             $user = new UserEntity();
@@ -98,6 +98,35 @@ class Connexion extends CI_Controller
             $this->UserModel->add($user);
             $this->session->set_userdata("user", array("prenom" => $user->getPrenom(), "status" => $user->getStatus(), "user" => $user));
             redirect('Home');
+        }
+    }
+
+    function forgotPass(){
+        $this->load->view('ResetPassView');
+    }
+
+    function forgotPassSend(){
+        $mail = $this->input->post('mail');
+        $user = $this->UserModel->findByMail($mail);
+        if ($user == null){
+            redirect('Connexion/forgotPass');
+        }else{
+            $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+            $charactersLength = strlen($characters);
+            $randomString = '';
+            for ($i = 0; $i < 15; $i++) {
+                $randomString .= $characters[rand(0, $charactersLength - 1)];
+            }
+
+
+            $this->email->from('fruits.juiceco@gmail.com', 'Fruits');
+            $this->email->to($mail);
+
+            $this->email->subject('Réinitialisation du mot de passe');
+            $this->email->message("Voici votre nouveau mot de passe : cc. Si vous n'êtes pas à l'origine de cette demande, tant pis pour vous");
+
+            $this->email->send();
+            redirect("Connexion");
         }
     }
 }

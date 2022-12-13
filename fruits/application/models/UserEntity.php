@@ -54,12 +54,6 @@ class UserEntity
         $this->mail = $mail;
     }
 
-
-    public function getMdp()
-    {
-        return $this->mdp;
-    }
-
     public function isValidPassword(string $password): bool
     {
         return password_verify($password, $this->password);
@@ -79,6 +73,7 @@ class UserEntity
     {
         $this->password = $password;
     }
+
 
     public function getStatus(): string
     {
