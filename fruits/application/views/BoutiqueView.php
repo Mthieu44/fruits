@@ -104,8 +104,7 @@
 			</div>
 
 			<h1 v-if="panier.length == 0 ">Votre panier est vide ! </h1>
-		</div>
-		<div v-for="fruit in panier" v-bind:key="fruit.id_fruit" class="fruitDansPanier">
+            <div v-for="fruit in panier" v-bind:key="fruit.id_fruit" class="fruitDansPanier">
 			<a href="<?= site_url('Produit') ?>">
 				<img :src="getImg(fruit.id_fruit)" alt="image du fruit" />
 			</a>
@@ -141,6 +140,8 @@
 				Total : {{getTotalPanier()}} €
 			</p>
 		</div>
+		</div>
+		
 
 		<div class="content">
 			<div class="left">
@@ -205,12 +206,9 @@
 						<div class="nbProducts">
 							<p> {{search.length}} produits</p>
 						</div>
-						<select name="Sort by" class="sort">
-							<option value="">--Trier par--</option>
-							<option value="Prix croissant">Prix croissant</option>
-							<option value="Prix décroissant">Prix décroissant</option>
-							<option value="Nom (A-Z)">Nom (A-Z)</option>
-							<option value="Nom (Z-A)">Nom (Z-A)</option>
+						<select name="Sort by" class="sort" v-model = "selected">
+                            <option disabled value="">---Trier par---</option>
+							<option v-for="option in options" :value = "option">{{option}}</option>
 						</select>
 					</div>
 				</div>

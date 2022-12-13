@@ -6,10 +6,69 @@ const vue = new Vue({
 			fruits: [],
 			panier: [],
 			searchKey: "",
+			options: [
+				"Prix croissant",
+				"Prix décroissant",
+				"Nom (A-Z)",
+				"Nom (Z-A)",
+			],
+			selected:"",
 		}
 	},
 	computed: {
 		search() {
+			if (this.selected == "Prix croissant") {
+				return this.fruits.filter((fruit) => {
+					return fruit.nom.toLowerCase().includes(this.searchKey.toLowerCase());
+				}).sort(function(a, b) {
+					if (a.prix > b.prix) {
+					  return 1;
+					}
+					if (a.prix < b.prix) {
+					  return -1;
+					}
+					return 0;
+				  })
+			}
+			
+			if (this.selected == "Prix décroissant") {
+				return this.fruits.filter((fruit) => {
+					return fruit.nom.toLowerCase().includes(this.searchKey.toLowerCase());
+				}).sort(function(a, b) {
+					if (a.prix > b.prix) {
+					  return -1;
+					}
+					if (a.prix < b.prix) {
+					  return 1;
+					}
+					return 0;
+				  })
+			}if (this.selected == "Nom (A-Z)") {
+				return this.fruits.filter((fruit) => {
+					return fruit.nom.toLowerCase().includes(this.searchKey.toLowerCase());
+				}).sort(function(a, b) {
+					if (a.nom > b.nom) {
+					  return 1;
+					}
+					if (a.nom < b.nom) {
+					  return -1;
+					}
+					return 0;
+				  })
+			}if (this.selected == "Nom (Z-A)") {
+				return this.fruits.filter((fruit) => {
+					return fruit.nom.toLowerCase().includes(this.searchKey.toLowerCase());
+				}).sort(function(a, b) {
+					if (a.nom > b.nom) {
+					  return -1;
+					}
+					if (a.nom < b.nom) {
+					  return 1;
+					}
+					return 0;
+				  })
+			}
+
 			return this.fruits.filter((fruit) => {
 				return fruit.nom.toLowerCase().includes(this.searchKey.toLowerCase());
 			})
