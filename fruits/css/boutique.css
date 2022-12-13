@@ -1,209 +1,369 @@
-.imgtest {
-	width: 150px;
-	height: 150px;
+@import url("https://fonts.googleapis.com/css?family=Inter");
+
+* {
+  --yellow-100: #ffc157ab;
+  --yellow-200: #face5f;
+  --yellow-300: #f9b814;
+  font-family: Inter;
 }
 
-table {
-	display: flex;
-	justify-content: center;
-	padding-top: 100px;
+html {
+	background-color: var(--orange-100);
 }
 
-th,
-td {
-	border: 1px solid;
+
+.yellow1 {
+  background-color: var(--yellow-100);
 }
 
-.productstitle {
-	margin-bottom: 50px;
+.yellow2 {
+  background-color: var(--yellow-200);
 }
 
-.selectCategory {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	margin-top: 50px;
-	height: 280px;
-	width: 75%;
-	margin: auto;
-	background-color: var(--green-10);
-	border-radius: 20px;
-	padding-bottom: 30px;
-	justify-content: space-evenly;
+.yellow3 {
+  background-color: var(--yellow-300);
 }
 
-.tileSelect {
-	width: 230px;
-	height: 180px;
-	border-radius: 20px;
-	background-color: white;
-	display: flex;
-	flex-direction: column;
-	padding-bottom: 20px;
+.card {
+  width: 200px;
+  height: 300px;
+  border: 2px solid #959595;
+  border-radius: 19px;
+  box-shadow: 2px 2px 2px #959595;
+  background-color: white;
 }
 
-.selectCategory img {
-	height: 30px;
+.card p {
+  font-size: 16px;
+  line-height: 2px;
 }
 
-.tileSelect img {
-	display: block;
-	height: 100px;
-	width: 200px;
-	margin: auto;
+.card button {
+  font-size: 16px;
 }
 
-.searchFruit {
-	width: 500px;
-	background-color: var(--green-10);
-	height: 90px;
-	border-radius: 20px;
-	margin: auto;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	margin-top: -50px;
-	margin-bottom: 50px;
+.card img {
+  display: block;
+  height: 198px;
+  width: 198px;
+  border-radius: 19px 19px 0px 0px;
+  margin: auto;
+  background-color: whitesmoke;
 }
 
-.searchFruit form {
-	display: flex;
-	justify-content: center;
+.card:hover {
+  transform: scale(1.15);
+  transition: 0.1s ease-in-out;
 }
 
-.searchFruit .champ {
-	height: 50px;
-	border-radius: 20px;
-	border-bottom-right-radius: 0;
-	border-top-right-radius: 0;
-	border: none;
-	padding-left: 20px;
-	font-size: 20px;
-	width: 400px;
+.card .nom {
+  font-size: 20px;
 }
 
-.searchFruit .bouton {
-	height: 50px;
-	border-radius: 20px;
-	border: none;
-	padding-left: 20px;
-	font-size: 20px;
-	width: 50px;
-	border-bottom-left-radius: 0;
-	border-top-left-radius: 0;
-	padding-right: 40px;
-	cursor: pointer;
+.infos {
+  margin-top: 8px;
+  margin-bottom: 17px;
+  margin-left: 16px;
 }
 
-.productsMenu {
-	height: 3000%;
-	background-color: var(--green-10);
-	border-radius: 20px;
-	margin: auto;
-	display: grid;
-	grid-template-columns: repeat(4, 270px);
-	grid-template-rows: repeat(4, 312px);
-	gap: 30px;
-	width: 75%;
-	justify-items: center;
-	padding: 100px;
-	justify-content: center;
+.prix {
+  color: #494949;
 }
 
-.navpages {
-	display: flex;
-	justify-content: center;
-	margin-top: -50px;
-	margin-bottom: 200px;
+.buttons {
+  width: 166px;
+  margin: auto;
+  display: flex;
 }
 
-.bottom {
-	color: var(--green-100);
-	text-align: center;
-	margin-top: 15px;
+.buttons button {
+  border: none;
+}
+
+.manage {
+  height: 27px;
+  width: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #F9B814;
+  border-radius: 6px;
+  margin-right: 9px;
+  gap: 4px;
+}
+
+.manage button {
+  background: none;
 }
 
 .add {
-	margin-top: 10px;
-	color: var(--green-100);
-	font-size: 17px;
+  background-color: #F9B814;
+  border-radius: 6px;
+  width: 97px;
 }
 
-.less {
-	color: var(--green-100);
-	font-size: 17px;
-}
-.plus {
-	color: var(--green-100);
-	font-size: 17px;
+.content {
+  margin-top: 500px;
+  display: flex;
+  gap: 50px;
+  justify-content: center;
 }
 
-.quantity {
-	display: flex;
-	align-items: center;
-	color: var(--green-100);
-	justify-content: center;
-	gap: 10px;
+.products {
+  padding: 70px;
+  gap: 40px;
+  background-color: white;
+  border-radius: 19px;
+  min-width: 450px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 200px);
+  grid-auto-rows: 300px;
+  justify-content: center;
+  height: 2000px;
 }
 
-.quantity button {
-	border: none;
-	background-color: white;
-	color: var(--green-100);
-	border-radius: 50%;
-	width: 30px;
-	height: 30px;
-	cursor: pointer;
+.right {
+  width: 70%;
 }
 
-.addPanier {
-	border: none;
-	background-color: white;
-	color: var(--green-100);
-	border-radius: 50%;
-	height: 20px;
-	cursor: pointer;
-	font-size: 17px;
-	margin-left: 19%;
+.left {
+  width: 15%;
 }
 
-.fruitDansPanier img{
-	width: 80px;
-	height: 80px;	
+.filters {
+  background-color: white;
+  min-height: 300px;
+  overflow: hidden;
+  gap: 32px;
+  border-radius: 19px;
+  position: sticky;
+  top: 10%;
+  padding: 20px;
+  padding-bottom: 50px;
 }
 
-.fruitDansPanier{
-	display:flex;
+.topProducts {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  height: 50px;
+  align-items: center;
+  gap: 40px;
+  min-width: 590px;
 }
 
-.quantityPanier button{
-	border: none;
-	color: var(--green-100);
-	border-radius: 50%;
-	width: 50%;
-	height: 50%;
-	cursor: pointer;
-}
-.content{
-	display: flex;
-	justify-content: center;
-	align-items: center;
+.champ {
+  border-radius: 10px;
+  border: none;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-size: 20px;
+  width: 50%;
+  height: 100%;
+  transition: 1s ease-in-out;
 }
 
-.quantityPanier{
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	width: 30%;
-	height: 30%;
+.sort {
+  border-radius: 10px;
+  border: none;
+  font-size: 15px;
+  background-color: white;
+  display: flex;
+  justify-items: center;
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 140px;
 }
-.name{
-	margin-left: -20%;
+
+.rightTop {
+  display: flex;
+  gap: 40px;
+  height: 50px;
 }
-.fruitDansPanier button{
-	border: none;
-	color: var(--green-100);
-	width: 20px;
-	height: 20px;
-	cursor: pointer;
+
+.nbProducts {
+  border-radius: 10px;
+  background-color: white;
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 100px;
+  text-align: center;
+}
+
+
+
+
+/*********HEADER*********/
+
+header {
+  justify-content: space-around;
+  display: flex;
+  margin: auto;
+  height: 80;
+  align-items: center;
+  position: fixed;
+  background-color: white;
+  width: 100%;
+  border-bottom: 2px solid var(--yellow-100);
+  z-index: 10;
+  position: sticky;
+  top: 0;
+}
+
+header ul {
+  display: flex;
+  gap: 37px;
+  align-items: center;
+  list-style-type: none;
+}
+
+li :hover {
+  color: var(--yellow-100);
+}
+
+.logo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-right: 13em;
+}
+
+.logo img {
+  height: 70px;
+  margin-top: -10px;
+}
+
+.connexion {
+  display: flex;
+  align-items: center;
+}
+
+.connexion img {
+  height: 30px;
+}
+
+.panier img {
+  height: 42px;
+}
+
+.panier div {
+  display: inline-block;
+  border-color: var(--yellow-100);
+  border-radius: 100px;
+  border-width: 3px;
+  border-style: solid;
+  padding-left: 4px;
+  padding-right: 4px;
+  margin-left: -25px;
+  background-color: white;
+}
+
+.panier div p {
+  font-size: 16px;
+}
+
+/*********CATEGORIES*********/
+.case {
+  position: absolute;
+  left: -9999px;
+}
+
+.choix {
+  display: block;
+  position: relative;
+  padding: 15px 30px 15px 40px;
+  border: 3px solid #fff;
+  border-radius: 20px;
+  color: black;
+  background-color: #f3ebed;
+  white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color .2s, box-shadow .2s;
+}
+
+.choix::before {
+  content: '';
+  display: block;
+  position: absolute;
+  background-color: white;
+  top: 15px;
+  bottom: 15px;
+  left: 10px;
+  width: 15px;
+  height: 15px;
+  border: 3px solid #fff;
+  border-radius: 5px;
+  transition: background-color .2s;
+}
+
+input:checked + .choix {
+  background-color: var(--yellow-300);
+}
+
+input:checked + .choix::before {
+  background-color: var(--yellow-300);
+}
+
+/*********ACCORDEON*********/
+
+.filters .acc {
+  position: relative;
+  transition: 0.5s;
+}
+
+.filters .checkbox {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  visibility: 0;
+}
+
+.filters h1 {
+  background: #face5f;
+  color: black;
+  padding: 10px;
+  position: relative;
+  border-radius: 10px;
+  font-size: 20px;
+}
+
+.acc .cc::before {
+  content: "";
+  display: inline-block;
+  border: 10px solid transparent;
+  border-left: 15px solid white;
+  transition: 0.5s ease-in;
+}
+
+.filters label {
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.filters .p {
+  max-height: 0px;
+  overflow: hidden;
+  transition: max-height 0.5s;
+  border-radius: 10px;
+}
+
+.filters .checkbox:checked~h1 label::before {
+  border-left: 10px solid transparent;
+  border-top: 15px solid white;
+  margin-top: 10px;
+  margin-right: 7px;
+}
+
+.filters .checkbox:checked~h1~div.p {
+  max-height: 400px;
+}
+
+.filterTitle {
+  font-size: 25px;
 }

@@ -45,7 +45,6 @@ class Boutique extends CI_Controller
     }
     public function fruit($id)
     {
-
         $fruit = $this->FruitModel->findbyId($id);
         $this->load->view('ProduitView', array('fruit' => $fruit));
     }

@@ -1,4 +1,4 @@
-let url = "http://srv-infoweb.iut-nantes.univ-nantes.prive/~E216351P/fruits/"
+let url = "http://localhost/public_html/equipe2-1/fruits/"
 
 const vue = new Vue({
 	data: () => {
@@ -141,6 +141,9 @@ const vue = new Vue({
 					return url.concat("img/fruit/").concat(this.fruits[i].image);
 				}
 			}
+		},
+		getProduct(id) {
+			return url.concat("index.php/boutique/fruit/").concat(id);
 		},
 	},
 	mounted() {
