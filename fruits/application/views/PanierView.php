@@ -121,9 +121,7 @@
                     Valider la commande
                 </button>
                 <?php else:?>
-                    <button>
-                        Valider la commande
-                    </button>
+                    <input type="button" value="Valider la commande" onclick="window.location.href='<?= site_url('Commande') ?>';" />
                 <?php endif ?>
             </div>
             
