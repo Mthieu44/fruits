@@ -1,11 +1,16 @@
+html {
+	background-color: var(--orange-100);
+}
+
+
+
 th{
     width: 500px;
     border: none;
 }
 
+
 tr{
-    border: 2px green solid;
-    border-radius: 20px;
     margin: 20px;
     align-items: center;
     margin-top: 30px;
@@ -28,6 +33,7 @@ table{
 td{
     text-align: center;
     border: none;
+
 }
 
 td button{
@@ -43,4 +49,34 @@ td button{
 .left img{
     height: 150px;
     margin-right: 10px;
+}
+
+.empty{
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.fruitDansPanier{
+    background-color: white;
+    border: 1px solid gray;
+    border-radius: 20px;
+
+}
+
+.title{
+    color : gray;
+}
+
+.totalPanier{
+    display: flex;
+    gap: 40px;
+}
+
+
+button:disabled,
+button[disabled]{
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
 }

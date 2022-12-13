@@ -64,13 +64,7 @@
                             </svg>
                             <div>
                                 <p id="quantityPanier">
-                                    <?php if (isset($this->session->panier)) {
-                                        echo (count($this->session->panier));
-                                    } else {
-                                        echo ('0');
-                                    }
-
-                                    ?>
+                                    {{ panier.length }}
                                 </p>
                             </div>
                         </a>
