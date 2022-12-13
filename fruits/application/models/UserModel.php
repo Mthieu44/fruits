@@ -5,7 +5,7 @@ class UserModel extends CI_Model
 {
     function findByMail($mail)
     {
-        $sql = 'SELECT * FROM usertab where mail = ?';
+        $sql = 'CALL getUserByMail(?)';
         $q = $this->db->query($sql, array($mail));
 
         $user = new UserEntity();
@@ -23,14 +23,15 @@ class UserModel extends CI_Model
         } else {
             return null;
         }
+        $q->next_result();
+        $q->free_result();
         return $user;
     }
 
     function findAll()
     {
-        /*$q = $this->db->query('CALL getAllUser())');*/
-        $this->db->select('*');
-        $q = $this->db->get('usertab');
+        $sql = 'CALL getAllUser()';
+        $q = $this->db->query($sql);
         $response = array();
 
         foreach ($q->result() as $row) {
@@ -46,12 +47,15 @@ class UserModel extends CI_Model
             $user->settelephone($row->telephone);
             array_push($response, $user);
         }
+        $q->next_result();
+        $q->free_result();
         return $response;
     }
 
     function findById($id)
     {
-        $q = $this->db->query('SELECT * FROM usertab where id_user = ' . '"' . $id . '"');
+        $sql = 'CALL getUserById(?)';
+        $q = $this->db->query($sql, array($id));
         $user = new UserEntity();
         $response = $q->row(0);
         if (isset($response)) {
@@ -65,44 +69,28 @@ class UserModel extends CI_Model
             $user->setSexe($response->sexe);
             $user->settelephone($response->telephone);
         }
+        $q->next_result();
+        $q->free_result();
         return $user;
     }
 
     function deleteById($id)
     {
-        $q = $this->db->query('CALL deleteUser(' . $id . ')');
+        $sql = 'CALL deleteUser(?)';
+        $q = $this->db->query($sql, array($id));
     }
 
     function add($user)
     {
-        try {
-            $q = $this->db->query(
-                'CALL addUser(
-				\'' . $user->getPrenom() . '\',
-				\'' . $user->getNom() . '\',\'' .
-                    $user->getAdresse() . '\',\'' .
-                    $user->getMail() . '\',\'' .
-                    $user->getPassword() . '\',\'' .
-                    $user->getTelephone() . '\',\'' .
-                    $user->getSexe() . '\',\'' .
-                    $user->getStatus() . '\'' . ')'
-            );
-        } catch (Exception $e) {
-        }
+        $sql = 'CALL addUser(?,?,?,?,?,?,?,?)';
+        $q = $this->db->query($sql, array($user->getPrenom(), $user->getNom(), $user->getAdresse(), $user->getMail(), $user->getPassword(), $user->getTelephone(), $user->getSexe(), $user->getStatus()));
     }
 
     function modif($user)
     {
-        $q = $this->db->query(
-            'CALL modifUser(' . $user->getId_user() . ',' . '
-			\'' . $user->getPrenom() . '\',
-			\'' . $user->getNom() . '\',\'' .
-                $user->getAdresse() . '\',\'' .
-                $user->getMail() . '\',\'' .
-                $user->getPassword() . '\',\'' .
-                $user->getTelephone() . '\',\'' .
-                $user->getSexe() . '\',\'' .
-                $user->getStatus() . '\'' . ')'
-        );
+        $sql = 'CALL modifUser(?,?,?,?,?,?,?,?,?)';
+        $q = $this->db->query($sql, array($user->getId_user(), $user->getPrenom(), $user->getNom(), $user->getAdresse(), $user->getMail(), $user->getPassword(), $user->getTelephone(), $user->getSexe(), $user->getStatus()));
+        $q->next_result();
+        $q->free_result();
     }
 }

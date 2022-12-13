@@ -52,11 +52,36 @@ class Connexion extends CI_Controller
         $user = $this->UserModel->findByMail($mail);
         if ($user != null && $user->isValidPassword($password)) {
             $this->session->set_userdata("user", array("user" => $user));
-            redirect("home");
-            die();
+            if (count($this->session->panier) > 0 ){
+                redirect("panier");
+                die();
+            }else{
+                redirect("home");
+                die();
+            }
+            
         }
         $this->session->set_flashdata('in', 1);
         redirect("Connexion");
+    }
+
+    function modifInformation()
+    {
+        $user = $this->session->user;
+        $this->load->view('modifInformationView', array('user' => $user));
+    }
+
+    function modifInformationUser()
+    {
+        $user = $this->UserModel->findByMail($this->session->user["user"]->getMail());
+        $user->setPrenom($this->input->post('prenom'));
+        $user->setNom($this->input->post('nom'));
+        $user->setAdresse($this->input->post('adresse'));
+        $user->setTelephone($this->input->post('telephone'));
+        $user->setSexe($this->input->post('sexe'));
+        $this->UserModel->modif($user);
+        $this->session->set_userdata("user", array("user" => $user));
+        redirect('Connexion');
     }
 
     function logout()

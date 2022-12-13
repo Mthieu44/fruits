@@ -89,7 +89,7 @@
                 <p>Adresse :</p>
                 <p><?= $this->session->user["user"]->getAdresse() ?></p>
             </div>
-            <a href="<?= site_url('User/modifInformation') ?>" class="button">Modifier informations</a>
+            <a href="<?= site_url('Connexion/modifInformation') ?>" class="button">Modifier informations</a>
             <a href="<?= site_url('Connexion/logout') ?>" class="button">logout</a>
         </div>
         <div class="commandes">

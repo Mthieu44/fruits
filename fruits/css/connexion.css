@@ -362,8 +362,14 @@ input[type="checkbox"] {
 	column-gap: 10px;
 }
 .description {
-	height: 300px;
-	
+	width: 70%;
+    height: 150px;
+	padding: 5px;
+	border: 2px solid rgb(156, 156, 156);
+	border-radius: 4px;
+	font-size: 18px;
+	padding: 0.5rem;
+    resize: none;	
 }
 
 /*********ADMIN VIEW*********/
