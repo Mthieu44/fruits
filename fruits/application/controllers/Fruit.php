@@ -12,6 +12,7 @@ class Fruit extends CI_Controller
         $this->load->library('session');
         $this->load->model('FruitModel');
         $this->load->model('CategoryModel');
+        $this->load->helper(array('form', 'url'));
 
         if (isset($this->session->user["user"])) {
             if ($this->session->user["user"]->getStatus() == 'admin') {
@@ -82,20 +83,45 @@ class Fruit extends CI_Controller
         $fruit->setDescription($this->input->post('description'));
         $fruit->setPrix($this->input->post('prix'));
         $fruit->setOrigine($this->input->post('origine'));
-        $fruit->setImage($this->input->post('image'));/*Trouver solution pour save l'image*/
+        $fruit->setImage($this->input->post('nom') . '.png');
         $this->FruitModel->add($fruit);
-        $fruit = $this->FruitModel->findByName($fruit->getNom());
+        $fruit = $this->FruitModel->findByNameWithoutCat($fruit->getNom());
         $categories = $this->CategoryModel->findAll();
+        $cpt = 0;
         foreach ($categories as $categoriy) {
             if (null !== $this->input->post(str_replace(' ', '_', $categoriy->getNom()))) {
+                $cpt = $cpt + 1;
                 $this->FruitModel->addCategorieToFruit($fruit->getId_fruit(), $categoriy->getId_Categorie());
             }
         }
+        if ($cpt == 0) {
+            $this->FruitModel->deleteById($fruit->getId_fruit());
+        }
+
+        /*$config = array(
+            'upload_path'     => "./uploads",
+            'allowed_types' => "png",
+            'overwrite' => true,
+            'max_size' => "20000000000",
+            'max_height' => "10000",
+            'max_width' => "10000"
+        );
+        $this->load->library('upload', $config);
+        if ($this->upload->do_upload('image')) {
+            echo "file upload success";
+        } else {
+            echo "file upload failed";
+        }
+        die();*/
+
         redirect('Connexion');
     }
 
     function delete($id)
     {
+        $this->load->helper("file");
+        /*$fruit = $this->FruitModel->findById($id);
+        unlink(base_url("img/fruit" . DIRECTORY_SEPARATOR . $fruit->getImage()));*/
         $user = $this->FruitModel->deleteById($id);
         redirect('Connexion');
     }

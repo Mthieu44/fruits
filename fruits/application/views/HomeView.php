@@ -12,8 +12,8 @@
         <?php include 'css/style.css';
         ?><?php include 'css/home.css';
             ?><?php include 'css/boutique.css';
-            ?><?php include 'https: //cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css';
-            ?>
+                ?><?php include 'https: //cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css';
+                ?>
     </style>
 </head>
 
@@ -64,13 +64,7 @@
                             </svg>
                             <div>
                                 <p id="quantityPanier">
-                                    <?php if (isset($this->session->panier)) {
-                                        echo (count($this->session->panier));
-                                    } else {
-                                        echo ('0');
-                                    }
-
-                                    ?>
+                                    {{ panier.length }}
                                 </p>
                             </div>
                         </a>
@@ -121,7 +115,7 @@
 
         <div class="slider blur">
             <div class="sliderinside">
-                <img src="<?= base_url('img/acceuil1.jpg') ?>" alt="image accueil" class="sliderimage" onclick="showPanier()" />
+                <img src="<?= base_url('img/acceuil1.jpg') ?>" alt="image accueil" class="sliderimage"/>
                 <div class="slidertext">
                     <h1>Bienvenue !</h1>
                     <h1>Salivez, cliquez, mangez !</h1>

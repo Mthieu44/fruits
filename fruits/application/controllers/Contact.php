@@ -23,4 +23,22 @@ class Contact extends CI_Controller {
 		$this->load->library('session');
 		$this->load->view('ContactView');
 	}
+
+	public function sendmessage(){
+
+		$prenom = $this->input->post('prenom');
+		$nom = $this->input->post('nom');
+		$objet = $this->input->post('objet');
+		$mail = $this->input->post('mail');
+		$message = $this->input->post('message');
+		
+		$this->email->from($mail, $prenom);
+		$this->email->to('fruits.juiceco@gmail.com');
+
+		$this->email->subject($objet);
+		$this->email->message($message);
+
+		$this->email->send();
+		redirect("Contact");
+	}
 }

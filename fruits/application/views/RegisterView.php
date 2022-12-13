@@ -27,7 +27,7 @@
         <nav>
 
             <ul>
-                <li><a href="<?= site_url('Home') ?>" class="yellow">Accueil</a></li>
+                <li><a href="<?= site_url('Home') ?>">Accueil</a></li>
                 <li><a href=" <?= site_url('Boutique') ?>">Boutique</a></li>
                 <li><a href="<?= site_url('APropos') ?>" class="propos">A propos</a></li>
                 <li><a href="<?= site_url('Contact') ?>">Contact</a></li>
@@ -89,7 +89,7 @@
         </div>
         <input type="password" name="password" placeholder="Mot de passe" maxlength="20" required>
         <input type="password" name="passwordComfirm" placeholder=" Confirmer mot de passe" maxlength="20" required>
-        <?php echo validation_errors(); ?>
+        <!--?php echo validation_errors(); ?-->
 
         <input class="bouton" type="submit" value="S'inscrire">
 

@@ -1,4 +1,4 @@
-let url = "http://localhost/public_html/equipe2-1/fruits/"
+let url = "http://srv-infoweb.iut-nantes.univ-nantes.prive/~E216351P/fruits/"
 
 const vue = new Vue({
 	data: () => {
@@ -35,6 +35,8 @@ const vue = new Vue({
 				if (element.id_fruit == id) {
 					element.quantity = element.quantity + Copiedfruit.quantity
 					quantity = element.quantity
+					console.log("Envoi fauxPanier :" + -fruit.quantity)
+					this.totalQuantity(-fruit.quantity,id)
 					fruit.quantity = 0
 					test = false
 					this.ajouterAuPanierSession(id,quantity);
@@ -43,6 +45,8 @@ const vue = new Vue({
 			});
 			if (test) {
 				this.panier.push(Copiedfruit);
+				console.log("Envoi fauxPanier :" + -fruit.quantity)
+				this.totalQuantity(-fruit.quantity,id)
 				fruit.quantity = 0
 				this.ajouterAuPanierSession(id,quantity);
 				showPanier();
@@ -54,7 +58,7 @@ const vue = new Vue({
 			for (let i = 0; i < this.panier.length; i++) {
 				if (this.panier[i].id_fruit == id) {
 					this.panier.splice(i, 1);
-					this.ajouterAuPanierSession(id,-1);
+					this.ajouterAuPanierSession(id,-1); // avec -1 cela delete le produit
 					break;
 				}
 			}
@@ -78,10 +82,16 @@ const vue = new Vue({
 
 		totalQuantity(n, id) {
 			let quantity = 0;
+			console.log("id :" + id)
 			for (let i = 0; i < this.fruits.length; i++) {
 				if (this.fruits[i].id_fruit == id) {
-					this.fruits[i].quantity += n;
-					quantity = this.fruits[i].quantity
+					if (n == -this.fruits[i].quantity){
+						quantity = n - 1
+					}else{
+						this.fruits[i].quantity += n;
+						quantity = this.fruits[i].quantity
+					}
+					
 					if (this.fruits[i].quantity < 0) {
 						this.fruits[i].quantity = 0;
 					}
@@ -92,7 +102,6 @@ const vue = new Vue({
 			formData.append('id', id);
 			formData.append('quantity', quantity)
 			formData.append('tab', 'fauxPanier');
-
 			axios.post(url.concat('index.php/panier/addToPanier'), formData).catch(function (error) {
 				console.log(error);
 			});

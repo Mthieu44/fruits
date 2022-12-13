@@ -69,30 +69,23 @@
         </nav>
     </header>
 
-
-    <div class="login">
-        <h2> Connexion </h2>
-        <form action="<?= site_url('Connexion/loginCheck') ?>" method="post">
+    <div class="reset">
+        <h2> Réinitialiser votre mot de passe </h2>
+        <form action="<?= site_url('Connexion/forgotPassSend') ?>" method="post">
             <label for="mail">Mail :</label>
             <input id="mail" type="email" name="mail" placeholder="Votre mail">
-            <label for="password">Mot de passe :</label>
-            <input id="password" type="password" name="password" placeholder="Votre mot de passe">
-            <div class="bottom-text">
-
-                <p class="erreur">
+            <p class="erreur">
                     <?php
                     if (isset($msg)) {
                         echo ($msg);
                     }
                     ?>
                 </p>
-                <a class="mdp" href="<?= site_url('Connexion/forgotPass') ?>">Mot de passe oublié ?</a>
-            </div>
 
-            <input type="submit" class="hvr-bounce-to-top" value="Connexion">
+            <input type="submit" class="hvr-bounce-to-top" value="Réinitialiser">
         </form>
-        <a href="<?= site_url('Connexion/register') ?>" class="inscription">S'inscrire</a>
     </div>
+
 
 </body>
 
