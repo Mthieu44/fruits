@@ -89,7 +89,7 @@
         </div>
         <input type="password" name="password" placeholder="Mot de passe" maxlength="20" required>
         <input type="password" name="passwordComfirm" placeholder=" Confirmer mot de passe" maxlength="20" required>
-        <?php echo validation_errors(); ?>
+        <!--?php echo validation_errors(); ?-->
 
         <input class="bouton" type="submit" value="S'inscrire">
 

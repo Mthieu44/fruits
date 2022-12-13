@@ -35,7 +35,7 @@ CREATE TABLE usertab(
 ALTER TABLE `usertab` ADD UNIQUE(`mail`);
 ALTER TABLE `fruit` ADD UNIQUE(`nom`);
 
-/*
+
 CREATE TABLE commande(
     id_commande INT PRIMARY KEY AUTO_INCREMENT,
     id_client INT NOT NULL,

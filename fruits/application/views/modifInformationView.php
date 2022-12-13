@@ -69,7 +69,7 @@
         </nav>
     </header>
 
-    <form action="<?= site_url('User/modifInformationUser') ?>" method="post" class="register modif">
+    <form action="<?= site_url('Connexion/modifInformationUser') ?>" method="post" class="register modif">
         <h1>Vous pouvez modifier vos informations ici</h1>
         <div class="name">
             <input class="inputname" type="text" name="prenom" placeholder="Prenom" maxlength="20" value="<?= $user["user"]->getPrenom() ?>" required>
