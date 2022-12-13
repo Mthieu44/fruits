@@ -52,8 +52,14 @@ class Connexion extends CI_Controller
         $user = $this->UserModel->findByMail($mail);
         if ($user != null && $user->isValidPassword($password)) {
             $this->session->set_userdata("user", array("user" => $user));
-            redirect("home");
-            die();
+            if (count($this->session->panier) > 0 ){
+                redirect("panier");
+                die();
+            }else{
+                redirect("home");
+                die();
+            }
+            
         }
         $this->session->set_flashdata('in', 1);
         redirect("connexion");

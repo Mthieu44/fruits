@@ -1,6 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 require_once APPPATH.DIRECTORY_SEPARATOR.'models'.DIRECTORY_SEPARATOR."ProduitEntity.php";
+require APPPATH . DIRECTORY_SEPARATOR . 'models' . DIRECTORY_SEPARATOR . "UserEntity.php";
 
 
 class Panier extends CI_Controller {
@@ -20,8 +21,7 @@ class Panier extends CI_Controller {
 	}
 
 	public function index(){
-        $fruits = $this->PanierModel->getPanier();
-		$this->load->view('PanierView', array('fruits' => $fruits));
+		$this->load->view('PanierView');
 	}
 
 	public function addToPanier(){
