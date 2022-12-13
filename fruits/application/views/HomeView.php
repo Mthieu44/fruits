@@ -193,7 +193,7 @@
                 <div class="slider-inside-bestsellers" id="slider-bestsellers">
                     <div v-for="fruit in fruits" v-bind:key="fruit.id_fruit">
                         <div class="card-product card-product-top">
-                            <a href="<?= site_url('Produit') ?>">
+                        <a :href="getProduct(fruit.id_fruit)">
                                 <img :src="getImg(fruit.id_fruit)" alt="image du fruit" />
                             </a>
                             <h2 class="p02">
@@ -243,7 +243,7 @@
                 <div class="slider-inside-seasonal" id="slider-season">
                     <div v-for="fruit in fruits" v-bind:key="fruit.id_fruit">
                         <div class="card-product card-product-bottom">
-                            <a href="<?= site_url('Produit') ?>">
+                        <a :href="getProduct(fruit.id_fruit)">
                                 <img :src="getImg(fruit.id_fruit)" alt="image du fruit" />
                             </a>
                             <h2 class="p02">
@@ -276,7 +276,14 @@
         </div>
 
 
-        <footer></footer>
+        <footer>
+            <a href="<?= site_url('home/ConditionsGenerales') ?>">
+                Conditions générales d'utilisation
+                                </a>
+            <p>
+                Tous droits réservés.
+            </p>    
+        </footer>
     </div>
 </body>
 

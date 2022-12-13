@@ -214,6 +214,12 @@ li:hover svg path {
 	animation: spin 1.2s linear infinite;
 }
 
+.cgu {
+    margin-left: 10%;
+    margin-right: 10%;
+    width: 75em
+}
+
 @keyframes spin {
 	0% {
 		transform: rotate(0deg);
@@ -266,3 +272,4 @@ li:hover svg path {
 	background-color: #00000070;
 	transition: 5s;
 }
+

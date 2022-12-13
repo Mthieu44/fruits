@@ -26,4 +26,7 @@ class Home extends CI_Controller
         $fruits = $this->FruitModel->findAll();
         $this->load->view('HomeView', array('fruits' => $fruits));
     }
+    public function ConditionsGenerales(){
+        $this->load->view('CguView');
+    }
 }

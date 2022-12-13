@@ -41,5 +41,12 @@ class Boutique extends CI_Controller
             $panier = $this->PanierModel->addPanier($fruit, $quantity, $tab);
             echo $panier;
         }
+
+    }
+    public function fruit($id)
+    {
+
+        $fruit = $this->FruitModel->findbyId($id);
+        $this->load->view('ProduitView', array('fruit' => $fruit));
     }
 }
