@@ -13,14 +13,15 @@
 		?>
 
 		<?php include 'css/boutique.css';
-		?><?php include 'css/home.css';
 		?>
 
+		<?php include 'css/home.css';
+		?>
 
+		<?php include 'css/panierside.css';
+		?>
 
 	</style>
-
-
 </head>
 
 <body>
@@ -104,44 +105,34 @@
 			</div>
 
 			<h1 v-if="panier.length == 0 ">Votre panier est vide ! </h1>
-            <div v-for="fruit in panier" v-bind:key="fruit.id_fruit" class="fruitDansPanier">
-			<a href="<?= site_url('Produit') ?>">
-				<img :src="getImg(fruit.id_fruit)" alt="image du fruit" />
-			</a>
-			<div class="content">
-				<h2 class="p02" class="name">
-					{{fruit.nom}}
-				</h2>
-				<div class="quantityPanier">
-					<p class="p02">
-						<button v-on:click="totalQuantityPanier(-1,fruit.id_fruit)">-</button>
-						<span>
-							{{fruit.quantity}}
-						</span>
-						<button v-on:click="totalQuantityPanier(1,fruit.id_fruit)">+</button>
-					</p>
-				</div>
-				<div class="contenuPanier">
-					<p class="p02">
-						{{fruit.category.nom}}
-					</p>
-					<p class="p02">
-						{{fruit.prix }} €
-					</p>
-					<p class="p02">
-						Total : {{getTotalProduit(fruit.id_fruit)}} €
-					</p>
+			<div v-for="fruit in panier" v-bind:key="fruit.id_fruit" class="fruitDansPanier">
+
+				<div class="cardMini">
+					<a href="<?= site_url('Produit') ?>"><img :src="getImg(fruit.id_fruit)" alt="image du fruit" /></a>
+					<div class="rightMini">
+						<div class="infosMini">
+							<p class="nomMini">{{fruit.nom}}</p>
+							<p class="prixMini">{{fruit.prix }}€/unité</p>
+						</div>
+						<div class="buttonsMini">
+							<div class="manageMini">
+								<button v-on:click="totalQuantityPanier(-1,fruit.id_fruit)">-</button>
+								<p>{{fruit.quantity}}</p>
+								<button v-on:click="totalQuantityPanier(1,fruit.id_fruit)">+</button>
+								<p class="subtotal">{{getTotalProduit(fruit.id_fruit)}}€</p>
+							</div>
+							<button v-on:click="retirerDuPanier(fruit.id_fruit)" class="suppr">Retirer</button>
+						</div>
+					</div>
 				</div>
 			</div>
-			<button v-on:click="retirerDuPanier(fruit.id_fruit)"> D</button>
+			<div class="totalPanier">
+				<p class="p02">
+					Total : {{getTotalPanier()}} €
+				</p>
+			</div>
 		</div>
-		<div class="totalPanier">
-			<p class="p02">
-				Total : {{getTotalPanier()}} €
-			</p>
-		</div>
-		</div>
-		
+
 
 		<div class="content">
 			<div class="left">
@@ -206,9 +197,9 @@
 						<div class="nbProducts">
 							<p> {{search.length}} produits</p>
 						</div>
-						<select name="Sort by" class="sort" v-model = "selected">
-                            <option disabled value="">---Trier par---</option>
-							<option v-for="option in options" :value = "option">{{option}}</option>
+						<select name="Sort by" class="sort" v-model="selected">
+							<option disabled value="">---Trier par---</option>
+							<option v-for="option in options" :value="option">{{option}}</option>
 						</select>
 					</div>
 				</div>

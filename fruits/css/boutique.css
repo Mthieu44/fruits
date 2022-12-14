@@ -104,6 +104,7 @@ html {
   display: flex;
   gap: 50px;
   justify-content: center;
+  margin-bottom: 100px;
 }
 
 .products {
