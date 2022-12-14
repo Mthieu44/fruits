@@ -1,4 +1,5 @@
-let url = "http://localhost/public_html/equipe2-1/fruits/"
+let url = "http://srv-infoweb.iut-nantes.univ-nantes.prive/~E216120N/fruits/"
+
 
 const vue = new Vue({
 	data: () => {
