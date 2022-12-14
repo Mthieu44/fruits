@@ -285,16 +285,6 @@ BEGIN
 END //
 DELIMITER ;
 
-
-DELIMITER //
-CREATE PROCEDURE getUserByMail(
-    IN _mail TEXT
-)
-BEGIN
-    SELECT * FROM usertab where mail = _mail;
-END //
-DELIMITER ;
-
 DELIMITER //
 CREATE PROCEDURE getCategorieFromFruit(
     IN _id_fruit TEXT

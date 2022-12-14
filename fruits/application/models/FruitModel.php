@@ -146,6 +146,8 @@ class FruitModel extends CI_Model
 
     function deleteCategorieToFruit($id_fruit, $id_category)
     {
+        $sql = 'CALL deleteCategorieToFruit(?,?)';
+        $q = $this->db->query($sql, array($id_fruit, $id_category));
     }
 
     function findFruitCategotiId($fruit)

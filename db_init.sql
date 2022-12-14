@@ -9,9 +9,10 @@ call addCategorie('Fruits à coque',"Quand arrive l'automne, on sort les casse-n
 call addCategorie('Fruits rouges et baies','Que ferait-on sans nos fruits favoris ?');
 call addCategorie('Fruits à noyau','De bons et tendres fruits au coeur de pierre.');
 call addCategorie('Fruits à pépins','A consommer régulièrement pour une vie sans trop de pépins !');
-call addCategorie('Promo',"Ne pas s'en priver, votre porte-monnaie vous remerciera.");
-call addCategorie('Indisponible',"Ce fruit n'est plus dans nos stock");
-call addCategorie('Bio',"Bio c'est bon, Bio c'est cool");
+call addCategorie('Promotions',"Ne pas s'en priver, votre porte-monnaie vous remerciera.");
+call addCategorie('Indisponibles',"Ce fruit n'est plus dans nos stock");
+call addCategorie('Meilleures Ventes',"C'est les meilleurs");
+call addCategorie('Fruits de saison',"c'est l'hiver il fait froid");
 
 
 

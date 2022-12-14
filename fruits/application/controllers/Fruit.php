@@ -46,7 +46,8 @@ class Fruit extends CI_Controller
         $fruit->setDescription($this->input->post('description'));
         $fruit->setPrix($this->input->post('prix'));
         $fruit->setOrigine($this->input->post('origine'));
-        $fruit->setImage($this->input->post('image'));/*Trouver solution pour save l'image*/
+        $filename = str_replace(' ', '_', strtolower($this->input->post('nom') . '.png'));
+        $fruit->setImage($filename);
         $this->FruitModel->modif($fruit);
         $fruit = $this->FruitModel->findByName($fruit->getNom());
         $categories = $this->CategoryModel->findAll();
@@ -67,7 +68,22 @@ class Fruit extends CI_Controller
                 $this->FruitModel->deleteCategorieToFruit($fruit->getId_fruit(), $categoriy->getId_Categorie());
             }
         }
-        redirect('Connexion');
+
+        $config['upload_path']          = './img/fruit/';
+        $config['allowed_types']        = 'png';
+        $config['max_size']             = 1000000000000000;
+        $config['max_width']            = 2000;
+        $config['max_height']           = 2000;
+        $config['overwrite']            = true;
+        $config['file_name']            = $filename;
+        $this->load->library('upload', $config);
+        if (!$this->upload->do_upload('userfile')) {
+            $error = array('error' => $this->upload->display_errors());
+            var_dump($error);
+            die();
+        } else {
+            redirect('Connexion');
+        }
     }
 
     function add()
@@ -83,7 +99,8 @@ class Fruit extends CI_Controller
         $fruit->setDescription($this->input->post('description'));
         $fruit->setPrix($this->input->post('prix'));
         $fruit->setOrigine($this->input->post('origine'));
-        $fruit->setImage($this->input->post('nom') . '.png');
+        $filename = str_replace(' ', '_', strtolower($this->input->post('nom') . '.png'));
+        $fruit->setImage($filename);
         $this->FruitModel->add($fruit);
         $fruit = $this->FruitModel->findByNameWithoutCat($fruit->getNom());
         $categories = $this->CategoryModel->findAll();
@@ -98,31 +115,29 @@ class Fruit extends CI_Controller
             $this->FruitModel->deleteById($fruit->getId_fruit());
         }
 
-        /*$config = array(
-            'upload_path'     => "./uploads",
-            'allowed_types' => "png",
-            'overwrite' => true,
-            'max_size' => "20000000000",
-            'max_height' => "10000",
-            'max_width' => "10000"
-        );
+        $config['upload_path']          = './img/fruit/';
+        $config['allowed_types']        = 'png';
+        $config['max_size']             = 1000000000000000;
+        $config['max_width']            = 2000;
+        $config['max_height']           = 2000;
+        $config['overwrite']            = TRUE;
+        $config['file_name']            = $filename;
         $this->load->library('upload', $config);
-        if ($this->upload->do_upload('image')) {
-            echo "file upload success";
+        if (!$this->upload->do_upload('userfile')) {
+            $error = array('error' => $this->upload->display_errors());
+            redirect('fruit/add');
         } else {
-            echo "file upload failed";
+            redirect('Connexion');
         }
-        die();*/
-
-        redirect('Connexion');
     }
 
     function delete($id)
     {
-        $this->load->helper("file");
-        /*$fruit = $this->FruitModel->findById($id);
-        unlink(base_url("img/fruit" . DIRECTORY_SEPARATOR . $fruit->getImage()));*/
-        $user = $this->FruitModel->deleteById($id);
+        $fruit = $this->FruitModel->findById($id);
+        if (is_file('./img/fruit' . DIRECTORY_SEPARATOR . $fruit->getImage())) {
+            unlink('./img/fruit' . DIRECTORY_SEPARATOR . $fruit->getImage());
+        }
+        $this->FruitModel->deleteById($id);
         redirect('Connexion');
     }
 }

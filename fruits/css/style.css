@@ -63,7 +63,7 @@ h2 {
 	line-height: 29px;
 	text-align: center;
 
-	color: #027b08;
+	color: black;
 }
 
 .p01 {
@@ -74,7 +74,7 @@ h2 {
 	line-height: 24px;
 	text-align: center;
 
-	color: var(--green-100);
+	color: rgb(44, 44, 44);
 }
 
 .p02 {
@@ -85,7 +85,7 @@ h2 {
 	line-height: 24px;
 	text-align: center;
 
-	color: var(--green-300);
+	color: rgb(58, 58, 58);
 }
 
 /*********HEADER*********/

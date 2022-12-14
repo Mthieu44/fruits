@@ -36,17 +36,18 @@ ALTER TABLE `usertab` ADD UNIQUE(`mail`);
 ALTER TABLE `fruit` ADD UNIQUE(`nom`);
 
 
+
 CREATE TABLE commande(
     id_commande INT PRIMARY KEY AUTO_INCREMENT,
     id_client INT NOT NULL,
-    date_commande TIMESTAMP,
+    date_commande VARCHAR(60),
     prix FLOAT(2) NOT NULL
 );
 
 
 
-CREATE TABLE panier(
-    id_commande INT NOT NULL AUTO_INCREMENT,
+CREATE TABLE commandeFruit(
+    id_commande INT NOT NULL,
     id_fruit INT NOT NULL,
     quantite INT NOT NULL
 );
@@ -54,8 +55,8 @@ CREATE TABLE panier(
 ALTER TABLE
     commande ADD CONSTRAINT FK_commande_user FOREIGN KEY(id_client) REFERENCES usertab(id_user);
 ALTER TABLE
-    panier ADD CONSTRAINT PK_panier PRIMARY KEY(id_commande, id_fruit);
+    commandeFruit ADD CONSTRAINT PK_commandeFruit PRIMARY KEY(id_commande, id_fruit);
 ALTER TABLE
-    panier ADD CONSTRAINT FK_panier_commande FOREIGN KEY(id_commande) REFERENCES commande(id_commande);
+    commandeFruit ADD CONSTRAINT FK_commandeFruit_commande FOREIGN KEY(id_commande) REFERENCES commande(id_commande);
 ALTER TABLE
-    panier ADD CONSTRAINT FK_panier_fruit FOREIGN KEY(id_fruit) REFERENCES fruit(id_fruit);*/
+    commandeFruit ADD CONSTRAINT FK_panier_fruit FOREIGN KEY(id_fruit) REFERENCES fruit(id_fruit);
