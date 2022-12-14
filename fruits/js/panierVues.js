@@ -1,4 +1,4 @@
-let url = "http://localhost/public_html/equipe2-1/fruits/"
+let url = "http://srv-infoweb/~E216351P/fruits/"
 
 const vue = new Vue({
 	data: () => {
@@ -9,14 +9,131 @@ const vue = new Vue({
 			options: [
 				"Prix croissant",
 				"Prix décroissant",
-				"Nom (A-Z)",
+				"Nom (A-Z)",	
 				"Nom (Z-A)",
 			],
+			categoriesList :["Agrumes","Fruits exotiques","Fruits rouges et baies","Fruits à coque","Fruits à pépins","Fruits à noyau"],
+			ventesList :["Meilleures Ventes","Promotions","Indisponibles","Fruits de saison"],
+			categories :[],
+			ventes:[],
 			selected:"",
 		}
 	},
 	computed: {
 		search() {
+			if (this.categories.length > 0){
+				iteratorCat = this.categories.values()
+				tab = []
+				for (let val of iteratorCat){
+					this.fruits.forEach( fruit => {
+						fruit.category.forEach( el => {
+							if (el.nom == val){
+								if(!tab.includes(fruit)){
+									tab.push(fruit)
+								}
+							}
+						})
+					})	
+				}
+				if (this.ventes.length > 0){
+					iteratorVent = this.ventes.values()
+					newTab = []
+					for (let val of iteratorVent){
+						tab.forEach( fruit => {
+							fruit.category.forEach( el => {
+								if (el.nom == val){
+									if (!newTab.includes(fruit)){
+										newTab.push(fruit)
+									}
+									
+								}
+							})
+						})	
+					}
+					tab = newTab
+				}
+				if (this.selected == "Prix croissant") {
+					tab = tab.filter((fruit) => {
+						return fruit.nom.toLowerCase().includes(this.searchKey.toLowerCase());
+					}).sort(function(a, b) {
+						if (a.prix > b.prix) {
+						  return 1;
+						}
+						if (a.prix < b.prix) {
+						  return -1;
+						}
+						return 0;
+					  })
+				}
+				
+				if (this.selected == "Prix décroissant") {
+					tab =  tab.filter((fruit) => {
+						return fruit.nom.toLowerCase().includes(this.searchKey.toLowerCase());
+					}).sort(function(a, b) {
+						if (a.prix > b.prix) {
+						  return -1;
+						}
+						if (a.prix < b.prix) {
+						  return 1;
+						}
+						return 0;
+					  })
+				}if (this.selected == "Nom (A-Z)") {
+					tab = tab.filter((fruit) => {
+						return fruit.nom.toLowerCase().includes(this.searchKey.toLowerCase());
+					}).sort(function(a, b) {
+						if (a.nom > b.nom) {
+						  return 1;
+						}
+						if (a.nom < b.nom) {
+						  return -1;
+						}
+						return 0;
+					  })
+				}if (this.selected == "Nom (Z-A)") {
+					tab = tab.filter((fruit) => {
+						return fruit.nom.toLowerCase().includes(this.searchKey.toLowerCase());
+					}).sort(function(a, b) {
+						if (a.nom > b.nom) {
+						  return -1;
+						}
+						if (a.nom < b.nom) {
+						  return 1;
+						}
+						return 0;
+					  })
+				}
+				if (this.searchKey != ""){
+					return tab.filter((fruit) => {
+						return fruit.nom.toLowerCase().includes(this.searchKey.toLowerCase());
+					})
+				}else{
+					return tab
+				}
+			}
+			else if (this.ventes.length > 0){
+					iteratorVent = this.ventes.values()
+					newTab = []
+					for (let val of iteratorVent){
+						this.fruits.forEach( fruit => {
+							fruit.category.forEach( el => {
+								if (el.nom == val){
+									if (!newTab.includes(fruit)){
+										newTab.push(fruit)
+									}
+								}
+							})
+						})	
+					}
+					if (this.searchKey != ""){
+						return newTab.filter((fruit) => {
+							return fruit.nom.toLowerCase().includes(this.searchKey.toLowerCase());
+						})
+					}else{
+						return newTab
+					}
+				} 
+			
 			if (this.selected == "Prix croissant") {
 				return this.fruits.filter((fruit) => {
 					return fruit.nom.toLowerCase().includes(this.searchKey.toLowerCase());
@@ -141,7 +258,6 @@ const vue = new Vue({
 
 		totalQuantity(n, id) {
 			let quantity = 0;
-			console.log("id :" + id)
 			for (let i = 0; i < this.fruits.length; i++) {
 				if (this.fruits[i].id_fruit == id) {
 					if (n == -this.fruits[i].quantity){
@@ -168,6 +284,7 @@ const vue = new Vue({
 		},
 
 		totalQuantityPanier(n, id) {
+			
 			let quantity = 0
 			for (let i = 0; i < this.panier.length; i++) {
 				if (this.panier[i].id_fruit == id) {

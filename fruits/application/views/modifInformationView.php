@@ -27,7 +27,7 @@
         <nav>
 
             <ul>
-                <li><a href="<?= site_url('Home') ?>" class="yellow">Accueil</a></li>
+                <li><a href="<?= site_url('Home') ?>">Accueil</a></li>
                 <li><a href=" <?= site_url('Boutique') ?>">Boutique</a></li>
                 <li><a href="<?= site_url('APropos') ?>" class="propos">A propos</a></li>
                 <li><a href="<?= site_url('Contact') ?>">Contact</a></li>
@@ -92,6 +92,7 @@
                                                                         } ?>>
             <label for="autre">Autre</label>
         </div>
+        <a class="text-min" href="<?= site_url('Connexion/modifPass') ?>">Modifier votre mot de passe</a>
         <input class="bouton" type="submit" value="Valider">
 
     </form>

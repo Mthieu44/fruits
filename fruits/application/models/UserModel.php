@@ -21,6 +21,8 @@ class UserModel extends CI_Model
             $user->setSexe($response->sexe);
             $user->settelephone($response->telephone);
         } else {
+            $q->next_result();
+            $q->free_result();
             return null;
         }
         $q->next_result();
@@ -78,12 +80,16 @@ class UserModel extends CI_Model
     {
         $sql = 'CALL deleteUser(?)';
         $q = $this->db->query($sql, array($id));
+        $q->next_result();
+        $q->free_result();
     }
 
     function add($user)
     {
         $sql = 'CALL addUser(?,?,?,?,?,?,?,?)';
         $q = $this->db->query($sql, array($user->getPrenom(), $user->getNom(), $user->getAdresse(), $user->getMail(), $user->getPassword(), $user->getTelephone(), $user->getSexe(), $user->getStatus()));
+        $q->next_result();
+        $q->free_result();
     }
 
     function modif($user)

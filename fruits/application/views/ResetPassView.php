@@ -83,6 +83,7 @@
                 </p>
 
             <input type="submit" class="hvr-bounce-to-top" value="Réinitialiser">
+            <a class="text-min" href="<?= site_url('Connexion') ?>">En fait je m'en souviens...</a>
         </form>
     </div>
 

@@ -181,41 +181,38 @@
             </div>
 
             <div class="fruit-menu">
-                <div class="slider-hider left"></div>
+                
                 <img src="<?= base_url('img/back.png') ?>" class="fleche left" alt="back" onclick="slideBestsellers.slideLeft()" />
                 
                 <div class="slider-inside-bestsellers" id="slider-bestsellers">
                     <div v-for="fruit in fruits" v-bind:key="fruit.id_fruit">
-                        <div class="card-product card-product-top">
+                        <div class="card">
                         <a :href="getProduct(fruit.id_fruit)">
                                 <img :src="getImg(fruit.id_fruit)" alt="image du fruit" />
                             </a>
-                            <h2 class="p02">
-                                {{fruit.nom}}
-                            </h2>
-                            <hr class="line small">
-                            <p class="p02">
-                                {{fruit.prix }} €
-                            </p>
-                            <div class="add-to-cart">
-                                <div class="quantity">
-                                    <p class="p02">
-                                        <button v-on:click="totalQuantity(-1,fruit.id_fruit)">-</button>
-                                        <span>
-                                            {{fruit.quantity}}
-                                        </span>
-                                        <button v-on:click="totalQuantity(1,fruit.id_fruit)">+</button>
-                                    </p>
-                                </div>
-                                <button class="addPanier" v-on:click="ajouterAuPanier(fruit.id_fruit)">Ajouter au panier</button>
-                                <script type="application/javascript" src="<?= base_url('js/notiflix-Notiflix-dfaf93f/dist/notiflix-aio-3.2.5.min.js') ?>"></script>
+                            <div class="infos">
+								<p class="nom">{{fruit.nom}}</p>
+								<p class="prix">{{fruit.prix}} €</p>
+							</div>
+							<div class="buttons">
+								<div class="manage">
+									<button v-on:click="totalQuantity(-1,fruit.id_fruit)">-</button>
+									<span>
+										{{fruit.quantity}}
+									</span>
+									<button v-on:click="totalQuantity(1,fruit.id_fruit)">+</button>
+								</div>
+								<button class="add" v-on:click="ajouterAuPanier(fruit.id_fruit)">Ajouter</button>
+								<script type="application/javascript"
+									src="<?= base_url('js/notiflix-Notiflix-dfaf93f/dist/notiflix-aio-3.2.5.min.js') ?>">
+								</script>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <img src="<?= base_url('img/next.png') ?>" class="fleche right" alt="next" onclick="slideBestsellers.slideRight()"/>
-                <div class="slider-hider right"></div>
+                
             </div>
         </div>
 
@@ -234,31 +231,28 @@
                 <div class="slider-hider left"></div>
                 <img src="<?= base_url('img/back.png') ?>" class="fleche left" alt="back" onclick="slideSeasonal.slideLeft()" />
                 
-                <div class="slider-inside-seasonal" id="slider-season">
+                <div class="slider-inside-bestsellers" id="slider-bestsellers">
                     <div v-for="fruit in fruits" v-bind:key="fruit.id_fruit">
-                        <div class="card-product card-product-bottom">
+                        <div class="card">
                         <a :href="getProduct(fruit.id_fruit)">
                                 <img :src="getImg(fruit.id_fruit)" alt="image du fruit" />
                             </a>
-                            <h2 class="p02">
-                                {{fruit.nom}}
-                            </h2>
-                            <hr class="line small">
-                            <p class="p02">
-                                {{fruit.prix }} €
-                            </p>
-                            <div class="add-to-cart">
-                                <div class="quantity">
-                                    <p class="p02">
-                                        <button v-on:click="totalQuantity(-1,fruit.id_fruit)">-</button>
-                                        <span>
-                                            {{fruit.quantity}}
-                                        </span>
-                                        <button v-on:click="totalQuantity(1,fruit.id_fruit)">+</button>
-                                    </p>
-                                </div>
-                                <button class="addPanier" v-on:click="ajouterAuPanier(fruit.id_fruit)">Ajouter au panier</button>
-                                <script type="application/javascript" src="<?= base_url('js/notiflix-Notiflix-dfaf93f/dist/notiflix-aio-3.2.5.min.js') ?>"></script>
+                            <div class="infos">
+								<p class="nom">{{fruit.nom}}</p>
+								<p class="prix">{{fruit.prix}} €</p>
+							</div>
+							<div class="buttons">
+								<div class="manage">
+									<button v-on:click="totalQuantity(-1,fruit.id_fruit)">-</button>
+									<span>
+										{{fruit.quantity}}
+									</span>
+									<button v-on:click="totalQuantity(1,fruit.id_fruit)">+</button>
+								</div>
+								<button class="add" v-on:click="ajouterAuPanier(fruit.id_fruit)">Ajouter</button>
+								<script type="application/javascript"
+									src="<?= base_url('js/notiflix-Notiflix-dfaf93f/dist/notiflix-aio-3.2.5.min.js') ?>">
+								</script>
                             </div>
                         </div>
                     </div>
