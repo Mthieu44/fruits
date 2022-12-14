@@ -69,36 +69,30 @@
         </nav>
     </header>
 
-    <form action="<?= site_url('Connexion/registerRequest') ?>" method="post" class="register">
-        <h1>Inscrivez vous</h1>
-        <p>Renseignez ce formulaire pour pouvoir vous inscrire</p>
-        <div class="name">
-            <input class="inputname" type="text" name="prenom" placeholder="Prenom" maxlength="20" required>
-            <input class="inputname" type="text" name="nom" placeholder="Nom" maxlength="20" required>
-        </div>
-        <input type="email" name="email" placeholder="Email" maxlength="60" required>
-        <input type="adresse" name="adresse" placeholder="Adresse" maxlength="60" required>
-        <input type="tel" pattern="^((\+\d{1,3}(-| )?\(?\d\)?(-| )?\d{1,5})|(\(?\d{2,6}\)?))(-| )?(\d{3,4})(-| )?(\d{4})(( x| ext)\d{1,5}){0,1}$" name="telephone" placeholder="Telephone (10 chiffres)" required>
-        <div class="sexe">
-            <input type="radio" name="sexe" value="homme">
-            <label for="homme">Homme</label>
-            <input type="radio" name="sexe" value="femme">
-            <label for="femme">Femme</label>
-            <input type="radio" name="sexe" value="autre">
-            <label for="autre">Autre</label>
-        </div>
-        <input type="password" name="password" placeholder="Mot de passe" required>
-        <input type="password" name="passwordComfirm" placeholder=" Confirmer mot de passe" required>
-        <!--?php echo validation_errors(); ?-->
+    <div>
+        <form action="<?= site_url('Connexion/modifPassSend') ?>" method="post" class="register modifmdp"> 
+            <h2> Modifier votre mot de passe </h2>
+            <input type="password" name="mdpCurrent" placeholder="Votre mot de passe">
+            <input type="password" name="mdpChange" placeholder="Nouveau mot de passe">
+            <input type="password" name="mdpConfirm" placeholder="Confirmer le nouveau mot de passe">
+            <p class="erreur">
+                    <?php
+                    if (isset($msg)) {
+                        echo ($msg);
+                    }
+                    ?>
+                </p>
 
-        <input class="bouton" type="submit" value="S'inscrire">
+            <input type="submit" class="hvr-bounce-to-top" value="Modifier">
+            <a class="text-min" href="<?= site_url('Connexion/modifInformation') ?>">Annuler</a>
+        </form>
+    </div>
 
-        <a class="text-min" href="<?= site_url('Connexion') ?>">Déjà Inscrit ?</a>
 
-    </form>
 </body>
+
 
 </html>
 
 <script type="text/javascript" src="<?= base_url('js/loader.js') ?>"></script>
-<script type="text/javascript" src="<?= base_url('js/panier.js') ?>"></script>
+<script type="text/javascript" src="<?= base_url('js/panier.js') ?>"></script> 

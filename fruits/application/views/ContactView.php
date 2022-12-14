@@ -100,7 +100,7 @@ $mail = "";
 
 		<div class="content">
 			<h2>Contactez-nous</h2>
-			<p class="p01">Pour toute suggestion ou demande, n'hésitez pas à nous contacter ! Nous vous réponderons dans
+			<p class="p01">Pour toute suggestion ou demande, n'hésitez pas à nous contacter ! Nous vous répondrons dans
 				les plus brefs délais !</p>
 			<h2>Nos contacts :</h2>
 			<p class="p01">

@@ -137,14 +137,8 @@ input[type="submit"]:hover {
 	flex-wrap: wrap;
 }
 
-.modif{
-    width: 50%;
-    min-width: 500px;
-    height: 50%;
-    min-height: 500px;
-}
 
-.registerform {
+.register form {
 	width: 100%;
 }
 
@@ -231,6 +225,12 @@ input[type="submit"]:hover {
 	gap: 10px;
 }
 
+.reset a{
+	text-align: center;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
 .reset h2{
 	margin-top: 20px;
 }
@@ -279,6 +279,7 @@ input[type="submit"]:hover {
 	background-position: 100% 0;
 	transition: all 0.4s ease-in-out;
 }
+
 
 
 
@@ -342,6 +343,13 @@ h2 {
 .case {
 	min-height: 60px;
 	padding: 10px;
+}
+.modifmdp {
+	height: 300px;
+}
+
+.modifmdp p {
+	margin-bottom: 0;
 }
 
 /*********RESPONSABLE VIEW*********/
