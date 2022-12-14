@@ -24,6 +24,11 @@ html {
   background-color: var(--yellow-300);
 }
 
+.fruitDansPanier img{
+  height: 75px;
+  width: 75px;
+}
+
 .card {
   width: 200px;
   height: 300px;
@@ -104,6 +109,7 @@ html {
   display: flex;
   gap: 50px;
   justify-content: center;
+  margin-bottom: 100px;
 }
 
 .products {

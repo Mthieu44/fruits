@@ -13,14 +13,15 @@
 		?>
 
 		<?php include 'css/boutique.css';
-		?><?php include 'css/home.css';
 		?>
 
+		<?php include 'css/home.css';
+		?>
 
+		<?php include 'css/panierside.css';
+		?>
 
 	</style>
-
-
 </head>
 
 <body>
@@ -104,44 +105,34 @@
 			</div>
 
 			<h1 v-if="panier.length == 0 ">Votre panier est vide ! </h1>
-            <div v-for="fruit in panier" v-bind:key="fruit.id_fruit" class="fruitDansPanier">
-			<a href="<?= site_url('Produit') ?>">
-				<img :src="getImg(fruit.id_fruit)" alt="image du fruit" />
-			</a>
-			<div class="content">
-				<h2 class="p02" class="name">
-					{{fruit.nom}}
-				</h2>
-				<div class="quantityPanier">
-					<p class="p02">
-						<button v-on:click="totalQuantityPanier(-1,fruit.id_fruit)">-</button>
-						<span>
-							{{fruit.quantity}}
-						</span>
-						<button v-on:click="totalQuantityPanier(1,fruit.id_fruit)">+</button>
-					</p>
-				</div>
-				<div class="contenuPanier">
-					<p class="p02">
-						{{fruit.category.nom}}
-					</p>
-					<p class="p02">
-						{{fruit.prix }} €
-					</p>
-					<p class="p02">
-						Total : {{getTotalProduit(fruit.id_fruit)}} €
-					</p>
+			<div v-for="fruit in panier" v-bind:key="fruit.id_fruit" class="fruitDansPanier">
+
+				<div class="cardMini">
+					<a href="<?= site_url('Produit') ?>"><img :src="getImg(fruit.id_fruit)" alt="image du fruit" /></a>
+					<div class="rightMini">
+						<div class="infosMini">
+							<p class="nomMini">{{fruit.nom}}</p>
+							<p class="prixMini">{{fruit.prix }}€/unité</p>
+						</div>
+						<div class="buttonsMini">
+							<div class="manageMini">
+								<button v-on:click="totalQuantityPanier(-1,fruit.id_fruit)">-</button>
+								<p>{{fruit.quantity}}</p>
+								<button v-on:click="totalQuantityPanier(1,fruit.id_fruit)">+</button>
+								<p class="subtotal">{{getTotalProduit(fruit.id_fruit)}}€</p>
+							</div>
+							<button v-on:click="retirerDuPanier(fruit.id_fruit)" class="suppr">Retirer</button>
+						</div>
+					</div>
 				</div>
 			</div>
-			<button v-on:click="retirerDuPanier(fruit.id_fruit)"> D</button>
+			<div class="totalPanier">
+				<p class="p02">
+					Total : {{getTotalPanier()}} €
+				</p>
+			</div>
 		</div>
-		<div class="totalPanier">
-			<p class="p02">
-				Total : {{getTotalPanier()}} €
-			</p>
-		</div>
-		</div>
-		
+
 
 		<div class="content">
 			<div class="left">
@@ -152,7 +143,11 @@
 						<input type="checkbox" id="faq-1" class="checkbox">
 						<h1><label class="cc" for="faq-1">Catégories</label></h1>
 						<div class="p">
-							<input id="toggle1" type="checkbox" class="case">
+							 <li v-for="cat in categoriesList">
+								<input type="checkbox" :id="cat" v-model="categories" :value="cat" hidden/>  
+								<label :for="cat" class="choix">{{cat}}</label>
+							</li> 
+							<!-- <input id="toggle1" type="checkbox" class="case" v-model = "selected" v-bind:value ="category">
 							<label for="toggle1" class="choix">Agrumes</label>
 
 							<input id="toggle2" type="checkbox" class="case">
@@ -165,35 +160,17 @@
 							<label for="toggle4" class="choix">Fruits à coque</label>
 
 							<input id="toggle5" type="checkbox" class="case">
-							<label for="toggle5" class="choix">Fruits à pépins</label>
+							<label for="toggle5" class="choix">Fruits à pépins</label> -->
 						</div>
 					</div>
 					<div class="acc">
 						<input type="checkbox" id="faq-2" class="checkbox">
 						<h1><label class="cc" for="faq-2">Ventes</label></h1>
 						<div class="p">
-							<input id="toggle6" type="checkbox" class="case">
-							<label for="toggle6" class="choix">Meilleures ventes</label>
-
-							<input id="toggle7" type="checkbox" class="case">
-							<label for="toggle7" class="choix">Promotions</label>
-
-							<input id="toggle8" type="checkbox" class="case">
-							<label for="toggle8" class="choix">Indisponibles</label>
-						</div>
-					</div>
-					<div class="acc">
-						<input type="checkbox" id="faq-3" class="checkbox">
-						<h1><label class="cc" for="faq-3">Provenance</label></h1>
-						<div class="p">
-							<input id="toggle9" type="checkbox" class="case">
-							<label for="toggle9" class="choix">France</label>
-
-							<input id="toggle10" type="checkbox" class="case">
-							<label for="toggle10" class="choix">Europe</label>
-
-							<input id="toggle11" type="checkbox" class="case">
-							<label for="toggle11" class="choix">Hors Europe</label>
+							<li v-for="cat in ventesList">
+								<input type="checkbox" :id="cat" v-model="ventes" :value="cat" hidden/>  
+								<label :for="cat" class="choix">{{cat}}</label>
+							</li> 
 						</div>
 					</div>
 
@@ -206,9 +183,9 @@
 						<div class="nbProducts">
 							<p> {{search.length}} produits</p>
 						</div>
-						<select name="Sort by" class="sort" v-model = "selected">
-                            <option disabled value="">---Trier par---</option>
-							<option v-for="option in options" :value = "option">{{option}}</option>
+						<select name="Sort by" class="sort" v-model="selected">
+							<option disabled value="">---Trier par---</option>
+							<option v-for="option in options" :value="option">{{option}}</option>
 						</select>
 					</div>
 				</div>
