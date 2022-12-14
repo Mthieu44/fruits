@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Inter%22");
 
-.flexible{
+.flex{
 display: flex;
 padding: 0;
 }
@@ -32,59 +32,59 @@ margin-right: 20%;
 margin-left: 7%;
 }
 
-.titreprod{
+.titre{
 font-family: 'Mango Sans', sans-serif;
 font-style: normal;
 font-weight: 400;
-font-size: 40px;
+font-size: 50px;
 line-height: 61px;
 text-align: center;
 margin-top: 5%;
 color: #000000;
 }
 
-.textprod{
+.text{
 font-family: Inter;
 font-style: normal;
 font-weight: 400;
-font-size: 25px;
+font-size: 40px;
 line-height: 48px;
-
-color: #000000;
-text-align: left;
 margin-left: 10%;
-margin-top: 3%;
 }
 
 .plusoumoins{
-    font-family: Inter;
-    display: flex;
-    box-sizing: border-box;
-    margin-left: 10%;
-    height: 50px;
-    left: 1142px;
-    top: 611px;
-    background: rgb(255, 255, 255);
-    border: 3px solid rgb(250, 206, 95);
-    width: 90px;
+font-family: Inter;
+
+display: flex;
+box-sizing: border-box;
+margin-left: 10%
+width: 209px;
+height: 50px;
+left: 1142px;
+top: 611px;
+
+
+background: #FFFFFF;
+border: 3px solid #FACE5F;
 }
 
 .bascadre{
-    margin-left: 0%;
-    margin-top: 7%;
-    display: flex;
+display : flex ;
+margin-left: 10%;
+
 }
 
 .bouton-plusoumoins{
-    font-family: Inter;
-    border: medium none;
-    background-color: white;
-    color: green;
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
-    cursor: pointer;
-    font-size: 30px;
+font-family: Inter;
+border: medium none;
+background-color: white;
+color: green;
+border-radius: 50%;
+width: 30px;
+height: 30px;
+cursor: pointer;
+font-size: 30px;
+margin-right: 10%;
 
 }
 .bouton-ajouter{
@@ -100,9 +100,9 @@ border-radius: 10px;
 margin-left: 15%;
 }
 
-.zero{
-    font-size: 30px;
-    margin-top: 5%;
+.zéro{
+margin-top: 5%;
+font-size: 30px;
 }
 
 .desciption{
@@ -115,15 +115,7 @@ padding: 1%;
 background: #FACE5F;
 border-radius: 20px;
 margin-top: 7%;
-}
 
-.textprod2{
-font-family: 'Inter';
-font-style: normal;
-font-weight: 400;
-font-size: 40px;
-line-height: 48px;
-text-align: center;
 
-color: #000000;
+
 }

@@ -129,6 +129,8 @@
         		<h1 class="titreprod"><?= $fruit->getNom()?></h1>
         		<h2 class="textprod">Prix : <?= $fruit->getPrix()?> €</h2>
         		<h2 class="textprod">Origine : <?= $fruit->getOrigine()?></h2>
+                <h2 class="textprod">Catégorie :  <?php foreach($fruit->getCategory() as $category){echo($category->getNom() . " ");}?> </h2>
+                
         		<div class="bascadre">
         			<div class="plusoumoins">
         				<button class="bouton-plusoumoins">-</button>
