@@ -152,7 +152,11 @@
 						<input type="checkbox" id="faq-1" class="checkbox">
 						<h1><label class="cc" for="faq-1">Catégories</label></h1>
 						<div class="p">
-							<input id="toggle1" type="checkbox" class="case">
+							 <li v-for="cat in categoriesList">
+								<input type="checkbox" :id="cat" v-model="categories" :value="cat" hidden/>  
+								<label :for="cat" class="choix">{{cat}}</label>
+							</li> 
+							<!-- <input id="toggle1" type="checkbox" class="case" v-model = "selected" v-bind:value ="category">
 							<label for="toggle1" class="choix">Agrumes</label>
 
 							<input id="toggle2" type="checkbox" class="case">
@@ -165,35 +169,17 @@
 							<label for="toggle4" class="choix">Fruits à coque</label>
 
 							<input id="toggle5" type="checkbox" class="case">
-							<label for="toggle5" class="choix">Fruits à pépins</label>
+							<label for="toggle5" class="choix">Fruits à pépins</label> -->
 						</div>
 					</div>
 					<div class="acc">
 						<input type="checkbox" id="faq-2" class="checkbox">
 						<h1><label class="cc" for="faq-2">Ventes</label></h1>
 						<div class="p">
-							<input id="toggle6" type="checkbox" class="case">
-							<label for="toggle6" class="choix">Meilleures ventes</label>
-
-							<input id="toggle7" type="checkbox" class="case">
-							<label for="toggle7" class="choix">Promotions</label>
-
-							<input id="toggle8" type="checkbox" class="case">
-							<label for="toggle8" class="choix">Indisponibles</label>
-						</div>
-					</div>
-					<div class="acc">
-						<input type="checkbox" id="faq-3" class="checkbox">
-						<h1><label class="cc" for="faq-3">Provenance</label></h1>
-						<div class="p">
-							<input id="toggle9" type="checkbox" class="case">
-							<label for="toggle9" class="choix">France</label>
-
-							<input id="toggle10" type="checkbox" class="case">
-							<label for="toggle10" class="choix">Europe</label>
-
-							<input id="toggle11" type="checkbox" class="case">
-							<label for="toggle11" class="choix">Hors Europe</label>
+							<li v-for="cat in ventesList">
+								<input type="checkbox" :id="cat" v-model="ventes" :value="cat" hidden/>  
+								<label :for="cat" class="choix">{{cat}}</label>
+							</li> 
 						</div>
 					</div>
 
@@ -229,8 +215,7 @@
 									</span>
 									<button v-on:click="totalQuantity(1,fruit.id_fruit)">+</button>
 								</div>
-								<button class="add" v-on:click="ajouterAuPanier(fruit.id_fruit)">Ajouter au
-									panier</button>
+								<button class="add" v-on:click="ajouterAuPanier(fruit.id_fruit)">Ajouter</button>
 								<script type="application/javascript"
 									src="<?= base_url('js/notiflix-Notiflix-dfaf93f/dist/notiflix-aio-3.2.5.min.js') ?>">
 								</script>
