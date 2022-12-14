@@ -13,7 +13,9 @@
 	--green-100: #369c3b;
 	--green-200: #2d7f2f;
 	--green-300: #1f5a1d;
-	--yellow-100: #f9b814;
+	--yellow-100: #ffc157ab;
+  --yellow-200: #face5f;
+  --yellow-300: #f9b814;
 	--orange-100: #ffc157ab;
 	--grey-100: #f3f3f3;
 }
@@ -49,7 +51,7 @@ ul {
 }
 
 html {
-	scroll-behavior: smooth;
+	background-color: var(--orange-100);
 }
 
 /*********TYPOGRAPHIE*********/
