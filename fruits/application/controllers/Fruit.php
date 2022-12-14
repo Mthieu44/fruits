@@ -68,21 +68,24 @@ class Fruit extends CI_Controller
                 $this->FruitModel->deleteCategorieToFruit($fruit->getId_fruit(), $categoriy->getId_Categorie());
             }
         }
-
-        $config['upload_path']          = './img/fruit/';
-        $config['allowed_types']        = 'png';
-        $config['max_size']             = 1000000000000000;
-        $config['max_width']            = 2000;
-        $config['max_height']           = 2000;
-        $config['overwrite']            = true;
-        $config['file_name']            = $filename;
-        $this->load->library('upload', $config);
-        if (!$this->upload->do_upload('userfile')) {
-            $error = array('error' => $this->upload->display_errors());
-            var_dump($error);
-            die();
-        } else {
+        if (empty($_FILES['userfile']['name'])) {
             redirect('Connexion');
+        } else {
+            $config['upload_path']          = './img/fruit/';
+            $config['allowed_types']        = 'png';
+            $config['max_size']             = 1000000000000000;
+            $config['max_width']            = 2000;
+            $config['max_height']           = 2000;
+            $config['overwrite']            = true;
+            $config['file_name']            = $filename;
+            $this->load->library('upload', $config);
+            if (!$this->upload->do_upload('userfile')) {
+                $error = array('error' => $this->upload->display_errors());
+                var_dump($error);
+                die();
+            } else {
+                redirect('Connexion');
+            }
         }
     }
 

@@ -36,7 +36,7 @@ ALTER TABLE `usertab` ADD UNIQUE(`mail`);
 ALTER TABLE `fruit` ADD UNIQUE(`nom`);
 
 
-
+/*
 CREATE TABLE commande(
     id_commande INT PRIMARY KEY AUTO_INCREMENT,
     id_client INT NOT NULL,
@@ -60,3 +60,4 @@ ALTER TABLE
     commandeFruit ADD CONSTRAINT FK_commandeFruit_commande FOREIGN KEY(id_commande) REFERENCES commande(id_commande);
 ALTER TABLE
     commandeFruit ADD CONSTRAINT FK_panier_fruit FOREIGN KEY(id_fruit) REFERENCES fruit(id_fruit);
+*/
