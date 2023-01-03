@@ -3,11 +3,9 @@
 .flexible{
 display: flex;
 padding: 0;
+justify-content: center;
 }
 
-body{
-background-color: #FFE0AA;
-}
 
 .img{
 
@@ -107,14 +105,14 @@ margin-left: 15%;
 
 .desciption{
 font-family: Inter;
-margin-left: 20%;
+margin: auto;
 width: 1000px;
 height: auto;
 padding: 1%;
-
+text-align: center;
 background: #FACE5F;
 border-radius: 20px;
-margin-top: 7%;
+margin-top: 50px;
 }
 
 .textprod2{
