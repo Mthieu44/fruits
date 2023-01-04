@@ -1,5 +1,3 @@
-<?php var_dump($_SESSION['total']);die();?>
-
 <!DOCTYPE html>
 <html lang="fr">
 

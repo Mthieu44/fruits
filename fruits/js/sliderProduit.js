@@ -18,7 +18,6 @@ class sliderProduit {
   
   showCartes(n) {
     this.pos += n;
-    console.log(this.pos);
     if (this.pos < 2) {this.pos = this.posMax - 2}
     if (this.pos > this.posMax - 2) {this.pos = 2}
     this.posMax = this.slider.length

@@ -20,18 +20,17 @@ class Commande extends CI_Controller {
 
 	public function index()
 	{
+		$this->load->helper('url');
+		$this->load->library('session');
 		$this->load->view('CommandeView');
 	}
 
-	public function panier(){
-		$this->load->view('CommandePanierView');
-	}
-
-	public function paiement(){
-		$this->load->view('CommandePaiementView');
-	}
-
-	public function resumer(){
-		$this->load->view('CommandeResumerView');
+	public function validerCommande(){
+		$prenom = $this->input->post('prenom');
+		$nom = $this->input->post('nom');
+		$adresse = $this->input->post('adresse');
+		$mail = $this->input->post('mail');
+		$telephone = $this->input->post('telephone');
+		$this->load->view('CommandeValideView');
 	}
 }
