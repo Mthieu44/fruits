@@ -221,7 +221,6 @@
 
 </html>
 
-<script type="text/javascript" src="<?= base_url('js/panier.js') ?>"></script>
 <script type="text/javascript" src="<?= base_url('js/loader.js') ?>"></script>
 <script type="text/javascript" src="<?= base_url('js/panierDroite.js') ?>"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
