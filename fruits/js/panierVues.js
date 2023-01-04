@@ -303,6 +303,7 @@ const vue = new Vue({
             formData.append('id', id);
             formData.append('quantity', quantity)
             formData.append('tab', 'panier');
+            formData.append('total', this.getTotalPanier())
 
             axios.post(url.concat('index.php/panier/addToPanier'), formData).then(function (response) {
                 console.log(response);

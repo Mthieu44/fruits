@@ -40,7 +40,8 @@ CREATE TABLE commande(
     id_commande INT PRIMARY KEY AUTO_INCREMENT,
     id_user INT NOT NULL,
     date_commande VARCHAR(60),
-    prix FLOAT(2) NOT NULL
+    prix FLOAT(2) NOT NULL,
+    adresse VARCHAR(60) NOT NULL
 );
 
 

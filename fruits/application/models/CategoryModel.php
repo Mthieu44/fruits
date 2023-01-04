@@ -13,6 +13,8 @@ class CategoryModel extends CI_Model
 			$category->setDescription($row->description);
 			array_push($response,$category);
 		}
+		$q->next_result();
+        $q->free_result();
 	    return $response;
 	}
 }

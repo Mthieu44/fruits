@@ -6,6 +6,7 @@ class FruitEntity
     public int $id_user;
     public string $date_commande;
     public string $prix;
+	public string $adresse;
 
 	public function setId_Commande(int $id_commande): void
 	{
@@ -48,5 +49,16 @@ class FruitEntity
 	public function getPrix(): string
 	{
 		return $this->prix;
+	}
+
+	public function setAdresse(string $adresse): void
+	{
+		$this->adresse = $adresse;
+	}
+
+
+	public function getAdresse(): string
+	{
+		return $this->adresse;
 	}
 }
