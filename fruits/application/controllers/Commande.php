@@ -22,4 +22,16 @@ class Commande extends CI_Controller {
 	{
 		$this->load->view('CommandeView');
 	}
+
+	public function panier(){
+		$this->load->view('CommandePanierView');
+	}
+
+	public function paiement(){
+		$this->load->view('CommandePaiementView');
+	}
+
+	public function resumer(){
+		$this->load->view('CommandeResumerView');
+	}
 }
