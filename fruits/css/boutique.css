@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Inter");
 
 * {
-  --yellow-100: #ffc157ab;
+  --yellow-100: #ffda9b;
   --yellow-200: #face5f;
   --yellow-300: #f9b814;
   font-family: Inter;
@@ -105,7 +105,7 @@ html {
 }
 
 .content {
-  margin-top: 100px;
+  margin-top: 50px;
   display: flex;
   gap: 50px;
   justify-content: center;
@@ -132,6 +132,7 @@ html {
 
 .left {
   width: 15%;
+  min-width: 200px;
 }
 
 .filters {
@@ -211,7 +212,7 @@ html {
 .choix {
   display: block;
   position: relative;
-  padding: 15px 30px 15px 45px;
+  padding: 10px 25px 10px 45px;
   border: 3px solid #fff;
   border-radius: 20px;
   color: black;
@@ -219,6 +220,7 @@ html {
   white-space: nowrap;
   cursor: pointer;
   user-select: none; 
+  text-overflow: clip;
   transition: background-color .2s, box-shadow .2s;
 }
 

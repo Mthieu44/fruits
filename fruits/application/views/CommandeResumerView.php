@@ -108,31 +108,17 @@ $telephone = "";
 
 
 	
-	<h1> Votre commande <?= $this->session->user["user"]->getPrenom()?> </h1>
 	<div class="content">
-        <p class ="p02"> Veuillez verifier vos informations </p>
-        <form action="<?= site_url('Commande/panier') ?>" method="post">
-                <div id="top">
-					<div class="left">
-						<label for="prenom">Prenom :</label>
-                    	<input id = "prenom" type="text" name="prenom" placeholder="Votre prénom" value=<?= $prenom ?>>
-					</div>
-					<div class="right">
-						<label for="nom">Nom :</label>
-						<input type="text" id = "nom" name="nom" placeholder="Votre nom" value=<?= $nom ?>>
-					</div>
-                </div>
-
-                <label for="mail">Email :</label>
-                <input id="mail" type="email" name="mail" placeholder="Votre mail" value=<?= $mail ?>>
-                <label for="adresse">Adresse :</label>
-                <input type="text" id = "adresse"name="objet" placeholder="Adresse" value = <?= $adresse ?>>
-                <label for="telephone">Telephone :</label>
-                <input type="text" id = "telephone" name="objet" placeholder="Telephone" value = <?= $telephone ?>>
-
-                <input type="submit" value="Suivant">
-        </form>
-            
+        <p> Merci <?= $this->session->user["user"]->getPrenom()?> ! </p><br>
+        <div>
+            <p> Votre commande à été passé avec succès ! <br> Plus de détails dans votre historique. </p>  
+            <button> Historique </button>
+        </div>
+        <div>
+            <p> Continuez vos achats ici !</p>
+            <button> Boutique </button>
+        </div>
+        
     </div>
 
 

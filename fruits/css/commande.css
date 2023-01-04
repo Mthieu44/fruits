@@ -8,6 +8,7 @@ html {
   }
   
   
+
 .content{
     display: flex;
     flex-direction: column;
@@ -16,7 +17,6 @@ html {
     align-items: center;
     background-color: white;
     border-radius: 20px;
-    width: 40%;
     height: auto;
     position: fixed;
     top: 50vh;
@@ -85,3 +85,21 @@ input[type="submit"]:hover {
     flex-direction: row;
     gap: 10px;
 }
+
+.splide__slide{
+    padding: 6rem;
+    display: flex;
+    justify-content: center;
+    background: #ECF0F1 ;
+
+  }
+
+  .splide__slide__container{
+    width: 600px;
+    text-align: center;
+  }
+
+  .slide__content{
+  margin: 1rem 0;
+  font-size: 1.3rem;
+  }
