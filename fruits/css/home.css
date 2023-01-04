@@ -61,11 +61,12 @@
 }
 
 
-/*********MEILLEURS VENTES*********/
+/********* BESTSELLERS *********/
 
 .bestsellers{
     margin-bottom: 60px;
     margin-top: 60px;
+
 }
 
 .line{
@@ -77,10 +78,10 @@
 }
 
 .top-part{  
-    margin-top: 50px;
+    margin-top: 40px;
     display: block;
     justify-content: center;
-    margin-bottom: 50px;
+    margin-bottom: 40px;
 }
 
 .top-text{
@@ -141,70 +142,49 @@
   z-index: 8;
 }
 
-
-
-
-
-/*********FRUITS DE SAISON*********/
-
-
 /*********INFORMATIONS*********/
 
 .info{
-    width: 90%;
     display: flex;
-    margin-top: 250px;
-    margin-bottom: 250px;
+    margin-top: 100px;
+    margin-bottom: 60x;
     justify-content: center;
-    margin-left:5%;
+    gap:20px;
 }
 .infoPart{
+    display: flex;
+    flex-direction: column;
+    height: 600px;
     width: 400px;
     display: block;
+    padding: 50px;
+    justify-content: center;
+    align-content: center;
+    gap: 15px;
+    text-align: center;
 }
 
 .infoPart img{
     display: block;
-    height: 150px;
-    width: 150px;
+    height: 125px;
+    width: 125px;
     margin: auto;
 }
 
-.infoPart h2{
+.infoPart h1{
     margin-top: 50px;
     margin-bottom: 25px;
 }
+.infoPart p {
+    color: #313131
+}
 
-.lineVertical{
-    height: 180px;
+.barv{
+    height: 250px;
     width: 2px;
-    margin: 50px;
     margin-top: 70px;
     background-color: #F9B814;
 }
 
 
 /*********FOOTER*********/
-footer{
-    position: relative;
-    width: 98%;
-    background-color: rgb(255, 224, 170);
-    margin: auto;
-    height: 200px;
-    border-radius: 15px;
-    margin-bottom: 20px;
-}
-
-footer p{
-    position:flex;
-    bottom:0;
-    right:0;
-    margin-top: 30px;
-    margin-left: 20px;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 240;
-    font-size: 15px;
-    line-height: 24px;
-    color: #004b04;
-}

@@ -1,9 +1,10 @@
 <?php
-require_once APPPATH . DIRECTORY_SEPARATOR . 'models' . DIRECTORY_SEPARATOR . "CategoryEntity.php";
-class CategoryModel extends CI_Model
+require_once APPPATH . DIRECTORY_SEPARATOR . 'models' . DIRECTORY_SEPARATOR . "CommandeEntity.php";
+class CommandeModel extends CI_Model
 {
     function findAll(){
-	    $q = $this->db->query('CALL getAllCategorie()');
+	    $this->db->select('*');
+	    $q = $this->db->get('categorie');
 		$response = array(); 
 		
 		foreach ($q->result() as $row) {
@@ -15,4 +16,6 @@ class CategoryModel extends CI_Model
 		}
 	    return $response;
 	}
+
+	
 }

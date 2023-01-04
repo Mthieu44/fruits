@@ -10,21 +10,20 @@ html {
 
 .content{
   display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  gap: 15px;
-  align-items: center;
-  background-color: white;
-  border-radius: 20px;
-  width: 40%;
-  height: auto;
-  position: fixed;
-  top: 50vh;
-  left: 50vw;
-  transform: translate(-50%, -50%);
-  padding: 20px;
-  min-width: 800px;
-	margin-top: 50px;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 20px;
+    align-items: center;
+    background-color: white;
+    border-radius: 20px;
+    width: 40%;
+    height: auto;
+    position: fixed;
+    top: 50vh;
+    left: 50vw;
+    transform: translate(-50%, -45%);
+    padding: 20px;
+    min-width: 800px;
 }
 
 .content p{
@@ -32,7 +31,7 @@ html {
 }
 
 .content img{
-  width: 100%;
+  width: 85%;
   height: auto;
 }
 

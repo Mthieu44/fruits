@@ -126,32 +126,17 @@ call addCategorieToFruit(51,3);
 call addCategorieToFruit(52,3);
 call addCategorieToFruit(53,3);
 
+call addCommande(1,'03-01-2023',214.58);
+call addFruitToCommande(1,1,4);
+call addFruitToCommande(1,4,1);
+call addFruitToCommande(1,25,15);
 
-/*
-call modifUser(8,'cbien','cbien','cbien','cbien','cbien','cbien','cbien','cbein');
-call deleteUser(8);
+call addCommande(2,'03-01-2023',214.58);
+call addFruitToCommande(2,1,4);
+call addFruitToCommande(2,4,1);
+call addFruitToCommande(2,25,15);
 
-
-call addCategorie('Agrumes','C juteux');
-call addCategorie('Fruits exotiques','Très exotique ça');
-/*
-call modifCategorie('Agrumes','C très juteux');
-call deleteCategorie(1);
-
-
-call addFruit('Bananes','1.5','c bon','France','banane.png');
-call addFruit('Mangues','2','c super mega bon','France','mangue.png');
-/*
-call modifFruit(3,'banananan','10','c bon','france','banane.png');
-call deleteFruit(3);
-
-
-call addCategorieToFruit(1,1);
-call addCategorieToFruit(1,2);
-call addCategorieToFruit(2,1);
-/*
-call deleteCategorieToFruit(2,1)
-*/
-
-
-
+call addCommande(3,'03-01-2023',214.58);
+call addFruitToCommande(3,1,4);
+call addFruitToCommande(3,4,1);
+call addFruitToCommande(3,25,15);

@@ -74,8 +74,7 @@
         </header>
 
 
-        <div id="panierVolet">
-			<div id="voletFleche" onclick="flechePanier()">
+        <div id="voletFleche" onclick="flechePanier()">
 				<img id="voletFlecheImage" src="<?= base_url('img/back_green.png') ?>" alt="flechePanier" />
 				<svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="40.000000pt" height="40.000000pt"
 					viewBox="0 0 400.000000 400.000000" preserveAspectRatio="xMidYMid meet">
@@ -89,7 +88,8 @@
 				</svg>
 			</div>
 
-			<h1 v-if="panier.length == 0 ">Votre panier est vide ! </h1>
+		<div id="panierVolet">
+			<h1 v-if="panier.length == 0 " class="vide">Votre panier est vide ! </h1>
 			<div v-for="fruit in panier" v-bind:key="fruit.id_fruit" class="fruitDansPanier">
 
 				<div class="cardMini">
@@ -115,18 +115,21 @@
 				<p class="p02">
 					Total : {{getTotalPanier()}} €
 				</p>
+				<a href="<?= site_url('Commande') ?>" v-if="panier.length != 0" class="button"> Commander</a>
 			</div>
 		</div>
 
 
-
+        <div class="div">
         <div class="flexible">
+            <div class="top">
             <img class="img" src="<?= base_url('img/fruit/') . $fruit->getImage()?>" alt="<?= $fruit->getNom()?>">
             <div class="rightsquare">
-                <h1 class="titreprod"><?= $fruit->getNom()?></h1>
-                <h2 class="textprod">Prix : <?= $fruit->getPrix()?> €</h2>
-                <h2 class="textprod">Origine : <?= $fruit->getOrigine()?></h2>
-                <h2 class="textprod">Catégorie :  <?php foreach($fruit->getCategory() as $category){echo($category->getNom() . " ");}?> </h2>
+                <h1><?= $fruit->getNom()?></h1>
+                <div class="barh"></div>
+                <h2>Prix : <?= $fruit->getPrix()?> €</h2>
+                <h2>Origine : <?= $fruit->getOrigine()?></h2>
+                <h2>Catégorie :  <?php foreach($fruit->getCategory() as $category){echo($category->getNom() . " ");}?> </h2>
                     
                 <div class="bascadre">
                     <div class="plusoumoins">
@@ -137,12 +140,12 @@
                     <button class="bouton-ajouter">Ajouter</button>
                 </div>
             </div>
-        </div>
-        <div class="desciption">
-            <p>
+            </div>
+            <p class="description">
                 <?= $fruit->getDescription()?>
             </p>
         </div>
+                        </div> 
 
 
         <div class="bestsellers blur">

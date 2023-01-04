@@ -70,8 +70,7 @@
             </nav>
         </header>
 
-        <div id="panierVolet">
-			<div id="voletFleche" onclick="flechePanier()">
+        <div id="voletFleche" onclick="flechePanier()">
 				<img id="voletFlecheImage" src="<?= base_url('img/back_green.png') ?>" alt="flechePanier" />
 				<svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="40.000000pt" height="40.000000pt"
 					viewBox="0 0 400.000000 400.000000" preserveAspectRatio="xMidYMid meet">
@@ -85,7 +84,8 @@
 				</svg>
 			</div>
 
-			<h1 v-if="panier.length == 0 ">Votre panier est vide ! </h1>
+		<div id="panierVolet">
+			<h1 v-if="panier.length == 0 " class="vide">Votre panier est vide ! </h1>
 			<div v-for="fruit in panier" v-bind:key="fruit.id_fruit" class="fruitDansPanier">
 
 				<div class="cardMini">
@@ -111,9 +111,9 @@
 				<p class="p02">
 					Total : {{getTotalPanier()}} €
 				</p>
+				<a href="<?= site_url('Commande') ?>" v-if="panier.length != 0" class="button"> Commander</a>
 			</div>
 		</div>
-
 
 
 
@@ -142,7 +142,7 @@
                     <h1>Bienvenue !</h1>
                     <h1>Des fruits frais, toute l'année !</h1>
                     <p>
-                        Miam miam les fruits
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna 
                     </p>
                 </div>
             </div>
@@ -151,9 +151,9 @@
                 <img src="<?= base_url('img/acceuil3.jpg') ?>" alt="image accueil" class="sliderimage" />
                 <div class="slidertext">
                     <h1>Bienvenue !</h1>
-                    <h1>Salivez, cliquez, mangez vos morts!</h1>
+                    <h1>Salivez, cliquez, mangez vos fruits!</h1>
                     <p>
-                        Voici les agrumes
+                    Lorem ipsum dolor sit amet, tempor incididunt ut labore et dolore magna Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna 
                     </p>
                 </div>
             </div>
@@ -164,16 +164,7 @@
         </div>
 
 
-
-
-
-
-
-
-
-
-
-
+                       
         <div class="bestsellers blur">
             <div class="top-part">
                 <hr class="line">
@@ -225,7 +216,7 @@
             <div class="top-part">
                 <hr class="line">
                 <div class="top-text">
-                    <h2>Meilleures ventes</h2>
+                    <h2>Notre selection de fruit</h2>
                     <p class="p01">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
                         labore et dolore magna </p>
                 </div>
@@ -267,16 +258,36 @@
             </div>
         </div>
 
+    <div class="info">
+        <div class="infoPart">
+        <img src="" alt="">
+            <h1>Livraisons à emporter</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna </p>
+        </div>
+        <div class="barv"></div>
+        <div class="infoPart">
+        <img src="" alt="">
+            <h1>Livraisons rapides</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna </p>
+        </div>
+        <div class="barv"></div>
+        <div class="infoPart">
+            <img src="" alt="">
+            <h1>Règels de sécurité</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna </p>
+        </div>
 
-        <footer>
+    </div>
+
+    <footer>
             <a href="<?= site_url('home/ConditionsGenerales') ?>">
                 Conditions générales d'utilisation
                                 </a>
             <p>
                 Tous droits réservés.
             </p>    
-        </footer>
-    </div>
+    </footer>
+
 </body>
 
 <script type="text/javascript" src="<?= base_url('js/sliderProduit.js') ?>"></script>
