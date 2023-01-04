@@ -1,6 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 require APPPATH . DIRECTORY_SEPARATOR . 'models' . DIRECTORY_SEPARATOR . "UserEntity.php";
+require APPPATH . DIRECTORY_SEPARATOR . 'models' . DIRECTORY_SEPARATOR . "CommandeEntity.php";
 
 class Connexion extends CI_Controller
 {
@@ -12,6 +13,7 @@ class Connexion extends CI_Controller
         $this->load->library('session');
         $this->load->model('UserModel');
         $this->load->model('FruitModel');
+        $this->load->model('CommandeModel');
         if (!isset($this->session->panier)) {
             $this->session->set_userdata("panier", array());
         }
@@ -29,16 +31,19 @@ class Connexion extends CI_Controller
             if ($this->session->user["user"]->getStatus() == 'admin') {
                 $data['users'] = $this->UserModel->findAll();
                 $data['fruits'] = $this->FruitModel->findAll();
+                $data['commandes'] = $this->CommandeModel->findById_User($this->session->user["user"]->getId_user());
                 $this->load->view('ClientView', $data);
                 $this->load->view('ResponsableView');
                 $this->load->view('AdminView');
             } elseif ($this->session->user["user"]->getStatus() == 'responsable') {
                 $data['fruits'] = $this->FruitModel->findAll();
+                $data['commandes'] = $this->CommandeModel->findById_User($this->session->user["user"]->getId_user());
                 $this->load->view('ClientView', $data);
                 $this->load->view('ResponsableView');
             } elseif ($this->session->user["user"]->getStatus() == 'client') {
                 $users = $this->UserModel->findAll();
-                $this->load->view('ClientView');
+                $data['commandes'] = $this->CommandeModel->findById_User($this->session->user["user"]->getId_user());
+                $this->load->view('ClientView', $data);
             }
         } else {
             $this->load->view('ConnexionView');

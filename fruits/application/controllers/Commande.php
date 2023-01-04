@@ -1,6 +1,8 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+
 require APPPATH . DIRECTORY_SEPARATOR . 'models' . DIRECTORY_SEPARATOR . "UserEntity.php";
+require APPPATH . DIRECTORY_SEPARATOR . 'models' . DIRECTORY_SEPARATOR . "CommandeEntity.php";
 
 
 class Commande extends CI_Controller {
@@ -16,6 +18,7 @@ class Commande extends CI_Controller {
 		if (!isset($this->session->fauxPanier)){
 			$this->session->set_userdata("fauxPanier",array());
 		}
+		$this->load->model('CommandeModel');
 	}
 
 	public function index()
@@ -26,11 +29,14 @@ class Commande extends CI_Controller {
 	}
 
 	public function validerCommande(){
-		$prenom = $this->input->post('prenom');
-		$nom = $this->input->post('nom');
 		$adresse = $this->input->post('adresse');
-		$mail = $this->input->post('mail');
-		$telephone = $this->input->post('telephone');
+		if ($adresse == NULL){
+			$adresse = $this->session->user["user"]->getAdresse();
+		}
+		$this->CommandeModel->CreerCommandePanier($adresse);
 		$this->load->view('CommandeValideView');
 	}
+
+
+
 }
