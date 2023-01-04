@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Inter");
 
 * {
-  --yellow-100: #ffc157ab;
+  --yellow-100: #ffda9b;
   --yellow-200: #face5f;
   --yellow-300: #f9b814;
   font-family: Inter;
@@ -36,6 +36,7 @@ html {
   border-radius: 19px;
   box-shadow: 2px 2px 2px #959595;
   background-color: white;
+  transition: 0.1s ease-in-out;
 }
 
 .card p {
@@ -58,7 +59,6 @@ html {
 
 .card:hover {
   transform: scale(1.15);
-  transition: 0.1s ease-in-out;
 }
 
 .card .nom {
@@ -105,7 +105,7 @@ html {
 }
 
 .content {
-  margin-top: 100px;
+  margin-top: 50px;
   display: flex;
   gap: 50px;
   justify-content: center;
@@ -132,6 +132,7 @@ html {
 
 .left {
   width: 15%;
+  min-width: 200px;
 }
 
 .filters {
@@ -201,74 +202,6 @@ html {
 }
 
 
-/*********HEADER*********/
-
-header {
-  justify-content: space-around;
-  display: flex;
-  margin: auto;
-  height: 80;
-  align-items: center;
-  position: fixed;
-  background-color: white;
-  width: 100%;
-  border-bottom: 2px solid var(--yellow-100);
-  z-index: 10;
-  position: sticky;
-  top: 0;
-}
-
-header ul {
-  display: flex;
-  gap: 37px;
-  align-items: center;
-  list-style-type: none;
-}
-
-li :hover {
-  color: var(--yellow-100);
-}
-
-.logo {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  margin-right: 13em;
-}
-
-.logo img {
-  height: 70px;
-  margin-top: -10px;
-}
-
-.connexion {
-  display: flex;
-  align-items: center;
-}
-
-.connexion img {
-  height: 30px;
-}
-
-.panier img {
-  height: 42px;
-}
-
-.panier div {
-  display: inline-block;
-  border-color: var(--yellow-100);
-  border-radius: 100px;
-  border-width: 3px;
-  border-style: solid;
-  padding-left: 4px;
-  padding-right: 4px;
-  margin-left: -25px;
-  background-color: white;
-}
-
-.panier div p {
-  font-size: 16px;
-}
 
 /*********CATEGORIES*********/
 .case {
@@ -279,7 +212,7 @@ li :hover {
 .choix {
   display: block;
   position: relative;
-  padding: 15px 30px 15px 45px;
+  padding: 10px 25px 10px 45px;
   border: 3px solid #fff;
   border-radius: 20px;
   color: black;
@@ -287,6 +220,7 @@ li :hover {
   white-space: nowrap;
   cursor: pointer;
   user-select: none; 
+  text-overflow: clip;
   transition: background-color .2s, box-shadow .2s;
 }
 

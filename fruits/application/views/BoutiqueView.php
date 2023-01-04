@@ -89,8 +89,7 @@
 			</nav>
 		</header>
 
-		<div id="panierVolet">
-			<div id="voletFleche" onclick="flechePanier()">
+		<div id="voletFleche" onclick="flechePanier()">
 				<img id="voletFlecheImage" src="<?= base_url('img/back_green.png') ?>" alt="flechePanier" />
 				<svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="40.000000pt" height="40.000000pt"
 					viewBox="0 0 400.000000 400.000000" preserveAspectRatio="xMidYMid meet">
@@ -104,11 +103,12 @@
 				</svg>
 			</div>
 
-			<h1 v-if="panier.length == 0 ">Votre panier est vide ! </h1>
+		<div id="panierVolet">
+			<h1 v-if="panier.length == 0 " class="vide">Votre panier est vide ! </h1>
 			<div v-for="fruit in panier" v-bind:key="fruit.id_fruit" class="fruitDansPanier">
 
 				<div class="cardMini">
-					<a href="<?= site_url('Produit') ?>"><img :src="getImg(fruit.id_fruit)" alt="image du fruit" /></a>
+					<a :href="getProduct(fruit.id_fruit)"><img :src="getImg(fruit.id_fruit)" alt="image du fruit" /></a>
 					<div class="rightMini">
 						<div class="infosMini">
 							<p class="nomMini">{{fruit.nom}}</p>
@@ -130,6 +130,7 @@
 				<p class="p02">
 					Total : {{getTotalPanier()}} €
 				</p>
+				<a href="<?= site_url('Commande') ?>" v-if="panier.length != 0" class="button"> Commander</a>
 			</div>
 		</div>
 
@@ -147,20 +148,6 @@
 								<input type="checkbox" :id="cat" v-model="categories" :value="cat" hidden/>  
 								<label :for="cat" class="choix">{{cat}}</label>
 							</li> 
-							<!-- <input id="toggle1" type="checkbox" class="case" v-model = "selected" v-bind:value ="category">
-							<label for="toggle1" class="choix">Agrumes</label>
-
-							<input id="toggle2" type="checkbox" class="case">
-							<label for="toggle2" class="choix">Fruits exotiques</label>
-
-							<input id="toggle3" type="checkbox" class="case">
-							<label for="toggle3" class="choix">Fruits rouges et baies</label>
-
-							<input id="toggle4" type="checkbox" class="case">
-							<label for="toggle4" class="choix">Fruits à coque</label>
-
-							<input id="toggle5" type="checkbox" class="case">
-							<label for="toggle5" class="choix">Fruits à pépins</label> -->
 						</div>
 					</div>
 					<div class="acc">
@@ -221,7 +208,6 @@
 
 </html>
 
-<script type="text/javascript" src="<?= base_url('js/panier.js') ?>"></script>
 <script type="text/javascript" src="<?= base_url('js/loader.js') ?>"></script>
 <script type="text/javascript" src="<?= base_url('js/panierDroite.js') ?>"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>

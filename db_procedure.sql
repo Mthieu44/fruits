@@ -285,16 +285,6 @@ BEGIN
 END //
 DELIMITER ;
 
-
-DELIMITER //
-CREATE PROCEDURE getUserByMail(
-    IN _mail TEXT
-)
-BEGIN
-    SELECT * FROM usertab where mail = _mail;
-END //
-DELIMITER ;
-
 DELIMITER //
 CREATE PROCEDURE getCategorieFromFruit(
     IN _id_fruit TEXT
@@ -302,4 +292,78 @@ CREATE PROCEDURE getCategorieFromFruit(
 BEGIN
     SELECT * FROM categorisation where id_fruit = _id_fruit;
 END //
-DELIMITER ; 
+DELIMITER ;
+
+
+DELIMITER //
+CREATE PROCEDURE addCommande(
+    IN _id_user TEXT,
+    IN _date_commande TEXT,
+    IN _prix TEXT,
+    In _adresse TEXT
+)
+BEGIN
+    INSERT INTO commande(
+        id_user,
+        date_commande,
+        prix,
+        adresse
+    )
+VALUES(
+    _id_user,
+    _date_commande,
+    _prix,
+    _adresse
+);
+SELECT id_commande from commande where id_user = _id_user and date_commande = _date_commande and adresse = _adresse;
+END //
+DELIMITER ;
+
+DELIMITER //
+CREATE PROCEDURE deleteCommande(
+    IN _id_commande TEXT
+)
+BEGIN
+    DELETE FROM commandeFruit
+    WHERE id_commande = _id_commande;
+    DELETE FROM commande
+    WHERE id_commande = _id_commande;
+END //
+DELIMITER ;
+
+
+DELIMITER //
+CREATE PROCEDURE addFruitToCommande(
+    IN _id_commande TEXT,
+    IN _id_fruit TEXT,
+    IN _quantity TEXT
+)
+BEGIN
+    INSERT INTO commandeFruit(
+        id_commande,
+        id_fruit,
+        quantity
+    )
+VALUES(
+    _id_commande,
+    _id_fruit,
+    _quantity
+);
+END //
+DELIMITER ;
+
+DELIMITER //
+CREATE PROCEDURE getAllCommande()
+BEGIN
+    SELECT * FROM commande;
+END //
+DELIMITER ;
+
+DELIMITER //
+CREATE PROCEDURE getCommandebyUser(
+    IN _id_user TEXT
+)
+BEGIN
+    SELECT * FROM commande where id_user = _id_user;
+END //
+DELIMITER ;

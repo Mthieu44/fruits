@@ -84,6 +84,29 @@ class Connexion extends CI_Controller
         redirect('Connexion');
     }
 
+    function modifPass(){
+        $this->load->view('ModifPassView');
+    }
+
+    function modifPassSend(){
+        $mdpCurrent = $this->input->post('mdpCurrent');
+        $user = $this->session->user["user"];
+        if ($user != null && $user->isValidPassword($mdpCurrent)){
+            $mdpChange =  $this->input->post('mdpChange');
+            $mdpConfirm = $this->input->post('mdpConfirm');
+            if ($mdpChange == $mdpConfirm){
+                $user->setPassword($mdpChange);
+                $this->UserModel->modif($user);
+                redirect('Connexion/modifInformation');
+            }else{
+                redirect('Connexion/modifPass');
+            }
+        }else{
+            redirect('Connexion/modifPass');
+        }
+
+    }
+
     function logout()
     {
         $this->session->unset_userdata("login");
@@ -143,12 +166,14 @@ class Connexion extends CI_Controller
                 $randomString .= $characters[rand(0, $charactersLength - 1)];
             }
 
+            $user->setPassword($randomString);
+            $this->UserModel->modif($user);
 
             $this->email->from('fruits.juiceco@gmail.com', 'Fruits');
             $this->email->to($mail);
 
             $this->email->subject('Réinitialisation du mot de passe');
-            $this->email->message("Voici votre nouveau mot de passe : cc. Si vous n'êtes pas à l'origine de cette demande, tant pis pour vous");
+            $this->email->message("Voici votre nouveau mot de passe : {$randomString}. Si vous n'êtes pas à l'origine de cette demande, tant pis pour vous");
 
             $this->email->send();
             redirect("Connexion");

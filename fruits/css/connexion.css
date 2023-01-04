@@ -134,17 +134,11 @@ input[type="submit"]:hover {
 	align-items: center;
 	justify-content: center;
 	gap: 10px;
-	flex-wrap: wrap;
+	overflow: scroll;
 }
 
-.modif{
-    width: 50%;
-    min-width: 500px;
-    height: 50%;
-    min-height: 500px;
-}
 
-.registerform {
+.register form {
 	width: 100%;
 }
 
@@ -189,7 +183,7 @@ input[type="submit"]:hover {
 .register p {
 	width: 60%;
 	text-align: center;
-	margin-bottom: 40px;
+	margin-bottom: 25px;
 }
 .name {
 	display: flex;
@@ -231,12 +225,18 @@ input[type="submit"]:hover {
 	gap: 10px;
 }
 
+.reset a{
+	text-align: center;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
 .reset h2{
 	margin-top: 20px;
 }
 
 .reset label {
-	margin-top: 25px;
+	margin-top: 10px;
 	padding: 5px;
 	padding-left: 10px;
 }
@@ -271,7 +271,7 @@ input[type="submit"] {
 	align-self: center;
 	transition: all 0.4s ease-in-out;
 	font-size: 22px;
-	margin-top: 30px;
+	margin-top: 20px;
 }
 
 input[type="submit"]:hover {
@@ -279,6 +279,7 @@ input[type="submit"]:hover {
 	background-position: 100% 0;
 	transition: all 0.4s ease-in-out;
 }
+
 
 
 
@@ -343,6 +344,13 @@ h2 {
 	min-height: 60px;
 	padding: 10px;
 }
+.modifmdp {
+	height: 300px;
+}
+
+.modifmdp p {
+	margin-bottom: 0;
+}
 
 /*********RESPONSABLE VIEW*********/
 
@@ -363,7 +371,7 @@ input[type="checkbox"] {
 }
 .description {
 	width: 70%;
-    height: 150px;
+    height: 100px;
 	padding: 5px;
 	border: 2px solid rgb(156, 156, 156);
 	border-radius: 4px;

@@ -1,4 +1,4 @@
-<html>
+<!--<html>
 <header>
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 </header>
@@ -24,4 +24,49 @@ var app = new Vue({
   }
 })
 </script>
+</html>-->
+
+<html>
+  <body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/min/tiny-slider.js"></script>
+    <h1> Tiny slider example</h1>
+    <div class="slider-container">
+      <ul class="controls" id="customize-controls" aria-label="Carousel Navigation" tabindex="0">
+        <li class="prev" data-controls="prev" aria-controls="customize" tabindex="-1">
+          <i class="fas fa-angle-left fa-5x"></i>
+        </li>
+        <li class="next" data-controls="next" aria-controls="customize" tabindex="-1">
+          <i class="fas fa-angle-right fa-5x"></i>
+        </li>
+      </ul>
+      <div class="my-slider">
+        <div class="slider-item">
+          cc
+        </div>
+
+        <div class="slider-item">
+          cc1
+        </div>
+
+        <div class="slider-item">
+          cc2
+        </div>
+        <div class="slider-item">
+          cc3
+        </div>
+      </div>
+    </div>
+    <script>
+
+      const slider = tns({
+    container: '.my-slider',
+    items: 1,
+    loop: false,
+    slideBy : "page",
+    swipeAngle:false,
+    speed:400,
+   
+  });
+    </script>
+  </body>
 </html>

@@ -68,27 +68,28 @@
         </nav>
     </header>
 
-    <form class="register" action="<?= site_url("fruit/addFruit"); ?>" method="POST" enctype="multipart/form-data">
-        <p>Ajouter un Fruit</p>
-        <input type="text" name="nom" placeholder="Nom" maxlength="20" required>
-        <input type="text" name="prix" placeholder="Prix" maxlength="5" required>
-        <textarea class="description" type="text" name="description" placeholder="Description" maxlength="2000" required></textarea>
-        <input type="text" name="description" placeholder="Description" maxlength="2000" required>
-        <input type="text" name="origine" placeholder="Origine" maxlength="20" required>
-        <div class="categories">
-            <?php foreach ($categories as $category) : ?>
-                <div>
-                    <input type="checkbox" name="<?= $category->getNom() ?>" value="<?= $category->getId_Categorie() ?>" id="<?= $category->getNom() ?>">
-                    <label for="<?= $category->getNom() ?>"><?= $category->getNom() ?></label>
-                </div>
-            <?php endforeach; ?>
-        </div>
-        <input type="file" name="image" siez="33">
+
+
+    <?php echo form_open_multipart('fruit/addFruit', 'class="register"'); ?>
+    <p>Ajouter un Fruit</p>
+    <input type="text" name="nom" placeholder="Nom" maxlength="20" required>
+    <input type="text" name="prix" placeholder="Prix" maxlength="5" required>
+    <textarea class="description" type="text" name="description" placeholder="Description" maxlength="2000" required></textarea>
+    <input type="text" name="origine" placeholder="Origine" maxlength="20" required>
+    <div class="categories">
+        <?php foreach ($categories as $category) : ?>
+            <div>
+                <input type="checkbox" name="<?= $category->getNom() ?>" value="<?= $category->getId_Categorie() ?>" id="<?= $category->getNom() ?>">
+                <label for="<?= $category->getNom() ?>"><?= $category->getNom() ?></label>
+            </div>
+        <?php endforeach; ?>
+    </div>
+    <input type="file" name="userfile" size="20" accept="png" />
 
 
 
-        <input class="bouton" type="submit" value="Valider">
-        <a href="<?= site_url('Connexion') ?>">Retour à la page</a>
+    <input class="bouton" type="submit" value="Valider">
+    <a href="<?= site_url('Connexion') ?>">Retour à la page</a>
     </form>
 
 </body>

@@ -31,8 +31,9 @@ $telephone = "";
 		<?php include 'css/style.css';
 		?>
 
-		<?php include 'css/commande.css';
-		?><?php include 'https://unpkg.com/swiper/swiper-bundle.min.css'?>
+		<?php include 'css/commande.css';?>
+        <?php include 'css/panier.css';?>
+        <?php include 'https://unpkg.com/swiper/swiper-bundle.min.css'?>
 
 
 	</style>
@@ -110,28 +111,48 @@ $telephone = "";
 	
 	<h1> Votre commande <?= $this->session->user["user"]->getPrenom()?> </h1>
 	<div class="content">
-        <p class ="p02"> Veuillez verifier vos informations </p>
-        <form action="<?= site_url('Commande/panier') ?>" method="post">
-                <div id="top">
-					<div class="left">
-						<label for="prenom">Prenom :</label>
-                    	<input id = "prenom" type="text" name="prenom" placeholder="Votre prénom" value=<?= $prenom ?>>
-					</div>
-					<div class="right">
-						<label for="nom">Nom :</label>
-						<input type="text" id = "nom" name="nom" placeholder="Votre nom" value=<?= $nom ?>>
-					</div>
-                </div>
-
-                <label for="mail">Email :</label>
-                <input id="mail" type="email" name="mail" placeholder="Votre mail" value=<?= $mail ?>>
-                <label for="adresse">Adresse :</label>
-                <input type="text" id = "adresse"name="objet" placeholder="Adresse" value = <?= $adresse ?>>
-                <label for="telephone">Telephone :</label>
-                <input type="text" id = "telephone" name="objet" placeholder="Telephone" value = <?= $telephone ?>>
-
-                <input type="submit" value="Suivant">
-        </form>
+        <p class ="p02"> Voici un résumé de votre panier </p>
+        <div class="toutPanier">
+            <h1 v-if="panier.length == 0" class = "empty" >Votre panier est vide ! </h1>
+			<table v-else>
+                <tr>
+                    <tr class = "title">
+                        <th>Article</th>
+                        <th>Prix unitaire</th>
+                        <th>Quantité</th>
+                        <th>Prix total</th>
+                    </tr>
+                    <tr v-for="fruit in panier" v-bind:key="fruit.id_fruit" class="fruitDansPanier">
+                        <td class = "left"> 
+                            <img :src="getImg(fruit.id_fruit)" alt="image du fruit" /> 
+                            {{fruit.nom}}
+                        </td>
+                        <td>{{fruit.prix}} €</td>
+                        <td>
+                            <button v-on:click="totalQuantityPanier(-1,fruit.id_fruit)">-</button>
+                            | {{fruit.quantity}} |
+                            <button v-on:click="totalQuantityPanier(1,fruit.id_fruit)">+</button>
+                        </td> 
+                        <td>Total : {{getTotalProduit(fruit.id_fruit)}} €</td>        
+                        <td class = "right" v-on:click="retirerDuPanier(fruit.id_fruit)" > 
+                            <img src="<?= base_url('img/poubelle.jpg')?>" alt="Poubelle">
+                        </td>      
+                        
+                    </tr>
+                </tr>
+                
+				
+			</table>
+			<div class="totalPanier">
+                <p class="p02">
+                    Total panier : {{getTotalPanier()}} €
+                </p>
+                <form action="<?= site_url('Commande/paiement')?>" method="post">
+                    <input type="submit" value="Suivant" >
+                </form>
+                
+            </div>
+        </div>
             
     </div>
 

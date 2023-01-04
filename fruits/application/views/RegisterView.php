@@ -87,8 +87,8 @@
             <input type="radio" name="sexe" value="autre">
             <label for="autre">Autre</label>
         </div>
-        <input type="password" name="password" placeholder="Mot de passe" maxlength="20" required>
-        <input type="password" name="passwordComfirm" placeholder=" Confirmer mot de passe" maxlength="20" required>
+        <input type="password" name="password" placeholder="Mot de passe" required>
+        <input type="password" name="passwordComfirm" placeholder=" Confirmer mot de passe" required>
         <!--?php echo validation_errors(); ?-->
 
         <input class="bouton" type="submit" value="S'inscrire">

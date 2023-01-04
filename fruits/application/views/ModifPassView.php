@@ -5,12 +5,13 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Fruits • AddUser </title>
+    <title>Fruits • Connexion </title>
     <link rel="icon" href="<?= base_url('img/header/logo.png') ?>" />
     <?php require('loader.php'); ?>
     <style>
-        <?php include 'css/style.css'; ?><?php include 'css/connexion.css'; ?>?>
+        <?php include 'css/style.css'; ?><?php include 'css/connexion.css'; ?>
     </style>
+
 </head>
 
 <body>
@@ -68,36 +69,30 @@
         </nav>
     </header>
 
-    <?php echo form_open_multipart('fruit/modifFruit' . DIRECTORY_SEPARATOR . $this->uri->segment(3), 'class="register"'); ?>
-    <p>Modifer un Fruit</p>
-    <input type="text" name="nom" id="nom" placeholder="Nom" maxlength="20" value="<?= $fruit->getNom() ?>" required>
-    <input type="text" name="prix" id="prix" placeholder="Prix" maxlength="5" value="<?= $fruit->getPrix() ?>" required>
-    <textarea class="description" type="text" name="description" id="description" placeholder="Description" maxlength="2000" required><?= $fruit->getDescription() ?></textarea>
-    <input type="text" name="origine" id="origine" placeholder="Origine" maxlength="20" value="<?= $fruit->getOrigine() ?>" required>
-    <div class="categories">
-        <?php $fruitCategory = $this->FruitModel->findFruitCategotiId($fruit);
-        $categories = $this->CategoryModel->findAll(); ?>
-        <?php foreach ($categories as $category) : ?>
-            <div>
-                <input type="checkbox" name="<?= $category->getNom() ?>" value="<?= $category->getId_Categorie() ?>" <?php foreach ($fruitCategory as $id_cat) {
-                                                                                                                            if ($category->getId_Categorie() == (int)$id_cat) {
-                                                                                                                                echo ('checked');
-                                                                                                                            }
-                                                                                                                        } ?>>
-                <label for="<?= $category->getNom() ?>"><?= $category->getNom() ?></label>
-            </div>
-        <?php endforeach; ?>
+    <div>
+        <form action="<?= site_url('Connexion/modifPassSend') ?>" method="post" class="register modifmdp"> 
+            <h2> Modifier votre mot de passe </h2>
+            <input type="password" name="mdpCurrent" placeholder="Votre mot de passe">
+            <input type="password" name="mdpChange" placeholder="Nouveau mot de passe">
+            <input type="password" name="mdpConfirm" placeholder="Confirmer le nouveau mot de passe">
+            <p class="erreur">
+                    <?php
+                    if (isset($msg)) {
+                        echo ($msg);
+                    }
+                    ?>
+                </p>
+
+            <input type="submit" class="hvr-bounce-to-top" value="Modifier">
+            <a class="text-min" href="<?= site_url('Connexion/modifInformation') ?>">Annuler</a>
+        </form>
     </div>
-    <input type="file" name="userfile" size="20" accept="png" />
-    <input class="bouton" type="submit" value="Valider">
-    <a href="<?= site_url('Connexion') ?>">Retour à la page</a>
 
-
-    </form>
 
 </body>
+
 
 </html>
 
 <script type="text/javascript" src="<?= base_url('js/loader.js') ?>"></script>
-<script type="text/javascript" src="<?= base_url('js/panier.js') ?>"></script>
+<script type="text/javascript" src="<?= base_url('js/panier.js') ?>"></script> 

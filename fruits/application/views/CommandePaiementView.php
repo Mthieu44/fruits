@@ -1,14 +1,21 @@
-
 <?php
 $prenom = "";
 $nom = "";
 $mail = "";
+$adresse = "";
+$telephone = "";
     if (isset($this->session->user)) {
         $prenom = $this->session->user["user"]->getPrenom();
         $nom = $this->session->user["user"]->getNom();
         $mail = $this->session->user["user"]->getMail();
+        $adresse = $this->session->user["user"]->getAdresse();
+        $telephone = $this->session->user["user"]->getTelephone();
     };
 ?>
+
+
+
+
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -17,15 +24,21 @@ $mail = "";
 	<meta charset="UTF-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>Fruits • Contact </title>
+	<title>Fruits • Connexion </title>
 	<link rel="icon" href="<?= base_url('img/header/logo.png') ?>" />
 	<?php require('loader.php'); ?>
 	<style>
 		<?php include 'css/style.css';
 		?>
 
-		<?php include 'css/contact.css';
+		<?php include 'css/commande.css';
 		?>
+
+		<?php include 'css/panier.css';
+		?>
+
+		<?php include 'https://unpkg.com/swiper/swiper-bundle.min.css'?>
+
 
 
 	</style>
@@ -33,7 +46,9 @@ $mail = "";
 </head>
 
 <body>
-	<div id="app-vue">
+	
+
+
 		<div id="preloader" class="preloader">
 			<img src="<?= base_url('img/loader/' . $loader) ?>" class="loader">
 		</div>
@@ -49,7 +64,7 @@ $mail = "";
 					<li><a href="<?= site_url('Home') ?>">Accueil</a></li>
 					<li><a href=" <?= site_url('Boutique') ?>">Boutique</a></li>
 					<li><a href="<?= site_url('APropos') ?>" class="propos">A propos</a></li>
-					<li><a href="<?= site_url('Contact') ?>" class="yellow">Contact</a></li>
+					<li><a href="<?= site_url('Contact') ?>">Contact</a></li>
 					<li class="connexion">
 						<a href="<?= site_url('Connexion') ?>">
 							<svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="30.000000pt"
@@ -64,17 +79,17 @@ $mail = "";
 								</g>
 							</svg>
 							<?php
-                            if (!isset($this->session->user)) {
-                                echo ("Connexion");
-                            } else {
-                                echo ($this->session->user["user"]->getPrenom());
-                            }
-                            ?>
+                        if (!isset($this->session->user)) {
+                            echo ("Connexion");
+                        } else {
+                            echo ($this->session->user["user"]->getPrenom());
+                        }
+                        ?>
 						</a>
 					</li>
 					<li class="panier">
 						<a href="<?= site_url('Panier') ?>">
-							<svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="40.000000pt"
+							<svg version="1.0" class="yellow" xmlns="http://www.w3.org/2000/svg" width="40.000000pt"
 								height="40.000000pt" viewBox="0 0 400.000000 400.000000"
 								preserveAspectRatio="xMidYMid meet">
 								<g transform="translate(0.000000,400.000000) scale(0.100000,-0.100000)" fill="#000000"
@@ -88,8 +103,8 @@ $mail = "";
 							<div>
 								<p id="quantityPanier">
 									<?=
-                                    count($this->session->panier);
-                                    ?>
+                                count($this->session->panier);
+                                ?>
 								</p>
 							</div>
 						</a>
@@ -98,37 +113,71 @@ $mail = "";
 			</nav>
 		</header>
 
+
+
+		<h1> Votre commande <?= $this->session->user["user"]->getPrenom()?> </h1>
 		<div class="content">
-			<h2>Contactez-nous</h2>
-			<p class="p01">Pour toute suggestion ou demande, n'hésitez pas à nous contacter ! Nous vous répondrons dans
-				les plus brefs délais !</p>
-			<h2>Nos contacts :</h2>
-			<p class="p01">
-				Tel : 01 23 45 67 89<br>
-				Mail : fruits.juiceco@gmail.com
-			</p>
+  <form action="<?= site_url('Commande/resumer')?>" onsubmit="return validateForm()">
+    <p class="p02"> Choisissez votre mode de paiement </p>
+    <div>
+      <div class="form-row">
+        <input type="radio" id="payment-method-card" name="payment-method" value="card" required onchange="showHideForm()">
+        <label for="payment-method-card">Carte de crédit</label><br>
 
-			<h2>Envoyez-nous un message :</h2>
-			<form action="<?= site_url('Contact/sendmessage') ?>" method="post">
-				<div id="top">
-					<input type="text" name="prenom" placeholder="Votre prénom" value=<?= $prenom ?>>
-					<input type="text" name="nom" placeholder="Votre nom" value=<?= $nom ?>>
-				</div>
-				<input id="mail" type="email" name="mail" placeholder="Votre mail" value=<?= $mail ?>>
-				<input type="text" name="objet" placeholder="Objet">
-				<textarea name="message" rows="5" placeholder="Ecrivez votre message ici !"></textarea>
-				<input type="submit" value="Envoyer">
-			</form>
-		</div>
+        <div id="formCard" style="display:none;" >
+          <label for="detenteur">Détenteur* </label>
+          <input id="detenteur" type="text" name="detenteur" placeholder="Nom du détenteur de la carte" required><br>
+          <label for="numero">Numéro* </label>
+          <input id="numero" type="text" name="numero" placeholder="XXXX-XXXX-XXXX-XXXX" required pattern="[0-9]{16}" ><br>
+          <label for="date"> Date de validité*</label>
+            <select id="month" name="month" require>
+                <option value="01">Janvier</option>
+                <option value="02">Février</option>
+                <option value="03">Mars</option>
+                <option value="04">Avril</option>
+                <option value="05">Mai</option>
+                <option value="06">Juin</option>
+                <option value="07">Juillet</option>
+                <option value="08">Août</option>
+                <option value="09">Septembre</option>
+                <option value="10">Octobre</option>
+                <option value="11">Novembre</option>
+                <option value="12">Décembre</option>
+            </select>
+            <select id="year" name="year" require>
+                <option value="2022">2022</option>
+                <option value="2023">2023</option>
+                <option value="2024">2024</option>
+                <option value="2024">2025</option>
+                <option value="2024">2026</option>
+                <option value="2024">2027</option>
+                <option value="2024">2028</option>
+            </select><br>
+            <label for="cryptogramme">Cryptogramme* </label>
+          	<input id="cryptogramme" type="number" name="cryptogramme" placeholder ="XXX" required pattern="[0-9]{3}"><br>
+          <p> *Champ obligatoire</p>
+        </div>
+        <input type="radio" id="payment-method-paypal" name="payment-method" value="paypal" required onchange="showHideForm()">
+        <label for="payment-method-paypal">PayPal</label>
+        <div id="formPaypal"  style="display:none;">
+          <label for="mail">Email :</label>
+          <input id="mail" type="email" name="mail" placeholder="Votre mail" value="<?= $mail ?>" required>
+        </div>
+      </div>
+      <div>
+        <input type="submit" value="Payer">
+      </div>
+  </form>
+</div>
 
 
 
 
-
-	</div>
+	
 </body>
+
 
 </html>
 
 <script type="text/javascript" src="<?= base_url('js/loader.js') ?>"></script>
-<script type="text/javascript" src="<?= base_url('js/panier.js') ?>"></script>
+<script type="text/javascript" src="<?= base_url('js/paiement.js') ?>"></script>

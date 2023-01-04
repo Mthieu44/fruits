@@ -1,0 +1,190 @@
+@import url("https://fonts.googleapis.com/css?family=Inter");
+
+*{
+    --yellow-100: #ffc157ab;
+    --yellow-200: #face5f;
+    --yellow-300: #f9b814;
+    font-family: Inter;
+}
+
+.yellow1{
+    background-color: var(--yellow-100);
+}
+.yellow2{
+    background-color: var(--yellow-200);
+}
+.yellow3{
+    background-color: var(--yellow-300);    
+}
+
+
+#panierVolet{
+	position: fixed;
+	padding-bottom:10vh;
+	right: -20%;
+	height: 100vh;
+	width: 20%;
+	background-color: wheat;
+	z-index: 9;
+	transition: 0.5s ease-in-out;
+	display: flex;
+	flex-direction: column;
+	padding-left:20px;
+	gap: 10px;
+	align-items: center;
+}
+
+#voletFleche{
+	z-index: 9;
+	width: 50px;
+	height: 25px;
+	transition: 0.5s ease-in-out;
+	position: fixed;
+	right: 0;
+	cursor: pointer;
+	margin-top: 10px;
+	margin-right: 10px;
+	display: flex;
+}
+
+#voletFleche:hover{
+	transform: scale(1.2);
+}
+
+#voletFleche svg{
+	width: 100%;
+	height: 100%;
+}
+
+#hider{
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	display: none;
+	z-index: 8;
+	background-color: #00000070;
+	transition: 5s;
+}
+
+.button {
+	padding: 15px;
+	cursor: pointer;
+	border-radius: 10px;
+	border: 3px solid rgb(185, 185, 185);
+	background-color: rgb(235, 235, 235);
+	height: 60px;
+	width: 180px;
+	transition: 0.2s ease-in-out;
+	font-size: 22px;
+	text-align: center;
+}
+.totalPanier{
+	margin-top: 10px;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.button:hover {
+	cursor: pointer;
+	transform: scale(1.05);
+	background-color: white;
+	transition: 0.2s ease-in-out;
+}
+
+.fruitDansPanier{
+	margin-top: 10px;
+}
+
+.vide{
+	margin-top: 25px;
+}
+
+.cardMini{
+    width: 100%;
+    height: 120px;
+    border:2px solid #959595;
+    border-radius: 19px;
+    box-shadow:2px 2px 2px #959595;
+    background-color: white;
+    display: flex;
+}
+
+.cardMini p{
+    font-size: 16px;
+    line-height: 2px;
+}
+.cardMini button{
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.cardMini img{
+    height: 115px;
+    width: 115px;
+    border-radius: 19px 0px 0px 19px;
+    background-color: whitesmoke;
+}
+
+.cardMini:hover{
+    transform: scale(1.03);
+    transition: 0.1s ease-in-out;
+}
+
+.cardMini .nomMini{
+    font-size: 20px;
+    margin: 30px 0px 10px 20px;
+}
+
+.prixMini{
+    margin: 20px 0px 20px 20px;
+    color: #494949;
+}
+
+.buttonsMini{
+    width: 166px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.buttonsMini button{
+    border: none;
+}
+
+.manageMini{
+    height: 27px;
+    width: 200px;
+    padding-left: 10px;
+    padding-right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #F9B814;
+    border-radius: 6px;
+    margin-right: 9px;
+    gap: 4px;
+    flex-grow: 0;
+}
+
+.manageMini .subtotal{
+    margin-left: 10px;
+}
+
+.manageMini button{
+    background: none;
+}
+
+.suppr{
+    background-color: #F9B814;
+    border-radius: 6px;
+    width: 97px;
+    padding-left: 10px;
+    padding-right: 10px;
+    cursor: pointer;
+}
+
+.rightMini{
+    width: 100%;
+}

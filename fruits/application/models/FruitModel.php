@@ -124,28 +124,37 @@ class FruitModel extends CI_Model
     {
         $sql = 'CALL deleteFruit(?)';
         $q = $this->db->query($sql, array($id));
+        $q->next_result();
+        $q->free_result();
     }
 
     function add($fruit)
     {
         $sql = 'CALL addFruit(?,?,?,?,?)';
         $q = $this->db->query($sql, array($fruit->getNom(), $fruit->getPrix(), $fruit->getDescription(), $fruit->getOrigine(), $fruit->getImage()));
+        $q->next_result();
+        $q->free_result();
     }
 
     function modif($fruit)
     {
         $sql = 'CALL modifFruit(?,?,?,?,?,?)';
         $q = $this->db->query($sql, array($fruit->getId_fruit(), $fruit->getNom(), $fruit->getPrix(), $fruit->getDescription(), $fruit->getOrigine(), $fruit->getImage()));
+        $q->next_result();
+        $q->free_result();
     }
 
     function addCategorieToFruit($id_fruit, $id_category)
     {
         $sql = 'CALL addCategorieToFruit(?,?)';
         $q = $this->db->query($sql, array($id_fruit, $id_category));
-    }
+        $q->next_result();
+        $q->free_result();}
 
     function deleteCategorieToFruit($id_fruit, $id_category)
     {
+        $sql = 'CALL deleteCategorieToFruit(?,?)';
+        $q = $this->db->query($sql, array($id_fruit, $id_category));
     }
 
     function findFruitCategotiId($fruit)

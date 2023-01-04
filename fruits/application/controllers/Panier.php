@@ -29,7 +29,8 @@ class Panier extends CI_Controller {
 			$id = $_POST['id'];
 			$quantity = $_POST['quantity'];
 			$tab = $_POST['tab'];
-			
+			$total = $_POST['total'];
+			$this->session->set_userdata('total',$total);
 			$newPanier = $this->PanierModel->addPanier($id,$quantity,$tab);
 			$res = ["panier" =>$newPanier, "tab" => $tab,"id" => $id, "quantity" => $quantity ];
 			echo json_encode($res);
