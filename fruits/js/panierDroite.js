@@ -21,12 +21,7 @@ function showPanier() {
 
 function closePanier() {
     let volet = document.getElementById("panierVolet");
-<<<<<<< HEAD
-    volet.style.right = "-20%"; 
-    volet.style.overflow =  "visible";
-=======
     volet.style.right = "-400px";
->>>>>>> 99a4d6ba401ac768b9b5c17460a391c2b32cfa76
     let fleche = document.getElementById("voletFlecheImage");
     angle += 180
     fleche.style.right = "0";
