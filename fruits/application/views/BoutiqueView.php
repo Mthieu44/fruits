@@ -148,20 +148,6 @@
 								<input type="checkbox" :id="cat" v-model="categories" :value="cat" hidden/>  
 								<label :for="cat" class="choix">{{cat}}</label>
 							</li> 
-							<!-- <input id="toggle1" type="checkbox" class="case" v-model = "selected" v-bind:value ="category">
-							<label for="toggle1" class="choix">Agrumes</label>
-
-							<input id="toggle2" type="checkbox" class="case">
-							<label for="toggle2" class="choix">Fruits exotiques</label>
-
-							<input id="toggle3" type="checkbox" class="case">
-							<label for="toggle3" class="choix">Fruits rouges et baies</label>
-
-							<input id="toggle4" type="checkbox" class="case">
-							<label for="toggle4" class="choix">Fruits à coque</label>
-
-							<input id="toggle5" type="checkbox" class="case">
-							<label for="toggle5" class="choix">Fruits à pépins</label> -->
 						</div>
 					</div>
 					<div class="acc">

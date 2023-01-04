@@ -170,8 +170,7 @@
                 <hr class="line">
                 <div class="top-text">
                     <h2>Meilleures ventes</h2>
-                    <p class="p01">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna </p>
+                    <p class="p01">Voici une selection de nos {{meilleuresVentes.length}} meilleures ventes ! </p>
                 </div>
             </div>
 
@@ -180,9 +179,9 @@
                 <img src="<?= base_url('img/back.png') ?>" class="fleche leftfix" alt="back" onclick="slideBestsellers.slideLeft()" />
                 
                 <div class="slider-inside-bestsellers" id="slider-bestsellers">
-                    <div v-for="fruit in fruits" v-bind:key="fruit.id_fruit">
+                    <div v-for="fruit in meilleuresVentes" v-bind:key="fruit.id_fruit">
                         <div class="card card-product-top">
-                        <a :href="getProduct(fruit.id_fruit)">
+                            <a :href="getProduct(fruit.id_fruit)">
                                 <img :src="getImg(fruit.id_fruit)" alt="image du fruit" />
                             </a>
                             <div class="infos">
@@ -216,9 +215,8 @@
             <div class="top-part">
                 <hr class="line">
                 <div class="top-text">
-                    <h2>Notre selection de fruit</h2>
-                    <p class="p01">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna </p>
+                    <h2>Fruits de saisons</h2>
+                    <p class="p01">Voici une selection des fruits de la saison !</p>
                 </div>
             </div>
 
@@ -227,7 +225,7 @@
                 <img src="<?= base_url('img/back.png') ?>" class="fleche leftfix" alt="back" onclick="slideSeasonal.slideLeft()" />
                 
                 <div class="slider-inside-bestsellers" id="slider-season">
-                    <div v-for="fruit in fruits" v-bind:key="fruit.id_fruit">
+                    <div v-for="fruit in fruitsDeSaison" v-bind:key="fruit.id_fruit">
                         <div class="card card-product-bottom">
                         <a :href="getProduct(fruit.id_fruit)">
                                 <img :src="getImg(fruit.id_fruit)" alt="image du fruit" />
@@ -258,35 +256,36 @@
             </div>
         </div>
 
-    <div class="info">
-        <div class="infoPart">
-        <img src="" alt="">
-            <h1>Livraisons à emporter</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna </p>
-        </div>
-        <div class="barv"></div>
-        <div class="infoPart">
-        <img src="" alt="">
-            <h1>Livraisons rapides</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna </p>
-        </div>
-        <div class="barv"></div>
-        <div class="infoPart">
+        <div class="info">
+            <div class="infoPart">
             <img src="" alt="">
-            <h1>Règels de sécurité</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna </p>
+                <h1>Livraisons à emporter</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna </p>
+            </div>
+            <div class="barv"></div>
+            <div class="infoPart">
+            <img src="" alt="">
+                <h1>Livraisons rapides</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna </p>
+            </div>
+            <div class="barv"></div>
+            <div class="infoPart">
+                <img src="" alt="">
+                <h1>Règels de sécurité</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna </p>
+            </div>
+
         </div>
 
+        <footer>
+                <a href="<?= site_url('home/ConditionsGenerales') ?>">
+                    Conditions générales d'utilisation
+                                    </a>
+                <p>
+                    Tous droits réservés.
+                </p>    
+        </footer>
     </div>
-
-    <footer>
-            <a href="<?= site_url('home/ConditionsGenerales') ?>">
-                Conditions générales d'utilisation
-                                </a>
-            <p>
-                Tous droits réservés.
-            </p>    
-    </footer>
 
 </body>
 
