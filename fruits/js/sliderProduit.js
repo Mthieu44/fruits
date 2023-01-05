@@ -3,7 +3,7 @@
 class sliderProduit {
 
   constructor(insideSlider) {
-    this.pos = 2
+    this.pos = 3
     this.slider = document.getElementsByClassName(insideSlider)
     this.posMax = this.slider.length
   }
@@ -18,8 +18,8 @@ class sliderProduit {
   
   showCartes(n) {
     this.pos += n;
-    if (this.pos < 2) {this.pos = this.posMax - 2}
-    if (this.pos > this.posMax - 2) {this.pos = 2}
+    if (this.pos < 3) {this.pos = this.posMax - 3}
+    if (this.pos > this.posMax - 3) {this.pos = 3}
     this.posMax = this.slider.length
     if (this.posMax % 2 == 1) {this.posMax += 1}
     let align = -220 * this.pos + 110 * this.posMax
