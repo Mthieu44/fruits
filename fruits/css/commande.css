@@ -28,11 +28,12 @@ html {
 .content{
     display: flex;
     flex-direction: column;
-    gap: 50px;
+    gap: 35px;
     align-items: center;
     background-color: white;
     border-radius: 20px;
     width: 40%;
+    min-width: calc(1920px * 0.4);
     height: 95%;
     position: absolute;
     padding:50px;
@@ -78,6 +79,7 @@ p{
     display: flex;
     flex-direction: column;
     gap: 10px;
+    margin-top: 30px;
 }
 
 input, textarea {
@@ -123,13 +125,13 @@ input[type="submit"]:hover {
     transition: all 0.4s ease-in-out;
 }
 
-#top {
+.row {
     display: flex;
     flex-direction: row;
     gap: 10px;
 }
 
-.prenom, .nom{
+.col{
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -178,4 +180,21 @@ input[type="submit"]:hover {
     cursor: pointer;
     background-position: 100% 0;
     transition: all 0.4s ease-in-out;
+}
+
+.toutPanier {
+    overflow: scroll;
+    height: calc(100% - 250px);
+}
+
+.toutPanier table{
+    width: 100%;
+}
+
+.commandend {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }

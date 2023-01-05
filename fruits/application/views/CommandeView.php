@@ -1,3 +1,4 @@
+
 <?php
 
 $prenom = "";
@@ -114,13 +115,13 @@ $telephone = "";
 						<h2> Valider votre commande </h2>
 						<p class="p02"> Veuillez verifier vos informations </p>
 						<div class="form">
-							<div id="top">
-								<div class="prenom">
+							<div class="row">
+								<div class="col">
 									<label for="prenom">Prenom :</label>
 									<input id="prenom" type="text" name="prenom" placeholder="Votre prénom"
 										value=<?= $prenom ?>>
 								</div>
-								<div class="nom">
+								<div class="col">
 									<label for="nom">Nom :</label>
 									<input type="text" id="nom" name="nom" placeholder="Votre nom" value=<?= $nom ?>>
 								</div>
@@ -144,43 +145,39 @@ $telephone = "";
 				</div>
 				<div class="uppercontent">
 					<div class="content">
-
 						<h2> Valider votre commande </h2>
 						<p class="p02"> Voici un résumé de votre panier </p>
 						<div class="toutPanier">
 							<table>
 								<tr>
-								<tr class="title">
-									<th>Article</th>
-									<th>Prix unitaire</th>
-									<th>Quantité</th>
-									<th>Prix total</th>
-								</tr>
-								<tr v-for="fruit in panier" v-bind:key="fruit.id_fruit" class="fruitDansPanier">
-									<td class="left">
-										<img :src="getImg(fruit.id_fruit)" alt="image du fruit" />
-										{{fruit.nom}}
-									</td>
-									<td>{{fruit.prix}} €</td>
-									<td>
-										<button v-on:click="totalQuantityPanier(-1,fruit.id_fruit)">-</button>
-										| {{fruit.quantity}} |
-										<button v-on:click="totalQuantityPanier(1,fruit.id_fruit)">+</button>
-									</td>
-									<td>Total : {{getTotalProduit(fruit.id_fruit)}} €</td>
-									<td class="right" v-on:click="retirerDuPanier(fruit.id_fruit)">
-										<img src="<?= base_url('img/poubelle.jpg')?>" alt="Poubelle">
-									</td>
-								</tr>
+									<tr class="title">
+										<th>Article</th>
+										<th>Prix unitaire</th>
+										<th>Quantité</th>
+										<th>Prix total</th>
+									</tr>
+									<tr v-for="fruit in panier" v-bind:key="fruit.id_fruit">
+										<td class="left">
+											<img :src="getImg(fruit.id_fruit)" alt="image du fruit" />
+											{{fruit.nom}}
+										</td>
+										<td>{{fruit.prix}} €</td>
+										<td>
+											<button type="button" v-on:click="totalQuantityPanier(-1,fruit.id_fruit)">-</button>
+											| {{fruit.quantity}} |
+											<button type="button" v-on:click="totalQuantityPanier(1,fruit.id_fruit)">+</button>
+										</td>
+										<td>Total : {{getTotalProduit(fruit.id_fruit)}} €</td>
+										<td class="right" v-on:click="retirerDuPanier(fruit.id_fruit)">
+											<img src="<?= base_url('img/poubelle.jpg')?>" alt="Poubelle">
+										</td>
+									</tr>
 								</tr>
 							</table>
-
-							<div class="totalPanier">
-								<p class="p02">
-									Total panier : {{getTotalPanier()}} €
-								</p>
-							</div>
 						</div>
+						<p class="p02" id="totalPanier">
+							Total panier : {{getTotalPanier()}} €
+						</p>
 						<div class="buttons">
 							<button type="button" class="prev-btn">Précédent</button>
 							<button type="button" class="next-btn">Suivant</button>
@@ -195,36 +192,26 @@ $telephone = "";
 						<h2> Valider votre commande </h2>
 						<p class="p02"> Remplissez vos informations de paiement </p>
 						<div class="form">
-							<label for="detenteur">Détenteur</label>
-							<input id="detenteur" type="text" name="detenteur" placeholder="Nom du détenteur de la carte" required>
-							<label for="numero">Numéro</label>
-							<input id="numero" type="text" name="numero" placeholder="XXXX-XXXX-XXXX-XXXX" required	pattern="[0-9]{16}">
-							<label for="date"> Date de validité</label>
-							<select id="month" name="month" require>
-								<option value="01">Janvier</option>
-								<option value="02">Février</option>
-								<option value="03">Mars</option>
-								<option value="04">Avril</option>
-								<option value="05">Mai</option>
-								<option value="06">Juin</option>
-								<option value="07">Juillet</option>
-								<option value="08">Août</option>
-								<option value="09">Septembre</option>
-								<option value="10">Octobre</option>
-								<option value="11">Novembre</option>
-								<option value="12">Décembre</option>
-							</select>
-							<select id="year" name="year" require>
-								<option value="2022">2022</option>
-								<option value="2023">2023</option>
-								<option value="2024">2024</option>
-								<option value="2024">2025</option>
-								<option value="2024">2026</option>
-								<option value="2024">2027</option>
-								<option value="2024">2028</option>
-							</select>
-							<label for="cryptogramme">Cryptogramme</label>
-							<input id="cryptogramme" type="text" name="cryptogramme" placeholder="XXX" required pattern="[0-9]{3}">
+							<div class="row">
+								<div class="col">
+									<label for="detenteur">Détenteur</label>
+									<input id="detenteur" type="text" name="detenteur" placeholder="Nom du détenteur de la carte" required>
+								</div>
+								<div class="col">
+									<label for="date">Date de validité</label>
+									<input type="month" id="date" name="date" min="<?= date('Y')."-".date('m')?>" placeholder="YYYY-MM" required pattern="[0-9]{4}-[0-9]{2}">
+								</div>
+							</div>
+							<div class="row">
+								<div class="col">
+									<label for="numero">Numéro</label>
+									<input id="numero" type="text" name="numero" placeholder="XXXX-XXXX-XXXX-XXXX" required	pattern="[0-9]{16}">
+								</div>
+								<div class="col">
+									<label for="cryptogramme">Cryptogramme</label>
+									<input id="cryptogramme" type="text" name="cryptogramme" placeholder="XXX" required pattern="[0-9]{3}">
+								</div>
+							</div>
 						</div>
 						<div class="buttons">
 							<button type="button" class="prev-btn">Précédent</button>

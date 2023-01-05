@@ -1,4 +1,4 @@
-let url = "http://srv-infoweb/~E216351P/fruits/"
+let url = 'http://srv-infoweb/~E210826J/equipe2-1/fruits/'
 
 const vue = new Vue({
     data: () => {
@@ -25,7 +25,6 @@ const vue = new Vue({
             let tab = []
             this.fruits.forEach(fruit => {
                 fruit.category.forEach(el => {
-                    console.log(el.nom)
                     if (el.nom == "Meilleures Ventes") {
                         if (!tab.includes(fruit)) {
                             tab.push(fruit)
@@ -39,7 +38,6 @@ const vue = new Vue({
             let tab = []
             this.fruits.forEach(fruit => {
                 fruit.category.forEach(el => {
-                    console.log(el.nom)
                     if (el.nom == "Fruits de saison") {
                         if (!tab.includes(fruit)) {
                             tab.push(fruit)

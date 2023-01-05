@@ -9,7 +9,7 @@ function showPanier() {
     angle += 180
     fleche.style.transform = `rotate(${angle}deg)`;
     let flechediv = document.getElementById("voletFleche");
-    flechediv.style.right = "20%";
+    flechediv.style.right = "400px";
     let hider = document.getElementById("hider");
     hider.style.display = "block";
     let blurring = document.getElementsByClassName("blur")
