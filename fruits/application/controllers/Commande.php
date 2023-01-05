@@ -31,6 +31,9 @@ class Commande extends CI_Controller {
 		$adresse = $this->input->post('adresse');
 		$mail = $this->input->post('mail');
 		$telephone = $this->input->post('telephone');
+		$date = $this->input->post('date');
+		var_dump($date);
+		die();
 		$this->load->view('CommandeValideView');
 	}
 }
