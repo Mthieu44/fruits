@@ -1,4 +1,5 @@
 <?php
+
 $prenom = "";
 $nom = "";
 $mail = "";
@@ -12,10 +13,6 @@ $telephone = "";
         $telephone = $this->session->user["user"]->getTelephone();
     };
 ?>
-
-
-
-
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -132,7 +129,7 @@ $telephone = "";
 							<label for="mail">Email :</label>
 							<input id="mail" type="email" name="mail" placeholder="Votre mail" value=<?= $mail ?>>
 							<label for="adresse">Adresse :</label>
-							<input type="text" id="adresse" name="objet" placeholder="Adresse" value=<?= $adresse ?>>
+							<input type="text" id="adresse" name="adresse" placeholder="Adresse" value=<?= $adresse ?>>
 							<label for="telephone">Telephone :</label>
 							<input type="text" id="telephone" name="objet" placeholder="Telephone" value=<?= $telephone ?>>
 						</div>

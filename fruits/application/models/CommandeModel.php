@@ -1,5 +1,5 @@
 <?php
-require_once APPPATH . DIRECTORY_SEPARATOR . 'models' . DIRECTORY_SEPARATOR . "CommandeEntity.php";
+
 class CommandeModel extends CI_Model
 {
     function findAll(){
@@ -51,8 +51,8 @@ class CommandeModel extends CI_Model
 				$today = getdate();
 				$date = $today['wday'].'-'.$today['mon'].'-'.$today['year'] .' '.$today['minutes'].'h'.$today['seconds'];
 				$sql = 'CALL addCommande(?,?,?,?)';
-				$q = $this->db->query($sql, array($this->session->user["user"]->get_id_user(),$date ,$this->session->total,$adresse));
-				$id = $q->result()[0];
+				$q = $this->db->query($sql, array($this->session->user["user"]->getId_user(),$date ,$this->session->total,$adresse));
+				$id = $q->result()[0]->id_commande;
 				$q->next_result();
         		$q->free_result();
 

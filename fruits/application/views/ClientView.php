@@ -94,6 +94,26 @@
         </div>
         <div class="commandes">
             <p>Historique des commandes :</p>
+            <table class ="histo">
+                <tr>
+                    <th>Date</th>
+                    <th>Prix</th>
+                    <th>Adresse</th>
+                    <th>Numéro de Commande</th>
+                </tr>
+            
+                <?php foreach($commandes as $commande):?>
+                    <tr>
+                        <td> <?=$commande->getDate_commande()?></td>
+                        <td> <?=$commande->getPrix()?></td>
+                        <td> <?=$commande->getAdresse()?></td>
+                        <td> <?=$commande->id_commande?></td>   
+                    </tr>     
+                <?php endforeach?>
+        
+                   
+            </table>
+            
         </div>
     </div>
 </body>

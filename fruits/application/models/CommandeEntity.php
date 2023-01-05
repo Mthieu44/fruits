@@ -1,6 +1,6 @@
 <?php
 
-class FruitEntity
+class CommandeEntity
 {   
     public int $id_commande;
     public int $id_user;
