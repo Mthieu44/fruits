@@ -15,7 +15,32 @@ class CommandeModel extends CI_Model
 			$commande->setAdresse($row->adresse);
 			array_push($response,$commande);
 		}
+
+		$q->next_result();
+        $q->free_result();
 	    return $response;
+	}
+
+	function getFruitFrom_IdCommande($id){
+		$sql = 'CALL getFruitFromCommande(?)';
+	    $q = $this->db->query($sql, array($id));
+		$response = array();
+		
+		foreach ($q->result() as $row){
+			$fruit = new FruitEntity();
+			$fruit->setId_fruit($row->id_fruit);
+			$fruit->setNom($row->nom);
+			$fruit->setPrix($row->prix);
+			$fruit->setDescription($row->description);
+			$fruit->setImage($row->image);
+			$fruit->setOrigine($row->origine);
+			$fruit->quantity = $row->quantity;
+			$fruit->id_commande = $row->id_commande;
+			array_push($response, $fruit);
+		}
+		$q->next_result();
+        $q->free_result();
+        return $response;
 	}
 
 	function findById_User($id){
@@ -32,6 +57,8 @@ class CommandeModel extends CI_Model
 			$commande->setAdresse($row->adresse);
 			array_push($response,$commande);
 		}
+		$q->next_result();
+        $q->free_result();
 	    return $response;
 	}
 
