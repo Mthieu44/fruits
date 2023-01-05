@@ -92,18 +92,20 @@
 				</ul>
 			</nav>
 		</header>
-
-        <div class="content">
-            <p> Merci <?= $this->session->user["user"]->getPrenom()?> ! </p><br>
-            <div>
-                <p> Votre commande à été passé avec succès ! <br> Plus de détails dans votre historique. </p>
-                <button onclick="window.location='<?= site_url('Connexion') ?>';"> Historique </button>
-            </div>
-            <div>
-                <p> Continuez vos achats ici !</p>
-                <button onclick="window.location='<?= site_url('Boutique') ?>';"> Boutique </button>
-            </div>
-        </div>
+		
+		<div class="uppercontent">
+			<div class="content">
+				<h2> Merci <?= $this->session->user["user"]->getPrenom()?> ! </h2>
+				<div class="commandend">
+					<p> Votre commande à été passé avec succès ! Merci pour votre achat c: </p>
+					<div class="row">
+						<button onclick="window.location='<?= site_url('Connexion') ?>';"> Historique des commandes </button>
+						<button onclick="window.location='<?= site_url('Boutique') ?>';"> Boutique </button>
+					</div>
+				</div>
+			</div>
+		</div>
+        
     
     </div>
 </body>

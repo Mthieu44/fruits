@@ -24,7 +24,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 |
 */
 
-$config['base_url'] = 'http://srv-infoweb/~E216439K/equipe2-1/fruits/';
+$config['base_url'] = 'http://srv-infoweb/~E210826J/equipe2-1/fruits/';
 
 
 /*
