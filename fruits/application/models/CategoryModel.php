@@ -1,5 +1,5 @@
 <?php
-require_once APPPATH . DIRECTORY_SEPARATOR . 'models' . DIRECTORY_SEPARATOR . "CategoryEntity.php";
+require_once APPPATH . DIRECTORY_SEPARATOR . 'models' . DIRECTORY_SEPARATOR . "ProduitEntity.php";
 class CategoryModel extends CI_Model
 {
     function findAll(){
