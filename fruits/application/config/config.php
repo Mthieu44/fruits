@@ -24,7 +24,11 @@ defined('BASEPATH') or exit('No direct script access allowed');
 |
 */
 
+<<<<<<< HEAD
 $config['base_url'] = 'http://srv-infoweb.iut-nantes.univ-nantes.prive/~E216120N/equipe2-1/fruits/';
+=======
+$config['base_url'] = 'http://srv-infoweb/~E216439K/equipe2-1/fruits/';
+>>>>>>> a0c9585f8ca6e319b5499f83465d4b861e30b4f4
 
 
 /*

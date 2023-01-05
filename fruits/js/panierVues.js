@@ -1,4 +1,4 @@
-let url = "http://srv-infoweb.iut-nantes.univ-nantes.prive/~E216439K/equipe2-1/fruits/"
+let url = 'http://srv-infoweb/~E216439K/equipe2-1/fruits/'
 
 const vue = new Vue({
     data: () => {
@@ -17,9 +17,36 @@ const vue = new Vue({
             categories: [],
             ventes: [],
             selected: "",
+            
         }
     },
     computed: {
+        meilleuresVentes(){
+            let tab = []
+            this.fruits.forEach(fruit => {
+                fruit.category.forEach(el => {
+                    if (el.nom == "Meilleures Ventes") {
+                        if (!tab.includes(fruit)) {
+                            tab.push(fruit)
+                        }
+                    }
+                })
+            })
+            return tab
+        },
+        fruitsDeSaison(){
+            let tab = []
+            this.fruits.forEach(fruit => {
+                fruit.category.forEach(el => {
+                    if (el.nom == "Fruits de saison") {
+                        if (!tab.includes(fruit)) {
+                            tab.push(fruit)
+                        }
+                    }
+                })
+            })
+            return tab
+        },
         search() {
             if (this.categories.length > 0) {
                 iteratorCat = this.categories.values()
@@ -193,7 +220,6 @@ const vue = new Vue({
     },
     methods: {
         ajouterAuPanier(id) {
-
             let fruit = this.fruits.find(element => element.id_fruit == id)
             let Copiedfruit = Object.assign({}, fruit);
             let quantity = Copiedfruit.quantity;
@@ -303,6 +329,7 @@ const vue = new Vue({
             formData.append('id', id);
             formData.append('quantity', quantity)
             formData.append('tab', 'panier');
+            formData.append('total', this.getTotalPanier())
 
             axios.post(url.concat('index.php/panier/addToPanier'), formData).then(function (response) {
                 console.log(response);
@@ -321,6 +348,17 @@ const vue = new Vue({
         getProduct(id) {
             return url.concat("index.php/boutique/fruit/").concat(id);
         },
+        getMeilleuresVentes(){
+            this.fruits.forEach(fruit => {
+                fruit.category.forEach(el => {
+                    if (el.nom == "Meilleures Ventes") {
+                        if (!meilleuresVentes.includes(fruit)) {
+                            meilleuresVentes.push(fruit)
+                        }
+                    }
+                })
+            })
+        }
     },
     mounted() {
         axios.get(url.concat('index.php/panier/getAllFruits'))

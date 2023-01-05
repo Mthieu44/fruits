@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="fr" style="background-image: none;">
+<html lang="fr">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fruits • Profil </title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fruits • Produit</title>
     <link rel="icon" href="<?= base_url('img/header/logo.png') ?>" />
     <?php require('loader.php'); ?>
     <style>
-        <?php include 'css/style.css'; ?><?php include 'css/connexion.css'; ?>
+        <?php include 'css/style.css'; ?><?php include 'css/home.css'; ?><?php include 'css/produit.css'; ?>
     </style>
 </head>
 
@@ -17,6 +17,9 @@
     <div id="preloader" class="preloader">
         <img src="<?= base_url('img/loader/' . $loader) ?>" class="loader">
     </div>
+
+
+    <div id="hider" onclick="flechePanier()"></div>
 
     <header>
         <a href="<?= site_url('Home') ?>" class="logo">
@@ -27,11 +30,11 @@
 
             <ul>
                 <li><a href="<?= site_url('Home') ?>">Accueil</a></li>
-                <li><a href=" <?= site_url('Boutique') ?>">Boutique</a></li>
-                <li><a href="<?= site_url('APropos') ?>" class="propos">A propos</a></li>
+                <li><a href=" <?= site_url('Boutique') ?>" class="yellow">Boutique</a></li>
+                <li><a href=" <?= site_url('APropos') ?>" class="propos">A propos</a></li>
                 <li><a href="<?= site_url('Contact') ?>">Contact</a></li>
                 <li class="connexion">
-                    <a href="<?= site_url('Connexion') ?>" class="yellow">
+                    <a href="<?= site_url('Connexion') ?>">
                         <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="30.000000pt" height="30.000000pt" viewBox="0 0 400.000000 400.000000" preserveAspectRatio="xMidYMid meet">
                             <g transform="translate(0.000000,400.000000) scale(0.100000,-0.100000)" fill="#000000" stroke="none">
                                 <path d="M1935 3315 c-321 -61 -566 -296 -640 -615 -22 -96 -20 -269 5 -366 68 -267 267 -484 519 -567 215 -72 411 -57 620 44 91 44 116 63 196 142 158 158 233 321 242 533 12 244 -70 450 -248 620 -187 179 -444 256 -694 209z" />
@@ -69,56 +72,69 @@
     </header>
 
 
+<body>
+<br>
+                    <p class="cgu">
+        Condition générale d'utilisation
+                    </p>
+                    <br>
+                    <p class="cgu">
+                    Article 1 - Objet :
 
-    <h2>Votre compte</h2>
-    <div class="infos">
-        <div class="profil">
-            <div class="case nom">
-                <h1><?= $this->session->user["user"]->getPrenom() ?></h1>
-                <h1><?= $this->session->user["user"]->getNom() ?></h1>
-            </div>
-            <div class="case">
-                <p>Telephone :</p>
-                <p><?= $this->session->user["user"]->getTelephone() ?></p>
-            </div>
-            <div class="case">
-                <p>Email :</p>
-                <p><?= $this->session->user["user"]->getMail() ?></p>
-            </div>
-            <div class="case">
-                <p>Adresse :</p>
-                <p><?= $this->session->user["user"]->getAdresse() ?></p>
-            </div>
-            <a href="<?= site_url('Connexion/modifInformation') ?>" class="button">Modifier informations</a>
-            <a href="<?= site_url('Connexion/logout') ?>" class="button">logout</a>
-        </div>
-        <div class="commandes">
-            <p>Historique des commandes :</p>
-            <table class ="histo">
-                <tr>
-                    <th>Date</th>
-                    <th>Prix</th>
-                    <th>Adresse</th>
-                    <th>Numéro de Commande</th>
-                </tr>
-            
-                <?php foreach($commandes as $commande):?>
-                    <tr>
-                        <td> <?=$commande->getDate_commande()?></td>
-                        <td> <?=$commande->getPrix()?></td>
-                        <td> <?=$commande->getAdresse()?></td>
-                        <td> <?=$commande->id_commande?></td>   
-                    </tr>     
-                <?php endforeach?>
-        
-                   
-            </table>
-            
-        </div>
-    </div>
+                    Les présentes CGU ont pour objet de définir les modalités et conditions dans lesquelles d'une part, Fruits, ci-après dénommé l'« Éditeur », met à la disposition de ses utilisateurs le site http://172.26.82.54/, et les services disponibles sur le site et d'autre part, la manière par laquelle l'utilisateur accède au site et utilise ses services.
+</p><br><p class="cgu">
+Article 2 - Acceptation :
+
+L'utilisation du site http://172.26.82.54/ implique l'acceptation pleine et entière des CGU. Lors de l'utilisation du site, l'utilisateur accepte de se soumettre à ces CGU. Si l'utilisateur n'accepte pas ces CGU, il doit renoncer à utiliser le site.
+</p><br><p class="cgu">
+Article 3 - Mentions légales :
+
+L'éditeur du site http://172.26.82.54/ est Fruits, une société Anonyme, immatriculée au 451 432 228 et ayant son siège social situé au 3 Rue Maréchal Joffre, 44000 Nantes
+. Le directeur de la publication du site est Bernard Carpette.
+
+
+</p><br><p class="cgu">
+Article 4 - Accès au site :
+
+Le site http://172.26.82.54/ est accessible gratuitement à tout utilisateur disposant d'un accès à Internet. Tous les coûts afférents à l'accès au site, que ce soit les frais matériels, logiciels ou d'accès à Internet, sont à la charge de l'utilisateur.
+    </p><br><p class="cgu">
+Article 5 - Contenu du site :
+
+Fruits s'efforce de mettre à disposition sur le site des informations aussi précises que possible. Toutefois, Fruits ne pourra être tenu responsable des omissions, des inexactitudes et des carences dans la mise à disposition, qu'elles soient de son fait ou du fait des tiers partenaires qui lui fournissent ces informations.
+
+Tous les informations indiquées sur le site http://172.26.82.54/ sont données à titre indicatif, et sont susceptibles d'évoluer. Par ailleurs, les renseignements figurant sur le site ne sont pas exhaustifs. Ils sont donnés sous réserve de modifications ayant été apportées depuis leur mise en ligne.
+</p><br><p class="cgu">
+Article 6 - Propriété intellectuelle :
+
+Fruits est propriétaire des droits de propriété intellectuelle ou détient les droits d'usage sur tous les éléments accessibles sur le site, notamment les textes, images, graphismes, logo, icônes, sons, logiciels.
+</p><br><p class="cgu">
+Article 7 - Liens hypertextes :
+
+Le site http://172.26.82.54/ peut contenir des liens hypertextes vers d'autres sites présents sur le réseau Internet. Les liens vers ces autres ressources vous font quitter le site http://172.26.82.54/.
+
+Fruits ne dispose d'aucun contrôle sur ces sites et ne répond pas de leur contenu. Les risques liés à l'utilisation de ces sites incombent pleinement à l'utilisateur, qui doit se conforme à leurs conditions d'utilisation.
+
+
+</p><br><p class="cgu">
+Article 8 - Responsabilité de l'éditeur :
+
+Fruits ne pourra être responsable d'aucun dommage direct ou indirect, quelle qu'en soit la cause, origine, nature ou conséquence, découlant de l'accès au site ou de l'impossibilité d'y accéder, de l'utilisation du site et/ou du crédit accordé à une quelconque information provenant directement ou indirectement de ce dernier.
+</p><br><p class="cgu">
+Article 9 - Loi applicable et juridiction compétente :
+
+Tout litige en relation avec l'utilisation du site http://172.26.82.54/ est soumis au droit français. Il est fait attribution exclusive de juridiction aux tribunaux compétents de Nantes.
+</p><br><p class="cgu">
+Article 10 - Cookies :
+
+Lors de la consultation du site http://172.26.82.54/, des cookies peuvent être installés sur l'ordinateur de l'utilisateur. Un cookie est un fichier de petite taille, qui ne permet pas l'identification de l'utilisateur, mais qui enregistre des informations relatives à la navigation d'un ordinateur sur un site. Les données ainsi obtenues visent à faciliter la navigation ultérieure sur le site, et ont également vocation à permettre diverses mesures de fréquentation.
+
+</p>
 </body>
 
 </html>
 
+
 <script type="text/javascript" src="<?= base_url('js/loader.js') ?>"></script>
 <script type="text/javascript" src="<?= base_url('js/panier.js') ?>"></script>
+
+<script type="text/javascript" src="<?= base_url('js/panierDroite.js') ?>"></script>

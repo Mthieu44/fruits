@@ -1,5 +1,5 @@
 <?php
-require_once APPPATH . DIRECTORY_SEPARATOR . 'models' . DIRECTORY_SEPARATOR . "CategoryEntity.php";
+require_once APPPATH . DIRECTORY_SEPARATOR . 'models' . DIRECTORY_SEPARATOR . "ProduitEntity.php";
 class CategoryModel extends CI_Model
 {
     function findAll(){
@@ -13,6 +13,8 @@ class CategoryModel extends CI_Model
 			$category->setDescription($row->description);
 			array_push($response,$category);
 		}
+		$q->next_result();
+        $q->free_result();
 	    return $response;
 	}
 }

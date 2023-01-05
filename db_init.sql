@@ -103,6 +103,34 @@ call addCategorieToFruit(28,2);
 call addCategorieToFruit(29,1);
 call addCategorieToFruit(30,5);
 call addCategorieToFruit(31,5);
+
+call addCategorieToFruit(26,9);
+call addCategorieToFruit(27,9);
+call addCategorieToFruit(28,9);
+call addCategorieToFruit(29,9);
+call addCategorieToFruit(30,9);
+call addCategorieToFruit(31,9);
+call addCategorieToFruit(14,9);
+call addCategorieToFruit(15,9);
+call addCategorieToFruit(16,9);
+call addCategorieToFruit(17,9);
+call addCategorieToFruit(18,9);
+
+call addCategorieToFruit(10,10);
+call addCategorieToFruit(13,10);
+call addCategorieToFruit(14,10);
+call addCategorieToFruit(15,10);
+call addCategorieToFruit(21,10);
+call addCategorieToFruit(22,10);
+call addCategorieToFruit(23,10);
+call addCategorieToFruit(24,10);
+call addCategorieToFruit(34,10);
+call addCategorieToFruit(35,10);
+call addCategorieToFruit(36,10);
+call addCategorieToFruit(37,10);
+call addCategorieToFruit(38,10);
+call addCategorieToFruit(39,10);
+
 call addCategorieToFruit(32,5);
 call addCategorieToFruit(33,2);
 call addCategorieToFruit(34,2);
@@ -126,17 +154,17 @@ call addCategorieToFruit(51,3);
 call addCategorieToFruit(52,3);
 call addCategorieToFruit(53,3);
 
-call addCommande(1,'03-01-2023',214.58);
+call addCommande(1,'03-01-2023 16h45',214.58,'la bas');
 call addFruitToCommande(1,1,4);
 call addFruitToCommande(1,4,1);
 call addFruitToCommande(1,25,15);
 
-call addCommande(2,'03-01-2023',214.58);
+call addCommande(2,'03-01-2023 46h78',214.58,'la bas');
 call addFruitToCommande(2,1,4);
 call addFruitToCommande(2,4,1);
 call addFruitToCommande(2,25,15);
 
-call addCommande(3,'03-01-2023',214.58);
+call addCommande(3,'03-01-2023 20h45',214.58,'la bas');
 call addFruitToCommande(3,1,4);
 call addFruitToCommande(3,4,1);
 call addFruitToCommande(3,25,15);

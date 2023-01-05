@@ -299,19 +299,23 @@ DELIMITER //
 CREATE PROCEDURE addCommande(
     IN _id_user TEXT,
     IN _date_commande TEXT,
-    IN _prix TEXT
+    IN _prix TEXT,
+    In _adresse TEXT
 )
 BEGIN
     INSERT INTO commande(
         id_user,
         date_commande,
-        prix
+        prix,
+        adresse
     )
 VALUES(
     _id_user,
     _date_commande,
-    _prix
+    _prix,
+    _adresse
 );
+SELECT id_commande from commande where id_user = _id_user and date_commande = _date_commande and adresse = _adresse;
 END //
 DELIMITER ;
 
@@ -361,5 +365,15 @@ CREATE PROCEDURE getCommandebyUser(
 )
 BEGIN
     SELECT * FROM commande where id_user = _id_user;
+END //
+DELIMITER ;
+
+
+DELIMITER //
+CREATE PROCEDURE getFruitFromCommande(
+    IN _id_commande TEXT
+)
+BEGIN
+    SELECT * FROM commandeFruit, fruit where id_commande = _id_commande and commandeFruit.id_fruit = fruit.id_fruit;
 END //
 DELIMITER ;

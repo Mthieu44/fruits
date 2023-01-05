@@ -1,20 +1,3 @@
-<?php
-$prenom = "";
-$nom = "";
-$mail = "";
-$adresse = "";
-$telephone = "";
-    if (isset($this->session->user)) {
-        $prenom = $this->session->user["user"]->getPrenom();
-        $nom = $this->session->user["user"]->getNom();
-        $mail = $this->session->user["user"]->getMail();
-        $adresse = $this->session->user["user"]->getAdresse();
-        $telephone = $this->session->user["user"]->getTelephone();
-    };
-?>
-
-
-
 
 
 <!DOCTYPE html>
@@ -24,7 +7,7 @@ $telephone = "";
 	<meta charset="UTF-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>Fruits • Connexion </title>
+	<title>Fruits • Commande </title>
 	<link rel="icon" href="<?= base_url('img/header/logo.png') ?>" />
 	<?php require('loader.php'); ?>
 	<style>
@@ -37,7 +20,6 @@ $telephone = "";
 		<?php include 'css/panier.css';
 		?>
 
-		<?php include 'https://unpkg.com/swiper/swiper-bundle.min.css'?>
 
 
 
@@ -46,7 +28,7 @@ $telephone = "";
 </head>
 
 <body>
-	
+	<div id="app-vue">
 
 
 		<div id="preloader" class="preloader">
@@ -102,9 +84,7 @@ $telephone = "";
 							</svg>
 							<div>
 								<p id="quantityPanier">
-									<?=
-                                count($this->session->panier);
-                                ?>
+									{{panier.length}}
 								</p>
 							</div>
 						</a>
@@ -113,71 +93,24 @@ $telephone = "";
 			</nav>
 		</header>
 
-
-
-		<h1> Votre commande <?= $this->session->user["user"]->getPrenom()?> </h1>
-		<div class="content">
-  <form action="<?= site_url('Commande/resumer')?>" onsubmit="return validateForm()">
-    <p class="p02"> Choisissez votre mode de paiement </p>
-    <div>
-      <div class="form-row">
-        <input type="radio" id="payment-method-card" name="payment-method" value="card" required onchange="showHideForm()">
-        <label for="payment-method-card">Carte de crédit</label><br>
-
-        <div id="formCard" style="display:none;" >
-          <label for="detenteur">Détenteur* </label>
-          <input id="detenteur" type="text" name="detenteur" placeholder="Nom du détenteur de la carte" required><br>
-          <label for="numero">Numéro* </label>
-          <input id="numero" type="text" name="numero" placeholder="XXXX-XXXX-XXXX-XXXX" required pattern="[0-9]{16}" ><br>
-          <label for="date"> Date de validité*</label>
-            <select id="month" name="month" require>
-                <option value="01">Janvier</option>
-                <option value="02">Février</option>
-                <option value="03">Mars</option>
-                <option value="04">Avril</option>
-                <option value="05">Mai</option>
-                <option value="06">Juin</option>
-                <option value="07">Juillet</option>
-                <option value="08">Août</option>
-                <option value="09">Septembre</option>
-                <option value="10">Octobre</option>
-                <option value="11">Novembre</option>
-                <option value="12">Décembre</option>
-            </select>
-            <select id="year" name="year" require>
-                <option value="2022">2022</option>
-                <option value="2023">2023</option>
-                <option value="2024">2024</option>
-                <option value="2024">2025</option>
-                <option value="2024">2026</option>
-                <option value="2024">2027</option>
-                <option value="2024">2028</option>
-            </select><br>
-            <label for="cryptogramme">Cryptogramme* </label>
-          	<input id="cryptogramme" type="number" name="cryptogramme" placeholder ="XXX" required pattern="[0-9]{3}"><br>
-          <p> *Champ obligatoire</p>
+        <div class="content">
+            <p> Merci <?= $this->session->user["user"]->getPrenom()?> ! </p><br>
+            <div>
+                <p> Votre commande à été passé avec succès ! <br> Plus de détails dans votre historique. </p>
+                <button onclick="window.location='<?= site_url('Connexion') ?>';"> Historique </button>
+            </div>
+            <div>
+                <p> Continuez vos achats ici !</p>
+                <button onclick="window.location='<?= site_url('Boutique') ?>';"> Boutique </button>
+            </div>
         </div>
-        <input type="radio" id="payment-method-paypal" name="payment-method" value="paypal" required onchange="showHideForm()">
-        <label for="payment-method-paypal">PayPal</label>
-        <div id="formPaypal"  style="display:none;">
-          <label for="mail">Email :</label>
-          <input id="mail" type="email" name="mail" placeholder="Votre mail" value="<?= $mail ?>" required>
-        </div>
-      </div>
-      <div>
-        <input type="submit" value="Payer">
-      </div>
-  </form>
-</div>
-
-
-
-
-	
+    
+    </div>
 </body>
-
-
 </html>
 
+
 <script type="text/javascript" src="<?= base_url('js/loader.js') ?>"></script>
-<script type="text/javascript" src="<?= base_url('js/paiement.js') ?>"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.0/axios.min.js"></script>
+<script type="text/javascript" src="<?= base_url('js/panierVues.js') ?>"></script>
