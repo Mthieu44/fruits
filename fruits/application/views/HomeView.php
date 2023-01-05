@@ -10,7 +10,6 @@
     <?php require('loader.php'); ?>
     <style>
         <?php include 'css/style.css';?><?php include 'css/home.css';?><?php include 'css/boutique.css';?><?php include 'css/panierside.css';?>
-        <?php include 'https: //cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css';?>
     </style>
 </head>
 
@@ -124,14 +123,8 @@
                     <h1>Bienvenue !</h1>
                     <h1>Salivez, cliquez, mangez !</h1>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                        eiusmod tempor incididunt ut labore et dolore magna Lorem ipsum
-                        dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                        incididunt ut labore et dolore magna Lorem ipsum dolor sit amet,
-                        consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna Lorem ipsum dolor sit amet, consectetur
-                        adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                        dolore magna
+                    Bienvenue sur Fruits, votre destination de choix pour acheter des fruits frais en ligne !
+                    Nous sommes ravis de vous accueillir sur notre site et de vous présenter notre gamme de produits.
                     </p>
                 </div>
             </div>
@@ -139,10 +132,12 @@
             <div class="sliderinside">
                 <img src="<?= base_url('img/acceuil2.jpg') ?>" alt="image accueil" class="sliderimage" />
                 <div class="slidertext">
-                    <h1>Bienvenue !</h1>
+                    <h1>Notre démarche :</h1>
                     <h1>Des fruits frais, toute l'année !</h1>
                     <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna 
+                    Chez Fruits, nous avons à coeur de proposer des fruits de qualité supérieure, issus de producteurs locaux et responsables.
+                    Nous sélectionnons soigneusement chaque fruit pour vous garantir un goût et une fraîcheur exceptionnels. 
+                    Vous trouverez sur notre site une grande variété de fruits, allant des classiques pommes et bananes aux exotiques mangues et litchis. 
                     </p>
                 </div>
             </div>
@@ -150,10 +145,13 @@
             <div class="sliderinside">
                 <img src="<?= base_url('img/acceuil3.jpg') ?>" alt="image accueil" class="sliderimage" />
                 <div class="slidertext">
-                    <h1>Bienvenue !</h1>
-                    <h1>Salivez, cliquez, mangez vos fruits!</h1>
-                    <p>
-                    Lorem ipsum dolor sit amet, tempor incididunt ut labore et dolore magna Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna 
+                    <h1>Nouveautés 2023 !</h1>
+                    <h1>Découvrez notre nouvelle sélection de fruits</h1>
+                    <p>                    
+                        Toute l'équipe de Fruits vous souhaite une banané 2023 !
+                        A cette occasion, nous avons étoffé notre gamme de bananes pour vous permettre de passer l'hiver sereinement. 
+                        Vous trouverez différentes espèces qui vous feront voyager aux quatre coins du globe : Créole, Cavendish,
+                        kankanbou, serpent, banane corne, makandja, figue rose, figue café, popoulou et bien plus encore !
                     </p>
                 </div>
             </div>
@@ -260,34 +258,64 @@
 
     <div class="info">
         <div class="infoPart">
-        <img src="" alt="">
-            <h1>Livraisons à emporter</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna </p>
+        <img src="<?= base_url('img/panier2.png') ?>" alt="">
+            <h1>Livraisons de qualité</h1>
+            <p>Nous mettons tout en œuvre pour que votre commande vous soit livrée dans les meilleurs délais, tout en veillant à ce que les fruits soient transportés dans des conditions optimales pour leur conservation. </p>
         </div>
         <div class="barv"></div>
         <div class="infoPart">
-        <img src="" alt="">
+        <img src="<?= base_url('img/camion.png') ?>" alt="">
             <h1>Livraisons rapides</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna </p>
+            <p>Nous avons également mis en place un système de suivi de commande en ligne, afin que vous puissiez suivre l'acheminement de votre colis à tout moment, et le recevoir rapidement. </p>
         </div>
         <div class="barv"></div>
         <div class="infoPart">
-            <img src="" alt="">
-            <h1>Règels de sécurité</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna </p>
+            <img src="<?= base_url('img/masque.png') ?>" alt="">
+            <h1>Règles de sécurité</h1>
+            <p>Nous disposons de plusieurs mesures pour assurer la sécurité sanitaire de vos fruits lors de leur transport et de leur stockage. Nous veillons à ce qu'ils soient stockés dans des conditions optimales de température et d'humidité pour garantir leur fraîcheur et leur qualité. </p>
         </div>
 
     </div>
 
-    <footer>
-            <a href="<?= site_url('home/ConditionsGenerales') ?>">
-                Conditions générales d'utilisation
-                                </a>
-            <p>
-                Tous droits réservés.
-            </p>    
-    </footer>
-
+    <footer class="footer">
+     <div class="container">
+      <div class="row">
+        <div class="footer-col">
+          <h4>Notre entreprise</h4>
+          <ul>
+            <li><a href="<?= site_url('APropos') ?>">A propos</a></li>
+            <li><a href="<?= site_url('Contact') ?>">Nous contacter</a></li>
+            <li><a href="<?= site_url('CGU') ?>">CGU</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Plus d'infos</h4>
+          <ul>
+            <li><a href="<?= site_url('Connexion') ?>">Mon compte</a></li>
+            <li><a href="<?= site_url('Panier') ?>">Mon panier</a></li>
+            <li><a href="<?= site_url('Connexion') ?>">Mes commandes</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>La boutique</h4>
+          <ul>
+            <li><a href="<?= site_url('Boutique') ?>" onclick="meilleuresVentes()">Meilleures ventes</a></li>
+            <li><a href="<?= site_url('Boutique') ?>">Fruits de saison</a></li>
+            <li><a href="<?= site_url('Boutique') ?>">Promotion</a></li>
+            <li><a href="<?= site_url('Boutique') ?>">Indisponibles</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Mentions légales</h4>
+            <p>Fruits en ligne est une société anonyme (SA) au capital social de 100 000 euros.
+            Les prix sont indiqués en euros et n'incluent pas la TVA. 
+            Les frais de livraison sont en sus et varient en fonction de la destination et du mode de livraison choisi.
+            </p>
+        </div>
+      </div>
+     </div>
+  </footer>
+</div>
 </body>
 
 <script type="text/javascript" src="<?= base_url('js/sliderProduit.js') ?>"></script>
@@ -299,3 +327,4 @@
 <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.0/axios.min.js"></script>
 <script type="text/javascript" src="<?= base_url('js/panierVues.js') ?>"></script>
+<script type="text/javascript" src="<?= base_url('js/rechercheRapide.js') ?>"></script>

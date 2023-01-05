@@ -7,9 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Fruits • Connexion </title>
     <link rel="icon" href="<?= base_url('img/header/logo.png') ?>" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <?php require('loader.php'); ?>
     <style>
-        <?php include 'css/style.css'; ?><?php include 'css/connexion.css'; ?>
+        <?php include 'css/style.css'; ?><?php include 'css/connexion.css'; ?><?php include 'css/register.css'; ?>
     </style>
 
 </head>
