@@ -1,0 +1,5 @@
+html {
+	/*background-color: var(--orange-100);*/
+	background-image: url("../../img/fruitsfond.jpg");
+	background-size:cover;
+}

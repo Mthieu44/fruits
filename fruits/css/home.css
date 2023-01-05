@@ -53,6 +53,7 @@
     margin-top: 50px;
     font-size: 28px;
     font-style: italic;
+    line-height: 1.4;
 }
   
 @keyframes fadeIn {
@@ -114,13 +115,12 @@
 }
 
 .fleche{
-    height: 30px;
+    height: 45px;
     position: absolute;
     cursor: pointer;
     z-index: 11;
-    margin-left: 21%;
-    margin-right: 21%;
-    z-index: 8;
+    margin-left: 17%;
+    margin-right: 17%;
 }
 
 .fleche:hover {
@@ -177,7 +177,8 @@
     margin-bottom: 25px;
 }
 .infoPart p {
-    color: #313131
+    color: #313131;
+    font-size: 19px;
 }
 
 .barv{
