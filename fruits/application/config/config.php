@@ -24,7 +24,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 |
 */
 
-$config['base_url'] = 'http://127.0.0.1/';
+$config['base_url'] = 'http://localhost/public_html/equipe2-1/fruits/';
 
 
 /*
