@@ -1,13 +1,12 @@
-
-<?php
+<?php 
 $prenom = "";
 $nom = "";
 $mail = "";
-    if (isset($this->session->user)) {
-        $prenom = $this->session->user["user"]->getPrenom();
-        $nom = $this->session->user["user"]->getNom();
-        $mail = $this->session->user["user"]->getMail();
-    };
+if (isset($this->session->user["user"])){
+	$prenom = $this->session->user["user"]->getPrenom();
+	$nom = $this->session->user["user"]->getNom();
+	$mail = $this->session->user["user"]->getMail();
+};
 ?>
 
 <!DOCTYPE html>
@@ -111,20 +110,15 @@ $mail = "";
 			<h2>Envoyez-nous un message :</h2>
 			<form action="<?= site_url('Contact/sendmessage') ?>" method="post">
 				<div id="top">
-					<input type="text" name="prenom" placeholder="Votre prénom" value=<?= $prenom ?>>
-					<input type="text" name="nom" placeholder="Votre nom" value=<?= $nom ?>>
+					<input type="text" name="prenom" placeholder="Votre prénom" value="<?= $prenom ?>">
+					<input type="text" name="nom" placeholder="Votre nom" value="<?= $nom ?>">
 				</div>
-				<input id="mail" type="email" name="mail" placeholder="Votre mail" value=<?= $mail ?>>
+				<input id="mail" type="email" name="mail" placeholder="Votre mail" value="<?= $mail ?>">
 				<input type="text" name="objet" placeholder="Objet">
 				<textarea name="message" rows="5" placeholder="Ecrivez votre message ici !"></textarea>
 				<input type="submit" value="Envoyer">
 			</form>
 		</div>
-
-
-
-
-
 	</div>
 </body>
 

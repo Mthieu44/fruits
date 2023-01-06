@@ -28,11 +28,12 @@ html {
 .content{
     display: flex;
     flex-direction: column;
-    gap: 50px;
+    gap: 35px;
     align-items: center;
     background-color: white;
     border-radius: 20px;
     width: 40%;
+    min-width: calc(1920px * 0.4);
     height: 95%;
     position: absolute;
     padding:50px;
@@ -67,7 +68,11 @@ html {
     bottom: 0;
 }
 
-
+#progress-bar4 {
+    width: 100%;
+    background-color: rgb(240, 164, 0);
+    bottom: 0;
+}
 
 
 p{
@@ -78,6 +83,7 @@ p{
     display: flex;
     flex-direction: column;
     gap: 10px;
+    margin-top: 30px;
 }
 
 input, textarea {
@@ -123,13 +129,13 @@ input[type="submit"]:hover {
     transition: all 0.4s ease-in-out;
 }
 
-#top {
+.row {
     display: flex;
     flex-direction: row;
     gap: 10px;
 }
 
-.prenom, .nom{
+.col{
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -178,4 +184,38 @@ input[type="submit"]:hover {
     cursor: pointer;
     background-position: 100% 0;
     transition: all 0.4s ease-in-out;
+}
+
+.toutPanier {
+    overflow: scroll;
+    height: calc(100% - 250px);
+}
+
+.toutPanier table{
+    width: 100%;
+}
+
+#contentend {
+    height: 70vh;
+    position: relative;
+}
+
+.commandend {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 70%;
+    text-align: center;
+    gap:50px;
+    padding: 20px;
+}
+
+.commandend p {
+    max-width: 100%;
+}
+
+.lowercontent {
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
 }

@@ -79,7 +79,7 @@
             </nav>
         </header>
 
-		<div class="toutPanier">
+		<div class="main">
 			<h2>Votre panier</h2>
             <h1 v-if="panier.length == 0" class = "empty" >Votre panier est vide ! </h1>
 			<table v-else>
