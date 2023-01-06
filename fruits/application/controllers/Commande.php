@@ -42,6 +42,7 @@ class Commande extends CI_Controller {
 		$this->CommandeModel->CreerCommandePanier($adresse);
 		$this->session->unset_userdata('panier');
 		$this->session->unset_userdata('fauxpanier');
+		$this->session->unset_userdata('total');
 		$this->load->view('CommandeValideView');
 	}
 

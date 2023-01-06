@@ -37,8 +37,6 @@ class Connexion extends CI_Controller
                 foreach ($data['commandes'] as $c){
                     array_push($data['fruitsCommandes'],$this->CommandeModel->getFruitFrom_IdCommande($c->id_commande));
                 }
-            
-
                 $this->load->view('ClientView', $data);
                 $this->load->view('ResponsableView');
                 $this->load->view('AdminView');
@@ -46,7 +44,7 @@ class Connexion extends CI_Controller
                 $data['fruits'] = $this->FruitModel->findAll();
                 $data['commandes'] = $this->CommandeModel->findById_User($this->session->user["user"]->getId_user());
                 foreach ($data['commandes'] as $c){
-                    $data['fruitsCommandes'] = $this->CommandeModel->getFruitFrom_IdCommande($c->id_commande);
+                    array_push($data['fruitsCommandes'],$this->CommandeModel->getFruitFrom_IdCommande($c->id_commande));
                 }
 
                 $this->load->view('ClientView', $data);
@@ -55,7 +53,7 @@ class Connexion extends CI_Controller
                 $users = $this->UserModel->findAll();
                 $data['commandes'] = $this->CommandeModel->findById_User($this->session->user["user"]->getId_user());
                 foreach ($data['commandes'] as $c){
-                    $data['fruitsCommandes'] = $this->CommandeModel->getFruitFrom_IdCommande($c->id_commande);
+                    array_push($data['fruitsCommandes'],$this->CommandeModel->getFruitFrom_IdCommande($c->id_commande));
                 }
                 $this->load->view('ClientView', $data);
             }
@@ -163,7 +161,9 @@ class Connexion extends CI_Controller
             $user->setStatus('client');
             $user->setPassword($this->input->post('password'));
             $this->UserModel->add($user);
-            $this->session->set_userdata("user", array("prenom" => $user->getPrenom(), "status" => $user->getStatus(), "user" => $user));
+            $userdb = $this->UserModel->findByMail($this->input->post('email'));
+            $user->setId_user($userdb->getId_user());
+            $this->session->set_userdata("user", array("user" => $user));
             redirect('Home');
         }
     }
