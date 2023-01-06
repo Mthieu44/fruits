@@ -1,4 +1,4 @@
-let url = 'http://srv-infoweb/~E210826J/equipe2-1/fruits/'
+let url = 'http://srv-infoweb/~E216439K/equipe2-1/fruits/'
 
 const vue = new Vue({
     data: () => {
@@ -317,7 +317,7 @@ const vue = new Vue({
                     quantity = this.panier[i].quantity
                     if (this.panier[i].quantity <= 0) {
                         // Rajouter une pop up ou autre pour prévenir que mettre une quantity à 0 va supprimer le produit du panier.
-                        Dialog.confirm('Voulez vous vraiment supprimer le produit de votre panier ?', 'Question', (dlg) => {
+                        Dialog.confirm('Voulez vous vraiment supprimer le produit de votre panier ?', "Confirmation",(dlg) => {
                             this.panier.splice(i, 1);
                             this.ajouterAuPanierSession(id, -1);
                             dlg.close();
