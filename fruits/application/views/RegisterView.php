@@ -9,7 +9,7 @@
     <link rel="icon" href="<?= base_url('img/header/logo.png') ?>" />
     <?php require('loader.php'); ?>
     <style>
-        <?php include 'css/style.css'; ?><?php include 'css/connexion.css'; ?><?php include 'css/register.css'; ?>
+        <?php include 'css/style.css'; ?><?php include 'css/connexion.css'; ?>
     </style>
 
 </head>
