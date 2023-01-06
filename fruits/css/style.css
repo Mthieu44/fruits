@@ -14,9 +14,9 @@
 	--green-200: #2d7f2f;
 	--green-300: #1f5a1d;
 	--yellow-100: #ffc157ab;
-  --yellow-200: #face5f;
-  --yellow-300: #f9b814;
-	--orange-100: #ffc157ab;
+    --yellow-200: #face5f;
+    --yellow-300: #f9b814;
+	--orange-100: #ffd58e;
 	--grey-100: #f3f3f3;
 }
 
@@ -36,9 +36,6 @@
 }
 .green300 {
 	color: var(--green-300);
-}
-.grey {
-	color: var(--grey-100);
 }
 
 a {
@@ -86,7 +83,6 @@ h2 {
 	font-size: 19px;
 	line-height: 24px;
 	text-align: center;
-
 	color: rgb(58, 58, 58);
 }
 
@@ -175,7 +171,9 @@ li:hover svg path {
 	height: 33px;
 }
 
-.panier div {
+.panier div {--yellow-100: #ffc157ab;
+    --yellow-200: #face5f;
+    --yellow-300: #f9b814;
 	display: inline-block;
 	border-color: var(--yellow-100);
 	border-radius: 100px;
@@ -191,15 +189,80 @@ li:hover svg path {
 }
 
 /*********FOOTER*********/
+.container{
+  max-width: 1170px;
+  margin:auto;
+}
+.row{
+  display: flex;
+}
 
-.cgu{
+.footer{
+  background-color: #ffc37a;
+  padding: 40px 0;
+}
 
-		margin-left: auto;
-		margin-right: auto;
-		width: 30em;
-		text-align: center
-	}
+.footer p{
+	font-size: 14px;
+	color: #ffffff;
+	text-decoration: none;
+	font-weight: 300;
+	color: rgb(44, 44, 44);;
+	display: block;
+	max-width: none;
+}
 
+.footer-col{
+   width: 25%;
+   padding: 0 15px;
+}
+.footer-col h4{
+  font-size: 18px;
+  color: black;
+  text-transform: capitalize;
+  margin-bottom: 35px;
+  font-weight: 500;
+  position: relative;
+}
+.footer-col h4::before{
+  content: '';
+  position: absolute;
+  left:0;
+  bottom: -10px;
+  background-color: var(--yellow-300);
+  height: 2px;
+  box-sizing: border-box;
+  width: 50px;
+}
+.footer-col ul li:not(:last-child){
+  margin-bottom: 10px;
+}
+.footer-col ul li a{
+  font-size: 16px;
+  text-transform: capitalize;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 300;
+  color: rgb(44, 44, 44);;
+  display: block;
+  transition: all 0.3s ease;
+}
+.footer-col ul li a:hover{
+  padding-left: 8px;
+}
+
+/*responsive*/
+@media(max-width: 767px){
+  .footer-col{
+    width: 50%;
+    margin-bottom: 30px;
+}
+}
+@media(max-width: 574px){
+  .footer-col{
+    width: 100%;
+}
+}
 
 /*********LOADING*********/
 
@@ -225,11 +288,6 @@ li:hover svg path {
 	animation: spin 1.2s linear infinite;
 }
 
-.cgu {
-    margin-left: 10%;
-    margin-right: 10%;
-    width: 75em
-}
 
 @keyframes spin {
 	0% {
@@ -240,56 +298,20 @@ li:hover svg path {
 	}
 }
 
-/********VOLET PANIER*********/
 
-#panierVolet{
-	position: fixed;
-	right: -20%;
-	height: 100vh;
-	width: 20%;
-	background-color: wheat;
-	z-index: 9;
-	transition: 0.5s ease-in-out;
-	display: flex;
-	flex-direction: column;
-	padding-left:20px;
-	gap: 10px;
-}
-
-#voletFleche{
-	width: 50px;
-	height: 25px;
-	position: absolute;
-	right: 100%;
-	cursor: pointer;
-	margin-top: 10px;
-	margin-right: 10px;
-	display: flex;
-}
-
-#voletFleche:hover{
-	transform: scale(1.2);
-}
-
-#voletFleche svg{
-	width: 100%;
-	height: 100%;
-}
-
-#hider{
-	position: fixed;
-	width: 100%;
-	height: 100%;
-	display: none;
-	z-index: 8;
-	background-color: #00000070;
-	transition: 5s;
-}
-
-.fruitDansPanier{
-	margin-top: 10px;
-}
-
-.totalPanier{
-	background-color: red;
-}
+.dlg-dialog {
+	border: none;
+	box-shadow: 10px 10px 20px gray;
+  }
+  .dlg-header {
+	background-color: #555;
+	color: white;
+  }
+  .dlg-caption {
+	height: 1.17em;
+	text-shadow: 1px 1px 1px black;
+  }
+  .dlg-close-button::before,
+  .dlg-close-button::after {
+	background-color: white;
+  }

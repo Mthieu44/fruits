@@ -67,8 +67,8 @@ call addFruit('Prune Reine-Claude',0.30,"La reine-claude est une prune de taille
 call addFruit('Prune Mirabelle',0.20,"Le mirabellier est un petit arbre d'environ 4 à 5 mètres, rustique et productif très présent dans le Nord-Est de la France dont les prunes sont appréciées dans tous le pays. Les mirabelles sont de petites prunes rondes, jaune doré ou orangées, parfois ponctuées de rose, toujours très goûteuses, et dont la récolte se situe entre la fin du mois d'août et le début du mois de septembre. Vendue à l'unité.","France, Lorraine","prune_mirabelle.png");
 call addFruit('Tomate',0.30,"Très simple à consommer, elle se prête à une infinité de préparations. Très riche au niveau nutritionnel, elle a de véritables atouts bien-être. Toutes ses qualités en font le légume le plus consommé en France. Vendue à l'unité.","France, Pays de la Loire","tomate.png");
 call addFruit('Marron',0.30,"Le marron est un fruit de forme ovale d'environ quatre centimètres. Il révèle une couleur marron foncé avec des stries noires et une petite partie ovale de couleur beige.Vendues en barquettes de 100g","France, Rhône-Alpes","marron.png");
-call addFruit('Noisette',0.12,"La noisette est un fruit sec oléagineux certes calorique mais d'un grand intérêt nutritionnel, riche en acides gras insaturés, en vitamine E et en magnésium. Récoltée d'août à octobre, on l'achète fraîche ou sèche, en coque ou décortiquée. Elle se glisse dans de nombreuses recettes ou se croque telle quelle.Vendues en barquettes de 100g.","France, Avignon","noisette.png");
-call addFruit('Noix',0.03,"Ce fruit est aussi délicieux à croquer qu’intégré à toutes vos recettes, salées et sucrées, auxquelles il apporte une touche goûteuse et croquante.","France, Rhône-Alpes","noix.png");
+call addFruit('Noisette',0.20,"La noisette est un fruit sec oléagineux certes calorique mais d'un grand intérêt nutritionnel, riche en acides gras insaturés, en vitamine E et en magnésium. Récoltée d'août à octobre, on l'achète fraîche ou sèche, en coque ou décortiquée. Elle se glisse dans de nombreuses recettes ou se croque telle quelle.Vendues en barquettes de 100g.","France, Avignon","noisette.png");
+call addFruit('Noix',0.20,"Ce fruit est aussi délicieux à croquer qu’intégré à toutes vos recettes, salées et sucrées, auxquelles il apporte une touche goûteuse et croquante.Vendues en barquettes de 100g.","France, Rhône-Alpes","noix.png");
 
 
 
@@ -103,6 +103,34 @@ call addCategorieToFruit(28,2);
 call addCategorieToFruit(29,1);
 call addCategorieToFruit(30,5);
 call addCategorieToFruit(31,5);
+
+call addCategorieToFruit(26,9);
+call addCategorieToFruit(27,9);
+call addCategorieToFruit(28,9);
+call addCategorieToFruit(29,9);
+call addCategorieToFruit(30,9);
+call addCategorieToFruit(31,9);
+call addCategorieToFruit(14,9);
+call addCategorieToFruit(15,9);
+call addCategorieToFruit(16,9);
+call addCategorieToFruit(17,9);
+call addCategorieToFruit(18,9);
+
+call addCategorieToFruit(10,10);
+call addCategorieToFruit(13,10);
+call addCategorieToFruit(14,10);
+call addCategorieToFruit(15,10);
+call addCategorieToFruit(21,10);
+call addCategorieToFruit(22,10);
+call addCategorieToFruit(23,10);
+call addCategorieToFruit(24,10);
+call addCategorieToFruit(34,10);
+call addCategorieToFruit(35,10);
+call addCategorieToFruit(36,10);
+call addCategorieToFruit(37,10);
+call addCategorieToFruit(38,10);
+call addCategorieToFruit(39,10);
+
 call addCategorieToFruit(32,5);
 call addCategorieToFruit(33,2);
 call addCategorieToFruit(34,2);
@@ -126,32 +154,17 @@ call addCategorieToFruit(51,3);
 call addCategorieToFruit(52,3);
 call addCategorieToFruit(53,3);
 
+call addCommande(1,'03-01-2023 16h45',214.58,'la bas');
+call addFruitToCommande(1,1,4);
+call addFruitToCommande(1,4,1);
+call addFruitToCommande(1,25,15);
 
-/*
-call modifUser(8,'cbien','cbien','cbien','cbien','cbien','cbien','cbien','cbein');
-call deleteUser(8);
+call addCommande(2,'03-01-2023 46h78',214.58,'la bas');
+call addFruitToCommande(2,1,4);
+call addFruitToCommande(2,4,1);
+call addFruitToCommande(2,25,15);
 
-
-call addCategorie('Agrumes','C juteux');
-call addCategorie('Fruits exotiques','Très exotique ça');
-/*
-call modifCategorie('Agrumes','C très juteux');
-call deleteCategorie(1);
-
-
-call addFruit('Bananes','1.5','c bon','France','banane.png');
-call addFruit('Mangues','2','c super mega bon','France','mangue.png');
-/*
-call modifFruit(3,'banananan','10','c bon','france','banane.png');
-call deleteFruit(3);
-
-
-call addCategorieToFruit(1,1);
-call addCategorieToFruit(1,2);
-call addCategorieToFruit(2,1);
-/*
-call deleteCategorieToFruit(2,1)
-*/
-
-
-
+call addCommande(3,'03-01-2023 20h45',214.58,'la bas');
+call addFruitToCommande(3,1,4);
+call addFruitToCommande(3,4,1);
+call addFruitToCommande(3,25,15);

@@ -1,6 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 require APPPATH . DIRECTORY_SEPARATOR . 'models' . DIRECTORY_SEPARATOR . "UserEntity.php";
+require APPPATH . DIRECTORY_SEPARATOR . 'models' . DIRECTORY_SEPARATOR . "CommandeEntity.php";
 
 class Connexion extends CI_Controller
 {
@@ -12,6 +13,7 @@ class Connexion extends CI_Controller
         $this->load->library('session');
         $this->load->model('UserModel');
         $this->load->model('FruitModel');
+        $this->load->model('CommandeModel');
         if (!isset($this->session->panier)) {
             $this->session->set_userdata("panier", array());
         }
@@ -22,6 +24,7 @@ class Connexion extends CI_Controller
 
     function index()
     {
+        $data['fruitsCommandes'] = array();
         $in = $this->session->flashdata('in');
         if ($in == 1) {
             $this->load->view('ConnexionView', array('msg' => "Identifiants invalides"));
@@ -29,16 +32,30 @@ class Connexion extends CI_Controller
             if ($this->session->user["user"]->getStatus() == 'admin') {
                 $data['users'] = $this->UserModel->findAll();
                 $data['fruits'] = $this->FruitModel->findAll();
+                $data['commandes'] = $this->CommandeModel->findById_User($this->session->user["user"]->getId_user());
+                
+                foreach ($data['commandes'] as $c){
+                    array_push($data['fruitsCommandes'],$this->CommandeModel->getFruitFrom_IdCommande($c->id_commande));
+                }
                 $this->load->view('ClientView', $data);
                 $this->load->view('ResponsableView');
                 $this->load->view('AdminView');
             } elseif ($this->session->user["user"]->getStatus() == 'responsable') {
                 $data['fruits'] = $this->FruitModel->findAll();
+                $data['commandes'] = $this->CommandeModel->findById_User($this->session->user["user"]->getId_user());
+                foreach ($data['commandes'] as $c){
+                    array_push($data['fruitsCommandes'],$this->CommandeModel->getFruitFrom_IdCommande($c->id_commande));
+                }
+
                 $this->load->view('ClientView', $data);
                 $this->load->view('ResponsableView');
             } elseif ($this->session->user["user"]->getStatus() == 'client') {
                 $users = $this->UserModel->findAll();
-                $this->load->view('ClientView');
+                $data['commandes'] = $this->CommandeModel->findById_User($this->session->user["user"]->getId_user());
+                foreach ($data['commandes'] as $c){
+                    array_push($data['fruitsCommandes'],$this->CommandeModel->getFruitFrom_IdCommande($c->id_commande));
+                }
+                $this->load->view('ClientView', $data);
             }
         } else {
             $this->load->view('ConnexionView');
@@ -144,7 +161,9 @@ class Connexion extends CI_Controller
             $user->setStatus('client');
             $user->setPassword($this->input->post('password'));
             $this->UserModel->add($user);
-            $this->session->set_userdata("user", array("prenom" => $user->getPrenom(), "status" => $user->getStatus(), "user" => $user));
+            $userdb = $this->UserModel->findByMail($this->input->post('email'));
+            $user->setId_user($userdb->getId_user());
+            $this->session->set_userdata("user", array("user" => $user));
             redirect('Home');
         }
     }

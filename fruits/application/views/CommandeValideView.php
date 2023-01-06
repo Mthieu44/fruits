@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -90,133 +92,34 @@
 				</ul>
 			</nav>
 		</header>
-
-		<form action="<?= site_url('Commande/validerCommande') ?>" method="post">
-			<div id="carousel">
-				<div class="uppercontent">
-					<div class="content">
-						<h2> Valider votre commande </h2>
-						<p class="p02"> Veuillez verifier vos informations </p>
-						<div class="form">
-							<div class="row">
-								<div class="col">
-									<label for="prenom">Prenom :</label>
-									<input id="prenom" type="text" name="prenom" placeholder="Votre prénom" value="<?= $this->session->user["user"]->getPrenom() ?>">
-								</div>
-								<div class="col">
-									<label for="nom">Nom :</label>
-									<input type="text" id="nom" name="nom" placeholder="Votre nom" value="<?= $this->session->user["user"]->getNom() ?>">
-								</div>
-							</div>
-
-							<label for="mail">Email :</label>
-							<input id="mail" type="email" name="mail" placeholder="Votre mail" value="<?= $this->session->user["user"]->getMail() ?>">
-							<label for="adresse">Adresse :</label>
-							<input type="text" id="adresse" name="adresse" placeholder="Adresse" value="<?= $this->session->user["user"]->getAdresse() ?>">
-							<label for="telephone">Telephone :</label>
-							<input type="text" id="telephone" name="objet" placeholder="Telephone" value="<?= $this->session->user["user"]->getTelephone() ?>">
-						</div>
-						<div class="buttons">
-							<button type="button" class="prev-btn" onclick="window.location='<?= site_url('Panier') ?>';">Précédent</button>
-							<button type="button" class="next-btn">Suivant</button>
-						</div>
-						<div class="progress-bar">
-							<div id="progress-bar1" class="progress-bar"></div>
-						</div>
+		
+		<div class="uppercontent" id="contentend">
+			<div class="content">
+				<h2> Merci <?= $this->session->user["user"]->getPrenom()?> ! </h2>
+				<div class="commandend">
+					<h2> Votre commande à été passé avec succès ! Merci pour votre achat !</h2>
+					<div class="lowercontent">
+						<p class="p01"> Vous pouvez consulter votre historique de commandes ici :</p>
+						<button class="next-btn" onclick="window.location='<?= site_url('Connexion') ?>';"> Historique des commandes </button>
+					</div>
+					<div class="lowercontent">
+						<p class="p01"> Continuez vos achats ici :</p>
+						<button class="next-btn" onclick="window.location='<?= site_url('Boutique') ?>';"> Boutique </button>
 					</div>
 				</div>
-				<div class="uppercontent">
-					<div class="content">
-
-						<h2> Valider votre commande </h2>
-						<p class="p02"> Voici un résumé de votre panier </p>
-						<div class="toutPanier">
-							<table>
-								<tr>
-								<tr class="title">
-									<th>Article</th>
-									<th>Prix unitaire</th>
-									<th>Quantité</th>
-									<th>Prix total</th>
-								</tr>
-								<tr v-for="fruit in panier" v-bind:key="fruit.id_fruit" class="fruitDansPanier">
-									<td class="left">
-										<img :src="getImg(fruit.id_fruit)" alt="image du fruit" />
-										{{fruit.nom}}
-									</td>
-									<td>{{fruit.prix}} €</td>
-									<td>
-										<button type="button" v-on:click="totalQuantityPanier(-1,fruit.id_fruit)">-</button>
-										| {{fruit.quantity}} |
-										<button type="button" v-on:click="totalQuantityPanier(1,fruit.id_fruit)">+</button>
-									</td>
-									<td>Total : {{getTotalProduit(fruit.id_fruit)}} €</td>
-									<td class="right" v-on:click="retirerDuPanier(fruit.id_fruit)">
-										<img src="<?= base_url('img/poubelle.jpg')?>" alt="Poubelle">
-									</td>
-								</tr>
-								</tr>
-							</table>
-
-							<div class="totalPanier">
-								<p class="p02">
-									Total panier : {{getTotalPanier()}} €
-								</p>
-							</div>
-						</div>
-						<div class="buttons">
-							<button type="button" class="prev-btn">Précédent</button>
-							<button type="button" class="next-btn">Suivant</button>
-						</div>
-						<div class="progress-bar">
-							<div id="progress-bar2" class="progress-bar"></div>
-						</div>
-					</div>
-				</div>
-				<div class="uppercontent">
-					<div class="content">
-						<h2> Valider votre commande </h2>
-						<p class="p02"> Remplissez vos informations de paiement </p>
-						<div class="form">
-							<div class="row">
-								<div class="col">
-									<label for="detenteur">Détenteur</label>
-									<input id="detenteur" type="text" name="detenteur" placeholder="Nom du détenteur de la carte" required>
-								</div>
-								<div class="col">
-									<label for="date">Date de validité</label>
-									<input type="month" id="date" name="date" min="<?= date('Y')."-".date('m')?>" placeholder="YYYY-MM" required pattern="[0-9]{4}-[0-9]{2}">
-								</div>
-							</div>
-							<div class="row">
-								<div class="col">
-									<label for="numero">Numéro</label>
-									<input id="numero" type="text" name="numero" placeholder="XXXX-XXXX-XXXX-XXXX" required	pattern="[0-9]{16}">
-								</div>
-								<div class="col">
-									<label for="cryptogramme">Cryptogramme</label>
-									<input id="cryptogramme" type="text" name="cryptogramme" placeholder="XXX" required pattern="[0-9]{3}">
-								</div>
-							</div>
-						</div>
-						<div class="buttons">
-							<button type="button" class="prev-btn">Précédent</button>
-							<input class="next-btn" type="submit" value="Payer">
-						</div>
-						<div class="progress-bar">
-							<div id="progress-bar3" class="progress-bar"></div>
-						</div>
-					</div>
+				<div class="progress-bar">
+					<div id="progress-bar4" class="progress-bar"></div>
 				</div>
 			</div>
-		</form>
-	</div>
+		</div>
+        
+    
+    </div>
 </body>
-
 </html>
+
 
 <script type="text/javascript" src="<?= base_url('js/loader.js') ?>"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.0/axios.min.js"></script>
 <script type="text/javascript" src="<?= base_url('js/panierVues.js') ?>"></script>
-<script type="text/javascript" src="<?= base_url('js/carouselCommande.js') ?>"></script>

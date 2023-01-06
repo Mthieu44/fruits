@@ -9,6 +9,9 @@ html {
   
   
 .content{
+    margin: auto;
+    margin-top: 75px;
+    margin-bottom: 100px;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -18,10 +21,6 @@ html {
     border-radius: 20px;
     width: 40%;
     height: auto;
-    position: fixed;
-    top: 50vh;
-    left: 50vw;
-    transform: translate(-50%, -50%);
     padding: 20px;
     min-width: 800px;
 }

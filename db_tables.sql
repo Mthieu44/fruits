@@ -36,28 +36,26 @@ ALTER TABLE `usertab` ADD UNIQUE(`mail`);
 ALTER TABLE `fruit` ADD UNIQUE(`nom`);
 
 
-/*
 CREATE TABLE commande(
     id_commande INT PRIMARY KEY AUTO_INCREMENT,
-    id_client INT NOT NULL,
+    id_user INT NOT NULL,
     date_commande VARCHAR(60),
-    prix FLOAT(2) NOT NULL
+    prix FLOAT(2) NOT NULL,
+    adresse VARCHAR(60) NOT NULL
 );
-
 
 
 CREATE TABLE commandeFruit(
     id_commande INT NOT NULL,
     id_fruit INT NOT NULL,
-    quantite INT NOT NULL
+    quantity INT NOT NULL
 );
 
 ALTER TABLE
-    commande ADD CONSTRAINT FK_commande_user FOREIGN KEY(id_client) REFERENCES usertab(id_user);
+    commande ADD CONSTRAINT FK_commande_user FOREIGN KEY(id_user) REFERENCES usertab(id_user);
 ALTER TABLE
     commandeFruit ADD CONSTRAINT PK_commandeFruit PRIMARY KEY(id_commande, id_fruit);
 ALTER TABLE
     commandeFruit ADD CONSTRAINT FK_commandeFruit_commande FOREIGN KEY(id_commande) REFERENCES commande(id_commande);
 ALTER TABLE
     commandeFruit ADD CONSTRAINT FK_panier_fruit FOREIGN KEY(id_fruit) REFERENCES fruit(id_fruit);
-*/

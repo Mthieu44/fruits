@@ -1,59 +1,81 @@
 @import url("https://fonts.googleapis.com/css?family=Inter%22");
 
+
+.div{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .flexible{
 display: flex;
 padding: 0;
+justify-content: center;
+height: 100%;
+min-width: 700px;
+width: 60%;
+background-color: white;
+margin: 50px;
+padding: 50px;
+border-radius: 30px;
+flex-direction: column;
+margin-top: 50px;
 }
 
-body{
-background-color: #FFE0AA;
+
+.flexible img{
+width: 350px;
+height: 350px;
+border-radius: 19px 0px 0px 19px;
+    background-color: whitesmoke;
+    padding: 25px;
 }
 
-.img{
-
-margin-left: 20%;
-
-margin-top: 5%;
-height: 400px;
-width: 400px;
-
-border-radius: 8px;
-
+.top{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: space-around;
 }
 
 .rightsquare{
-
-background-color: white;
-border-radius: 8px;
+display: flex;
+flex-direction: column;
 height: 400px;
 width: 492px;
-margin-top: 5%;
-margin-right: 20%;
-margin-left: 7%;
+align-items: center;
+gap: 10px;
 }
 
-.titreprod{
+.flexible h1{
 font-family: 'Mango Sans', sans-serif;
 font-style: normal;
 font-weight: 400;
 font-size: 40px;
 line-height: 61px;
 text-align: center;
-margin-top: 5%;
+margin-bottom: 10px;
 color: #000000;
 }
 
-.textprod{
+.barh {
+    width: 150px;
+    height: 2px;
+    border-radius: 10;
+    background-color: #F9B814;
+    margin-bottom: 15px;
+}
+
+.flexible h2{
 font-family: Inter;
 font-style: normal;
 font-weight: 400;
-font-size: 25px;
-line-height: 48px;
-
-color: #000000;
+font-size: 23px;    
 text-align: left;
-margin-left: 10%;
-margin-top: 3%;
+width: 70%;
+color: #0e0e0e;
+margin-bottom: 0;
 }
 
 .plusoumoins{
@@ -79,7 +101,7 @@ margin-top: 3%;
     font-family: Inter;
     border: medium none;
     background-color: white;
-    color: green;
+    color: rgb(0, 0, 0);
     border-radius: 50%;
     width: 30px;
     height: 30px;
@@ -107,14 +129,14 @@ margin-left: 15%;
 
 .desciption{
 font-family: Inter;
-margin-left: 20%;
+margin: auto;
 width: 1000px;
 height: auto;
 padding: 1%;
-
-background: #FACE5F;
+text-align: center;
+background: #ffffff;
 border-radius: 20px;
-margin-top: 7%;
+margin-top: 50px;
 }
 
 .textprod2{

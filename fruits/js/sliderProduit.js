@@ -3,9 +3,8 @@
 class sliderProduit {
 
   constructor(insideSlider) {
-    this.pos = 1
+    this.pos = 3
     this.slider = document.getElementsByClassName(insideSlider)
-    this.posMax = this.slider.length
   }
 
   slideLeft() {
@@ -18,12 +17,9 @@ class sliderProduit {
   
   showCartes(n) {
     this.pos += n;
-    console.log(this.pos);
-    if (this.pos < 1) {this.pos = this.posMax - 1}
-    if (this.pos > this.posMax - 1) {this.pos = 1}
-    this.posMax = this.slider.length
-    if (this.posMax % 2 == 0) {this.posMax += 1}
-    let align = -290 * this.pos + 145 * this.posMax
+    if (this.pos < 3) {this.pos = this.slider.length - 2}
+    if (this.pos > this.slider.length - 2) {this.pos = 3}
+    let align = -220 * this.pos + 110 * (this.slider.length + 1)
     for (let i = 0; i < this.slider.length; i++) {
       this.slider[i].style.transform = `translate(${align}px, 0)`
     }
@@ -55,11 +51,11 @@ const slideSeasonal = new sliderProduit("card-product-bottom")
 let isinit = 0
 function initSliders() {
   if (isinit == 0){
-    document.getElementById("slider-bestsellers").onwheel = roulage1;
-    document.getElementById("slider-season").onwheel = roulage2;
-    slideBestsellers.showCartes(0)
-    slideSeasonal.showCartes(0)
     isinit = 1
+    document.getElementById("slider-bestsellers").onwheel = roulage1;
+    slideBestsellers.showCartes(0)
+    document.getElementById("slider-season").onwheel = roulage2;
+    slideSeasonal.showCartes(0)
   }
 }
 

@@ -12,16 +12,15 @@ html {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  gap: 15px;
+  gap: 20px;
   align-items: center;
   background-color: white;
   border-radius: 20px;
   width: 40%;
   height: auto;
-  position: fixed;
-  top: 50vh;
-  left: 50vw;
-  transform: translate(-50%, -50%);
+  margin: auto;
+  margin-top: 75px;
+  margin-bottom: 57px;
   padding: 20px;
   min-width: 800px;
 }
@@ -31,7 +30,7 @@ html {
 }
 
 .content img{
-  width: 100%;
+  width: 85%;
   height: auto;
 }
 

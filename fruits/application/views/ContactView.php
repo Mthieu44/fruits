@@ -1,13 +1,12 @@
-
-<?php
+<?php 
 $prenom = "";
 $nom = "";
 $mail = "";
-    if (isset($this->session->user)) {
-        $prenom = $this->session->user["user"]->getPrenom();
-        $nom = $this->session->user["user"]->getNom();
-        $mail = $this->session->user["user"]->getMail();
-    };
+if (isset($this->session->user["user"])){
+	$prenom = $this->session->user["user"]->getPrenom();
+	$nom = $this->session->user["user"]->getNom();
+	$mail = $this->session->user["user"]->getMail();
+};
 ?>
 
 <!DOCTYPE html>
@@ -111,21 +110,56 @@ $mail = "";
 			<h2>Envoyez-nous un message :</h2>
 			<form action="<?= site_url('Contact/sendmessage') ?>" method="post">
 				<div id="top">
-					<input type="text" name="prenom" placeholder="Votre prénom" value=<?= $prenom ?>>
-					<input type="text" name="nom" placeholder="Votre nom" value=<?= $nom ?>>
+					<input type="text" name="prenom" placeholder="Votre prénom" value="<?= $prenom ?>">
+					<input type="text" name="nom" placeholder="Votre nom" value="<?= $nom ?>">
 				</div>
-				<input id="mail" type="email" name="mail" placeholder="Votre mail" value=<?= $mail ?>>
+				<input id="mail" type="email" name="mail" placeholder="Votre mail" value="<?= $mail ?>">
 				<input type="text" name="objet" placeholder="Objet">
 				<textarea name="message" rows="5" placeholder="Ecrivez votre message ici !"></textarea>
 				<input type="submit" value="Envoyer">
 			</form>
 		</div>
-
-
-
-
-
 	</div>
+
+	<footer class="footer">
+     <div class="container">
+      <div class="row">
+        <div class="footer-col">
+          <h4>Notre entreprise</h4>
+          <ul>
+            <li><a href="<?= site_url('APropos') ?>">A propos</a></li>
+            <li><a href="<?= site_url('Contact') ?>">Nous contacter</a></li>
+            <li><a href="<?= site_url('CGU') ?>">CGU</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Plus d'infos</h4>
+          <ul>
+            <li><a href="<?= site_url('Connexion') ?>">Mon compte</a></li>
+            <li><a href="<?= site_url('Panier') ?>">Mon panier</a></li>
+            <li><a href="<?= site_url('Connexion') ?>">Mes commandes</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>La boutique</h4>
+          <ul>
+            <li><a href="<?= site_url('Boutique') ?>" onclick="meilleuresVentes()">Meilleures ventes</a></li>
+            <li><a href="<?= site_url('Boutique') ?>">Fruits de saison</a></li>
+            <li><a href="<?= site_url('Boutique') ?>">Promotion</a></li>
+            <li><a href="<?= site_url('Boutique') ?>">Indisponibles</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Mentions légales</h4>
+            <p>Fruits en ligne est une société anonyme (SA) au capital social de 100 000 euros.
+            Les prix sont indiqués en euros et n'incluent pas la TVA. 
+            Les frais de livraison sont en sus et varient en fonction de la destination et du mode de livraison choisi.
+            </p>
+        </div>
+      </div>
+     </div>
+  </footer>
+
 </body>
 
 </html>
