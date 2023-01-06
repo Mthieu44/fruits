@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr" style="background-image: none;">
+<html lang="fr">
 
 <head>
 	<meta charset="UTF-8">

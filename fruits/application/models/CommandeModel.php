@@ -1,4 +1,5 @@
 <?php
+
 class CommandeModel extends CI_Model
 {
     function findAll(){
@@ -72,17 +73,20 @@ class CommandeModel extends CI_Model
 	function CreerCommandePanier($adresse)
     {
 		if (isset($this->session->panier)) {
+            $this->session->set_userdata("panier", array());
 			if (isset($this->session->user)){
 				$today = getdate();
-				$date = $today['wday'].'-'.$today['mon'].'-'.$today['year'] .' '.$today['hours'].'h'.$today['minutes'];
+				$date = $today['wday'].'-'.$today['mon'].'-'.$today['year'] .' '.$today['minutes'].'h'.$today['seconds'];
 				$sql = 'CALL addCommande(?,?,?,?)';
 				$q = $this->db->query($sql, array($this->session->user["user"]->getId_user(),$date ,$this->session->total,$adresse));
 				$id = $q->result()[0]->id_commande;
 				$q->next_result();
         		$q->free_result();
-				foreach ($this->session->panier as $fruit){
+
+				$panier = $this->session->panier;
+				foreach ($panier as $fruit){
 					$sql = 'CALL  addFruitToCommande(?,?,?)';
-					$q = $this->db->query($sql, array($id,$fruit->id ,$fruit->quantity));
+					$q = $this->db->query($sql, array($id,$fruit->id ,$fruit->quantite));
 					$q->next_result();
         			$q->free_result();
 				}

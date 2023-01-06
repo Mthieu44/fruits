@@ -10,6 +10,9 @@
     <?php require('loader.php'); ?>
     <style>
         <?php include 'css/style.css';?><?php include 'css/home.css';?><?php include 'css/boutique.css';?><?php include 'css/panierside.css';?>
+        <?php include 'https: //cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css';?>
+        <?php include 'js/dialog-master/css/dialog.css'
+		?>
     </style>
 </head>
 
@@ -70,10 +73,10 @@
         </header>
 
         <div id="voletFleche" onclick="flechePanier()">
-				<img id="voletFlecheImage" src="<?= base_url('img/back_orange.png') ?>" alt="flechePanier" />
+				<img id="voletFlecheImage" src="<?= base_url('img/back_green.png') ?>" alt="flechePanier" />
 				<svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="40.000000pt" height="40.000000pt"
 					viewBox="0 0 400.000000 400.000000" preserveAspectRatio="xMidYMid meet">
-					<g transform="translate(0.000000,400.000000) scale(0.100000,-0.100000)" fill="#e8523a"
+					<g transform="translate(0.000000,400.000000) scale(0.100000,-0.100000)" fill="#7dd181"
 						stroke="none">
 						<path
 							d="M1990 3530 c0 -6 -27 -10 -60 -10 -33 0 -60 -4 -60 -10 0 -5 -13 -10 -30 -10 -16 0 -30 -4 -30 -10 0 -5 -11 -10 -25 -10 -14 0 -25 -4 -25 -10 0 -5 -9 -10 -20 -10 -11 0 -20 -4 -20 -10 0 -5 -7 -10 -15 -10 -18 0 -165 -144 -165 -162 0 -7 -11 -22 -25 -32 -17 -13 -23 -25 -20 -38 4 -12 1 -18 -9 -18 -11 0 -16 -9 -16 -30 0 -16 -4 -30 -10 -30 -5 0 -10 -24 -10 -54 0 -30 -4 -58 -10 -61 -6 -4 -10 -113 -10 -296 l0 -289 40 -40 c35 -35 46 -40 85 -40 25 0 45 4 45 9 0 5 10 11 23 13 14 2 23 11 25 26 2 12 8 22 13 22 5 0 9 122 9 300 0 193 4 300 10 300 6 0 10 9 10 20 0 11 5 20 10 20 6 0 10 9 10 19 0 10 7 21 15 25 8 3 15 12 15 21 0 8 18 34 40 56 22 23 40 45 40 50 0 5 11 9 25 9 14 0 25 5 25 10 0 6 9 10 20 10 11 0 20 5 20 10 0 6 20 10 45 10 25 0 45 5 45 10 0 6 20 10 45 10 25 0 45 -4 45 -10 0 -5 16 -10 35 -10 19 0 35 -4 35 -10 0 -5 11 -10 25 -10 14 0 25 -4 25 -10 0 -5 9 -10 20 -10 11 0 20 -3 20 -7 0 -10 45 -63 54 -63 15 0 56 -51 56 -70 0 -11 5 -20 10 -20 6 0 10 -9 10 -20 0 -11 5 -20 10 -20 6 0 10 -107 10 -300 0 -193 4 -300 10 -300 6 0 10 -7 10 -15 0 -9 7 -18 15 -21 8 -4 15 -10 15 -16 0 -5 6 -16 14 -24 17 -16 106 -20 106 -4 0 6 11 10 25 10 20 0 25 5 25 25 0 14 5 25 10 25 6 0 10 113 10 320 0 207 -4 320 -10 320 -5 0 -10 20 -10 45 0 25 -4 45 -10 45 -5 0 -10 9 -10 20 0 11 -4 20 -10 20 -5 0 -10 11 -10 25 0 16 -6 25 -16 25 -8 0 -12 5 -9 10 4 6 -10 27 -29 46 -20 20 -36 40 -36 45 0 5 -5 9 -10 9 -14 0 -80 66 -80 80 0 5 -11 10 -25 10 -14 0 -25 5 -25 10 0 6 -7 10 -15 10 -8 0 -15 5 -15 10 0 6 -11 10 -25 10 -14 0 -25 5 -25 10 0 6 -11 10 -24 10 -14 0 -28 5 -31 10 -3 6 -33 10 -65 10 -32 0 -62 5 -65 10 -3 6 -26 10 -51 10 -24 0 -44 -4 -44 -10z" />
@@ -123,8 +126,14 @@
                     <h1>Bienvenue !</h1>
                     <h1>Salivez, cliquez, mangez !</h1>
                     <p>
-                    Bienvenue sur Fruits, votre destination de choix pour acheter des fruits frais en ligne !
-                    Nous sommes ravis de vous accueillir sur notre site et de vous présenter notre gamme de produits.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                        eiusmod tempor incididunt ut labore et dolore magna Lorem ipsum
+                        dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                        incididunt ut labore et dolore magna Lorem ipsum dolor sit amet,
+                        consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna Lorem ipsum dolor sit amet, consectetur
+                        adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                        dolore magna
                     </p>
                 </div>
             </div>
@@ -132,12 +141,10 @@
             <div class="sliderinside">
                 <img src="<?= base_url('img/acceuil2.jpg') ?>" alt="image accueil" class="sliderimage" />
                 <div class="slidertext">
-                    <h1>Notre démarche :</h1>
+                    <h1>Bienvenue !</h1>
                     <h1>Des fruits frais, toute l'année !</h1>
                     <p>
-                    Chez Fruits, nous avons à coeur de proposer des fruits de qualité supérieure, issus de producteurs locaux et responsables.
-                    Nous sélectionnons soigneusement chaque fruit pour vous garantir un goût et une fraîcheur exceptionnels. 
-                    Vous trouverez sur notre site une grande variété de fruits, allant des classiques pommes et bananes aux exotiques mangues et litchis. 
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna 
                     </p>
                 </div>
             </div>
@@ -145,13 +152,10 @@
             <div class="sliderinside">
                 <img src="<?= base_url('img/acceuil3.jpg') ?>" alt="image accueil" class="sliderimage" />
                 <div class="slidertext">
-                    <h1>Nouveautés 2023 !</h1>
-                    <h1>Découvrez notre nouvelle sélection de fruits</h1>
-                    <p>                    
-                        Toute l'équipe de Fruits vous souhaite une banané 2023 !
-                        A cette occasion, nous avons étoffé notre gamme de bananes pour vous permettre de passer l'hiver sereinement. 
-                        Vous trouverez différentes espèces qui vous feront voyager aux quatre coins du globe : Créole, Cavendish,
-                        kankanbou, serpent, banane corne, makandja, figue rose, figue café, popoulou et bien plus encore !
+                    <h1>Bienvenue !</h1>
+                    <h1>Salivez, cliquez, mangez vos fruits!</h1>
+                    <p>
+                    Lorem ipsum dolor sit amet, tempor incididunt ut labore et dolore magna Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna 
                     </p>
                 </div>
             </div>
@@ -254,74 +258,46 @@
             </div>
         </div>
 
-    <div class="info">
-        <div class="infoPart">
-        <img src="<?= base_url('img/panier2.png') ?>" alt="">
-            <h1>Livraisons de qualité</h1>
-            <p>Nous mettons tout en œuvre pour que votre commande vous soit livrée dans les meilleurs délais, tout en veillant à ce que les fruits soient transportés dans des conditions optimales pour leur conservation. </p>
+        <div class="info">
+            <div class="infoPart">
+            <img src="" alt="">
+                <h1>Livraisons à emporter</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna </p>
+            </div>
+            <div class="barv"></div>
+            <div class="infoPart">
+            <img src="" alt="">
+                <h1>Livraisons rapides</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna </p>
+            </div>
+            <div class="barv"></div>
+            <div class="infoPart">
+                <img src="" alt="">
+                <h1>Règels de sécurité</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna </p>
+            </div>
+
         </div>
-        <div class="barv"></div>
-        <div class="infoPart">
-        <img src="<?= base_url('img/camion.png') ?>" alt="">
-            <h1>Livraisons rapides</h1>
-            <p>Nous avons également mis en place un système de suivi de commande en ligne, afin que vous puissiez suivre l'acheminement de votre colis à tout moment, et le recevoir rapidement. </p>
-        </div>
-        <div class="barv"></div>
-        <div class="infoPart">
-            <img src="<?= base_url('img/masque.png') ?>" alt="">
-            <h1>Règles de sécurité</h1>
-            <p>Nous disposons de plusieurs mesures pour assurer la sécurité sanitaire de vos fruits lors de leur transport et de leur stockage. Nous veillons à ce qu'ils soient stockés dans des conditions optimales de température et d'humidité pour garantir leur fraîcheur et leur qualité. </p>
-        </div>
+
+        <footer>
+                <a href="<?= site_url('home/ConditionsGenerales') ?>">
+                    Conditions générales d'utilisation
+                                    </a>
+                <p>
+                    Tous droits réservés.
+                </p>    
+        </footer>
     </div>
 
-    <footer class="footer">
-     <div class="container">
-      <div class="row">
-        <div class="footer-col">
-          <h4>Notre entreprise</h4>
-          <ul>
-            <li><a href="<?= site_url('APropos') ?>">A propos</a></li>
-            <li><a href="<?= site_url('Contact') ?>">Nous contacter</a></li>
-            <li><a href="<?= site_url('CGU') ?>">CGU</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Plus d'infos</h4>
-          <ul>
-            <li><a href="<?= site_url('Connexion') ?>">Mon compte</a></li>
-            <li><a href="<?= site_url('Panier') ?>">Mon panier</a></li>
-            <li><a href="<?= site_url('Connexion') ?>">Mes commandes</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>La boutique</h4>
-          <ul>
-            <li><a href="<?= site_url('Boutique') ?>" onclick="meilleuresVentes()">Meilleures ventes</a></li>
-            <li><a href="<?= site_url('Boutique') ?>">Fruits de saison</a></li>
-            <li><a href="<?= site_url('Boutique') ?>">Promotion</a></li>
-            <li><a href="<?= site_url('Boutique') ?>">Indisponibles</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-            <h4>Mentions légales</h4>
-            <p>Fruits en ligne est une société anonyme (SA) au capital social de 100 000 euros.
-            Les prix sont indiqués en euros et n'incluent pas la TVA. 
-            Les frais de livraison sont en sus et varient en fonction de la destination et du mode de livraison choisi.
-            </p>
-        </div>
-      </div>
-     </div>
-  </footer>
-</div>
 </body>
 
 <script type="text/javascript" src="<?= base_url('js/sliderProduit.js') ?>"></script>
 </html>
 
+<script type="text/javascript" src="<?= base_url('js/dialog-master/js/dialog.js') ?>"></script>
 <script type="text/javascript" src="<?= base_url('js/carrousel.js') ?>"></script>
 <script type="text/javascript" src="<?= base_url('js/loader.js') ?>"></script>
 <script type="text/javascript" src="<?= base_url('js/panierDroite.js') ?>"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.0/axios.min.js"></script>
 <script type="text/javascript" src="<?= base_url('js/panierVues.js') ?>"></script>
-<script type="text/javascript" src="<?= base_url('js/rechercheRapide.js') ?>"></script>

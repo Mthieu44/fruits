@@ -71,10 +71,7 @@ td button{
 
 .totalPanier{
     display: flex;
-    justify-content: center;
-    align-items: center;
     gap: 40px;
-    margin-top: 25xp;
 }
 
 
@@ -84,9 +81,3 @@ button[disabled]{
   background-color: #cccccc;
   color: #666666;
 }
-
-.main h2{
-    margin-top: 30px;
-    margin-bottom: 20px;
-}
-

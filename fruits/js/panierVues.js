@@ -1,4 +1,4 @@
-let url = 'http://srv-infoweb/~E210826J/equipe2-1/fruits/'
+let url = "http://srv-infoweb/~E216351P/fruits/"
 
 const vue = new Vue({
     data: () => {
@@ -25,6 +25,7 @@ const vue = new Vue({
             let tab = []
             this.fruits.forEach(fruit => {
                 fruit.category.forEach(el => {
+                    console.log(el.nom)
                     if (el.nom == "Meilleures Ventes") {
                         if (!tab.includes(fruit)) {
                             tab.push(fruit)
@@ -38,6 +39,7 @@ const vue = new Vue({
             let tab = []
             this.fruits.forEach(fruit => {
                 fruit.category.forEach(el => {
+                    console.log(el.nom)
                     if (el.nom == "Fruits de saison") {
                         if (!tab.includes(fruit)) {
                             tab.push(fruit)
@@ -310,14 +312,21 @@ const vue = new Vue({
         },
 
         totalQuantityPanier(n, id) {
-
             let quantity = 0
             for (let i = 0; i < this.panier.length; i++) {
                 if (this.panier[i].id_fruit == id) {
                     this.panier[i].quantity += n;
                     quantity = this.panier[i].quantity
-                    if (this.panier[i].quantity < 0) {
-                        this.panier[i].quantity = 0; // Rajouter une pop up ou autre pour prévenir que mettre une quantity à 0 va supprimer le produit du panier.
+                    if (this.panier[i].quantity <= 0) {
+                        // Rajouter une pop up ou autre pour prévenir que mettre une quantity à 0 va supprimer le produit du panier.
+                        Dialog.confirm('Voulez vous vraiment supprimer le produit de votre panier ?', 'Question', (dlg) => {
+                            this.panier.splice(i, 1);
+                            this.ajouterAuPanierSession(id, -1);
+                            dlg.close();
+                          }, (dlg) => {
+                            this.panier[i].quantity = 1;
+                            dlg.close();
+                          });
                     }
                 }
             }

@@ -18,10 +18,11 @@ html {
     border-radius: 20px;
     width: 40%;
     height: auto;
+    position: fixed;
+    top: 50vh;
+    left: 50vw;
+    transform: translate(-50%, -45%);
     padding: 20px;
-    margin: auto;
-    margin-top: 50px;
-    margin-bottom: 50px;
     min-width: 800px;
 }
 

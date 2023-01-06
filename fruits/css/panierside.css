@@ -21,9 +21,9 @@
 #panierVolet{
 	position: fixed;
 	padding-bottom:10vh;
-	right: -400px;
+	right: -20%;
 	height: 100vh;
-    width: 400PX;
+	width: 20%;
 	background-color: wheat;
 	z-index: 9;
 	transition: 0.5s ease-in-out;
@@ -102,7 +102,7 @@
 }
 
 .cardMini{
-    width: 350px;
+    width: 100%;
     height: 120px;
     border:2px solid #959595;
     border-radius: 19px;
