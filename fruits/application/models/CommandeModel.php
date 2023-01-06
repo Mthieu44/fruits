@@ -1,5 +1,7 @@
 <?php
 
+require APPPATH . DIRECTORY_SEPARATOR . 'models' . DIRECTORY_SEPARATOR . "FruitHistoEntity.php";
+
 class CommandeModel extends CI_Model
 {
     function findAll(){
@@ -27,15 +29,8 @@ class CommandeModel extends CI_Model
 		$response = array();
 		
 		foreach ($q->result() as $row){
-			$fruit = new FruitEntity();
-			$fruit->setId_fruit($row->id_fruit);
-			$fruit->setNom($row->nom);
-			$fruit->setPrix($row->prix);
-			$fruit->setDescription($row->description);
-			$fruit->setImage($row->image);
-			$fruit->setOrigine($row->origine);
-			$fruit->quantity = $row->quantity;
-			$fruit->id_commande = $row->id_commande;
+			$fruit = new FruitHistoEntity($row->id_commande,$row->id_fruit,$row->nom,$row->prix,$row->image,$row->quantity);
+			
 			array_push($response, $fruit);
 		}
 		$q->next_result();

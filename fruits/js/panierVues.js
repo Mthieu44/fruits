@@ -319,7 +319,7 @@ const vue = new Vue({
                     quantity = this.panier[i].quantity
                     if (this.panier[i].quantity <= 0) {
                         // Rajouter une pop up ou autre pour prévenir que mettre une quantity à 0 va supprimer le produit du panier.
-                        Dialog.confirm('Voulez vous vraiment supprimer le produit de votre panier ?', 'Question', (dlg) => {
+                        Dialog.confirm('Voulez vous vraiment supprimer le produit de votre panier ?', "Confirmation",(dlg) => {
                             this.panier.splice(i, 1);
                             this.ajouterAuPanierSession(id, -1);
                             dlg.close();
