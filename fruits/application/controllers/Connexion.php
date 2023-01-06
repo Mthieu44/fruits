@@ -24,6 +24,7 @@ class Connexion extends CI_Controller
 
     function index()
     {
+        $data['fruitsCommandes'] = array();
         $in = $this->session->flashdata('in');
         if ($in == 1) {
             $this->load->view('ConnexionView', array('msg' => "Identifiants invalides"));
@@ -32,17 +33,30 @@ class Connexion extends CI_Controller
                 $data['users'] = $this->UserModel->findAll();
                 $data['fruits'] = $this->FruitModel->findAll();
                 $data['commandes'] = $this->CommandeModel->findById_User($this->session->user["user"]->getId_user());
+                
+                foreach ($data['commandes'] as $c){
+                    array_push($data['fruitsCommandes'],$this->CommandeModel->getFruitFrom_IdCommande($c->id_commande));
+                }
+            
+
                 $this->load->view('ClientView', $data);
                 $this->load->view('ResponsableView');
                 $this->load->view('AdminView');
             } elseif ($this->session->user["user"]->getStatus() == 'responsable') {
                 $data['fruits'] = $this->FruitModel->findAll();
                 $data['commandes'] = $this->CommandeModel->findById_User($this->session->user["user"]->getId_user());
+                foreach ($data['commandes'] as $c){
+                    $data['fruitsCommandes'] = $this->CommandeModel->getFruitFrom_IdCommande($c->id_commande);
+                }
+
                 $this->load->view('ClientView', $data);
                 $this->load->view('ResponsableView');
             } elseif ($this->session->user["user"]->getStatus() == 'client') {
                 $users = $this->UserModel->findAll();
                 $data['commandes'] = $this->CommandeModel->findById_User($this->session->user["user"]->getId_user());
+                foreach ($data['commandes'] as $c){
+                    $data['fruitsCommandes'] = $this->CommandeModel->getFruitFrom_IdCommande($c->id_commande);
+                }
                 $this->load->view('ClientView', $data);
             }
         } else {

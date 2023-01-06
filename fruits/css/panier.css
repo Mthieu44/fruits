@@ -1,13 +1,11 @@
-
 html {
 	background-color: var(--orange-100);
 }
 
-
-
 th{
     width: 500px;
     border: none;
+    padding: 10px;
 }
 
 
@@ -25,6 +23,9 @@ table{
     border-collapse:collapse;
     width: 70%;
     margin: auto;
+    border-radius: 20px;
+    background-color: white;
+    padding: 10px;
 }
 
 .right img{
@@ -34,7 +35,7 @@ table{
 td{
     text-align: center;
     border: none;
-
+    padding: 5px;
 }
 
 td button{
@@ -48,8 +49,9 @@ td button{
 }
 
 .left img{
-    height: 150px;
+    height: 200px;
     margin-right: 10px;
+    padding: 20px;
 }
 
 .empty{
@@ -58,9 +60,9 @@ td button{
     margin-bottom: 50px;
 }
 
-.fruitDansPanier{
-    background-color: white;
-    border: 1px solid gray;
+.fruitDansPanier{width: 100%;
+    border-radius: 20px;
+    padding: 10px;
     border-radius: 20px;
 
 }
@@ -74,7 +76,7 @@ td button{
     justify-content: center;
     align-items: center;
     gap: 40px;
-    margin-top: 25xp;
+    margin-top: 35px;
 }
 
 
@@ -90,3 +92,6 @@ button[disabled]{
     margin-bottom: 20px;
 }
 
+.main {
+    min-height: 100vh;
+}
