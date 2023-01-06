@@ -5,7 +5,6 @@ class sliderProduit {
   constructor(insideSlider) {
     this.pos = 3
     this.slider = document.getElementsByClassName(insideSlider)
-    this.posMax = this.slider.length
   }
 
   slideLeft() {
@@ -18,11 +17,9 @@ class sliderProduit {
   
   showCartes(n) {
     this.pos += n;
-    if (this.pos < 3) {this.pos = this.posMax - 3}
-    if (this.pos > this.posMax - 3) {this.pos = 3}
-    this.posMax = this.slider.length
-    if (this.posMax % 2 == 1) {this.posMax += 1}
-    let align = -220 * this.pos + 110 * this.posMax
+    if (this.pos < 3) {this.pos = this.slider.length - 2}
+    if (this.pos > this.slider.length - 2) {this.pos = 3}
+    let align = -220 * this.pos + 110 * (this.slider.length + 1)
     for (let i = 0; i < this.slider.length; i++) {
       this.slider[i].style.transform = `translate(${align}px, 0)`
     }

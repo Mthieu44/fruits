@@ -328,4 +328,3 @@
 <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.0/axios.min.js"></script>
 <script type="text/javascript" src="<?= base_url('js/panierVues.js') ?>"></script>
-<script type="text/javascript" src="<?= base_url('js/rechercheRapide.js') ?>"></script>

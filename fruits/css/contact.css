@@ -11,7 +11,7 @@ html {
 .content{
     margin: auto;
     margin-top: 75px;
-    margin-bottom: 75px;
+    margin-bottom: 100px;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;

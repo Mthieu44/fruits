@@ -153,8 +153,7 @@
                 <hr class="line">
                 <div class="top-text">
                     <h2>Meilleures ventes</h2>
-                    <p class="p01">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna </p>
+                    <p class="p01">Voici une selection de nos {{meilleuresVentes.length}} meilleures ventes ! </p>
                 </div>
             </div>
 
@@ -163,7 +162,7 @@
                 <img src="<?= base_url('img/back.png') ?>" class="fleche leftfix" alt="back" onclick="slideBestsellers.slideLeft()" />
                 
                 <div class="slider-inside-bestsellers" id="slider-bestsellers">
-                    <div v-for="fruit in fruits" v-bind:key="fruit.id_fruit">
+                    <div v-for="fruit in meilleuresVentes" v-bind:key="fruit.id_fruit">
                         <div class="card card-product-top">
                         <a :href="getProduct(fruit.id_fruit)">
                                 <img :src="getImg(fruit.id_fruit)" alt="image du fruit" />
@@ -193,6 +192,45 @@
                 <div class="slider-hider rightfix"></div>
             </div>
         </div>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="footer-col">
+                    <h4>Notre entreprise</h4>
+                    <ul>
+                        <li><a href="<?= site_url('APropos') ?>">A propos</a></li>
+                        <li><a href="<?= site_url('Contact') ?>">Nous contacter</a></li>
+                        <li><a href="<?= site_url('CGU') ?>">CGU</a></li>
+                    </ul>
+                    </div>
+                    <div class="footer-col">
+                    <h4>Plus d'infos</h4>
+                    <ul>
+                        <li><a href="<?= site_url('Connexion') ?>">Mon compte</a></li>
+                        <li><a href="<?= site_url('Panier') ?>">Mon panier</a></li>
+                        <li><a href="<?= site_url('Connexion') ?>">Mes commandes</a></li>
+                    </ul>
+                    </div>
+                    <div class="footer-col">
+                    <h4>La boutique</h4>
+                    <ul>
+                        <li><a href="<?= site_url('Boutique') ?>" onclick="meilleuresVentes()">Meilleures ventes</a></li>
+                        <li><a href="<?= site_url('Boutique') ?>">Fruits de saison</a></li>
+                        <li><a href="<?= site_url('Boutique') ?>">Promotion</a></li>
+                        <li><a href="<?= site_url('Boutique') ?>">Indisponibles</a></li>
+                    </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Mentions légales</h4>
+                        <p>Fruits en ligne est une société anonyme (SA) au capital social de 100 000 euros.
+                        Les prix sont indiqués en euros et n'incluent pas la TVA. 
+                        Les frais de livraison sont en sus et varient en fonction de la destination et du mode de livraison choisi.
+                            </p>    
+                    </div>
+                </div>
+            </div>
+        </footer>
     </div>    
 </body>
 
