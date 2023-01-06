@@ -1,20 +1,3 @@
-
-<?php
-
-$prenom = "";
-$nom = "";
-$mail = "";
-$adresse = "";
-$telephone = "";
-    if (isset($this->session->user)) {
-        $prenom = $this->session->user["user"]->getPrenom();
-        $nom = $this->session->user["user"]->getNom();
-        $mail = $this->session->user["user"]->getMail();
-        $adresse = $this->session->user["user"]->getAdresse();
-        $telephone = $this->session->user["user"]->getTelephone();
-    };
-?>
-
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -118,21 +101,20 @@ $telephone = "";
 							<div class="row">
 								<div class="col">
 									<label for="prenom">Prenom :</label>
-									<input id="prenom" type="text" name="prenom" placeholder="Votre prénom"
-										value=<?= $prenom ?>>
+									<input id="prenom" type="text" name="prenom" placeholder="Votre prénom" value="<?= $this->session->user["user"]->getPrenom() ?>">
 								</div>
 								<div class="col">
 									<label for="nom">Nom :</label>
-									<input type="text" id="nom" name="nom" placeholder="Votre nom" value=<?= $nom ?>>
+									<input type="text" id="nom" name="nom" placeholder="Votre nom" value="<?= $this->session->user["user"]->getNom() ?>">
 								</div>
 							</div>
 
 							<label for="mail">Email :</label>
-							<input id="mail" type="email" name="mail" placeholder="Votre mail" value=<?= $mail ?>>
+							<input id="mail" type="email" name="mail" placeholder="Votre mail" value="<?= $this->session->user["user"]->getMail() ?>">
 							<label for="adresse">Adresse :</label>
-							<input type="text" id="adresse" name="adresse" placeholder="Adresse" value=<?= $adresse ?>>
+							<input type="text" id="adresse" name="adresse" placeholder="Adresse" value="<?= $this->session->user["user"]->getAdresse() ?>">
 							<label for="telephone">Telephone :</label>
-							<input type="text" id="telephone" name="objet" placeholder="Telephone" value=<?= $telephone ?>>
+							<input type="text" id="telephone" name="objet" placeholder="Telephone" value="<?= $this->session->user["user"]->getTelephone() ?>">
 						</div>
 						<div class="buttons">
 							<button type="button" class="prev-btn" onclick="window.location='<?= site_url('Panier') ?>';">Précédent</button>

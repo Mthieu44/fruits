@@ -93,15 +93,22 @@
 			</nav>
 		</header>
 		
-		<div class="uppercontent">
+		<div class="uppercontent" id="contentend">
 			<div class="content">
 				<h2> Merci <?= $this->session->user["user"]->getPrenom()?> ! </h2>
 				<div class="commandend">
-					<p> Votre commande à été passé avec succès ! Merci pour votre achat c: </p>
-					<div class="row">
-						<button onclick="window.location='<?= site_url('Connexion') ?>';"> Historique des commandes </button>
-						<button onclick="window.location='<?= site_url('Boutique') ?>';"> Boutique </button>
+					<h2> Votre commande à été passé avec succès ! Merci pour votre achat !</h2>
+					<div class="lowercontent">
+						<p class="p01"> Vous pouvez consulter votre historique de commandes ici :</p>
+						<button class="next-btn" onclick="window.location='<?= site_url('Connexion') ?>';"> Historique des commandes </button>
 					</div>
+					<div class="lowercontent">
+						<p class="p01"> Continuez vos achats ici :</p>
+						<button class="next-btn" onclick="window.location='<?= site_url('Boutique') ?>';"> Boutique </button>
+					</div>
+				</div>
+				<div class="progress-bar">
+					<div id="progress-bar4" class="progress-bar"></div>
 				</div>
 			</div>
 		</div>
