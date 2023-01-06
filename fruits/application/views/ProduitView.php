@@ -200,6 +200,8 @@
 </html>
 
 
+<script type="text/javascript" src="<?= base_url('js/dialog-master/js/dialog.js') ?>"></script>
+<script type="text/javascript" src="<?= base_url('js/dialog-master/js/dialog-polyfill.js') ?>"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.0/axios.min.js"></script>
 <script type="text/javascript" src="<?= base_url('js/loader.js') ?>"></script>

@@ -10,6 +10,9 @@
     <?php require('loader.php'); ?>
     <style>
         <?php include 'css/style.css';?><?php include 'css/home.css';?><?php include 'css/boutique.css';?><?php include 'css/panierside.css';?>
+        <?php include 'https: //cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css';?>
+        <?php include 'js/dialog-master/css/dialog.css'
+		?>
     </style>
 </head>
 
@@ -147,7 +150,7 @@
                 <div class="slidertext">
                     <h1>Nouveautés 2023 !</h1>
                     <h1>Découvrez notre nouvelle sélection de fruits</h1>
-                    <p>                    
+                    <p>
                         Toute l'équipe de Fruits vous souhaite une banané 2023 !
                         A cette occasion, nous avons étoffé notre gamme de bananes pour vous permettre de passer l'hiver sereinement. 
                         Vous trouverez différentes espèces qui vous feront voyager aux quatre coins du globe : Créole, Cavendish,
@@ -254,25 +257,25 @@
             </div>
         </div>
 
-    <div class="info">
-        <div class="infoPart">
+        <div class="info">
+            <div class="infoPart">
         <img src="<?= base_url('img/panier2.png') ?>" alt="">
             <h1>Livraisons de qualité</h1>
             <p>Nous mettons tout en œuvre pour que votre commande vous soit livrée dans les meilleurs délais, tout en veillant à ce que les fruits soient transportés dans des conditions optimales pour leur conservation. </p>
-        </div>
-        <div class="barv"></div>
-        <div class="infoPart">
+            </div>
+            <div class="barv"></div>
+            <div class="infoPart">
         <img src="<?= base_url('img/camion.png') ?>" alt="">
-            <h1>Livraisons rapides</h1>
+                <h1>Livraisons rapides</h1>
             <p>Nous avons également mis en place un système de suivi de commande en ligne, afin que vous puissiez suivre l'acheminement de votre colis à tout moment, et le recevoir rapidement. </p>
-        </div>
-        <div class="barv"></div>
-        <div class="infoPart">
+            </div>
+            <div class="barv"></div>
+            <div class="infoPart">
             <img src="<?= base_url('img/masque.png') ?>" alt="">
             <h1>Règles de sécurité</h1>
             <p>Nous disposons de plusieurs mesures pour assurer la sécurité sanitaire de vos fruits lors de leur transport et de leur stockage. Nous veillons à ce qu'ils soient stockés dans des conditions optimales de température et d'humidité pour garantir leur fraîcheur et leur qualité. </p>
         </div>
-    </div>
+            </div>
 
     <footer class="footer">
      <div class="container">
@@ -307,17 +310,18 @@
             <p>Fruits en ligne est une société anonyme (SA) au capital social de 100 000 euros.
             Les prix sont indiqués en euros et n'incluent pas la TVA. 
             Les frais de livraison sont en sus et varient en fonction de la destination et du mode de livraison choisi.
-            </p>
+                </p>    
         </div>
       </div>
      </div>
-  </footer>
-</div>
+        </footer>
+    </div>
 </body>
 
 <script type="text/javascript" src="<?= base_url('js/sliderProduit.js') ?>"></script>
 </html>
 
+<script type="text/javascript" src="<?= base_url('js/dialog-master/js/dialog.js') ?>"></script>
 <script type="text/javascript" src="<?= base_url('js/carrousel.js') ?>"></script>
 <script type="text/javascript" src="<?= base_url('js/loader.js') ?>"></script>
 <script type="text/javascript" src="<?= base_url('js/panierDroite.js') ?>"></script>

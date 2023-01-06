@@ -15,6 +15,8 @@
 		<?php include 'css/home.css';
 		?><?php include 'css/panier.css';
 		?>
+        <?php include 'js/dialog-master/css/dialog.css'
+		?>
 
 
 	</style>
@@ -121,7 +123,12 @@
                     Valider la commande
                 </button>
                 <?php else:?>
-                    <input type="button" value="Valider la commande" onclick="window.location.href='<?= site_url('Commande') ?>';" />
+                    <div v-if = "panier.length == 0">
+                        <input type="button" value="Valider la commande" onclick="window.location.href='<?= site_url('Commande') ?>';" disabled/>
+                    </div>
+                    <div v-else>
+                        <input type="button" value="Valider la commande" onclick="window.location.href='<?= site_url('Commande') ?>';" />
+                    </div>
                 <?php endif ?>
             </div>
             
@@ -131,6 +138,7 @@
 
 </html>
 
+<script type="text/javascript" src="<?= base_url('js/dialog-master/js/dialog.js') ?>"></script>
 <script type="text/javascript" src="<?= base_url('js/loader.js') ?>"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.0/axios.min.js"></script>
