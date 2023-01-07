@@ -12,20 +12,18 @@ class FruitModel extends CI_Model
             $id = $row->id_fruit;
             $isIn = false;
             foreach ($response as $fruit) {
-                if ($fruit->getId_fruit() == $id) {
+                if ($fruit->id_fruit == $id) {
                     $isIn = true;
-                    $fruit->addCategory($row->id_categorie, $row->nomc, $row->descriptionc);
+                    $category = new CategoryEntity();
+                    $category->setId_categorie($row->id_categorie);
+                    $category->setNom($row->nomc);
+                    $category->setDescription( $row->descriptionc);
+                    array_push($fruit->category, $category);
                 }
             }
             if (!$isIn) {
-                $fruit = new FruitEntity();
-                $fruit->setId_fruit($id);
-                $fruit->setNom($row->nom);
-                $fruit->setPrix($row->prix);
-                $fruit->setDescription($row->description);
-                $fruit->setImage($row->image);
-                $fruit->setOrigine($row->origine);
-                $fruit->addCategory($row->id_categorie, $row->nomc, $row->descriptionc);
+                $fruit = new FruitEntity($id,$row->nom,$row->prix,$row->description,$row->image,
+                $row->origine,$row->id_categorie, $row->nomc, $row->descriptionc);
                 array_push($response, $fruit);
             }
         }
@@ -43,20 +41,18 @@ class FruitModel extends CI_Model
             $id = $row->id_fruit;
             $isIn = false;
             foreach ($response as $fruit) {
-                if ($fruit->getId_fruit() == $id) {
+                if ($fruit->id_fruit == $id) {
                     $isIn = true;
-                    $fruit->addCategory($row->id_categorie, $row->nomc, $row->descriptionc);
+                    $category = new CategoryEntity();
+                    $category->setId_categorie($row->id_categorie);
+                    $category->setNom($row->nomc);
+                    $category->setDescription( $row->descriptionc);
+                    array_push($fruit->category, $category);
                 }
             }
             if (!$isIn) {
-                $fruit = new FruitEntity();
-                $fruit->setId_fruit($id);
-                $fruit->setNom($row->nom);
-                $fruit->setPrix($row->prix);
-                $fruit->setDescription($row->description);
-                $fruit->setImage($row->image);
-                $fruit->setOrigine($row->origine);
-                $fruit->addCategory($row->id_categorie, $row->nomc, $row->descriptionc);
+                $fruit = new FruitEntity($id,$row->nom,$row->prix,$row->description,$row->image,
+                $row->origine,$row->id_categorie, $row->nomc, $row->descriptionc);
                 array_push($response, $fruit);
             }
         }
@@ -80,14 +76,8 @@ class FruitModel extends CI_Model
                 }
             }
             if (!$isIn) {
-                $fruit = new FruitEntity();
-                $fruit->setId_fruit($id);
-                $fruit->setNom($row->nom);
-                $fruit->setPrix($row->prix);
-                $fruit->setDescription($row->description);
-                $fruit->setImage($row->image);
-                $fruit->setOrigine($row->origine);
-                $fruit->addCategory($row->id_categorie, $row->nomc, $row->descriptionc);
+                $fruit = new FruitEntity($id,$row->nom,$row->prix,$row->description,$row->image,
+                $row->origine,$row->id_categorie, $row->nomc, $row->descriptionc);
                 array_push($response, $fruit);
             }
         }
@@ -103,13 +93,8 @@ class FruitModel extends CI_Model
         $q = $this->db->query($sql, array($nom));
         $response = array();
         foreach ($q->result() as $row) {
-            $fruit = new FruitEntity();
-            $fruit->setId_fruit($row->id_fruit);
-            $fruit->setNom($row->nom);
-            $fruit->setPrix($row->prix);
-            $fruit->setDescription($row->description);
-            $fruit->setImage($row->image);
-            $fruit->setOrigine($row->origine);
+            $fruit = new FruitEntity($id,$row->nom,$row->prix,$row->description,$row->image,
+            $row->origine,null, null, null); // ne rentre pas dans la condition dans FruitEntity donc pas de categorie
             array_push($response, $fruit);
         }
         $q->next_result();

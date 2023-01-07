@@ -24,11 +24,29 @@ class CommandeModel extends CI_Model
 	}
 
 	function getFruitFrom_IdCommande($id){
+		$fruits = $this->FruitModel->findAll();
 		$sql = 'CALL getFruitFromCommande(?)';
 	    $q = $this->db->query($sql, array($id));
 		$response = array();
-		
 		foreach ($q->result() as $row){
+			foreach ($fruits as $fruit){
+				if ($row->id_fruit = $fruit->id_fruit){
+					array_push($response, new FruitCommande($fruit,$row->quantity,$row->id_commande));
+				}
+			}
+		}
+		$q->next_result();
+        $q->free_result();
+
+        return $response;
+	}
+
+	/*function getFruitFrom_IdCommande($id){
+		$sql = 'CALL getFruitFromCommande(?)';
+	    $q = $this->db->query($sql, array($id));
+		$response = array();
+		foreach ($q->result() as $row){
+			
 			$fruit = new FruitHistoEntity($row->id_commande,$row->id_fruit,$row->nom,$row->prix,$row->image,$row->quantity);
 			
 			array_push($response, $fruit);
@@ -36,7 +54,7 @@ class CommandeModel extends CI_Model
 		$q->next_result();
         $q->free_result();
         return $response;
-	}
+	}*/
 
 	function findById_User($id){
 		$sql = 'CALL getCommandebyUser(?)';

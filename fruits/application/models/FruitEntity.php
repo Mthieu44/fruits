@@ -11,87 +11,50 @@ class FruitEntity
 	public string $origine;
 	public string $image;
 
-
-	public function setId_fruit(int $id_fruit): void
-	{
-		$this->id_fruit = $id_fruit;
-	}
-
-	public function getId_fruit(): int
-	{
-		return $this->id_fruit;
-	}
-
-
-	public function setNom(string $nom): void
-	{
-		$this->nom = $nom;
-	}
-
-	public function getNom(): string
-	{
-		return $this->nom;
-	}
-
-
-	public function setPrix(string $prix): void
-	{
-		$this->prix = $prix;
-	}
-
-
-	public function getPrix(): string
-	{
-		return $this->prix;
-	}
-
-
-	public function setDescription(string $description): void
-	{
-		$this->description = $description;
-	}
-
-	public function getDescription(): string
-	{
-		return $this->description;
-	}
-
-	public function addCategory(int $idCategory, string $nom, string $description): void
-	{
-		$category = new CategoryEntity();
-		$category->setId_categorie($idCategory);
-		$category->setNom($nom);
-		$category->setDescription($description);
-		array_push($this->category, $category);
-	}
-
-	public function setCategory(array $category): void
-	{
-		$this->category = $category;
-	}
-
-	public function getCategory(): array
-	{
-		return $this->category;
-	}
-
-	public function setImage(string $image): void
-	{
-		$this->image = $image;
-	}
-
-	public function getImage(): string
-	{
-		return $this->image;
-	}
-
-	public function setOrigine(string $origine): void
-	{
+	public function __construct($id_fruit,$nom,$prix,$description,$image,$origine,
+	$id_categorie, $nomc, $descriptionc){
+        $this->id_fruit = $id_fruit;
+        $this->nom = $nom;
+        $this->prix = $prix;
+		$this->description =$description;
 		$this->origine = $origine;
-	}
+		if ($id_categorie != null){
+			$category = new CategoryEntity();
+			$category->setId_categorie($id_categorie);
+			$category->setNom($nomc);
+			$category->setDescription($descriptionc);
+			array_push($this->category, $category);
+		}
+		
+        $this->image = $image; 
 
-	public function getOrigine(): string
-	{
-		return $this->origine;
-	}
+    }
+};
+
+
+
+abstract class FruitDecorator extends FruitEntity {
 }
+
+class FruitQuantity extends FruitDecorator {
+    public $quantity;
+
+    public function __construct(FruitEntity $fruit, $quantity) {
+        parent::__construct($fruit->id_fruit,$fruit->nom,$fruit->prix,$fruit->description,$fruit->image,$fruit->origine,
+		$fruit->category[0]->id_categorie,$fruit->category[0]->nom,$fruit->category[0]->description);
+        $this->quantity = $quantity;
+    }
+}
+
+class FruitCommande extends FruitDecorator {
+    public $quantity;
+	public $id_commande;
+
+    public function __construct(FruitEntity $fruit, $quantity,$id_commande) {
+        parent::__construct($fruit->id_fruit,$fruit->nom,$fruit->prix,$fruit->description,$fruit->image,$fruit->origine,
+		$fruit->category[0]->id_categorie,$fruit->category[0]->nom,$fruit->category[0]->description);
+        $this->quantity = $quantity;
+		$this->id_commande = $id_commande;
+    }
+}
+

@@ -1,4 +1,4 @@
-let url = "http://localhost/public_html/equipe2-1/fruits/"
+let url = 'http://localhost/public_html/fruits/'
 
 const vue = new Vue({
     data: () => {
@@ -237,7 +237,7 @@ const vue = new Vue({
                 if (element.id_fruit == id) {
                     element.quantity = element.quantity + Copiedfruit.quantity
                     quantity = element.quantity
-                    console.log("Envoi fauxPanier :" + -fruit.quantity)
+                    
                     this.totalQuantity(-fruit.quantity, id)
                     fruit.quantity = 0
                     test = false
@@ -247,7 +247,7 @@ const vue = new Vue({
             });
             if (test) {
                 this.panier.push(Copiedfruit);
-                console.log("Envoi fauxPanier :" + -fruit.quantity)
+                
                 this.totalQuantity(-fruit.quantity, id)
                 fruit.quantity = 0
                 this.ajouterAuPanierSession(id, quantity);
@@ -355,19 +355,17 @@ const vue = new Vue({
         getProduct(id) {
             return url.concat("index.php/boutique/fruit/").concat(id);
         },
-        getMeilleuresVentes(){
-            this.fruits.forEach(fruit => {
-                fruit.category.forEach(el => {
-                    if (el.nom == "Meilleures Ventes") {
-                        if (!meilleuresVentes.includes(fruit)) {
-                            meilleuresVentes.push(fruit)
-                        }
-                    }
-                })
-            })
+        setSelectedCategory(category) {
+           localStorage.setItem('ventes', category);
         }
     },
+
     mounted() {
+        if (localStorage.getItem('ventes') != null) {
+            this.ventes = [localStorage.getItem('ventes')];
+            localStorage.removeItem('ventes');
+        }
+        
         axios.get(url.concat('index.php/panier/getAllFruits'))
             .then((res) => res.data)
             .then((res) => {

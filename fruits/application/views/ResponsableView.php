@@ -14,36 +14,36 @@
         <?php foreach ($fruits as $fruit) : ?>
             <tr>
                 <td>
-                    <?= $fruit->getId_fruit() ?>
+                    <?= $fruit->id_fruit ?>
                 </td>
                 <td>
-                    <?= $fruit->getNom() ?>
+                    <?= $fruit->nom ?>
                 </td>
                 <td>
-                    <?= $fruit->getDescription() ?>
+                    <?= $fruit->description ?>
                 </td>
                 <td>
-                    <?= $fruit->getPrix() ?>
+                    <?= $fruit->prix ?>
                 </td>
                 <td>
-                    <?= $fruit->getOrigine() ?>
+                    <?= $fruit->origine ?>
                 </td>
                 <td>
                     <?php
-                    foreach ($fruit->getCategory() as $category) {
-                        echo ($category->getNom() . '<br>');
+                    foreach ($fruit->category as $category) {
+                        echo ($category->nom . '<br>');
                     }
                     ?>
                 </td>
 
                 <td>
-                    <img src="<?= base_url('img/fruit/' . $fruit->getImage()) ?>" />
+                    <img src="<?= base_url('img/fruit/' . $fruit->image) ?>" />
                 </td>
                 <td>
-                    <a href="<?= site_url('Fruit/modif/' . $fruit->getId_fruit()) ?>"> modif</a>
+                    <a href="<?= site_url('Fruit/modif/' . $fruit->id_fruit) ?>"> modif</a>
                 </td>
                 <td>
-                    <a href="<?= site_url('Fruit/delete/' . $fruit->getId_fruit()) ?>"> delete</a>
+                    <a href="<?= site_url('Fruit/delete/' . $fruit->id_fruit) ?>"> delete</a>
                 </td>
             </tr>
         <?php endforeach; ?>

@@ -29,34 +29,10 @@ class Connexion extends CI_Controller
         if ($in == 1) {
             $this->load->view('ConnexionView', array('msg' => "Identifiants invalides"));
         } elseif (isset($this->session->user["user"])) {
-            if ($this->session->user["user"]->getStatus() == 'admin') {
-                $data['users'] = $this->UserModel->findAll();
-                $data['fruits'] = $this->FruitModel->findAll();
-                $data['commandes'] = $this->CommandeModel->findById_User($this->session->user["user"]->getId_user());
-                
-                foreach ($data['commandes'] as $c){
-                    array_push($data['fruitsCommandes'],$this->CommandeModel->getFruitFrom_IdCommande($c->id_commande));
-                }
-                $this->load->view('ClientView', $data);
-                $this->load->view('ResponsableView');
-                $this->load->view('AdminView');
-            } elseif ($this->session->user["user"]->getStatus() == 'responsable') {
-                $data['fruits'] = $this->FruitModel->findAll();
-                $data['commandes'] = $this->CommandeModel->findById_User($this->session->user["user"]->getId_user());
-                foreach ($data['commandes'] as $c){
-                    array_push($data['fruitsCommandes'],$this->CommandeModel->getFruitFrom_IdCommande($c->id_commande));
-                }
+            $view = new UserFactory;
+            $view2 = $view->makeUser($this->session->user["user"]->getStatus());
+            $view2->loadView();
 
-                $this->load->view('ClientView', $data);
-                $this->load->view('ResponsableView');
-            } elseif ($this->session->user["user"]->getStatus() == 'client') {
-                $users = $this->UserModel->findAll();
-                $data['commandes'] = $this->CommandeModel->findById_User($this->session->user["user"]->getId_user());
-                foreach ($data['commandes'] as $c){
-                    array_push($data['fruitsCommandes'],$this->CommandeModel->getFruitFrom_IdCommande($c->id_commande));
-                }
-                $this->load->view('ClientView', $data);
-            }
         } else {
             $this->load->view('ConnexionView');
         }
@@ -198,4 +174,105 @@ class Connexion extends CI_Controller
             redirect("Connexion");
         }
     }
+    
+};
+
+
+
+abstract class UserStrategy{
+    abstract function makeUser($statut);
 }
+
+class UserFactory extends UserStrategy {
+    function makeUser($statut){
+        switch ($statut){
+            case "client":
+                return new UserClient();
+            case "responsable":
+                return new UserResp();
+            case "admin":
+                return new UserAdmin();
+        }
+    }
+}
+
+class UserClient extends UserFactory {
+    function loadView(){
+        $CI =& get_instance();
+        $data['fruitsCommandes'] = array();
+
+        $users = $CI->UserModel->findAll();
+        $data['commandes'] = $CI->CommandeModel->findById_User($CI->session->user["user"]->getId_user());
+        foreach ($data['commandes'] as $c){
+            array_push($data['fruitsCommandes'],$CI->CommandeModel->getFruitFrom_IdCommande($c->id_commande));
+        }
+        $CI->load->view('ClientView', $data);
+    }
+}
+
+class UserResp extends UserFactory {
+    function loadView(){
+        $CI =& get_instance();
+        $data['fruitsCommandes'] = array();
+
+        $data['fruits'] = $CI->FruitModel->findAll();
+        $data['commandes'] = $CI->CommandeModel->findById_User($CI->session->user["user"]->getId_user());
+        foreach ($data['commandes'] as $c){
+            array_push($data['fruitsCommandes'],$CI->CommandeModel->getFruitFrom_IdCommande($c->id_commande));
+        }
+
+        $CI->load->view('ClientView', $data);
+        $CI->load->view('ResponsableView');
+    }
+}
+
+class UserAdmin extends UserFactory {
+    
+    function loadView(){
+        $CI =& get_instance();
+        $data['fruitsCommandes'] = array();
+
+        $data['users'] = $CI->UserModel->findAll();
+        $data['fruits'] = $CI->FruitModel->findAll();
+        $data['commandes'] = $CI->CommandeModel->findById_User($CI->session->user["user"]->getId_user());
+                
+        foreach ($data['commandes'] as $c){
+            array_push($data['fruitsCommandes'],$CI->CommandeModel->getFruitFrom_IdCommande($c->id_commande));
+        }
+        $CI->load->view('ClientView', $data);
+        $CI->load->view('ResponsableView');
+        $CI->load->view('AdminView');
+    }
+}
+
+
+
+/*
+if ($this->session->user["user"]->getStatus() == 'admin') {
+                $data['users'] = $this->UserModel->findAll();
+                $data['fruits'] = $this->FruitModel->findAll();
+                $data['commandes'] = $this->CommandeModel->findById_User($this->session->user["user"]->getId_user());
+                
+                foreach ($data['commandes'] as $c){
+                    array_push($data['fruitsCommandes'],$this->CommandeModel->getFruitFrom_IdCommande($c->id_commande));
+                }
+                $this->load->view('ClientView', $data);
+                $this->load->view('ResponsableView');
+                $this->load->view('AdminView');
+            } elseif ($this->session->user["user"]->getStatus() == 'responsable') {
+                $data['fruits'] = $this->FruitModel->findAll();
+                $data['commandes'] = $this->CommandeModel->findById_User($this->session->user["user"]->getId_user());
+                foreach ($data['commandes'] as $c){
+                    array_push($data['fruitsCommandes'],$this->CommandeModel->getFruitFrom_IdCommande($c->id_commande));
+                }
+
+                $this->load->view('ClientView', $data);
+                $this->load->view('ResponsableView');
+            } elseif ($this->session->user["user"]->getStatus() == 'client') {
+                $users = $this->UserModel->findAll();
+                $data['commandes'] = $this->CommandeModel->findById_User($this->session->user["user"]->getId_user());
+                foreach ($data['commandes'] as $c){
+                    array_push($data['fruitsCommandes'],$this->CommandeModel->getFruitFrom_IdCommande($c->id_commande));
+                }
+                $this->load->view('ClientView', $data);
+            } */

@@ -53,6 +53,31 @@ class Panier extends CI_Controller {
 	}
 	public function getAllFruits(){
 		$res = $this->FruitModel->findAll();
+		$res2 = array();
+		for ($i = 0; $i < count($res); $i++){
+			$test = true;
+			for ($j = 0; $j < count($this->session->fauxPanier); $j++){
+				if ($res[$i]->id_fruit == $this->session->fauxPanier[$j]->id){
+					$test = false;
+					if($this->session->fauxPanier[$j]->quantity > 0){
+						array_push($res2 , new FruitQuantity($res[$i],$this->session->fauxPanier[$j]->quantity));
+					}else{
+						array_push($res2 , new FruitQuantity($res[$i],0));				
+					}
+				}
+			}
+			if ($test){
+				array_push($res2 , new FruitQuantity($res[$i],0));	
+			}
+		}
+		echo json_encode($res2);
+	}
+
+}
+
+/*
+public function getAllFruits(){
+		$res = $this->FruitModel->findAll();
 		for ($i = 0; $i < count($res); $i++){
 			$test = true;
 			for ($j = 0; $j < count($this->session->fauxPanier); $j++){
@@ -71,5 +96,4 @@ class Panier extends CI_Controller {
 		}
 		echo json_encode($res);
 	}
-
-}
+*/
