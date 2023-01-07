@@ -1,4 +1,5 @@
 <?php
+
 defined('BASEPATH') or exit('No direct script access allowed');
 require APPPATH . DIRECTORY_SEPARATOR . 'models' . DIRECTORY_SEPARATOR . "UserEntity.php";
 
@@ -19,6 +20,11 @@ class APropos extends CI_Controller
         }
     }
 
+
+    /*
+    Méthode qui est exécutée lorsqu'on accède à la page "à propos".
+    et affiche la vue (vue signifie "vue en français") AProposView.
+    */
     public function index()
     {
         $this->load->helper('url');

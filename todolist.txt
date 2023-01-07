@@ -1,30 +1,27 @@
-BD:
-  - Remplir de fruits
-  - Trigger
-  - Procedure ?
-  - lien entre client et commande / panier
+Rapport :
 
-Analyse/Gestion:
-  - Réadapter schéma etc
+Anglais finis
+Attiobé à pofiner
+Management à revoir + mettre en forme
+Analyse à revoir + mettre en forme
+Patterns à faire completement
 
-Site:
-  - Carrousel
-  - page produit + Carte produit -> redesign
-  - Animation en savoir plus quand on passe la souris sur l'image d'un fruit
-  - Version mobile
-  - Voir mail pour mdp
-  - Verifier sécurité
-  - Loader avec fruit qui tourne -> https://www.youtube.com/watch?v=q76TexbMXJg
-  - Footer
-  - page aPropos avec TierList
-  - page responsable (ajouter produit avec image etc)
-  - page admin (gerer les utilisateurs)
-  - input label animation -> https://codepen.io/katrina-isabelle/pen/PQBqyq
-  - finir partie compte
-  - commande et panier
-  - CAPTCHA
 
-DESIGN PATTERN
-->singleton BD ?
-->factory pour produit en mode pour fruit avec un construct pour faire creer le produit avec la ?
-+ 
+Site :
+
+page client responsable etc
++ - sur page produit
+bug null du total panier
+lien Footer
+chargement image boutique
+formulaire meilleur verification en php 
+desactiver erreur de codeigniter etc pour la release
+
+
+
+
+patterns :
+
+template methode -> pour prix
+factory connexion -> avec le status
+decorative -> pour fruit quantity etc

@@ -1,75 +1,74 @@
-
 html {
-	background-color: var(--orange-100);
+    background-color: var(--orange-100);
 }
 
 
 
-th{
+th {
     width: 500px;
     border: none;
 }
 
 
-tr{
+tr {
     margin: 20px;
     align-items: center;
     margin-top: 30px;
 }
 
-tr:nth-child(1){
+tr:nth-child(1) {
     border: none;
 }
 
-table{
-    border-collapse:collapse;
+table {
+    border-collapse: collapse;
     width: 70%;
     margin: auto;
 }
 
-.right img{
+.right img {
     height: 35px;
 }
 
-td{
+td {
     text-align: center;
     border: none;
 
 }
 
-td button{
+td button {
     border: none;
     background-color: white;
 }
 
-.left{
+.left {
     display: flex;
     align-items: center;
 }
 
-.left img{
+.left img {
     height: 150px;
     margin-right: 10px;
 }
 
-.empty{
+.empty {
     text-align: center;
     margin-top: 50px;
     margin-bottom: 50px;
 }
 
-.fruitDansPanier{
+.fruitDansPanier {
     background-color: white;
     border: 1px solid gray;
     border-radius: 20px;
 
 }
 
-.title{
-    color : gray;
+.title {
+    color: gray;
 }
 
-.totalPanier{
+.totalPanier {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -78,8 +77,8 @@ td button{
 
 
 button:disabled,
-button[disabled]{
-  border: 1px solid #999999;
-  background-color: #cccccc;
-  color: #666666;
+button[disabled] {
+    border: 1px solid #999999;
+    background-color: #cccccc;
+    color: #666666;
 }

@@ -1,4 +1,5 @@
 <?php
+
 defined('BASEPATH') or exit('No direct script access allowed');
 require APPPATH . DIRECTORY_SEPARATOR . 'models' . DIRECTORY_SEPARATOR . "FruitEntity.php";
 require APPPATH . DIRECTORY_SEPARATOR . 'models' . DIRECTORY_SEPARATOR . "UserEntity.php";
@@ -32,13 +33,13 @@ class Fruit extends CI_Controller
     }
 
 
-    function modif($id)
+    public function modif($id)
     {
         $fruit = $this->FruitModel->findById($id);
         $this->load->view('modifFruitView', array('fruit' => $fruit));
     }
 
-    function modifFruit($id)
+    public function modifFruit($id)
     {
         $fruit = new fruitEntity();
         $fruit->setId_fruit($id);
@@ -89,13 +90,13 @@ class Fruit extends CI_Controller
         }
     }
 
-    function add()
+    public function add()
     {
         $categories = $this->CategoryModel->findAll();
         $this->load->view('addFruitView', array('categories' => $categories));
     }
 
-    function addFruit()
+    public function addFruit()
     {
         $fruit = new fruitEntity();
         $fruit->setNom($this->input->post('nom'));
@@ -123,7 +124,7 @@ class Fruit extends CI_Controller
         $config['max_size']             = 1000000000000000;
         $config['max_width']            = 2000;
         $config['max_height']           = 2000;
-        $config['overwrite']            = TRUE;
+        $config['overwrite']            = true;
         $config['file_name']            = $filename;
         $this->load->library('upload', $config);
         if (!$this->upload->do_upload('userfile')) {
@@ -134,7 +135,7 @@ class Fruit extends CI_Controller
         }
     }
 
-    function delete($id)
+    public function delete($id)
     {
         $fruit = $this->FruitModel->findById($id);
         if (is_file('./img/fruit' . DIRECTORY_SEPARATOR . $fruit->getImage())) {

@@ -3,7 +3,7 @@ let angle = 0
 function showPanier() {
     let volet = document.getElementById("panierVolet");
     volet.style.right = 0;
-    volet.style.overflow =  "scroll";
+    volet.style.overflow = "scroll";
     let fleche = document.getElementById("voletFlecheImage");
     fleche.style.transition = "0.5s ease-in-out"
     angle += 180

@@ -1,97 +1,98 @@
 <?php
+
 require_once APPPATH . DIRECTORY_SEPARATOR . 'models' . DIRECTORY_SEPARATOR . "CategoryEntity.php";
 
 class FruitEntity
-{   
+{
     public int $id_fruit;
     public string $nom;
     public string $prix;
     public string $description;
     public array $category = [];
-	public string $origine;
-	public string $image;
+    public string $origine;
+    public string $image;
 
 
-	public function setId_fruit(int $id_fruit): void
-	{
-		$this->id_fruit = $id_fruit;
-	}
+    public function setId_fruit(int $id_fruit): void
+    {
+        $this->id_fruit = $id_fruit;
+    }
 
-	public function getId_fruit(): int
-	{
-		return $this->id_fruit;
-	}
-
-
-	public function setNom(string $nom): void
-	{
-		$this->nom = $nom;
-	}
-
-	public function getNom(): string
-	{
-		return $this->nom;
-	}
+    public function getId_fruit(): int
+    {
+        return $this->id_fruit;
+    }
 
 
-	public function setPrix(string $prix): void
-	{
-		$this->prix = $prix;
-	}
+    public function setNom(string $nom): void
+    {
+        $this->nom = $nom;
+    }
+
+    public function getNom(): string
+    {
+        return $this->nom;
+    }
 
 
-	public function getPrix(): string
-	{
-		return $this->prix;
-	}
+    public function setPrix(string $prix): void
+    {
+        $this->prix = $prix;
+    }
 
 
-	public function setDescription(string $description): void
-	{
-		$this->description = $description;
-	}
+    public function getPrix(): string
+    {
+        return $this->prix;
+    }
 
-	public function getDescription(): string
-	{
-		return $this->description;
-	}
 
-	public function addCategory(int $idCategory, string $nom, string $description): void
-	{
-		$category = new CategoryEntity();
-		$category->setId_categorie($idCategory);
-		$category->setNom($nom);
-		$category->setDescription($description);
-		array_push($this->category, $category);
-	}
+    public function setDescription(string $description): void
+    {
+        $this->description = $description;
+    }
 
-	public function setCategory(array $category): void
-	{
-		$this->category = $category;
-	}
+    public function getDescription(): string
+    {
+        return $this->description;
+    }
 
-	public function getCategory(): array
-	{
-		return $this->category;
-	}
+    public function addCategory(int $idCategory, string $nom, string $description): void
+    {
+        $category = new CategoryEntity();
+        $category->setId_categorie($idCategory);
+        $category->setNom($nom);
+        $category->setDescription($description);
+        array_push($this->category, $category);
+    }
 
-	public function setImage(string $image): void
-	{
-		$this->image = $image;
-	}
+    public function setCategory(array $category): void
+    {
+        $this->category = $category;
+    }
 
-	public function getImage(): string
-	{
-		return $this->image;
-	}
+    public function getCategory(): array
+    {
+        return $this->category;
+    }
 
-	public function setOrigine(string $origine): void
-	{
-		$this->origine = $origine;
-	}
+    public function setImage(string $image): void
+    {
+        $this->image = $image;
+    }
 
-	public function getOrigine(): string
-	{
-		return $this->origine;
-	}
+    public function getImage(): string
+    {
+        return $this->image;
+    }
+
+    public function setOrigine(string $origine): void
+    {
+        $this->origine = $origine;
+    }
+
+    public function getOrigine(): string
+    {
+        return $this->origine;
+    }
 }
