@@ -16,7 +16,7 @@ lien Footer
 chargement image boutique
 formulaire meilleur verification en php 
 desactiver erreur de codeigniter etc pour la release
-
+améliorer page panier pour commande
 
 
 
