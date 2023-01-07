@@ -14,7 +14,7 @@ bug null du total panier
 chargement image boutique
 formulaire meilleur verification en php 
 desactiver erreur de codeigniter etc pour la release
-
+slider meilleures ventes dans le panier cassé
 
 
 patterns :
