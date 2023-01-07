@@ -1,4 +1,4 @@
-let url = 'http://127.0.0.1/'
+let url = 'http://localhost/equipe2-1/fruits/'
 
 const vue = new Vue({
     data: () => {
