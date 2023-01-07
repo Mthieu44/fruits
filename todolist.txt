@@ -12,11 +12,10 @@ Site :
 page client responsable etc
 + - sur page produit
 bug null du total panier
-lien Footer
 chargement image boutique
 formulaire meilleur verification en php 
 desactiver erreur de codeigniter etc pour la release
-améliorer page panier pour commande
+améliorer page panier vide
 
 
 
