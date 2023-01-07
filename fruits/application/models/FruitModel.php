@@ -1,10 +1,10 @@
 <?php
+
 require_once APPPATH . DIRECTORY_SEPARATOR . 'models' . DIRECTORY_SEPARATOR . "FruitEntity.php";
 require_once APPPATH . DIRECTORY_SEPARATOR . 'models' . DIRECTORY_SEPARATOR . "CategoryEntity.php";
 class FruitModel extends CI_Model
 {
-
-    function findAll()
+    public function findAll()
     {
         $q = $this->db->query('CALL getAllFruit()');
         $response = array();
@@ -32,7 +32,7 @@ class FruitModel extends CI_Model
         return $response;
     }
 
-    function findById($id)
+    public function findById($id)
     {
         $sql = 'CALL getFruitById(?)';
         $q = $this->db->query($sql, array($id));
@@ -61,7 +61,7 @@ class FruitModel extends CI_Model
         return $response[0];
     }
 
-    function findByName($nom)
+    public function findByName($nom)
     {
         $sql = 'CALL getFruitByName(?)';
         $q = $this->db->query($sql, array($nom));
@@ -83,11 +83,12 @@ class FruitModel extends CI_Model
         }
         $q->next_result();
         $q->free_result();
-        if (count($response) > 0)
+        if (count($response) > 0) {
             return $response[0];
+        }
     }
 
-    function findByNameWithoutCat($nom)
+    public function findByNameWithoutCat($nom)
     {
         $sql = 'CALL getFruitByNameWithoutCat(?)';
         $q = $this->db->query($sql, array($nom));
@@ -99,13 +100,14 @@ class FruitModel extends CI_Model
         }
         $q->next_result();
         $q->free_result();
-        if (count($response) > 0)
+        if (count($response) > 0) {
             return $response[0];
+        }
     }
 
 
 
-    function deleteById($id)
+    public function deleteById($id)
     {
         $sql = 'CALL deleteFruit(?)';
         $q = $this->db->query($sql, array($id));
@@ -113,7 +115,7 @@ class FruitModel extends CI_Model
         $q->free_result();
     }
 
-    function add($fruit)
+    public function add($fruit)
     {
         $sql = 'CALL addFruit(?,?,?,?,?)';
         $q = $this->db->query($sql, array($fruit->getNom(), $fruit->getPrix(), $fruit->getDescription(), $fruit->getOrigine(), $fruit->getImage()));
@@ -121,7 +123,7 @@ class FruitModel extends CI_Model
         $q->free_result();
     }
 
-    function modif($fruit)
+    public function modif($fruit)
     {
         $sql = 'CALL modifFruit(?,?,?,?,?,?)';
         $q = $this->db->query($sql, array($fruit->getId_fruit(), $fruit->getNom(), $fruit->getPrix(), $fruit->getDescription(), $fruit->getOrigine(), $fruit->getImage()));
@@ -129,20 +131,21 @@ class FruitModel extends CI_Model
         $q->free_result();
     }
 
-    function addCategorieToFruit($id_fruit, $id_category)
+    public function addCategorieToFruit($id_fruit, $id_category)
     {
         $sql = 'CALL addCategorieToFruit(?,?)';
         $q = $this->db->query($sql, array($id_fruit, $id_category));
         $q->next_result();
-        $q->free_result();}
+        $q->free_result();
+    }
 
-    function deleteCategorieToFruit($id_fruit, $id_category)
+    public function deleteCategorieToFruit($id_fruit, $id_category)
     {
         $sql = 'CALL deleteCategorieToFruit(?,?)';
         $q = $this->db->query($sql, array($id_fruit, $id_category));
     }
 
-    function findFruitCategotiId($fruit)
+    public function findFruitCategotiId($fruit)
     {
         $sql = 'CALL getCategorieFromFruit(?)';
         $q = $this->db->query($sql, array($fruit->getId_fruit()));

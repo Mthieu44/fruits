@@ -1,10 +1,10 @@
 <?php
+
 defined('BASEPATH') or exit('No direct script access allowed');
 require APPPATH . DIRECTORY_SEPARATOR . 'models' . DIRECTORY_SEPARATOR . "UserEntity.php";
 
 class Produit extends CI_Controller
 {
-
     public function __construct()
     {
         parent::__construct();

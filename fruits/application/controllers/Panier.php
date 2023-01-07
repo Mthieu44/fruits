@@ -1,44 +1,48 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+
+defined('BASEPATH') or exit('No direct script access allowed');
 require_once APPPATH.DIRECTORY_SEPARATOR.'models'.DIRECTORY_SEPARATOR."ProduitEntity.php";
 require APPPATH . DIRECTORY_SEPARATOR . 'models' . DIRECTORY_SEPARATOR . "UserEntity.php";
 
 
-class Panier extends CI_Controller {
+class Panier extends CI_Controller
+{
+    public function __construct()
+    {
+        parent::__construct();
+        $this->load->helper('url');
+        $this->load->model('FruitModel');
+        $this->load->model('PanierModel');
+        $this->load->library('session');
+        if (!isset($this->session->panier)) {
+            $this->session->set_userdata("panier", array());
+        }
+        if (!isset($this->session->fauxPanier)) {
+            $this->session->set_userdata("fauxPanier", array());
+        }
+    }
 
-	public function __construct(){
-		parent::__construct();
-		$this->load->helper('url');
-		$this->load->model('FruitModel');
-		$this->load->model('PanierModel');
-		$this->load->library('session');
-		if (!isset($this->session->panier)){
-			$this->session->set_userdata("panier",array());
-		}
-		if (!isset($this->session->fauxPanier)){
-			$this->session->set_userdata("fauxPanier",array());
-		}
-	}
+    public function index()
+    {
+        $this->load->view('PanierView');
+    }
 
-	public function index(){
-		$this->load->view('PanierView');
-	}
-
-	public function addToPanier(){
-		if (isset($_POST['id'],$_POST['quantity'],$_POST['tab'])){
-			$id = $_POST['id'];
-			$quantity = $_POST['quantity'];
-			$tab = $_POST['tab'];
-			$total = $_POST['total'];
-			$this->session->set_userdata('total',$total);
-			$newPanier = $this->PanierModel->addPanier($id,$quantity,$tab);
-			$res = ["panier" =>$newPanier, "tab" => $tab,"id" => $id, "quantity" => $quantity ];
-			echo json_encode($res);
-		}else{
-			$res = ["non" => "dommage"];
-			echo json_encode($res);
-		}
-	}
+    public function addToPanier()
+    {
+        if (isset($_POST['id'],$_POST['quantity'],$_POST['tab'])) {
+            $id = $_POST['id'];
+            $quantity = $_POST['quantity'];
+            $tab = $_POST['tab'];
+            $total = $_POST['total'];
+            $this->session->set_userdata('total', $total);
+            $newPanier = $this->PanierModel->addPanier($id, $quantity, $tab);
+            $res = ["panier" =>$newPanier, "tab" => $tab,"id" => $id, "quantity" => $quantity ];
+            echo json_encode($res);
+        } else {
+            $res = ["non" => "dommage"];
+            echo json_encode($res);
+        }
+    }
 
 
 	public function getPanier(){

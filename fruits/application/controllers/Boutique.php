@@ -1,11 +1,11 @@
 <?php
+
 defined('BASEPATH') or exit('No direct script access allowed');
 require_once APPPATH . DIRECTORY_SEPARATOR . 'models' . DIRECTORY_SEPARATOR . "ProduitEntity.php";
 require APPPATH . DIRECTORY_SEPARATOR . 'models' . DIRECTORY_SEPARATOR . "UserEntity.php";
 
 class Boutique extends CI_Controller
 {
-
     public function __construct()
     {
         parent::__construct();
@@ -21,6 +21,12 @@ class Boutique extends CI_Controller
         }
     }
 
+
+    /*
+    Méthode qui est exécutée lorsqu'on accède à la page d'accueil de la boutique.
+    Récupère la liste de tous les fruits et ensuite la vue BoutiqueView est chargée
+    avec la liste de fruits est passée en argument.
+    */
     public function index()
     {
         $this->load->helper('url');
@@ -28,6 +34,12 @@ class Boutique extends CI_Controller
         $this->load->view('BoutiqueView', array('fruits' => $fruits));
     }
 
+
+    /*
+    Méthode qui est exécutée lorsqu'on ajoute un produit au panier. Cette méthode récupère
+    l'ID du produit, la quantité puis appelle la méthode addPanier du modèle PanierModel
+    pour ajouter le produit au panier.
+    */
     public function addToPanier()
     {
         $id = $this->input->post('id');
@@ -41,7 +53,6 @@ class Boutique extends CI_Controller
             $panier = $this->PanierModel->addPanier($fruit, $quantity, $tab);
             echo $panier;
         }
-
     }
     public function fruit($id)
     {

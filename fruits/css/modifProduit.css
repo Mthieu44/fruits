@@ -1,28 +1,28 @@
-.editableProduct{
+.editableProduct {
     width: 250px;
     display: flex;
     flex-direction: column;
-    align-items: center; 
+    align-items: center;
     margin: 0 auto;
     padding: 20px;
     border-radius: 10px;
     border: 3px solid gainsboro;
 }
 
-.editableProduct img{
+.editableProduct img {
     width: 230px;
 }
 
-.bottomproduct{
+.bottomproduct {
     display: flex;
 }
 
-.editableProduct p{
-    font-size:25px;
+.editableProduct p {
+    font-size: 25px;
     margin-right: 50px;
 }
 
-.productsList{
+.productsList {
     display: grid;
     grid-template-columns: repeat(6, 250px);
     grid-gap: 20px;
@@ -31,14 +31,14 @@
     margin-bottom: 100px;
 }
 
-.selectModif{
+.selectModif {
     display: flex;
     gap: 100px;
-    justify-content: center ;
-    margin:50px;
+    justify-content: center;
+    margin: 50px;
 }
 
-.mod{
+.mod {
     display: flex;
     align-items: center;
     gap: 10px;

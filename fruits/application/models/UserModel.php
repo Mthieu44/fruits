@@ -3,7 +3,7 @@
 require_once APPPATH . DIRECTORY_SEPARATOR . 'models' . DIRECTORY_SEPARATOR . "UserEntity.php";
 class UserModel extends CI_Model
 {
-    function findByMail($mail)
+    public function findByMail($mail)
     {
         $sql = 'CALL getUserByMail(?)';
         $q = $this->db->query($sql, array($mail));
@@ -30,7 +30,7 @@ class UserModel extends CI_Model
         return $user;
     }
 
-    function findAll()
+    public function findAll()
     {
         $sql = 'CALL getAllUser()';
         $q = $this->db->query($sql);
@@ -54,7 +54,7 @@ class UserModel extends CI_Model
         return $response;
     }
 
-    function findById($id)
+    public function findById($id)
     {
         $sql = 'CALL getUserById(?)';
         $q = $this->db->query($sql, array($id));
@@ -76,7 +76,7 @@ class UserModel extends CI_Model
         return $user;
     }
 
-    function deleteById($id)
+    public function deleteById($id)
     {
         $sql = 'CALL deleteUser(?)';
         $q = $this->db->query($sql, array($id));
@@ -84,7 +84,7 @@ class UserModel extends CI_Model
         $q->free_result();
     }
 
-    function add($user)
+    public function add($user)
     {
         $sql = 'CALL addUser(?,?,?,?,?,?,?,?)';
         $q = $this->db->query($sql, array($user->getPrenom(), $user->getNom(), $user->getAdresse(), $user->getMail(), $user->getPassword(), $user->getTelephone(), $user->getSexe(), $user->getStatus()));
@@ -92,7 +92,7 @@ class UserModel extends CI_Model
         $q->free_result();
     }
 
-    function modif($user)
+    public function modif($user)
     {
         $sql = 'CALL modifUser(?,?,?,?,?,?,?,?,?)';
         $q = $this->db->query($sql, array($user->getId_user(), $user->getPrenom(), $user->getNom(), $user->getAdresse(), $user->getMail(), $user->getPassword(), $user->getTelephone(), $user->getSexe(), $user->getStatus()));

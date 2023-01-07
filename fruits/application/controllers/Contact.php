@@ -1,44 +1,45 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+
+defined('BASEPATH') or exit('No direct script access allowed');
 require APPPATH . DIRECTORY_SEPARATOR . 'models' . DIRECTORY_SEPARATOR . "UserEntity.php";
 
-class Contact extends CI_Controller {
-
-	public function __construct()
-	{
-		parent::__construct();
-		$this->load->helper('url');
-		$this->load->library('session');
-		if (!isset($this->session->panier)){
-			$this->session->set_userdata("panier",array());
-		}
-		if (!isset($this->session->fauxPanier)){
-			$this->session->set_userdata("fauxPanier",array());
-		}
-	}
-
-	public function index()
-	{
+class Contact extends CI_Controller
+{
+    public function __construct()
+    {
+        parent::__construct();
         $this->load->helper('url');
-		$this->load->library('session');
-		$this->load->view('ContactView');
-	}
+        $this->load->library('session');
+        if (!isset($this->session->panier)) {
+            $this->session->set_userdata("panier", array());
+        }
+        if (!isset($this->session->fauxPanier)) {
+            $this->session->set_userdata("fauxPanier", array());
+        }
+    }
 
-	public function sendmessage(){
+    public function index()
+    {
+        $this->load->helper('url');
+        $this->load->library('session');
+        $this->load->view('ContactView');
+    }
 
-		$prenom = $this->input->post('prenom');
-		$nom = $this->input->post('nom');
-		$objet = $this->input->post('objet');
-		$mail = $this->input->post('mail');
-		$message = $this->input->post('message');
-		
-		$this->email->from($mail, $prenom);
-		$this->email->to('fruits.juiceco@gmail.com');
+    public function sendmessage()
+    {
+        $prenom = $this->input->post('prenom');
+        $nom = $this->input->post('nom');
+        $objet = $this->input->post('objet');
+        $mail = $this->input->post('mail');
+        $message = $this->input->post('message');
 
-		$this->email->subject($objet);
-		$this->email->message($message);
+        $this->email->from($mail, $prenom);
+        $this->email->to('fruits.juiceco@gmail.com');
 
-		$this->email->send();
-		redirect("Contact");
-	}
+        $this->email->subject($objet);
+        $this->email->message($message);
+
+        $this->email->send();
+        redirect("Contact");
+    }
 }

@@ -34,7 +34,7 @@
                         echo ($category->nom . '<br>');
                     }
                     ?>
-                </td>
+            </td>
 
                 <td>
                     <img src="<?= base_url('img/fruit/' . $fruit->image) ?>" />

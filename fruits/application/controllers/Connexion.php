@@ -1,11 +1,11 @@
 <?php
+
 defined('BASEPATH') or exit('No direct script access allowed');
 require APPPATH . DIRECTORY_SEPARATOR . 'models' . DIRECTORY_SEPARATOR . "UserEntity.php";
 require APPPATH . DIRECTORY_SEPARATOR . 'models' . DIRECTORY_SEPARATOR . "CommandeEntity.php";
 
 class Connexion extends CI_Controller
 {
-
     public function __construct()
     {
         parent::__construct();
@@ -22,7 +22,7 @@ class Connexion extends CI_Controller
         }
     }
 
-    function index()
+    public function index()
     {
         $data['fruitsCommandes'] = array();
         $in = $this->session->flashdata('in');
@@ -38,33 +38,32 @@ class Connexion extends CI_Controller
         }
     }
 
-    function loginCheck()
+    public function loginCheck()
     {
         $mail = $this->input->post('mail');
         $password = $this->input->post('password');
         $user = $this->UserModel->findByMail($mail);
         if ($user != null && $user->isValidPassword($password)) {
             $this->session->set_userdata("user", array("user" => $user));
-            if (count($this->session->panier) > 0 ){
+            if (count($this->session->panier) > 0) {
                 redirect("panier");
                 die();
-            }else{
+            } else {
                 redirect("home");
                 die();
             }
-            
         }
         $this->session->set_flashdata('in', 1);
         redirect("Connexion");
     }
 
-    function modifInformation()
+    public function modifInformation()
     {
         $user = $this->session->user;
         $this->load->view('modifInformationView', array('user' => $user));
     }
 
-    function modifInformationUser()
+    public function modifInformationUser()
     {
         $user = $this->UserModel->findByMail($this->session->user["user"]->getMail());
         $user->setPrenom($this->input->post('prenom'));
@@ -77,43 +76,44 @@ class Connexion extends CI_Controller
         redirect('Connexion');
     }
 
-    function modifPass(){
+    public function modifPass()
+    {
         $this->load->view('ModifPassView');
     }
 
-    function modifPassSend(){
+    public function modifPassSend()
+    {
         $mdpCurrent = $this->input->post('mdpCurrent');
         $user = $this->session->user["user"];
-        if ($user != null && $user->isValidPassword($mdpCurrent)){
+        if ($user != null && $user->isValidPassword($mdpCurrent)) {
             $mdpChange =  $this->input->post('mdpChange');
             $mdpConfirm = $this->input->post('mdpConfirm');
-            if ($mdpChange == $mdpConfirm){
+            if ($mdpChange == $mdpConfirm) {
                 $user->setPassword($mdpChange);
                 $this->UserModel->modif($user);
                 redirect('Connexion/modifInformation');
-            }else{
+            } else {
                 redirect('Connexion/modifPass');
             }
-        }else{
+        } else {
             redirect('Connexion/modifPass');
         }
-
     }
 
-    function logout()
+    public function logout()
     {
         $this->session->unset_userdata("login");
         $this->session->sess_destroy();
         redirect("Connexion");
     }
 
-    function register()
+    public function register()
     {
         $this->load->helper('form');
         $this->load->view('RegisterView');
     }
 
-    function registerRequest()
+    public function registerRequest()
     {
         $valid = true;
         if ($this->UserModel->findByMail($this->input->post('email')) != null) {
@@ -144,16 +144,18 @@ class Connexion extends CI_Controller
         }
     }
 
-    function forgotPass(){
+    public function forgotPass()
+    {
         $this->load->view('ResetPassView');
     }
 
-    function forgotPassSend(){
+    public function forgotPassSend()
+    {
         $mail = $this->input->post('mail');
         $user = $this->UserModel->findByMail($mail);
-        if ($user == null){
+        if ($user == null) {
             redirect('Connexion/forgotPass');
-        }else{
+        } else {
             $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
             $charactersLength = strlen($characters);
             $randomString = '';

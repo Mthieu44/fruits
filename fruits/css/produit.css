@@ -1,63 +1,62 @@
 @import url("https://fonts.googleapis.com/css?family=Inter%22");
 
 
-.div{
+.div {
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.flexible{
-display: flex;
-padding: 0;
-justify-content: center;
-height: 100%;
-min-width: 700px;
-width: 60%;
-background-color: white;
-margin: 50px;
-padding: 50px;
-border-radius: 30px;
-flex-direction: column;
-margin-top: 50px;
+.flexible {
+    display: flex;
+    padding: 0;
+    justify-content: center;
+    height: 100%;
+    min-width: 700px;
+    width: 60%;
+    background-color: white;
+    margin: 50px;
+    padding: 50px;
+    border-radius: 30px;
+    flex-direction: column;
+    margin-top: 50px;
 }
 
 
-.flexible img{
-width: 350px;
-height: 350px;
-border-radius: 19px 0px 0px 19px;
+.flexible img {
+    width: 350px;
+    height: 350px;
+    border-radius: 19px 0px 0px 19px;
     background-color: whitesmoke;
     padding: 25px;
 }
 
-.top{
+.top {
     display: flex;
     width: 100%;
     height: 100%;
     justify-content: space-around;
 }
 
-.rightsquare{
-display: flex;
-flex-direction: column;
-height: 400px;
-width: 492px;
-justify-content: center;
-align-items: center;
+.rightsquare {
+    display: flex;
+    flex-direction: column;
+    height: 400px;
+    width: 492px;
+    align-items: center;
+    gap: 10px;
 }
 
-.flexible h1{
-font-family: 'Mango Sans', sans-serif;
-font-style: normal;
-font-weight: 400;
-font-size: 40px;
-line-height: 61px;
-text-align: center;
-margin-top: 5%;
-margin-bottom: 10px;
-color: #000000;
+.flexible h1 {
+    font-family: 'Mango Sans', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 61px;
+    text-align: center;
+    margin-bottom: 10px;
+    color: #000000;
 }
 
 .barh {
@@ -68,18 +67,18 @@ color: #000000;
     margin-bottom: 15px;
 }
 
-.flexible h2{
-font-family: Inter;
-font-style: normal;
-font-weight: 400;
-font-size: 25px;
-height: 100%;
-text-align: left;
-width: 70%;
-color: #0e0e0e;
+.flexible h2 {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 23px;
+    text-align: left;
+    width: 70%;
+    color: #0e0e0e;
+    margin-bottom: 0;
 }
 
-.plusoumoins{
+.plusoumoins {
     font-family: Inter;
     display: flex;
     box-sizing: border-box;
@@ -92,13 +91,13 @@ color: #0e0e0e;
     width: 90px;
 }
 
-.bascadre{
+.bascadre {
     margin-left: 0%;
     margin-top: 7%;
     display: flex;
 }
 
-.bouton-plusoumoins{
+.bouton-plusoumoins {
     font-family: Inter;
     border: medium none;
     background-color: white;
@@ -110,43 +109,44 @@ color: #0e0e0e;
     font-size: 30px;
 
 }
-.bouton-ajouter{
-font-family: Inter;
-background: #FACE5F;
-width: 233px;
-height: auto;
-left: auto;
-top: 500px;
-font-size: 30px;
-border: 2px solid #F9B814;
-border-radius: 10px;
-margin-left: 15%;
+
+.bouton-ajouter {
+    font-family: Inter;
+    background: #FACE5F;
+    width: 233px;
+    height: auto;
+    left: auto;
+    top: 500px;
+    font-size: 30px;
+    border: 2px solid #F9B814;
+    border-radius: 10px;
+    margin-left: 15%;
 }
 
-.zero{
+.zero {
     font-size: 30px;
     margin-top: 5%;
 }
 
-.desciption{
-font-family: Inter;
-margin: auto;
-width: 1000px;
-height: auto;
-padding: 1%;
-text-align: center;
-background: #ffffff;
-border-radius: 20px;
-margin-top: 50px;
+.desciption {
+    font-family: Inter;
+    margin: auto;
+    width: 1000px;
+    height: auto;
+    padding: 1%;
+    text-align: center;
+    background: #ffffff;
+    border-radius: 20px;
+    margin-top: 50px;
 }
 
-.textprod2{
-font-family: 'Inter';
-font-style: normal;
-font-weight: 400;
-font-size: 40px;
-line-height: 48px;
-text-align: center;
+.textprod2 {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 48px;
+    text-align: center;
 
-color: #000000;
+    color: #000000;
 }

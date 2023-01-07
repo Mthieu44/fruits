@@ -1,15 +1,13 @@
 html {
-  background: linear-gradient(
-		145deg,
-		var(--orange-100) 40%,
-		rgb(235, 184, 117) 60%
-	);
-	height: 100%;
+    background: linear-gradient(145deg,
+            var(--orange-100) 40%,
+            rgb(235, 184, 117) 60%);
+    height: 100%;
 }
 
 
-.content{
-  display: flex;
+.content {
+    display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     gap: 20px;
@@ -18,21 +16,18 @@ html {
     border-radius: 20px;
     width: 40%;
     height: auto;
-    position: fixed;
-    top: 50vh;
-    left: 50vw;
-    transform: translate(-50%, -45%);
+    margin: auto;
+    margin-top: 75px;
+    margin-bottom: 57px;
     padding: 20px;
     min-width: 800px;
 }
 
-.content p{
-  width: 80%;
+.content p {
+    width: 80%;
 }
 
-.content img{
-  width: 85%;
-  height: auto;
+.content img {
+    width: 85%;
+    height: auto;
 }
-
-

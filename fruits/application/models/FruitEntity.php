@@ -1,15 +1,16 @@
 <?php
+
 require_once APPPATH . DIRECTORY_SEPARATOR . 'models' . DIRECTORY_SEPARATOR . "CategoryEntity.php";
 
 class FruitEntity
-{   
+{
     public int $id_fruit;
     public string $nom;
     public string $prix;
     public string $description;
     public array $category = [];
-	public string $origine;
-	public string $image;
+    public string $origine;
+    public string $image;
 
 	public function __construct($id_fruit,$nom,$prix,$description,$image,$origine,
 	$id_categorie, $nomc, $descriptionc){

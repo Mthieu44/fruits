@@ -1,4 +1,5 @@
 <?php
+
 defined('BASEPATH') or exit('No direct script access allowed');
 require APPPATH . DIRECTORY_SEPARATOR . 'models' . DIRECTORY_SEPARATOR . "UserEntity.php";
 require APPPATH . DIRECTORY_SEPARATOR . 'models' . DIRECTORY_SEPARATOR . "CommandeEntity.php";
@@ -32,13 +33,13 @@ class User extends CI_Controller
         }
     }
 
-    function modif($id)
+    public function modif($id)
     {
         $user = $this->UserModel->findById($id);
         $this->load->view('modifUserView', array('user' => $user));
     }
 
-    function modifUser()
+    public function modifUser()
     {
         $user = new UserEntity();
         $user->setId_user($this->input->post('id_user'));
@@ -54,18 +55,18 @@ class User extends CI_Controller
         redirect('Connexion');
     }
 
-    function delete($id)
+    public function delete($id)
     {
         $user = $this->UserModel->deleteById($id);
         redirect('Connexion');
     }
 
-    function add()
+    public function add()
     {
         $this->load->view('addUserView');
     }
 
-    function addUser()
+    public function addUser()
     {
         $user = new UserEntity();
         $user->setPrenom($this->input->post('prenom'));
@@ -80,7 +81,7 @@ class User extends CI_Controller
         redirect('Connexion');
     }
 
-    function register()
+    public function register()
     {
         $this->load->library('form_validation');
 
@@ -101,7 +102,7 @@ class User extends CI_Controller
         );
 
         $this->form_validation->set_rules($config);
-        if ($this->form_validation->run() == FALSE) {
+        if ($this->form_validation->run() == false) {
             $this->load->view('RegisterView');
         } else {
             $this->load->library('form_validation');
