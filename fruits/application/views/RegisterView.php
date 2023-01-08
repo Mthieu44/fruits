@@ -47,11 +47,11 @@
                         </svg>
                         <?php
                         if (!isset($this->session->user)) {
-                            echo ("Connexion");
+                            echo("Connexion");
                         } else {
-                            echo ($this->session->user["user"]->getPrenom());
+                            echo($this->session->user["user"]->prenom);
                         }
-                        ?>
+    ?>
                     </a>
                 </li>
                 <li class="panier">
@@ -69,8 +69,8 @@
                         <div>
                             <p id="quantityPanier">
                                 <?=
-                                count($this->session->panier);
-                                ?>
+            count($this->session->panier);
+    ?>
                             </p>
                         </div>
                     </a>
@@ -81,7 +81,7 @@
 
     <form action="<?= site_url('Connexion/registerRequest') ?>" method="post" class="register">
         <h1>Inscrivez vous</h1>
-        <p>Renseignez ce formulaire pour pouvoir vous inscrire</p>
+        <p class="sous">Renseignez ce formulaire pour pouvoir vous inscrire</p>
         <div class="name">
             <input class="inputname" type="text" name="prenom" placeholder="Prenom" maxlength="20" required>
             <input class="inputname" type="text" name="nom" placeholder="Nom" maxlength="20" required>
@@ -101,7 +101,13 @@
         </div>
         <input type="password" name="password" placeholder="Mot de passe" required>
         <input type="password" name="passwordComfirm" placeholder=" Confirmer mot de passe" required>
-        <!--?php echo validation_errors(); ?-->
+        <p class="erreur petit">
+            <?php
+                    if (isset($msg)) {
+                        echo($msg);
+                    }
+    ?>
+        </p>
 
         <input class="bouton" type="submit" value="S'inscrire">
 

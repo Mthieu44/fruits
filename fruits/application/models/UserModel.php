@@ -11,15 +11,15 @@ class UserModel extends CI_Model
         $user = new UserEntity();
         $response = $q->row(0);
         if (isset($response)) {
-            $user->setId_user($response->id_user);
-            $user->setNom($response->nom);
-            $user->setPrenom($response->prenom);
-            $user->setMail($response->mail);
-            $user->setEncryptedPassword($response->mdp);
-            $user->setStatus($response->status);
-            $user->setAdresse($response->adresse);
-            $user->setSexe($response->sexe);
-            $user->settelephone($response->telephone);
+            $user->id_user = $response->id_user;
+            $user->nom = $response->nom;
+            $user->prenom = $response->prenom;
+            $user->mail = $response->mail;
+            $user->password = $response->mdp;
+            $user->status = $response->status;
+            $user->adresse = $response->adresse;
+            $user->sexe = $response->sexe;
+            $user->telephone = $response->telephone;
         } else {
             $q->next_result();
             $q->free_result();
@@ -38,15 +38,15 @@ class UserModel extends CI_Model
 
         foreach ($q->result() as $row) {
             $user = new UserEntity();
-            $user->setId_user($row->id_user);
-            $user->setNom($row->nom);
-            $user->setPrenom($row->prenom);
-            $user->setMail($row->mail);
-            $user->setEncryptedPassword($row->mdp);
-            $user->setStatus($row->status);
-            $user->setAdresse($row->adresse);
-            $user->setSexe($row->sexe);
-            $user->settelephone($row->telephone);
+            $user->id_user = $row->id_user;
+            $user->nom = $row->nom;
+            $user->prenom = $row->prenom;
+            $user->mail = $row->mail;
+            $user->password = $row->mdp;
+            $user->status = $row->status;
+            $user->adresse = $row->adresse;
+            $user->sexe = $row->sexe;
+            $user->telephone = $row->telephone;
             array_push($response, $user);
         }
         $q->next_result();
@@ -61,15 +61,15 @@ class UserModel extends CI_Model
         $user = new UserEntity();
         $response = $q->row(0);
         if (isset($response)) {
-            $user->setId_user($response->id_user);
-            $user->setNom($response->nom);
-            $user->setPrenom($response->prenom);
-            $user->setMail($response->mail);
-            $user->setEncryptedPassword($response->mdp);
-            $user->setStatus($response->status);
-            $user->setAdresse($response->adresse);
-            $user->setSexe($response->sexe);
-            $user->settelephone($response->telephone);
+            $user->id_user = $response->id_user;
+            $user->nom = $response->nom;
+            $user->prenom = $response->prenom;
+            $user->mail = $response->mail;
+            $user->password = $response->mdp;
+            $user->status = $response->status;
+            $user->adresse = $response->adresse;
+            $user->sexe = $response->sexe;
+            $user->telephone = $response->telephone;
         }
         $q->next_result();
         $q->free_result();
@@ -87,7 +87,7 @@ class UserModel extends CI_Model
     public function add($user)
     {
         $sql = 'CALL addUser(?,?,?,?,?,?,?,?)';
-        $q = $this->db->query($sql, array($user->getPrenom(), $user->getNom(), $user->getAdresse(), $user->getMail(), $user->getPassword(), $user->getTelephone(), $user->getSexe(), $user->getStatus()));
+        $q = $this->db->query($sql, array($user->prenom, $user->nom, $user->adresse, $user->mail, $user->password, $user->telephone, $user->sexe, $user->status));
         $q->next_result();
         $q->free_result();
     }
@@ -95,7 +95,7 @@ class UserModel extends CI_Model
     public function modif($user)
     {
         $sql = 'CALL modifUser(?,?,?,?,?,?,?,?,?)';
-        $q = $this->db->query($sql, array($user->getId_user(), $user->getPrenom(), $user->getNom(), $user->getAdresse(), $user->getMail(), $user->getPassword(), $user->getTelephone(), $user->getSexe(), $user->getStatus()));
+        $q = $this->db->query($sql, array($user->id_user, $user->prenom, $user->nom, $user->adresse, $user->mail, $user->password, $user->telephone, $user->sexe, $user->status));
         $q->next_result();
         $q->free_result();
     }

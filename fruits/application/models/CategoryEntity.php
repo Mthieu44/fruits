@@ -7,7 +7,7 @@ class CategoryEntity
     public string $description;
 
 
-    public function setId_categorie(int $id_categorie): void
+    /*public function setId_categorie(int $id_categorie): void
     {
         $this->id_categorie = $id_categorie;
     }
@@ -38,4 +38,5 @@ class CategoryEntity
     {
         return $this->description;
     }
+    */
 }

@@ -1,7 +1,5 @@
 <?php
 
-require APPPATH . DIRECTORY_SEPARATOR . 'models' . DIRECTORY_SEPARATOR . "FruitHistoEntity.php";
-
 class CommandeModel extends CI_Model
 {
     public function findAll()
@@ -11,11 +9,11 @@ class CommandeModel extends CI_Model
 
         foreach ($q->result() as $row) {
             $commande = new CommandeEntity();
-            $commande->setId_commande($row->id_commande);
-            $commande->setId_user($row->id_user);
-            $commande->setDate_commande($row->date_commande);
-            $commande->setPrix($row->prix);
-            $commande->setAdresse($row->adresse);
+            $commande->id_commande = $row->id_commande;
+            $commande->id_user = $row->id_user;
+            $commande->date_commande = $row->date_commande;
+            $commande->prix = $row->prix;
+            $commande->adresse = $row->adresse;
             array_push($response, $commande);
         }
 
@@ -24,38 +22,39 @@ class CommandeModel extends CI_Model
         return $response;
     }
 
-	function getFruitFrom_IdCommande($id){
-		$fruits = $this->FruitModel->findAll();
-		$sql = 'CALL getFruitFromCommande(?)';
-	    $q = $this->db->query($sql, array($id));
-		$response = array();
-		foreach ($q->result() as $row){
-			foreach ($fruits as $fruit){
-				if ($row->id_fruit = $fruit->id_fruit){
-					array_push($response, new FruitCommande($fruit,$row->quantity,$row->id_commande));
-				}
-			}
-		}
-		$q->next_result();
+    public function getFruitFrom_IdCommande($id)
+    {
+        $fruits = $this->FruitModel->findAll();
+        $sql = 'CALL getFruitFromCommande(?)';
+        $q = $this->db->query($sql, array($id));
+        $response = array();
+        foreach ($q->result() as $row) {
+            foreach ($fruits as $fruit) {
+                if ($row->id_fruit = $fruit->id_fruit) {
+                    array_push($response, new FruitCommande($fruit, $row->quantity, $row->id_commande));
+                }
+            }
+        }
+        $q->next_result();
         $q->free_result();
 
         return $response;
-	}
+    }
 
-	/*function getFruitFrom_IdCommande($id){
-		$sql = 'CALL getFruitFromCommande(?)';
-	    $q = $this->db->query($sql, array($id));
-		$response = array();
-		foreach ($q->result() as $row){
-			
-			$fruit = new FruitHistoEntity($row->id_commande,$row->id_fruit,$row->nom,$row->prix,$row->image,$row->quantity);
-			
-			array_push($response, $fruit);
-		}
-		$q->next_result();
+    /*function getFruitFrom_IdCommande($id){
+        $sql = 'CALL getFruitFromCommande(?)';
+        $q = $this->db->query($sql, array($id));
+        $response = array();
+        foreach ($q->result() as $row){
+
+            $fruit = new FruitHistoEntity($row->id_commande,$row->id_fruit,$row->nom,$row->prix,$row->image,$row->quantity);
+
+            array_push($response, $fruit);
+        }
+        $q->next_result();
         $q->free_result();
         return $response;
-	}*/
+    }*/
 
     public function findById_User($id)
     {
@@ -65,11 +64,11 @@ class CommandeModel extends CI_Model
 
         foreach ($q->result() as $row) {
             $commande = new CommandeEntity();
-            $commande->setId_commande($row->id_commande);
-            $commande->setId_user($row->id_user);
-            $commande->setDate_commande($row->date_commande);
-            $commande->setPrix($row->prix);
-            $commande->setAdresse($row->adresse);
+            $commande->id_commande = $row->id_commande;
+            $commande->id_user = $row->id_user;
+            $commande->date_commande = $row->date_commande;
+            $commande->prix = $row->prix;
+            $commande->adresse = $row->adresse;
             array_push($response, $commande);
         }
         $q->next_result();
@@ -92,7 +91,7 @@ class CommandeModel extends CI_Model
                 $today = getdate();
                 $date = $today['wday'].'-'.$today['mon'].'-'.$today['year'] .' '.$today['hours'].'h'.$today['minutes'];
                 $sql = 'CALL addCommande(?,?,?,?)';
-                $q = $this->db->query($sql, array($this->session->user["user"]->getId_user(),$date ,$this->session->total,$adresse));
+                $q = $this->db->query($sql, array($this->session->user["user"]->id_user,$date ,$this->session->total,$adresse));
                 $id = $q->result()[0]->id_commande;
                 $q->next_result();
                 $q->free_result();

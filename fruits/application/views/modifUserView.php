@@ -46,11 +46,11 @@
                         </svg>
                         <?php
                         if (!isset($this->session->user)) {
-                            echo ("Connexion");
+                            echo("Connexion");
                         } else {
-                            echo ($this->session->user["user"]->getPrenom());
+                            echo($this->session->user["user"]->prenom);
                         }
-                        ?>
+    ?>
                     </a>
                 </li>
                 <li class="panier">
@@ -68,8 +68,8 @@
                         <div>
                             <p id="quantityPanier">
                                 <?=
-                                count($this->session->panier);
-                                ?>
+            count($this->session->panier);
+    ?>
                             </p>
                         </div>
                     </a>
@@ -80,45 +80,47 @@
 
     <form action="<?= site_url('User/modifUser') ?>" method="post" class="register">
         <p>Modifier un utilisateur</p>
-        <input name="id_user" value="<?= $user->getId_user() ?>" hidden>
+        <input name="id_user" value="<?= $user->id_user ?>" hidden>
         <input class="inputname" type="text" name="prenom" id="prenom" placeholder="Prenom" maxlength="20" required
-            value="<?= $user->getPrenom() ?>">
+            value="<?= $user->prenom ?>">
         <input class="inputname" type="text" name="nom" id="nom" placeholder="Nom" maxlength="20" required
-            value="<?= $user->getNom() ?>">
+            value="<?= $user->nom ?>">
         <input type="email" name="email" id="email" placeholder="Email" maxlength="60" required
-            value="<?= $user->getMail() ?>">
+            value="<?= $user->mail ?>">
         <input type="adresse" name="adresse" id="adresse" placeholder="Adresse" maxlength="60" required
-            value="<?= $user->getAdresse() ?>">
+            value="<?= $user->adresse ?>">
         <input type="tel"
             pattern="^((\+\d{1,3}(-| )?\(?\d\)?(-| )?\d{1,5})|(\(?\d{2,6}\)?))(-| )?(\d{3,4})(-| )?(\d{4})(( x| ext)\d{1,5}){0,1}$"
-            name="telephone" id="telephone" placeholder="Telephone" required value="<?= $user->getTelephone() ?>">
+            name="telephone" id="telephone" placeholder="Telephone" required value="<?= $user->telephone ?>">
         <div class="sexe">
-            <input type="radio" name="sexe" value="homme" id="homme" <?php if ($user->getSexe() == 'homme') {
-                                                                            echo ('checked');
-                                                                        } ?>>
+            <input type="radio" name="sexe" value="homme" id="homme" <?php if ($user->sexe == 'homme') {
+                echo('checked');
+            } ?>>
             <label for="homme">Homme</label>
-            <input type="radio" name="sexe" value="femme" id="femme" <?php if ($user->getSexe() == 'femme') {
-                                                                            echo ('checked');
-                                                                        } ?>>
+            <input type="radio" name="sexe" value="femme" id="femme" <?php if ($user->sexe == 'femme') {
+                echo('checked');
+            } ?>>
             <label for="femme">Femme</label>
-            <input type="radio" name="sexe" value="autre" id="autre" <?php if ($user->getSexe() == 'autre') {
-                                                                            echo ('checked');
-                                                                        } ?>>
+            <input type="radio" name="sexe" value="autre" id="autre" <?php if ($user->sexe == 'autre') {
+                echo('checked');
+            } ?>>
             <label for="autre">Autre</label>
         </div>
-        <a class="reset" href="<?= site_url('User/ResetMdp') ?>">Reset Mot de passe</a>
-        <div class="sexe">
-            <input type="radio" name="status" value="client" id="client" <?php if ($user->getStatus() == 'client') {
-                                                                                echo ('checked');
-                                                                            } ?>>
+        <a class="reset2" href="<?= site_url('connexion/resetPass/'). $user->id_user ?>">Reset Mot de passe</a>
+        <a class="reset3">(envoie mdp au mail
+            non modifier du client)</a>
+        <div class=" sexe">
+            <input type="radio" name="status" value="client" id="client" <?php if ($user->status == 'client') {
+                echo('checked');
+            } ?>>
             <label for="client">Client</label>
-            <input type="radio" name="status" value="responsable" id="responsable" <?php if ($user->getStatus() == 'responsable') {
-                                                                                        echo ('checked');
-                                                                                    } ?>>
+            <input type="radio" name="status" value="responsable" id="responsable" <?php if ($user->status == 'responsable') {
+                echo('checked');
+            } ?>>
             <label for="responsable">Responsable</label>
-            <input type="radio" name="status" value="admin" id="admin" <?php if ($user->getStatus() == 'admin') {
-                                                                            echo ('checked');
-                                                                        } ?>>
+            <input type="radio" name="status" value="admin" id="admin" <?php if ($user->status == 'admin') {
+                echo('checked');
+            } ?>>
             <label for="admin">Admin</label>
         </div>
         <input class="bouton" type="submit" value="Valider">

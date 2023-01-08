@@ -15,7 +15,7 @@ class User extends CI_Controller
         $this->load->model('UserModel');
 
         if (isset($this->session->user["user"])) {
-            if ($this->session->user["user"]->getStatus() == 'admin') {
+            if ($this->session->user["user"]->status == 'admin') {
             } else {
                 $this->load->view('accessDeniedView');
                 die();
@@ -42,14 +42,14 @@ class User extends CI_Controller
     public function modifUser()
     {
         $user = new UserEntity();
-        $user->setId_user($this->input->post('id_user'));
-        $user->setPrenom($this->input->post('prenom'));
-        $user->setNom($this->input->post('nom'));
-        $user->setMail($this->input->post('email'));
-        $user->setAdresse($this->input->post('adresse'));
-        $user->setTelephone($this->input->post('telephone'));
-        $user->setSexe($this->input->post('sexe'));
-        $user->setStatus($this->input->post('status'));
+        $user->id_user = $this->input->post('id_user');
+        $user->prenom = $this->input->post('prenom');
+        $user->nom = $this->input->post('nom');
+        $user->mail = $this->input->post('email');
+        $user->adresse = $this->input->post('adresse');
+        $user->telephone = $this->input->post('telephone');
+        $user->sexe = $this->input->post('sexe');
+        $user->status = $this->input->post('status');
         $user->setPassword($this->input->post('password'));
         $this->UserModel->modif($user);
         redirect('Connexion');
@@ -69,13 +69,13 @@ class User extends CI_Controller
     public function addUser()
     {
         $user = new UserEntity();
-        $user->setPrenom($this->input->post('prenom'));
-        $user->setNom($this->input->post('nom'));
-        $user->setMail($this->input->post('email'));
-        $user->setAdresse($this->input->post('adresse'));
-        $user->setTelephone($this->input->post('telephone'));
-        $user->setSexe($this->input->post('sexe'));
-        $user->setStatus($this->input->post('status'));
+        $user->prenom = $this->input->post('prenom');
+        $user->nom = $this->input->post('nom');
+        $user->mail = $this->input->post('email');
+        $user->adresse = $this->input->post('adresse');
+        $user->telephone = $this->input->post('telephone');
+        $user->sexe = $this->input->post('sexe');
+        $user->status = $this->input->post('status');
         $user->setPassword($this->input->post('password'));
         $this->UserModel->add($user);
         redirect('Connexion');
@@ -107,13 +107,13 @@ class User extends CI_Controller
         } else {
             $this->load->library('form_validation');
             $user = new UserEntity();
-            $user->setPrenom($this->input->post('prenom'));
-            $user->setNom($this->input->post('nom'));
-            $user->setMail($this->input->post('email'));
-            $user->setAdresse($this->input->post('adresse'));
-            $user->setTelephone($this->input->post('telephone'));
-            $user->setSexe($this->input->post('sexe'));
-            $user->setStatus($this->input->post('status'));
+            $user->prenom = $this->input->post('prenom');
+            $user->nom = $this->input->post('nom');
+            $user->mail = $this->input->post('email');
+            $user->adresse = $this->input->post('adresse');
+            $user->telephone = $this->input->post('telephone');
+            $user->sexe = $this->input->post('sexe');
+            $user->status = $this->input->post('status');
             $user->setPassword($this->input->post('password'));
             $this->UserModel->add($user);
             redirect('Connexion');

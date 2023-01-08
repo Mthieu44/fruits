@@ -38,7 +38,7 @@ class Commande extends CI_Controller
     {
         $adresse = $this->input->post('adresse');
         if ($adresse == null) {
-            $adresse = $this->session->user["user"]->getAdresse();
+            $adresse = $this->session->user["user"]->adresse;
         }
         $this->CommandeModel->CreerCommandePanier($adresse);
         $this->session->unset_userdata('panier');

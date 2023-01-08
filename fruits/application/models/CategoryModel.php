@@ -10,9 +10,9 @@ class CategoryModel extends CI_Model
 
         foreach ($q->result() as $row) {
             $category = new CategoryEntity();
-            $category->setId_categorie($row->id_categorie);
-            $category->setNom($row->nom);
-            $category->setDescription($row->description);
+            $category->id_categorie = $row->id_categorie;
+            $category->nom = $row->nom;
+            $category->description = $row->description;
             array_push($response, $category);
         }
         $q->next_result();

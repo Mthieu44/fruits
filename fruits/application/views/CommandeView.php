@@ -13,6 +13,8 @@
     ?><?php include 'css/commande.css';
     ?><?php include 'css/panier.css';
     ?>
+    <?php include 'css/commande.css';
+    ?>
     </style>
 
 </head>
@@ -52,11 +54,11 @@
                             </svg>
                             <?php
                         if (!isset($this->session->user)) {
-                            echo ("Connexion");
+                            echo("Connexion");
                         } else {
-                            echo ($this->session->user["user"]->getPrenom());
+                            echo($this->session->user["user"]->prenom);
                         }
-                        ?>
+    ?>
                         </a>
                     </li>
                     <li class="panier">
@@ -94,24 +96,24 @@
                                 <div class="col">
                                     <label for="prenom">Prenom :</label>
                                     <input id="prenom" type="text" name="prenom" placeholder="Votre prénom"
-                                        value="<?= $this->session->user["user"]->getPrenom() ?>">
+                                        value="<?= $this->session->user["user"]->prenom ?>">
                                 </div>
                                 <div class="col">
                                     <label for="nom">Nom :</label>
                                     <input type="text" id="nom" name="nom" placeholder="Votre nom"
-                                        value="<?= $this->session->user["user"]->getNom() ?>">
+                                        value="<?= $this->session->user["user"]->nom ?>">
                                 </div>
                             </div>
 
                             <label for="mail">Email :</label>
                             <input id="mail" type="email" name="mail" placeholder="Votre mail"
-                                value="<?= $this->session->user["user"]->getMail() ?>">
+                                value="<?= $this->session->user["user"]->mail ?>">
                             <label for="adresse">Adresse :</label>
                             <input type="text" id="adresse" name="adresse" placeholder="Adresse"
-                                value="<?= $this->session->user["user"]->getAdresse() ?>">
+                                value="<?= $this->session->user["user"]->adresse ?>">
                             <label for="telephone">Telephone :</label>
                             <input type="text" id="telephone" name="objet" placeholder="Telephone"
-                                value="<?= $this->session->user["user"]->getTelephone() ?>">
+                                value="<?= $this->session->user["user"]->telephone ?>">
                         </div>
                         <div class="buttons">
                             <button type="button" class="prev-btn"
@@ -151,18 +153,16 @@
                                             v-on:click="totalQuantityPanier(1,fruit.id_fruit)">+</button>
                                     </td>
                                     <td>Total : {{getTotalProduit(fruit.id_fruit)}} €</td>
-                                    <td class="right" v-on:click="retirerDuPanier(fruit.id_fruit)">
-                                        <img src="<?= base_url('img/poubelle.jpg')?>" alt="Poubelle">
+                                    <td class="rightPan" v-on:click="retirerDuPanier(fruit.id_fruit)">
+                                        <img src="<?= base_url('img/poubelle.png')?>" alt="Poubelle">
                                     </td>
                                 </tr>
                                 </tr>
                             </table>
 
-                            <div class="totalPanier">
-                                <p class="p02">
+                                <p class="p02 totpanier">
                                     Total panier : {{getTotalPanier()}} €
                                 </p>
-                            </div>
                         </div>
                         <div class="buttons">
                             <button type="button" class="prev-btn">Précédent</button>

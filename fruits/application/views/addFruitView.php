@@ -48,7 +48,7 @@
                         if (!isset($this->session->user)) {
                             echo("Connexion");
                         } else {
-                            echo($this->session->user["user"]->getPrenom());
+                            echo($this->session->user["user"]->prenom);
                         }
     ?>
                     </a>
@@ -90,9 +90,9 @@
     <div class="categories">
         <?php foreach ($categories as $category) : ?>
         <div>
-            <input type="checkbox" name="<?= $category->getNom() ?>" value="<?= $category->getId_Categorie() ?>"
-                id="<?= $category->getNom() ?>">
-            <label for="<?= $category->getNom() ?>"><?= $category->getNom() ?></label>
+            <input type="checkbox" name="<?= $category->nom ?>" value="<?= $category->id_categorie ?>"
+                id="<?= $category->nom ?>">
+            <label for="<?= $category->nom ?>"><?= $category->nom ?></label>
         </div>
         <?php endforeach; ?>
     </div>

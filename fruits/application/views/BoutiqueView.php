@@ -52,11 +52,11 @@
                             </svg>
                             <?php
                             if (!isset($this->session->user)) {
-                                echo ("Connexion");
+                                echo("Connexion");
                             } else {
-                                echo ($this->session->user["user"]->getPrenom());
+                                echo($this->session->user["user"]->prenom);
                             }
-                            ?>
+    ?>
                         </a>
                     </li>
                     <li class="panier">

@@ -16,37 +16,37 @@
         <?php foreach ($users as $user) : ?>
         <tr>
             <td>
-                <?= $user->getId_user() ?>
+                <?= $user->id_user ?>
             </td>
             <td>
-                <?= $user->getNom() ?>
+                <?= $user->nom ?>
             </td>
             <td>
-                <?= $user->getPrenom() ?>
+                <?= $user->prenom ?>
             </td>
             <td>
-                <?= $user->getAdresse() ?>
+                <?= $user->adresse ?>
             </td>
             <td>
-                <?= $user->getMail() ?>
+                <?= $user->mail ?>
             </td>
             <td>
-                <?= $user->getTelephone() ?>
+                <?= $user->telephone ?>
             </td>
             <td>
-                <?= $user->getSexe() ?>
+                <?= $user->sexe ?>
             </td>
             <td>
                 <p>*****</p>
             </td>
             <td>
-                <?= $user->getStatus() ?>
+                <?= $user->status ?>
             </td>
             <td>
-                <a href="<?= site_url('User/modif/' . $user->getId_user()) ?>"> modif</a>
+                <a href="<?= site_url('User/modif/' . $user->id_user) ?>"> modif</a>
             </td>
             <td>
-                <a href="<?= site_url('User/delete/' . $user->getId_user()) ?>"> delete</a>
+                <a href="<?= site_url('User/delete/' . $user->id_user) ?>"> delete</a>
             </td>
         </tr>
         <?php endforeach; ?>

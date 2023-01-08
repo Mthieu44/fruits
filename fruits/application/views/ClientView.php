@@ -46,11 +46,11 @@
                         </svg>
                         <?php
                         if (!isset($this->session->user)) {
-                            echo ("Connexion");
+                            echo("Connexion");
                         } else {
-                            echo ($this->session->user["user"]->getPrenom());
+                            echo($this->session->user["user"]->prenom);
                         }
-                        ?>
+    ?>
                     </a>
                 </li>
                 <li class="panier">
@@ -68,8 +68,8 @@
                         <div>
                             <p id="quantityPanier">
                                 <?=
-                                count($this->session->panier);
-                                ?>
+            count($this->session->panier);
+    ?>
                             </p>
                         </div>
                     </a>
@@ -80,84 +80,128 @@
 
 
 
-    <h2>Votre compte</h2>
     <div class="infos">
-        <div class="profil">
-            <div class="case nom">
-                <h1><?= $this->session->user["user"]->getPrenom() ?></h1>
-                <h1><?= $this->session->user["user"]->getNom() ?></h1>
-            </div>
-            <div class="case">
-                <p>Telephone :</p>
-                <p><?= $this->session->user["user"]->getTelephone() ?></p>
-            </div>
-            <div class="case">
-                <p>Email :</p>
-                <p><?= $this->session->user["user"]->getMail() ?></p>
-            </div>
-            <div class="case">
-                <p>Adresse :</p>
-                <p><?= $this->session->user["user"]->getAdresse() ?></p>
-            </div>
-            <a href="<?= site_url('Connexion/modifInformation') ?>" class="button">Modifier informations</a>
+        <div class="left">
+        <img src="<?= base_url('img/pp.png') ?>" />
+                <h1><?= $this->session->user["user"]->prenom ?> <?= $this->session->user["user"]->nom ?></h1>
             <a href="<?= site_url('Connexion/logout') ?>" class="button">logout</a>
         </div>
-        <div class="commandes">
-            <p>Historique des commandes :</p>
-            <table class="histo">
-                <tr>
-                    <th>Date</th>
-                    <th>Prix</th>
-                    <th>Adresse</th>
-                    <th>Numéro de Commande</th>
-                </tr>
-
-                <?php foreach($commandes as $commande):?>
-                <tr>
-                    <td> <?=$commande->getDate_commande()?></td>
-                    <td> <?=$commande->getPrix()?></td>
-                    <td> <?=$commande->getAdresse()?></td>
-                    <td> <?=$commande->id_commande?></td>
-                    <td> <button onclick="opendiv(<?=$commande->id_commande?>)"> Détails </button></td>
-
-
-                </tr>
-                <?php endforeach?>
-
-
-            </table>
-
+        <div class="right">
+        <a href="<?= site_url('Connexion/modifInformation') ?>" class="button"> <img src="<?= base_url('img/pencil.png') ?>" /></a>
+ <div class=profil>
+            <div class="case">
+                <img src="<?= base_url('img/telephone.png') ?>" />
+                <p><?= $this->session->user["user"]->telephone ?></p>
+            </div>
+            <div class="case">
+            <img src="<?= base_url('img/mail.png') ?>" />
+                <p><?= $this->session->user["user"]->mail ?></p>
+            </div>
+            <div class="case">
+            <img src="<?= base_url('img/placeholder.png') ?>" />
+                <p><?= $this->session->user["user"]->adresse ?></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="commandes">
+        <h1>Historique de mes commandes :</h1>
+        <table class="histo">
+            <tr class="topco">
+                <th>Date</th>
+                <th>Prix</th>
+                <th>Adresse</th>
+                <th>Numéro de Commande</th>
+                <th>v</th>
+            </tr>
 
             <?php foreach($commandes as $commande):?>
-            <table class="fruitsCommande" id="<?=$commande->id_commande?>" style="display:none;">
-                <tr class="title" style="display:none;">
-                    <th>Image</th>
-                    <th>Article</th>
-                    <th>Prix unitaire</th>
-                    <th>Quantité</th>
-                    <th><button onclick="closediv(<?=$commande->id_commande?>)"> X </button> </th>
-                </tr>
-                <?php foreach($fruitsCommandes as $fruits):?>
-                <?php foreach($fruits as $fruit):?>
-                <?php if($fruit->id_commande == $commande->id_commande):?>
-                <tr class="fruitDansPanier" style="display:none;">
-                    <td class="left">
-                        <img src="<?= base_url('img/fruit/').$fruit->image ?>" alt="image du fruit" />
-                    </td>
-                    <td> <?= $fruit->nom ?></td>
-                    <td> <?= $fruit->prix ?> €</td>
-                    <td> <?= $fruit->quantity ?></td>
-                </tr>
-                <?php endif ?>
-                <?php endforeach?>
-                <?php endforeach?>
-            </table>
+            <tr>
+                <td> <?=$commande->date_commande?></td>
+                <td> <?=$commande->prix?></td>
+                <td> <?=$commande->adresse?></td>
+                <td> <?=$commande->id_commande?></td>
+                <td> <button onclick="opendiv(<?=$commande->id_commande?>)"> Détails </button></td>
+
+
+            </tr>
             <?php endforeach?>
 
 
+        </table>
 
-        </div>
+
+        <?php foreach($commandes as $commande):?>
+        <table class="fruitsCommande" id="<?=$commande->id_commande?>" style="display:none;">
+            <tr class="title" style="display:none;">
+                <th>Image</th>
+                <th>Article</th>
+                <th>Prix unitaire</th>
+                <th>Quantité</th>
+                <th><button onclick="closediv(<?=$commande->id_commande?>)"> X </button> </th>
+            </tr>
+            <?php foreach($fruitsCommandes as $fruits):?>
+            <?php foreach($fruits as $fruit):?>
+            <?php if($fruit->id_commande == $commande->id_commande):?>
+            <tr class="fruitDansPanier" style="display:none;">
+                <td class="left">
+                    <img src="<?= base_url('img/fruit/').$fruit->image ?>" alt="image du fruit" />
+                </td>
+                <td> <?= $fruit->nom ?></td>
+                <td> <?= $fruit->prix ?> €</td>
+                <td> <?= $fruit->quantity ?></td>
+            </tr>
+            <?php endif ?>
+            <?php endforeach?>
+            <?php endforeach?>
+        </table>
+        <?php endforeach?>
+
+
+
     </div>
+
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col">
+                    <h4>Notre entreprise</h4>
+                    <ul>
+                        <li><a href="<?= site_url('APropos') ?>">A propos</a></li>
+                        <li><a href="<?= site_url('Contact') ?>">Nous contacter</a></li>
+                        <li><a href="<?= site_url('CGU') ?>">CGU</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Plus d'infos</h4>
+                    <ul>
+                        <li><a href="<?= site_url('Connexion') ?>">Mon compte</a></li>
+                        <li><a href="<?= site_url('Panier') ?>">Mon panier</a></li>
+                        <li><a href="<?= site_url('Connexion') ?>">Mes commandes</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>La boutique</h4>
+                    <ul>
+                        <li><a href="<?= site_url('Boutique') ?>" onclick="meilleuresVentes()">Meilleures ventes</a>
+                        </li>
+                        <li><a href="<?= site_url('Boutique') ?>">Fruits de saison</a></li>
+                        <li><a href="<?= site_url('Boutique') ?>">Promotion</a></li>
+                        <li><a href="<?= site_url('Boutique') ?>">Indisponibles</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Mentions légales</h4>
+                    <p>Fruits en ligne est une société anonyme (SA) au capital social de 100 000 euros.
+                        Les prix sont indiqués en euros et n'incluent pas la TVA.
+                        Les frais de livraison sont en sus et varient en fonction de la destination et du mode de
+                        livraison choisi.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>   
 </body>
 
 </html>

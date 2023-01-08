@@ -1,11 +1,11 @@
-<?php 
+<?php
 $prenom = "";
 $nom = "";
 $mail = "";
-if (isset($this->session->user["user"])){
-	$prenom = $this->session->user["user"]->getPrenom();
-	$nom = $this->session->user["user"]->getNom();
-	$mail = $this->session->user["user"]->getMail();
+if (isset($this->session->user["user"])) {
+    $prenom = $this->session->user["user"]->prenom;
+    $nom = $this->session->user["user"]->nom;
+    $mail = $this->session->user["user"]->mail;
 };
 ?>
 
@@ -59,12 +59,12 @@ if (isset($this->session->user["user"])){
                                 </g>
                             </svg>
                             <?php
-                            if (!isset($this->session->user)) {
-                                echo ("Connexion");
-                            } else {
-                                echo ($this->session->user["user"]->getPrenom());
-                            }
-                            ?>
+                        if (!isset($this->session->user)) {
+                            echo("Connexion");
+                        } else {
+                            echo($this->session->user["user"]->prenom);
+                        }
+?>
                         </a>
                     </li>
                     <li class="panier">
@@ -83,8 +83,8 @@ if (isset($this->session->user["user"])){
                             <div>
                                 <p id="quantityPanier">
                                     <?=
-                                    count($this->session->panier);
-                                    ?>
+        count($this->session->panier);
+?>
                                 </p>
                             </div>
                         </a>

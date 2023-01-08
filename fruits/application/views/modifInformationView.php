@@ -47,11 +47,11 @@
                         </svg>
                         <?php
                         if (!isset($this->session->user)) {
-                            echo ("Connexion");
+                            echo("Connexion");
                         } else {
-                            echo ($this->session->user["user"]->getPrenom());
+                            echo($this->session->user["user"]->prenom);
                         }
-                        ?>
+    ?>
                     </a>
                 </li>
                 <li class="panier">
@@ -69,8 +69,8 @@
                         <div>
                             <p id="quantityPanier">
                                 <?=
-                                count($this->session->panier);
-                                ?>
+            count($this->session->panier);
+    ?>
                             </p>
                         </div>
                     </a>
@@ -83,30 +83,28 @@
         <h1>Vous pouvez modifier vos informations ici</h1>
         <div class="name">
             <input class="inputname" type="text" name="prenom" placeholder="Prenom" maxlength="20"
-                value="<?= $user["user"]->getPrenom() ?>" required>
+                value="<?= $user["user"]->prenom ?>" required>
             <input class="inputname" type="text" name="nom" placeholder="Nom" maxlength="20"
-                value="<?= $user["user"]->getNom() ?>" required>
+                value="<?= $user["user"]->nom ?>" required>
         </div>
-        <input type="email" name="email" placeholder="Email" maxlength="60" value="<?= $user["user"]->getMail() ?>"
-            disabled>
-        <input type=" adresse" name="adresse" placeholder="Adresse" maxlength="60"
-            value="<?= $user["user"]->getAdresse() ?>" required>
+        <input type="email" name="email" placeholder="Email" maxlength="60" value="<?= $user["user"]->mail ?>" disabled>
+        <input type=" adresse" name="adresse" placeholder="Adresse" maxlength="60" value="<?= $user["user"]->adresse ?>"
+            required>
         <input type="tel"
             pattern="^((\+\d{1,3}(-| )?\(?\d\)?(-| )?\d{1,5})|(\(?\d{2,6}\)?))(-| )?(\d{3,4})(-| )?(\d{4})(( x| ext)\d{1,5}){0,1}$"
-            name="telephone" placeholder="Telephone (10 chiffres)" value="<?= $user["user"]->getTelephone() ?> "
-            required>
+            name="telephone" placeholder="Telephone (10 chiffres)" value="<?= $user["user"]->telephone ?> " required>
         <div class="sexe">
-            <input type="radio" name="sexe" value="homme" id="homme" <?php if ($user["user"]->getSexe() == 'homme') {
-                                                                            echo ('checked');
-                                                                        } ?>>
+            <input type="radio" name="sexe" value="homme" id="homme" <?php if ($user["user"]->sexe == 'homme') {
+                echo('checked');
+            } ?>>
             <label for="homme">Homme</label>
-            <input type="radio" name="sexe" value="femme" id="femme" <?php if ($user["user"]->getSexe() == 'femme') {
-                                                                            echo ('checked');
-                                                                        } ?>>
+            <input type="radio" name="sexe" value="femme" id="femme" <?php if ($user["user"]->sexe == 'femme') {
+                echo('checked');
+            } ?>>
             <label for="femme">Femme</label>
-            <input type="radio" name="sexe" value="autre" id="autre" <?php if ($user["user"]->getSexe() == 'autre') {
-                                                                            echo ('checked');
-                                                                        } ?>>
+            <input type="radio" name="sexe" value="autre" id="autre" <?php if ($user["user"]->sexe == 'autre') {
+                echo('checked');
+            } ?>>
             <label for="autre">Autre</label>
         </div>
         <a class="text-min" href="<?= site_url('Connexion/modifPass') ?>">Modifier votre mot de passe</a>

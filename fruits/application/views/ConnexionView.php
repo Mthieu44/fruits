@@ -47,11 +47,11 @@
                         </svg>
                         <?php
                         if (!isset($this->session->user)) {
-                            echo ("Connexion");
+                            echo("Connexion");
                         } else {
-                            echo ($this->session->user["user"]->getPrenom());
+                            echo($this->session->user["user"]->prenom);
                         }
-                        ?>
+    ?>
                     </a>
                 </li>
                 <li class="panier">
@@ -69,8 +69,8 @@
                         <div>
                             <p id="quantityPanier">
                                 <?=
-                                count($this->session->panier);
-                                ?>
+            count($this->session->panier);
+    ?>
                             </p>
                         </div>
                     </a>
@@ -92,9 +92,8 @@
                 <p class="erreur">
                     <?php
                     if (isset($msg)) {
-                        echo ($msg);
-                    }
-                    ?>
+                        echo($msg);
+                    }?>
                 </p>
                 <a class="mdp" href="<?= site_url('Connexion/forgotPass') ?>">Mot de passe oublié ?</a>
             </div>

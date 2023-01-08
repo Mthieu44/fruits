@@ -16,7 +16,7 @@ class Fruit extends CI_Controller
         $this->load->helper(array('form', 'url'));
 
         if (isset($this->session->user["user"])) {
-            if ($this->session->user["user"]->getStatus() == 'admin') {
+            if ($this->session->user["user"]->status == 'admin') {
             } else {
                 $this->load->view('accessDeniedView');
             }
@@ -41,35 +41,30 @@ class Fruit extends CI_Controller
 
     public function modifFruit($id)
     {
-        $fruit = new fruitEntity();
-        $fruit->setId_fruit($id);
-        $fruit->setNom($this->input->post('nom'));
-        $fruit->setDescription($this->input->post('description'));
-        $fruit->setPrix($this->input->post('prix'));
-        $fruit->setOrigine($this->input->post('origine'));
         $filename = str_replace(' ', '_', strtolower($this->input->post('nom') . '.png'));
-        $fruit->setImage($filename);
+        $fruit = new fruitEntity($id, $this->input->post('nom'), $this->input->post('prix'), $this->input->post('description'), $filename, $this->input->post('origine'), null, null, null);
         $this->FruitModel->modif($fruit);
-        $fruit = $this->FruitModel->findByName($fruit->getNom());
+        $fruit = $this->FruitModel->findByName($fruit->nom);
         $categories = $this->CategoryModel->findAll();
         $fruitCategory = $this->FruitModel->findFruitCategotiId($fruit);
         foreach ($categories as $categoriy) {
-            if (null !== $this->input->post(str_replace(' ', '_', $categoriy->getNom()))) {
+            if (null !== $this->input->post(str_replace(' ', '_', $categoriy->nom))) {
                 $bool = true;
                 foreach ($fruitCategory as $fruitcat) {
-                    if ($fruitcat == $categoriy->getId_Categorie()) {
+                    if ($fruitcat == $categoriy->id_categorie) {
                         $bool = false;
                     }
                 }
 
                 if ($bool) {
-                    $this->FruitModel->addCategorieToFruit($fruit->getId_fruit(), $categoriy->getId_Categorie());
+                    $this->FruitModel->addCategorieToFruit($fruit->id_fruit, $categoriy->id_categorie);
                 }
             } else {
-                $this->FruitModel->deleteCategorieToFruit($fruit->getId_fruit(), $categoriy->getId_Categorie());
+                $this->FruitModel->deleteCategorieToFruit($fruit->id_fruit, $categoriy->id_categorie);
             }
         }
         if (empty($_FILES['userfile']['name'])) {
+            /*rename old image si nom change a faire*/
             redirect('Connexion');
         } else {
             $config['upload_path']          = './img/fruit/';
@@ -98,25 +93,20 @@ class Fruit extends CI_Controller
 
     public function addFruit()
     {
-        $fruit = new fruitEntity();
-        $fruit->setNom($this->input->post('nom'));
-        $fruit->setDescription($this->input->post('description'));
-        $fruit->setPrix($this->input->post('prix'));
-        $fruit->setOrigine($this->input->post('origine'));
         $filename = str_replace(' ', '_', strtolower($this->input->post('nom') . '.png'));
-        $fruit->setImage($filename);
+        $fruit = new fruitEntity('0', $this->input->post('nom'), $this->input->post('prix'), $this->input->post('description'), $filename, $this->input->post('origine'), null, null, null);
         $this->FruitModel->add($fruit);
-        $fruit = $this->FruitModel->findByNameWithoutCat($fruit->getNom());
+        $fruit = $this->FruitModel->findByNameWithoutCat($fruit->nom);
         $categories = $this->CategoryModel->findAll();
         $cpt = 0;
         foreach ($categories as $categoriy) {
-            if (null !== $this->input->post(str_replace(' ', '_', $categoriy->getNom()))) {
+            if (null !== $this->input->post(str_replace(' ', '_', $categoriy->nom))) {
                 $cpt = $cpt + 1;
-                $this->FruitModel->addCategorieToFruit($fruit->getId_fruit(), $categoriy->getId_Categorie());
+                $this->FruitModel->addCategorieToFruit($fruit->id_fruit, $categoriy->id_categorie);
             }
         }
         if ($cpt == 0) {
-            $this->FruitModel->deleteById($fruit->getId_fruit());
+            $this->FruitModel->deleteById($fruit->id_fruit);
         }
 
         $config['upload_path']          = './img/fruit/';
@@ -138,8 +128,8 @@ class Fruit extends CI_Controller
     public function delete($id)
     {
         $fruit = $this->FruitModel->findById($id);
-        if (is_file('./img/fruit' . DIRECTORY_SEPARATOR . $fruit->getImage())) {
-            unlink('./img/fruit' . DIRECTORY_SEPARATOR . $fruit->getImage());
+        if (is_file('./img/fruit' . DIRECTORY_SEPARATOR . $fruit->image)) {
+            unlink('./img/fruit' . DIRECTORY_SEPARATOR . $fruit->image);
         }
         $this->FruitModel->deleteById($id);
         redirect('Connexion');

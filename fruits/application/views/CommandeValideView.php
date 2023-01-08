@@ -52,11 +52,11 @@
                             </svg>
                             <?php
                         if (!isset($this->session->user)) {
-                            echo ("Connexion");
+                            echo("Connexion");
                         } else {
-                            echo ($this->session->user["user"]->getPrenom());
+                            echo($this->session->user["user"]->prenom);
                         }
-                        ?>
+    ?>
                         </a>
                     </li>
                     <li class="panier">
@@ -85,9 +85,9 @@
 
         <div class="uppercontent" id="contentend">
             <div class="content">
-                <h2> Merci <?= $this->session->user["user"]->getPrenom()?> ! </h2>
+                <h2> Merci <?= $this->session->user["user"]->prenom?> ! </h2>
                 <div class="commandend">
-                    <h2> Votre commande à été passé avec succès ! Merci pour votre achat !</h2>
+                    <h2> Votre commande a été passé avec succès ! Merci pour votre achat !</h2>
                     <div class="lowercontent">
                         <p class="p01"> Vous pouvez consulter votre historique de commandes ici :</p>
                         <button class="next-btn" onclick="window.location='<?= site_url('Connexion') ?>';"> Historique

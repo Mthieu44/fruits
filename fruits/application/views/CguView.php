@@ -52,7 +52,7 @@
                         if (!isset($this->session->user)) {
                             echo ("Connexion");
                         } else {
-                            echo ($this->session->user["user"]->getPrenom());
+                            echo ($this->session->user["user"]->prenom);
                         }
                         ?>
                     </a>

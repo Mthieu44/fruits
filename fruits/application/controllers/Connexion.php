@@ -29,10 +29,9 @@ class Connexion extends CI_Controller
         if ($in == 1) {
             $this->load->view('ConnexionView', array('msg' => "Identifiants invalides"));
         } elseif (isset($this->session->user["user"])) {
-            $view = new UserFactory;
-            $view2 = $view->makeUser($this->session->user["user"]->getStatus());
+            $view = new UserFactory();
+            $view2 = $view->makeUser($this->session->user["user"]->status);
             $view2->loadView();
-
         } else {
             $this->load->view('ConnexionView');
         }
@@ -65,12 +64,12 @@ class Connexion extends CI_Controller
 
     public function modifInformationUser()
     {
-        $user = $this->UserModel->findByMail($this->session->user["user"]->getMail());
-        $user->setPrenom($this->input->post('prenom'));
-        $user->setNom($this->input->post('nom'));
-        $user->setAdresse($this->input->post('adresse'));
-        $user->setTelephone($this->input->post('telephone'));
-        $user->setSexe($this->input->post('sexe'));
+        $user = $this->UserModel->findByMail($this->session->user["user"]->mail);
+        $user->prenom = $this->input->post('prenom');
+        $user->nom = $this->input->post('nom');
+        $user->adresse = $this->input->post('adresse');
+        $user->telephone = $this->input->post('telephone');
+        $user->sexe = $this->input->post('sexe');
         $this->UserModel->modif($user);
         $this->session->set_userdata("user", array("user" => $user));
         redirect('Connexion');
@@ -125,20 +124,21 @@ class Connexion extends CI_Controller
             $valid = false;
         }
         if (!$valid) {
-            $this->load->view('RegisterView');
+            $this->session->set_flashdata('in', 1);
+            $this->load->view('RegisterView', array('msg' => $msg));
         } else {
             $user = new UserEntity();
-            $user->setPrenom($this->input->post('prenom'));
-            $user->setNom($this->input->post('nom'));
-            $user->setMail($this->input->post('email'));
-            $user->setAdresse($this->input->post('adresse'));
-            $user->setTelephone($this->input->post('telephone'));
-            $user->setSexe($this->input->post('sexe'));
-            $user->setStatus('client');
+            $user->prenom = $this->input->post('prenom');
+            $user->nom = $this->input->post('nom');
+            $user->mail = $this->input->post('email');
+            $user->adresse = $this->input->post('adresse');
+            $user->telephone = $this->input->post('telephone');
+            $user->sexe = $this->input->post('sexe');
+            $user->status = 'client';
             $user->setPassword($this->input->post('password'));
             $this->UserModel->add($user);
             $userdb = $this->UserModel->findByMail($this->input->post('email'));
-            $user->setId_user($userdb->getId_user());
+            $user->id_user = $userdb->id_user;
             $this->session->set_userdata("user", array("user" => $user));
             redirect('Home');
         }
@@ -176,18 +176,44 @@ class Connexion extends CI_Controller
             redirect("Connexion");
         }
     }
-    
+
+    public function resetPass($id)
+    {
+        $user = $this->UserModel->findById($id);
+        $mail = $user->mail;
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $charactersLength = strlen($characters);
+        $randomString = '';
+        for ($i = 0; $i < 15; $i++) {
+            $randomString .= $characters[rand(0, $charactersLength - 1)];
+        }
+
+        $user->setPassword($randomString);
+        $this->UserModel->modif($user);
+
+        $this->email->from('fruits.juiceco@gmail.com', 'Fruits');
+        $this->email->to($mail);
+
+        $this->email->subject('Réinitialisation du mot de passe');
+        $this->email->message("Voici votre nouveau mot de passe : {$randomString}. Un administrateur vous à modifier votre mot de passe désolé pour le dérangement");
+
+        $this->email->send();
+        redirect("Connexion");
+    }
 };
 
 
 
-abstract class UserStrategy{
-    abstract function makeUser($statut);
+abstract class UserStrategy
+{
+    abstract public function makeUser($statut);
 }
 
-class UserFactory extends UserStrategy {
-    function makeUser($statut){
-        switch ($statut){
+class UserFactory extends UserStrategy
+{
+    public function makeUser($statut)
+    {
+        switch ($statut) {
             case "client":
                 return new UserClient();
             case "responsable":
@@ -198,29 +224,33 @@ class UserFactory extends UserStrategy {
     }
 }
 
-class UserClient extends UserFactory {
-    function loadView(){
+class UserClient extends UserFactory
+{
+    public function loadView()
+    {
         $CI =& get_instance();
         $data['fruitsCommandes'] = array();
 
         $users = $CI->UserModel->findAll();
-        $data['commandes'] = $CI->CommandeModel->findById_User($CI->session->user["user"]->getId_user());
-        foreach ($data['commandes'] as $c){
-            array_push($data['fruitsCommandes'],$CI->CommandeModel->getFruitFrom_IdCommande($c->id_commande));
+        $data['commandes'] = $CI->CommandeModel->findById_User($CI->session->user["user"]->id_user);
+        foreach ($data['commandes'] as $c) {
+            array_push($data['fruitsCommandes'], $CI->CommandeModel->getFruitFrom_IdCommande($c->id_commande));
         }
         $CI->load->view('ClientView', $data);
     }
 }
 
-class UserResp extends UserFactory {
-    function loadView(){
+class UserResp extends UserFactory
+{
+    public function loadView()
+    {
         $CI =& get_instance();
         $data['fruitsCommandes'] = array();
 
         $data['fruits'] = $CI->FruitModel->findAll();
-        $data['commandes'] = $CI->CommandeModel->findById_User($CI->session->user["user"]->getId_user());
-        foreach ($data['commandes'] as $c){
-            array_push($data['fruitsCommandes'],$CI->CommandeModel->getFruitFrom_IdCommande($c->id_commande));
+        $data['commandes'] = $CI->CommandeModel->findById_User($CI->session->user["user"]->id_user);
+        foreach ($data['commandes'] as $c) {
+            array_push($data['fruitsCommandes'], $CI->CommandeModel->getFruitFrom_IdCommande($c->id_commande));
         }
 
         $CI->load->view('ClientView', $data);
@@ -228,18 +258,19 @@ class UserResp extends UserFactory {
     }
 }
 
-class UserAdmin extends UserFactory {
-    
-    function loadView(){
+class UserAdmin extends UserFactory
+{
+    public function loadView()
+    {
         $CI =& get_instance();
         $data['fruitsCommandes'] = array();
 
         $data['users'] = $CI->UserModel->findAll();
         $data['fruits'] = $CI->FruitModel->findAll();
-        $data['commandes'] = $CI->CommandeModel->findById_User($CI->session->user["user"]->getId_user());
-                
-        foreach ($data['commandes'] as $c){
-            array_push($data['fruitsCommandes'],$CI->CommandeModel->getFruitFrom_IdCommande($c->id_commande));
+        $data['commandes'] = $CI->CommandeModel->findById_User($CI->session->user["user"]->id_user);
+
+        foreach ($data['commandes'] as $c) {
+            array_push($data['fruitsCommandes'], $CI->CommandeModel->getFruitFrom_IdCommande($c->id_commande));
         }
         $CI->load->view('ClientView', $data);
         $CI->load->view('ResponsableView');
@@ -254,7 +285,7 @@ if ($this->session->user["user"]->getStatus() == 'admin') {
                 $data['users'] = $this->UserModel->findAll();
                 $data['fruits'] = $this->FruitModel->findAll();
                 $data['commandes'] = $this->CommandeModel->findById_User($this->session->user["user"]->getId_user());
-                
+
                 foreach ($data['commandes'] as $c){
                     array_push($data['fruitsCommandes'],$this->CommandeModel->getFruitFrom_IdCommande($c->id_commande));
                 }

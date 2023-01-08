@@ -20,20 +20,20 @@
 </head>
 
 <body onmouseover="initSliders()">
-	<div id="app-vue">
-		<div id="preloader" class="preloader">
-			<img src="<?= base_url('img/loader/' . $loader) ?>" class="loader">
-		</div>
+    <div id="app-vue">
+        <div id="preloader" class="preloader">
+            <img src="<?= base_url('img/loader/' . $loader) ?>" class="loader">
+        </div>
 
 
-		<div id="hider" onclick="flechePanier()"></div>
+        <div id="hider" onclick="flechePanier()"></div>
 
-		<header>
-			<a href="<?= site_url('Home') ?>" class="logo">
-				<img src="<?= base_url('img/header/logo.png') ?>" alt="fruit" class="logo2" />
-				<h1><b class="yellow">F</b>RUITS</h1>
-			</a>
-			<nav>
+        <header>
+            <a href="<?= site_url('Home') ?>" class="logo">
+                <img src="<?= base_url('img/header/logo.png') ?>" alt="fruit" class="logo2" />
+                <h1><b class="yellow">F</b>RUITS</h1>
+            </a>
+            <nav>
 
                 <ul>
                     <li><a href="<?= site_url('Home') ?>">Accueil</a></li>
@@ -55,11 +55,11 @@
                             </svg>
                             <?php
                             if (!isset($this->session->user)) {
-                                echo ("Connexion");
+                                echo("Connexion");
                             } else {
-                                echo ($this->session->user["user"]->getPrenom());
+                                echo($this->session->user["user"]->prenom);
                             }
-                            ?>
+    ?>
                         </a>
                     </li>
                     <li class="panier">
@@ -78,15 +78,15 @@
                             <div>
                                 <p id="quantityPanier">
                                     <?=
-                                    count($this->session->panier);
-                                    ?>
-								</p>
-							</div>
-						</a>
-					</li>
-				</ul>
-			</nav>
-		</header>
+            count($this->session->panier);
+    ?>
+                                </p>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
 
 
         <div id="voletFleche" onclick="flechePanier()">
@@ -134,47 +134,49 @@
         </div>
 
 
-		<div class="div">
-			<div class="flexible">
-				<div class="top">
-					<img class="img" src="<?= base_url('img/fruit/') . $fruit->image?>" alt="<?= $fruit->nom?>">
-					<div class="rightsquare">
-						<h1><?= $fruit->nom?></h1>
-						<div class="barh"></div>
-						<h2>Prix : <?= $fruit->prix?> €</h2>
-						<h2>Origine : <?= $fruit->origine?></h2>
-						<h2>Catégorie : <?php foreach($fruit->category as $category){echo($category->nom . " ");}?>
-						</h2>
-						<div class="bascadre">
-							<div v-for="fruit in fruits" v-bind:key="fruit.id_fruit"
-								v-if="fruit.id_fruit === <?= $fruit->id_fruit ?>">
-								<div class="plusoumoins  ">
-									<button v-on:click="totalQuantity(-1,fruit.id_fruit)">-</button>
-									<p>{{fruit.quantity}}</p>
-									<button v-on:click="totalQuantity(1,fruit.id_fruit)">+</button>
-								</div>
+        <div class="div">
+            <div class="flexible">
+                <div class="top">
+                    <img class="img" src="<?= base_url('img/fruit/') . $fruit->image?>" alt="<?= $fruit->nom?>">
+                    <div class="rightsquare">
+                        <h1><?= $fruit->nom?></h1>
+                        <div class="barh"></div>
+                        <h2>Prix : <?= $fruit->prix?> €</h2>
+                        <h2>Origine : <?= $fruit->origine?></h2>
+                        <h2>Catégorie : <?php foreach ($fruit->category as $category) {
+                            echo($category->nom . " ");
+                        }?>
+                        </h2>
+                        <div class="bascadre">
+                            <div v-for="fruit in fruits" v-bind:key="fruit.id_fruit"
+                                v-if="fruit.id_fruit === <?= $fruit->id_fruit ?>">
+                                <div class="plusoumoins  ">
+                                    <button v-on:click="totalQuantity(-1,fruit.id_fruit)">-</button>
+                                    <p>{{fruit.quantity}}</p>
+                                    <button v-on:click="totalQuantity(1,fruit.id_fruit)">+</button>
+                                </div>
                                 <button class="add" v-on:click="ajouterAuPanier(fruit.id_fruit)">Ajouter</button>
-							</div>
-						</div>
-					</div>
-				</div>
-				<p class="description">
-					<?= $fruit->description?>
-				</p>
-			</div>
-		</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="description">
+                    <?= $fruit->description?>
+                </p>
+            </div>
+        </div>
 
 
-		<div class="bestsellers blur">
-			<div class="top-part">
-				<hr class="line">
-				<div class="top-text">
-					<h2>Meilleures ventes</h2>
-					<p class="p01">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-						incididunt ut
-						labore et dolore magna </p>
-				</div>
-			</div>
+        <div class="bestsellers blur">
+            <div class="top-part">
+                <hr class="line">
+                <div class="top-text">
+                    <h2>Meilleures ventes</h2>
+                    <p class="p01">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                        incididunt ut
+                        labore et dolore magna </p>
+                </div>
+            </div>
 
             <div class="fruit-menu">
                 <div class="slider-hider leftfix"></div>

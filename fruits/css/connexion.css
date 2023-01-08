@@ -185,6 +185,9 @@ input[type="submit"]:hover {
 .register p {
     width: 60%;
     text-align: center;
+}
+
+.sous {
     margin-bottom: 25px;
 }
 
@@ -282,6 +285,12 @@ input[type="submit"]:hover {
 }
 
 
+.petit {
+    height: 25px;
+    align-self: flex-start;
+    margin-bottom: 0px;
+}
+
 
 
 /*********CLIENTVIEW*********/
@@ -291,33 +300,93 @@ input[type="submit"]:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 80%;
+    width: 50%;
     gap: 30px;
     min-width: 830px;
-    min-height: 500px;
+    min-height: 450px;
     border-radius: 20px;
-    padding: 50px;
     margin: auto;
+    margin-top: 80px;
+    padding: 50px;
+    gap: 150px;
+    padding-top: 30px;
 }
 
 .profil {
-    width: 40%;
-    height: 400px;
+    width: 100%;
+    height: 50%;
     display: flex;
     flex-direction: column;
     gap: 10px;
+    padding: 10px;
+    margin-top: 15px;
     border: 2px solid var(--orange-100);
+}
+
+.profil img {
+    width: 35px;
+    height: 35px;
+}
+
+.infos img {
+    width: 22px;
+    height: 22px;
+}
+
+.right a {
+    margin-left: 90%;
 }
 
 .commandes {
-    width: 75%;
-    height: 400px;
-    border: 2px solid var(--orange-100);
-    padding: 10px;
+    width: 50%;
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    background-color: white;
+    min-width: 830px;
+    min-height: 300px;
+    border-radius: 20px;
+    margin: auto;
+    margin-top: 80px;
+    padding: 50px;
+    gap: 25px;
+    padding-top: 30px;
+    margin-bottom: 100px;
 }
 
-.nom h1 {
+.commandes h1 {
     font-size: 27px;
+    text-align: center;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 10 0px;
+}
+
+
+
+.topco th {
+    border: 1px solid rgb(150, 150, 150);
+    padding: 10px;
+    text-align: center;
+    padding-left: 30px;
+    padding-right: 30px;
+    font-size: 25px;
+
+}
+
+.left img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+
+.left h1 {
+    font-size: 35px;
 }
 
 .button {
@@ -344,6 +413,8 @@ h2 {
 .case {
     min-height: 60px;
     padding: 10px;
+    display: flex;
+    gap: 15px;
 }
 
 .modifmdp {
@@ -388,13 +459,16 @@ input[type="checkbox"] {
 table {
     display: flex;
     padding: 0;
-    border: 1px solid;
+    border: 2px solid rgb(150, 150, 150);
+    border-collapse: collapse;
+    border-spacing: 0px;
 }
 
-th,
 td {
-    border: 1px solid;
+    border: 1px solid rgb(150, 150, 150);
     padding: 4px;
+    border-spacing: 0px;
+    border-collapse: collapse;
 }
 
 .table {
@@ -411,13 +485,19 @@ td {
     border-radius: 20px;
 }
 
-.reset {
+.reset2 {
     margin-right: 300px;
     font-size: 20px;
 }
 
-.reset:hover {
+.reset3 {
+    margin-right: 120px;
+    font-size: smaller;
+}
+
+.reset3:hover {
     color: black;
+
 }
 
 .fruitsCommande {

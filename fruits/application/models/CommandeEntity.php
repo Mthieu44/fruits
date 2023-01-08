@@ -8,6 +8,7 @@ class CommandeEntity
     public string $prix;
     public string $adresse;
 
+    /*
     public function setId_Commande(int $id_commande): void
     {
         $this->id_commande = $id_commande;
@@ -61,4 +62,5 @@ class CommandeEntity
     {
         return $this->adresse;
     }
+    */
 }

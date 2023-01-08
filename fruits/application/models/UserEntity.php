@@ -2,18 +2,18 @@
 
 class UserEntity
 {
-    private int $id_user;
-    private string $nom;
-    private string $prenom;
-    private string $mail;
-    private string $password = "";
-    private string $status;
-    private string $adresse;
-    private string $sexe;
-    private string $telephone;
+    public int $id_user;
+    public string $nom;
+    public string $prenom;
+    public string $mail;
+    public string $password = "";
+    public string $status;
+    public string $adresse;
+    public string $sexe;
+    public string $telephone;
 
 
-    public function getId_user(): string
+    /*public function getId_user(): string
     {
         return $this->id_user;
     }
@@ -53,6 +53,7 @@ class UserEntity
     {
         $this->mail = $mail;
     }
+    */
 
     public function isValidPassword(string $password): bool
     {
@@ -73,7 +74,7 @@ class UserEntity
     {
         $this->password = $password;
     }
-
+    /*
 
     public function getStatus(): string
     {
@@ -113,4 +114,5 @@ class UserEntity
     {
         $this->sexe = $sexe;
     }
+    */
 }
