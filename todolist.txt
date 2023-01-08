@@ -18,6 +18,7 @@ chmod fichier fruit img dans scipt pull
 mail quand commande Valider
 mail quand reset de password ?? 
 slider meilleures ventes dans le panier cassé
+CGU
 
 
 patterns :

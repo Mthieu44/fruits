@@ -149,7 +149,7 @@ if (isset($this->session->user["user"])) {
                 <div class="footer-col">
                     <h4>Mentions légales</h4>
                     <p>Fruits en ligne est une société anonyme (SA) au capital social de 100 000 euros.
-                        Les prix sont indiqués en euros et n'incluent pas la TVA.
+                        Les prix sont indiqués en euros et incluent la TVA.
                         Les frais de livraison sont en sus et varient en fonction de la destination et du mode de
                         livraison choisi.
                     </p>

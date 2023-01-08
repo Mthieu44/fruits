@@ -83,14 +83,24 @@
         <h1>Inscrivez vous</h1>
         <p class="sous">Renseignez ce formulaire pour pouvoir vous inscrire</p>
         <div class="name">
+            <img src="<?= base_url('img/user.png') ?>"/>
             <input class="inputname" type="text" name="prenom" placeholder="Prenom" maxlength="20" required>
             <input class="inputname" type="text" name="nom" placeholder="Nom" maxlength="20" required>
         </div>
+        <div class="autre">
+        <img src="<?= base_url('img/mail.png') ?>"/>
         <input type="email" name="email" placeholder="Email" maxlength="60" required>
+        </div>
+        <div class="autre">
+        <img src="<?= base_url('img/placeholder.png') ?>"/>
         <input type="adresse" name="adresse" placeholder="Adresse" maxlength="60" required>
+        </div>
+        <div class="autre">
+        <img src="<?= base_url('img/telephone.png') ?>"/>
         <input type="tel"
             pattern="^((\+\d{1,3}(-| )?\(?\d\)?(-| )?\d{1,5})|(\(?\d{2,6}\)?))(-| )?(\d{3,4})(-| )?(\d{4})(( x| ext)\d{1,5}){0,1}$"
             name="telephone" placeholder="Telephone (10 chiffres)" required>
+        </div>
         <div class="sexe">
             <input type="radio" name="sexe" value="homme">
             <label for="homme">Homme</label>
@@ -99,8 +109,14 @@
             <input type="radio" name="sexe" value="autre">
             <label for="autre">Autre</label>
         </div>
+        <div class="autre">
+        <img src="<?= base_url('img/password.png') ?>"/>
         <input type="password" name="password" placeholder="Mot de passe" required>
+        </div>
+        <div class="autre">
+        <img src="<?= base_url('img/login.png') ?>"/>
         <input type="password" name="passwordComfirm" placeholder=" Confirmer mot de passe" required>
+        </div>
         <p class="erreur petit">
             <?php
                     if (isset($msg)) {

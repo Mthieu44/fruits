@@ -1,4 +1,6 @@
-<div class="table">
+<div class="gestFruit">
+<button class="accordion">Gestionnaire des Users</button>
+<div class="table panel">
     <a href=" <?= site_url('User/add/') ?>">Ajouter User</a>
     <table>
         <tr>
@@ -43,12 +45,15 @@
                 <?= $user->status ?>
             </td>
             <td>
-                <a href="<?= site_url('User/modif/' . $user->id_user) ?>"> modif</a>
+                <a href="<?= site_url('User/modif/' . $user->id_user) ?>"> <img src="<?= base_url('img/pencil.png') ?>" /></a>
             </td>
             <td>
-                <a href="<?= site_url('User/delete/' . $user->id_user) ?>"> delete</a>
+                <a href="<?= site_url('User/delete/' . $user->id_user) ?>"> <img src="<?= base_url('img/poubelle.png') ?>" /></a>
             </td>
         </tr>
         <?php endforeach; ?>
     </table>
 </div>
+</div>
+
+<script type="text/javascript" src="<?= base_url('js/accordeon.js') ?>"></script>

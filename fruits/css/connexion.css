@@ -144,6 +144,11 @@ input[type="submit"]:hover {
     width: 100%;
 }
 
+.register img {
+    width: 20px;
+    height: 20px;
+}
+
 .register label {
     margin-top: 10px;
     padding: 5px;
@@ -167,6 +172,10 @@ input[type="submit"]:hover {
 
 .register .name input {
     width: 50%;
+}
+
+.register .autre input {
+    width: 100%;
 }
 
 .register input[type="submit"] {
@@ -195,6 +204,16 @@ input[type="submit"]:hover {
     display: flex;
     width: 70%;
     gap: 3%;
+    justify-content: center;
+    align-items: center;
+}
+
+.autre {
+    display: flex;
+    width: 70%;
+    gap: 3%;
+    justify-content: center;
+    align-items: center;
 }
 
 .sexe {
@@ -473,9 +492,7 @@ td {
 
 .table {
     margin: auto;
-    margin-top: 50px;
     padding: 50px;
-    width: 80%;
     justify-content: center;
     align-items: center;
     display: flex;
@@ -483,6 +500,12 @@ td {
     flex-direction: column;
     background-color: white;
     border-radius: 20px;
+}
+
+.table a img {
+    padding: 25px;
+    width: 75px;
+    height: 75px;
 }
 
 .reset2 {
@@ -509,4 +532,52 @@ td {
     border: 2px solid #666;
     background-color: lightsalmon;
     z-index: 9;
+}
+
+.accordion {
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+    border-radius: 20px;
+    border: 2px solid rgb(43, 43, 43);
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active,
+.accordion:hover {
+    border: 2px solid rgb(228, 153, 41);
+    transition: all 0.3s ease-in-out;
+    color: rgb(228, 153, 41);
+}
+
+/* Style the accordion panel. Note: hidden by default */
+.panel {
+    padding: 25px;
+    background-color: white;
+    display: none;
+    overflow: hidden;
+    border-radius: 20px;
+
+}
+
+.table td {
+    padding: 10px;
+    text-align: center;
+}
+
+.gestFruit {
+    margin: auto;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    margin-bottom: 50px;
+    justify-content: center;
+    align-items: center;
 }

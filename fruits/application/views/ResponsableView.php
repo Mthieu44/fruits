@@ -1,4 +1,6 @@
-<div class="table">
+<div class="gestFruit">
+<button class="accordion">Gestionnaire des Fruits</button>
+<div class="table panel">
     <a href=" <?= site_url('Fruit/add/') ?>">Ajouter Produit</a>
     <table>
         <tr>
@@ -40,12 +42,14 @@
                     <img src="<?= base_url('img/fruit/' . $fruit->image) ?>" />
                 </td>
                 <td>
-                    <a href="<?= site_url('Fruit/modif/' . $fruit->id_fruit) ?>"> modif</a>
+                    <a href="<?= site_url('Fruit/modif/' . $fruit->id_fruit) ?>"> <img src="<?= base_url('img/pencil.png') ?>" /></a>
                 </td>
                 <td>
-                    <a href="<?= site_url('Fruit/delete/' . $fruit->id_fruit) ?>"> delete</a>
+                    <a href="<?= site_url('Fruit/delete/' . $fruit->id_fruit) ?>">  <img src="<?= base_url('img/poubelle.png')?>" alt="Poubelle"></a>
                 </td>
             </tr>
         <?php endforeach; ?>
     </table>
 </div>
+</div>
+

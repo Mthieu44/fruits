@@ -237,6 +237,7 @@ class UserClient extends UserFactory
             array_push($data['fruitsCommandes'], $CI->CommandeModel->getFruitFrom_IdCommande($c->id_commande));
         }
         $CI->load->view('ClientView', $data);
+        $CI->load->view('FooterView');
     }
 }
 
@@ -255,6 +256,7 @@ class UserResp extends UserFactory
 
         $CI->load->view('ClientView', $data);
         $CI->load->view('ResponsableView');
+        $CI->load->view('FooterView');
     }
 }
 
@@ -275,6 +277,7 @@ class UserAdmin extends UserFactory
         $CI->load->view('ClientView', $data);
         $CI->load->view('ResponsableView');
         $CI->load->view('AdminView');
+        $CI->load->view('FooterView');
     }
 }
 

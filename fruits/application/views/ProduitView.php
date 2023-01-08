@@ -149,7 +149,7 @@
                         </h2>
                         <div class="bascadre">
                             <div v-for="fruit in fruits" v-bind:key="fruit.id_fruit"
-                                v-if="fruit.id_fruit === <?= $fruit->id_fruit ?>">
+                                v-if="fruit.id_fruit === <?= $fruit->id_fruit ?>" class="ajout">
                                 <div class="plusoumoins  ">
                                     <button v-on:click="totalQuantity(-1,fruit.id_fruit)">-</button>
                                     <p>{{fruit.quantity}}</p>

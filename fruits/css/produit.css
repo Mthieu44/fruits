@@ -8,6 +8,14 @@
     align-items: center;
 }
 
+
+
+button {
+    border-style: none;
+    background-color: white;
+    cursor: pointer;
+}
+
 .flexible {
     display: flex;
     padding: 0;
@@ -78,9 +86,17 @@
     margin-bottom: 0;
 }
 
+.ajout {
+    display: flex;
+    gap: 15px;
+}
+
 .plusoumoins {
     font-family: Inter;
     display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
     box-sizing: border-box;
     margin-left: 10%;
     height: 50px;
