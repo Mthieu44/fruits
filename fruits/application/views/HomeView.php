@@ -223,7 +223,7 @@
                                     </span>
                                     <button v-on:click="totalQuantity(1,fruit.id_fruit)">+</button>
                                 </div>
-                                <button class="add" v-on:click="ajouterAuPanier(fruit.id_fruit)">Ajouter</button>
+                                <button id="adding" class="add" v-on:click="ajouterAuPanier(fruit.id_fruit)">Ajouter au panier</button>
                                 <script type="application/javascript"
                                     src="<?= base_url('js/notiflix-Notiflix-dfaf93f/dist/notiflix-aio-3.2.5.min.js') ?>">
                                 </script>
@@ -271,7 +271,7 @@
                                     </span>
                                     <button v-on:click="totalQuantity(1,fruit.id_fruit)">+</button>
                                 </div>
-                                <button class="add" v-on:click="ajouterAuPanier(fruit.id_fruit)">Ajouter</button>
+                                <button id="adding" class="add" v-on:click="ajouterAuPanier(fruit.id_fruit)">Ajouter au panier</button>
                                 <script type="application/javascript"
                                     src="<?= base_url('js/notiflix-Notiflix-dfaf93f/dist/notiflix-aio-3.2.5.min.js') ?>">
                                 </script>
@@ -338,7 +338,7 @@
                             <li><a href="<?= site_url('Boutique') ?>"
                                     @click="setSelectedCategory('Fruits de saison')">Fruits de saison</a></li>
                             <li><a href="<?= site_url('Boutique') ?>"
-                                    @click="setSelectedCategory('Promotion')">Promotion</a></li>
+                                    @click="setSelectedCategory('Promotions')">Promotion</a></li>
                             <li><a href="<?= site_url('Boutique') ?>"
                                     @click="setSelectedCategory('Indisponibles')">Indisponibles</a></li>
                         </ul>

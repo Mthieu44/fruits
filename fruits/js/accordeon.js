@@ -13,4 +13,7 @@ for (i = 0; i < acc.length; i++) {
       panel.style.maxHeight = panel.scrollHeight + "px";
     }
   });
+  
+  // Ouvrez l'accordéon par défaut en simulant un clic sur l'élément
+  acc[i].click();
 }

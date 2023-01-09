@@ -413,8 +413,11 @@ const vue = new Vue({
 
 	mounted() {
 		if (localStorage.getItem("ventes") != null) {
+			console.log(localStorage.getItem("ventes"));
 			this.ventes = [localStorage.getItem("ventes")];
 			localStorage.removeItem("ventes");
+		}else{
+			console.log("Rien a charger")
 		}
 
 		axios

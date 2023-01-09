@@ -12,6 +12,7 @@ th {
     width: 55%;
     margin: auto;
     margin-bottom: 10   0px;
+    margin-bottom: 100px;
 }
 
 .rightPan img {
@@ -114,12 +115,6 @@ td img {
 }
 
 .requireconn{
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-
-.infos{
     display: flex;
     align-items: center;
     gap: 20px;
