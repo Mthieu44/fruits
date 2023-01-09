@@ -137,7 +137,7 @@
                 </div>
             </div>
 
-            <table v-else>
+            <table v-else class="tablePanier">
                 <tr class="title">
                     <th></th>
                     <th>Article</th>

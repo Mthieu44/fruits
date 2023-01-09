@@ -7,7 +7,7 @@ th {
     border: none;
 }
 
-table {
+.tablePanier {
     border-collapse: collapse;
     width: 55%;
     margin: auto;
@@ -20,7 +20,7 @@ table {
     cursor: pointer;
 }
 
-td {
+.tablePanier td {
     text-align: center;
     height: 130px;
 }
@@ -162,14 +162,14 @@ input[disabled]:hover{
   .fruitDansPanier th {
     padding: 3px 10px;
   }
-  .fruitDansPanier td {
+  .tablePanier .fruitDansPanier td {
     position: relative;
     background-color: white;
     padding: 6px 10px;
     border-bottom: 10px solid #ffd58e;
     border-top: 10px solid #ffd58e;
   }
-  .fruitDansPanier td:first-child:before {
+    .fruitDansPanier td:first-child:before {
     content: '';
     position: absolute;
     border-radius: 10px 0 0 10px;
@@ -186,3 +186,4 @@ input[disabled]:hover{
   .fruitDansPanier td:last-child {
     border-radius: 0 20px 20px 0;
   }
+  
