@@ -307,7 +307,7 @@
                 <h1>Règles de sécurité</h1>
                 <p>Nous disposons de plusieurs mesures pour assurer la sécurité sanitaire de vos fruits lors de leur
                     transport et de leur stockage. Nous veillons à ce qu'ils soient stockés dans des conditions
-                    optimales de température et d'humidité pour garantir leur fraîcheur et leur qualité. </p>
+                    optimales pour leur qualité. </p>
             </div>
         </div>
 
@@ -319,7 +319,7 @@
                         <ul>
                             <li><a href="<?= site_url('APropos') ?>">A propos</a></li>
                             <li><a href="<?= site_url('Contact') ?>">Nous contacter</a></li>
-                            <li><a href="<?= site_url('CGU') ?>">CGU</a></li>
+                            <li><a href="<?= site_url('home/ConditionsGenerales') ?>">CGU</a></li>
                         </ul>
                     </div>
                     <div class="footer-col">

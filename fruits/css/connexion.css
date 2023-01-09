@@ -11,7 +11,7 @@ html {
 
 }
 
-a:hover {
+.login a:hover {
     color: var(--yellow-100);
     transition: all ease 0.2s;
 }
