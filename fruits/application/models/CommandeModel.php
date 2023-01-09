@@ -22,22 +22,23 @@ class CommandeModel extends CI_Model
         return $response;
     }
 
-    public function getFruitFrom_IdCommande($id)
+    public function getFruitFrom_IdCommande($id) 
     {
         $fruits = $this->FruitModel->findAll();
         $sql = 'CALL getFruitFromCommande(?)';
         $q = $this->db->query($sql, array($id));
+
         $response = array();
-        foreach ($q->result() as $row) {
-            foreach ($fruits as $fruit) {
-                if ($row->id_fruit = $fruit->id_fruit) {
+        foreach ($fruits as $fruit) {
+            foreach ($q->result() as $row) {
+                if ($row->id_fruit == $fruit->id_fruit) {
                     array_push($response, new FruitCommande($fruit, $row->quantity, $row->id_commande));
                 }
             }
         }
         $q->next_result();
         $q->free_result();
-
+     
         return $response;
     }
 
@@ -58,6 +59,7 @@ class CommandeModel extends CI_Model
 
     public function findById_User($id)
     {
+    
         $sql = 'CALL getCommandebyUser(?)';
         $q = $this->db->query($sql, array($id));
         $response = array();
@@ -93,6 +95,7 @@ class CommandeModel extends CI_Model
                 $sql = 'CALL addCommande(?,?,?,?)';
                 $q = $this->db->query($sql, array($this->session->user["user"]->id_user,$date ,$this->session->total,$adresse));
                 $id = $q->result()[0]->id_commande;
+
                 $q->next_result();
                 $q->free_result();
                 foreach ($this->session->panier as $fruit) {
@@ -101,6 +104,8 @@ class CommandeModel extends CI_Model
                     $q->next_result();
                     $q->free_result();
                 }
+                
+                return array('id' => $id,'date' => $date);
             }
         }
     }

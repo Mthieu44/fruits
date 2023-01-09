@@ -368,10 +368,10 @@ Object.assign(Dialog, {
     buttonText: [
         undefined,
         'Abort',
-        'Cancel',
+        'Annuler',
         'Ignore',
         'NO',
-        'OK',
+        'Oui',
         'Retry',
         'Yes',
     ],
