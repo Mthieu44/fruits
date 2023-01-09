@@ -118,7 +118,7 @@
             <?php foreach($commandes as $commande):?>
             <tr>
                 <td> <?=$commande->date_commande?></td>
-                <td> <?=$commande->prix?></td>
+                <td> <?=$commande->prix?> <?= $GLOBALS['calculator']->getCurrency() ?></td>
                 <td> <?=$commande->adresse?></td>
                 <td> <?=$commande->id_commande?></td>
                 <td> <button onclick="opendiv(<?=$commande->id_commande?>)"> Détails </button></td>
@@ -148,7 +148,7 @@
                     <img src="<?= base_url('img/fruit/').$fruit->image ?>" alt="image du fruit" />
                 </td>
                 <td> <?= $fruit->nom ?></td>
-                <td> <?= $fruit->prix ?> €</td>
+                <td> <?= $fruit->prix ?> <?= $GLOBALS['calculator']->getCurrency() ?></td>
                 <td> <?= $fruit->quantity ?></td>
             </tr>
             <?php endif ?>

@@ -1,6 +1,10 @@
 <?php
 
 require_once APPPATH . DIRECTORY_SEPARATOR . 'models' . DIRECTORY_SEPARATOR . "CategoryEntity.php";
+require_once APPPATH . DIRECTORY_SEPARATOR . 'libraries' . DIRECTORY_SEPARATOR . "Prices.php";
+
+global $calculator;
+$calculator = PriceCalculatorFactory::createCalculator();
 
 class FruitEntity
 {
@@ -55,7 +59,7 @@ class FruitQuantity extends FruitDecorator
         parent::__construct(
             $fruit->id_fruit,
             $fruit->nom,
-            $fruit->prix,
+            $GLOBALS['calculator']->calculatePrice($fruit->prix),
             $fruit->description,
             $fruit->image,
             $fruit->origine,
@@ -75,7 +79,7 @@ class FruitCommande extends FruitDecorator
         parent::__construct(
             $fruit->id_fruit,
             $fruit->nom,
-            $fruit->prix,
+            $GLOBALS['calculator']->calculatePrice($fruit->prix),
             $fruit->description,
             $fruit->image,
             $fruit->origine,

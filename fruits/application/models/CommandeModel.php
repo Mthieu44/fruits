@@ -30,7 +30,7 @@ class CommandeModel extends CI_Model
         $response = array();
         foreach ($q->result() as $row) {
             foreach ($fruits as $fruit) {
-                if ($row->id_fruit = $fruit->id_fruit) {
+                if ($row->id_fruit == $fruit->id_fruit) {
                     array_push($response, new FruitCommande($fruit, $row->quantity, $row->id_commande));
                 }
             }
