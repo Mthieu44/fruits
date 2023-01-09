@@ -105,14 +105,14 @@
                     <div class="rightMini">
                         <div class="infosMini">
                             <p class="nomMini">{{fruit.nom}}</p>
-                            <p class="prixMini">{{fruit.prix }}€/unité</p>
+                            <p class="prixMini">{{fruit.prix }} <?= $GLOBALS['calculator']->getCurrency() ?>/unité</p>
                         </div>
                         <div class="buttonsMini">
                             <div class="manageMini">
                                 <button v-on:click="totalQuantityPanier(-1,fruit.id_fruit)">-</button>
                                 <p>{{fruit.quantity}}</p>
                                 <button v-on:click="totalQuantityPanier(1,fruit.id_fruit)">+</button>
-                                <p class="subtotal">{{getTotalProduit(fruit.id_fruit)}}€</p>
+                                <p class="subtotal">{{getTotalProduit(fruit.id_fruit)}}</p>
                             </div>
                             <button v-on:click="retirerDuPanier(fruit.id_fruit)" class="suppr">Retirer</button>
                         </div>
@@ -121,7 +121,7 @@
             </div>
             <div class="totalPanier">
                 <p class="p02">
-                    Total : {{getTotalPanier()}} €
+                    Total : {{getTotalPanier()}} <?= $GLOBALS['calculator']->getCurrency() ?>
                 </p>
                 <a href="<?= site_url('Commande') ?>" v-if="panier.length != 0" class="button"> Commander</a>
             </div>
@@ -172,7 +172,7 @@
                                     alt="Image du fruit" /></a>
                             <div class="infos">
                                 <p class="nom">{{fruit.nom}}</p>
-                                <p class="prix">{{fruit.prix}} €</p>
+                                <p class="prix">{{fruit.prix}} <?= $GLOBALS['calculator']->getCurrency() ?></p>
                             </div>
                             <div class="buttons">
                                 <div class="manage">

@@ -144,7 +144,7 @@
                                         <img :src="getImg(fruit.id_fruit)" alt="image du fruit" />
                                         {{fruit.nom}}
                                     </td>
-                                    <td>{{fruit.prix}} €</td>
+                                    <td>{{fruit.prix}} <?= $GLOBALS['calculator']->getCurrency() ?></td>
                                     <td>
                                         <button type="button"
                                             v-on:click="totalQuantityPanier(-1,fruit.id_fruit)">-</button>
@@ -152,7 +152,7 @@
                                         <button type="button"
                                             v-on:click="totalQuantityPanier(1,fruit.id_fruit)">+</button>
                                     </td>
-                                    <td>Total : {{getTotalProduit(fruit.id_fruit)}} €</td>
+                                    <td>{{getTotalProduit(fruit.id_fruit)}} <?= $GLOBALS['calculator']->getCurrency() ?></td>
                                     <td class="rightPan" v-on:click="retirerDuPanier(fruit.id_fruit)">
                                         <img src="<?= base_url('img/poubelle.png')?>" alt="Poubelle">
                                     </td>
@@ -161,7 +161,7 @@
                             </table>
 
                                 <p class="p02 totpanier">
-                                    Total panier : {{getTotalPanier()}} €
+                                    Total panier : {{getTotalPanier()}} <?= $GLOBALS['calculator']->getCurrency() ?>
                                 </p>
                         </div>
                         <div class="buttons">
