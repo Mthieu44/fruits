@@ -1,4 +1,4 @@
-let url = "http://127.0.0.1/";
+let url = "http://srv-infoweb/~E216351P/fruits/";
 
 const vue = new Vue({
 	data: () => {

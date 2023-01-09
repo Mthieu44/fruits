@@ -42,7 +42,7 @@ class Fruit extends CI_Controller
     public function modifFruit($id)
     {
         $filename = str_replace(' ', '_', strtolower($this->input->post('nom') . '.png'));
-        $fruit = new fruitEntity($id, $this->input->post('nom'), $this->input->post('prix'), $this->input->post('description'), $filename, $this->input->post('origine'), null, null, null);
+        $fruit = new fruitEntity($id, $this->input->post('nom'), $this->input->post('prix'), $this->input->post('description'), $filename, $this->input->post('origine'), []);
         $this->FruitModel->modif($fruit);
         $fruit = $this->FruitModel->findByName($fruit->nom);
         $categories = $this->CategoryModel->findAll();
@@ -94,7 +94,7 @@ class Fruit extends CI_Controller
     public function addFruit()
     {
         $filename = str_replace(' ', '_', strtolower($this->input->post('nom') . '.png'));
-        $fruit = new fruitEntity('0', $this->input->post('nom'), $this->input->post('prix'), $this->input->post('description'), $filename, $this->input->post('origine'), null, null, null);
+        $fruit = new fruitEntity('0', $this->input->post('nom'), $this->input->post('prix'), $this->input->post('description'), $filename, $this->input->post('origine'), []);
         $this->FruitModel->add($fruit);
         $fruit = $this->FruitModel->findByNameWithoutCat($fruit->nom);
         $categories = $this->CategoryModel->findAll();

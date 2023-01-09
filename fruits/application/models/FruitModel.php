@@ -29,10 +29,9 @@ class FruitModel extends CI_Model
                     $row->description,
                     $row->image,
                     $row->origine,
-                    $row->id_categorie,
-                    $row->nomc,
-                    $row->descriptionc
+                    []
                 );
+                $fruit->addCategory($row->id_categorie, $row->nomc, $row->descriptionc);
                 array_push($response, $fruit);
             }
         }
@@ -67,10 +66,10 @@ class FruitModel extends CI_Model
                     $row->description,
                     $row->image,
                     $row->origine,
-                    $row->id_categorie,
-                    $row->nomc,
-                    $row->descriptionc
+                    []
                 );
+                $fruit->addCategory($row->id_categorie, $row->nomc, $row->descriptionc);
+
                 array_push($response, $fruit);
             }
         }
@@ -101,10 +100,9 @@ class FruitModel extends CI_Model
                     $row->description,
                     $row->image,
                     $row->origine,
-                    $row->id_categorie,
-                    $row->nomc,
-                    $row->descriptionc
+                    []
                 );
+                $fruit->addCategory($row->id_categorie, $row->nomc, $row->descriptionc);
                 array_push($response, $fruit);
             }
         }
@@ -128,9 +126,7 @@ class FruitModel extends CI_Model
                 $row->description,
                 $row->image,
                 $row->origine,
-                null,
-                null,
-                null
+                []
             ); // ne rentre pas dans la condition dans FruitEntity donc pas de categorie
             array_push($response, $fruit);
         }
