@@ -20,7 +20,11 @@ class Commande extends CI_Controller
         if (!isset($this->session->fauxPanier)) {
             $this->session->set_userdata("fauxPanier", array());
         }
+        $this->load->model('FruitModel');
         $this->load->model('CommandeModel');
+        if ($this->session->panier == []){
+            redirect('Connexion');
+        }
     }
 
     public function index()
@@ -40,7 +44,26 @@ class Commande extends CI_Controller
         if ($adresse == null) {
             $adresse = $this->session->user["user"]->adresse;
         }
-        $this->CommandeModel->CreerCommandePanier($adresse);
+        $config['mailtype'] = 'html';
+        $dataCommande = $this->CommandeModel->CreerCommandePanier($adresse);
+        $this->email->from('fruits.juiceco@gmail.com','Fruits ');
+        $this->email->to($this->session->user["user"]->mail);
+        $this->email->set_header('Content-Type', 'text/html');
+        $this->email->subject('Merci pour votre commande !'); 
+        
+        $data = array(
+            'name' => $this->session->user["user"]->prenom,
+            'id' => $dataCommande['id'],
+            'date' => $dataCommande['date'],
+            'fruitsCommandes' => [],
+        );
+        $data['commandes'] = $this->CommandeModel->findById_User($this->session->user["user"]->id_user);
+        
+        array_push($data['fruitsCommandes'], $this->CommandeModel->getFruitFrom_IdCommande($dataCommande['id']));
+        
+        $this->email->message($this->load->view('MailCommande',$data,true));   
+        $this->email->send();
+
         $this->session->unset_userdata('panier');
         $this->session->unset_userdata('fauxpanier');
         $this->session->unset_userdata('total');

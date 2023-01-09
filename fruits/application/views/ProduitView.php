@@ -37,7 +37,7 @@
 
                 <ul>
                     <li><a href="<?= site_url('Home') ?>">Accueil</a></li>
-                    <li><a href=" <?= site_url('Boutique') ?>" class="yellow">Boutique</a></li>
+                    <li><a href=" <?= site_url('Boutique') ?>">Boutique</a></li>
                     <li><a href=" <?= site_url('APropos') ?>" class="propos">A propos</a></li>
                     <li><a href="<?= site_url('Contact') ?>">Contact</a></li>
                     <li class="connexion">
@@ -155,7 +155,7 @@
                                     <p>{{fruit.quantity}}</p>
                                     <button v-on:click="totalQuantity(1,fruit.id_fruit)">+</button>
                                 </div>
-                                <button class="add" v-on:click="ajouterAuPanier(fruit.id_fruit)">Ajouter</button>
+                                <button class="add" v-on:click="ajouterAuPanier(fruit.id_fruit)">Ajouter au panier</button>
                             </div>
                         </div>
                     </div>
@@ -201,7 +201,7 @@
                                     </span>
                                     <button v-on:click="totalQuantity(1,fruit.id_fruit)">+</button>
                                 </div>
-                                <button class="add" v-on:click="ajouterAuPanier(fruit.id_fruit)">Ajouter</button>
+                                <button id="adding" class="add" v-on:click="ajouterAuPanier(fruit.id_fruit)">Ajouter au panier</button>
                                 <script type="application/javascript"
                                     src="<?= base_url('js/notiflix-Notiflix-dfaf93f/dist/notiflix-aio-3.2.5.min.js') ?>">
                                 </script>

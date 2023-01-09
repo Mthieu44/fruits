@@ -270,7 +270,7 @@ class UserAdmin extends UserFactory
         $data['users'] = $CI->UserModel->findAll();
         $data['fruits'] = $CI->FruitModel->findAll();
         $data['commandes'] = $CI->CommandeModel->findById_User($CI->session->user["user"]->id_user);
-
+        
         foreach ($data['commandes'] as $c) {
             array_push($data['fruitsCommandes'], $CI->CommandeModel->getFruitFrom_IdCommande($c->id_commande));
         }
