@@ -338,7 +338,7 @@
                             <li><a href="<?= site_url('Boutique') ?>"
                                     @click="setSelectedCategory('Fruits de saison')">Fruits de saison</a></li>
                             <li><a href="<?= site_url('Boutique') ?>"
-                                    @click="setSelectedCategory('Promotion')">Promotion</a></li>
+                                    @click="setSelectedCategory('Promotions')">Promotion</a></li>
                             <li><a href="<?= site_url('Boutique') ?>"
                                     @click="setSelectedCategory('Indisponibles')">Indisponibles</a></li>
                         </ul>

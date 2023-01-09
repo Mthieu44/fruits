@@ -132,7 +132,7 @@ html {
 
 .filters {
     background-color: white;
-    min-height: 300px;
+    min-height: 120px;
     overflow: hidden;
     gap: 32px;
     border-radius: 19px;
@@ -206,7 +206,7 @@ html {
 
 .choix {
     height: 100%;
-    display: block;
+    display: flex;
     position: relative;
     padding: 10px 25px 10px 45px;
     border: 3px solid #fff;
@@ -216,8 +216,11 @@ html {
     white-space: nowrap;
     cursor: pointer;
     user-select: none;
-    overflow-wrap: normal;
     transition: background-color .2s, box-shadow .2s;
+}
+
+.panel label{
+    font-size: 15px;
 }
 
 .choix::before {
@@ -225,8 +228,8 @@ html {
     display: block;
     position: absolute;
     background-color: white;
-    top: 18px;
-    bottom: 18px;
+    top: 10px;
+    bottom: 15px;
     left: 15px;
     width: 15px;
     height: 15px;
@@ -240,72 +243,12 @@ input:checked+.choix {
 }
 
 input:checked+.choix::before {
-    background-color: #131313;
+    content: '\2713';
+    size: 500px;
 }
 
 /*********ACCORDEON*********/
 
-.filters .acc {
-    position: relative;
-    transition: 0.5s;
-    padding: 7px 14px 7px 14px;
-}
-
-.filters .checkbox {
-    position: absolute;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    opacity: 0;
-    visibility: 0;
-}
-
-.filters h1 {
-    background: #face5f;
-    color: black;
-    padding: 10px;
-    position: relative;
-    border-radius: 10px;
-    font-size: 20px;
-}
-
-.acc .cc::before {
-    content: "";
-    display: inline-block;
-    border: 10px solid transparent;
-    border-left: 15px solid white;
-    transition: 0.5s ease-in;
-}
-
-.filters label {
-    cursor: pointer;
-    position: relative;
-    display: flex;
-    align-items: center;
-}
-
-.filters .p {
-    max-height: 0px;
-    overflow: hidden;
-    transition: max-height 0.5s;
-    border-radius: 10px;
-}
-
-.filters .checkbox:checked~h1 label::before {
-    border-left: 10px solid transparent;
-    border-top: 15px solid white;
-    margin-top: 10px;
-    margin-right: 7px;
-}
-
-.filters .checkbox:checked~h1~div.p {
-    max-height: 400px;
-}
-
-.filterTitle {
-    font-size: 25px;
-}
 
 .accordion {
     background-color: rgb(255, 255, 255);
@@ -321,22 +264,12 @@ input:checked+.choix::before {
     margin-top: 15px;
 }
 
-.active,
-.accordion:hover {
-    border-top: 2px solid rgb(83, 83, 83);
-    transition: all 0.3s ease-in-out;
-}
 .panel {
-    padding: 0 18px;
+    padding: 0 14px;
     background-color: white;
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.2s ease-out;
-  }
-.f {
-    display: flex;
-    align-items: center;
-    justify-content: center;
   }
 
   .accordion:after {
