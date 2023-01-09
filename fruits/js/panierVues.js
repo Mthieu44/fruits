@@ -1,4 +1,4 @@
-let url = "http://srv-infoweb/~E216351P/fruits/";
+let url = "http://srv-infoweb/~E216439K/equipe2-1/fruits/";
 
 const vue = new Vue({
 	data: () => {
