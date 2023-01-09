@@ -106,31 +106,38 @@
     </div>
     <div class="commandes">
         <h1>Historique de mes commandes :</h1>
-        <table class="histo">
-            <tr class="topco">
-                <th>Date</th>
-                <th>Prix</th>
-                <th>Adresse</th>
-                <th>Numéro de Commande</th>
-                <th>v</th>
+        
+        <?php foreach($commandes as $commande):?>
+            <button class="accordionCommande">Section 1</button>
+            <div class="panelCommande">
+                <table class="fruitsCommande" id="<?=$commande->id_commande?>>
+            <tr class="title" style="display:none;">
+                <th>Image</th>
+                <th>Article</th>
+                <th>Prix unitaire</th>
+                <th>Quantité</th>
+                <th><button onclick="closediv(<?=$commande->id_commande?>)"> X </button> </th>
             </tr>
-
-            <?php foreach($commandes as $commande):?>
-            <tr>
-                <td> <?=$commande->date_commande?></td>
-                <td> <?=$commande->prix?></td>
-                <td> <?=$commande->adresse?></td>
-                <td> <?=$commande->id_commande?></td>
-                <td> <button onclick="opendiv(<?=$commande->id_commande?>)"> Détails </button></td>
-
-
+            <?php foreach($fruitsCommandes as $fruits):?>
+            <?php foreach($fruits as $fruit):?>
+            <?php if($fruit->id_commande == $commande->id_commande):?>
+            <tr class="fruitDansPanier">
+                <td class="left">
+                    <img src="<?= base_url('img/fruit/').$fruit->image ?>" alt="image du fruit" />
+                </td>
+                <td> <?= $fruit->nom ?></td>
+                <td> <?= $fruit->prix ?> €</td>
+                <td> <?= $fruit->quantity ?></td>
             </tr>
+            <?php endif ?>
             <?php endforeach?>
-
-
-        </table>
+            <?php endforeach?>
+                </table>
+            </div>
+        <?php endforeach?>
 
         <?php foreach($commandes as $commande):?>
+        
         <table class="fruitsCommande" id="<?=$commande->id_commande?>" style="display:none;">
             <tr class="title" style="display:none;">
                 <th>Image</th>
@@ -155,6 +162,33 @@
             <?php endforeach?>
         </table>
         <?php endforeach?>
+        
+        
+        <table class="histo">
+            <tr class="topco">
+                <th>Date</th>
+                <th>Prix</th>
+                <th>Adresse</th>
+                <th>Numéro de Commande</th>
+                <th>v</th>
+            </tr>
+
+            <?php foreach($commandes as $commande):?>
+            <tr>
+                <td> <?=$commande->date_commande?></td>
+                <td> <?=$commande->prix?></td>
+                <td> <?=$commande->adresse?></td>
+                <td> <?=$commande->id_commande?></td>
+                <td> <button onclick="opendiv(<?=$commande->id_commande?>)"> Détails </button></td>
+
+
+            </tr>
+            <?php endforeach?>
+
+
+        </table>
+
+        
 
 
 
@@ -164,4 +198,3 @@
 </html>
 <script type="text/javascript" src="<?= base_url('js/popup.js') ?>"></script>
 <script type="text/javascript" src="<?= base_url('js/loader.js') ?>"></script>
-<script type="text/javascript" src="<?= base_url('js/accordeon.js') ?>"></script>
