@@ -19,23 +19,14 @@ class FruitEntity
         $description,
         $image,
         $origine,
-        $id_categorie,
-        $nomc,
-        $descriptionc
+        $category
     ) {
         $this->id_fruit = $id_fruit;
         $this->nom = $nom;
         $this->prix = $prix;
         $this->description =$description;
         $this->origine = $origine;
-        if ($id_categorie != null) {
-            $category = new CategoryEntity();
-            $category->id_categorie = $id_categorie;
-            $category->nom = $nomc;
-            $category->description = $descriptionc;
-            array_push($this->category, $category);
-        }
-
+        $this->category = $category;
         $this->image = $image;
     }
 
@@ -68,9 +59,7 @@ class FruitQuantity extends FruitDecorator
             $fruit->description,
             $fruit->image,
             $fruit->origine,
-            $fruit->category[0]->id_categorie,
-            $fruit->category[0]->nom,
-            $fruit->category[0]->description
+            $fruit->category
         );
         $this->quantity = $quantity;
     }
@@ -90,9 +79,7 @@ class FruitCommande extends FruitDecorator
             $fruit->description,
             $fruit->image,
             $fruit->origine,
-            $fruit->category[0]->id_categorie,
-            $fruit->category[0]->nom,
-            $fruit->category[0]->description
+            $fruit->category
         );
         $this->quantity = $quantity;
         $this->id_commande = $id_commande;
