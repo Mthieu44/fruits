@@ -2,7 +2,7 @@ let slideIndex = 1;
 showSlides(slideIndex);
 
 let timer = 0;
-setInterval(autoSlides, 100);
+setInterval(autoSlides, 150);
 
 function autoSlides() {
     if (timer > 100) {

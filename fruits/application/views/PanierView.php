@@ -122,7 +122,7 @@
                                         </span>
                                         <button v-on:click="totalQuantity(1,fruit.id_fruit)">+</button>
                                     </div>
-                                    <button class="add" v-on:click="ajouterAuPanier(fruit.id_fruit)">Ajouter</button>
+                                    <button id="adding" class="add" v-on:click="ajouterAuPanier(fruit.id_fruit)">Ajouter au panier</button>
                                     <script type="application/javascript"
                                         src="<?= base_url('js/notiflix-Notiflix-dfaf93f/dist/notiflix-aio-3.2.5.min.js') ?>">
                                     </script>
@@ -137,7 +137,7 @@
                 </div>
             </div>
 
-            <table v-else>
+            <table v-else class="tablePanier">
                 <tr class="title">
                     <th></th>
                     <th>Article</th>
