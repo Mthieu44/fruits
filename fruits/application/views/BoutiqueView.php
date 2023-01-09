@@ -133,28 +133,24 @@
                 <div class="filters">
                     <p class="filterTitle">Filtrer par :</p>
 
-                    <div class="acc">
-                        <input type="checkbox" id="faq-1" class="checkbox">
-                        <h1><label class="cc" for="faq-1">Catégories</label></h1>
-                        <div class="p">
-                            <li v-for="cat in categoriesList">
-                                <input type="checkbox" :id="cat" v-model="categories" :value="cat" hidden />
-                                <label :for="cat" class="choix">{{cat}}</label>
-                            </li>
-                        </div>
-                    </div>
-                    <div class="acc">
-                        <input type="checkbox" id="faq-2" class="checkbox">
-                        <h1><label class="cc" for="faq-2">Ventes</label></h1>
-                        <div class="p">
-                            <li v-for="cat in ventesList">
-                                <input type="checkbox" :id="cat" v-model="ventes" :value="cat" hidden />
-                                <label :for="cat" class="choix">{{cat}}</label>
-                            </li>
+                    <button class="accordion">Catégories</button>
+                    <div class="panel">
+                        <div v-for="cat in categoriesList">
+                            <input type="checkbox" :id="cat" v-model="categories" :value="cat" hidden />
+                            <label :for="cat" class="choix">{{cat}}</label>
                         </div>
                     </div>
 
+                    <button class="accordion">Ventes</button>
+                    <div class="panel">
+                        <div v-for="cat in ventesList">
+                            <input type="checkbox" :id="cat" v-model="ventes" :value="cat" hidden />
+                            <label :for="cat" class="choix">{{cat}}</label>
+                        </div>
+                    </div>
                 </div>
+
+
             </div>
             <div class="right">
                 <div class="topProducts">
@@ -249,4 +245,4 @@
 <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.0/axios.min.js"></script>
 <script type="text/javascript" src="<?= base_url('js/panierVues.js') ?>"></script>
-<script type="text/javascript" src="<?= base_url('js/footer.js') ?>"></script>
+<script type="text/javascript" src="<?= base_url('js/accordeon.js') ?>"></script>
