@@ -1,3 +1,4 @@
+//script qui récupère tous les elements avec la class accordeon et qui va afficher les elements voisins à accordeon : panel deployer avec la scrollHeight progressivement
 var acc = document.getElementsByClassName("accordion");
 var i;
 
@@ -14,7 +15,7 @@ for (i = 0; i < acc.length; i++) {
   });
 }
 
-
+//script qui récupère tous les elements avec la class accordionCommande et qui va afficher les elements voisins à accordeon : panelCommande d'un seul coup
 var acc = document.getElementsByClassName("accordionCommande");
 var i;
 

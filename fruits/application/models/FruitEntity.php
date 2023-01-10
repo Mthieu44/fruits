@@ -33,23 +33,21 @@ class FruitEntity
         $this->category = $category;
         $this->image = $image;
     }
-
+    /*Méthode qui permet d'ajouter une catégorie dans l'attribut category (un tableau)*/
     public function addCategory(int $idCategory, string $nom, string $description): void
     {
-        $category = new CategoryEntity();
-        $category->id_categorie = $idCategory;
-        $category->nom=$nom;
-        $category->description =$description;
+        $category = new CategoryEntity($idCategory,$nom,$description);
         array_push($this->category, $category);
     }
 };
 
 
-
+/*Class absraite pour design pattern Decorator*/
 abstract class FruitDecorator extends FruitEntity
 {
 }
 
+/*Classe qui va ajouter un attribut quantité au fruit utiliser dans notre boutique vueJS panier etc.*/
 class FruitQuantity extends FruitDecorator
 {
     public $quantity;
@@ -69,6 +67,7 @@ class FruitQuantity extends FruitDecorator
     }
 }
 
+/*Classe qui va ajouter un attribut quantité et un attibut id_commande au fruit utiliser dans nos commandes (historique)*/
 class FruitCommande extends FruitDecorator
 {
     public $quantity;

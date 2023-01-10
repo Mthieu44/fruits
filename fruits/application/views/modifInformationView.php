@@ -108,7 +108,10 @@
             <label for="autre">Autre</label>
         </div>
         <a class="text-min" href="<?= site_url('Connexion/modifPass') ?>">Modifier votre mot de passe</a>
-        <input class="bouton" type="submit" value="Valider">
+        <div class="buttons">
+            <a href="<?= site_url('Connexion') ?>">Annuler</a>
+            <input type="submit" value="Valider">
+        </div>
 
     </form>
 </body>

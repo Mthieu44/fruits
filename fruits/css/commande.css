@@ -264,3 +264,11 @@ input[type="submit"]:hover {
     gap: 20px;
     flex-direction: column;
 }
+
+#errPai {
+    position: absolute;
+    bottom: 120px;
+    text-align: center;
+    font-size: 18px;
+    color: red;
+}

@@ -10,9 +10,7 @@
 	<?php require('loader.php'); ?>
 	<style>
 		<?php include 'css/style.css';
-		?>
-
-		<?php include 'css/home.css';
+		?><?php include 'css/home.css';
 		?><?php include 'css/boutique.css';
 		?><?php include 'css/panierside.css';
 		?><?php include 'https: //cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css';
@@ -358,7 +356,6 @@
         </div>
 
 
-    </div>
 	<footer class="footer blur">
 		<div class="container">
 			<div class="row">
@@ -379,18 +376,18 @@
 					</ul>
 				</div>
 				<div class="footer-col">
-					<h4>La boutique</h4>
-					<ul>
-						<li><a href="<?= site_url('Boutique') ?>"
-								@click="setSelectedCategory('Meilleures Ventes')">Meilleures ventes</a></li>
-						<li><a href="<?= site_url('Boutique') ?>"
-								@click="setSelectedCategory('Fruits de saison')">Fruits de saison</a></li>
-						<li><a href="<?= site_url('Boutique') ?>"
-								@click="setSelectedCategory('Promotions')">Promotion</a></li>
-						<li><a href="<?= site_url('Boutique') ?>"
-								@click="setSelectedCategory('Indisponibles')">Indisponibles</a></li>
-					</ul>
-				</div>
+                    <h4>La boutique</h4>
+                    <ul>
+                            <li><a href="<?= site_url('Boutique') ?>"
+                                    @click="setSelectedCategory('Meilleures Ventes')">Meilleures ventes</a></li>
+                            <li><a href="<?= site_url('Boutique') ?>"
+                                    @click="setSelectedCategory('Fruits de saison')">Fruits de saison</a></li>
+                            <li><a href="<?= site_url('Boutique') ?>"
+                                    @click="setSelectedCategory('Promotions')">Promotion</a></li>
+                            <li><a href="<?= site_url('Boutique') ?>"
+                                    @click="setSelectedCategory('Indisponibles')">Indisponibles</a></li>
+                    </ul>
+                </div>
 				<div class="footer-col">
 					<h4>Mentions légales</h4>
 					<p>Fruits en ligne est une société anonyme (SA) au capital social de 100 000 euros.
