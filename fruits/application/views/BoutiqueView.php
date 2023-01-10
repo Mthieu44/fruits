@@ -210,7 +210,7 @@
             </div>
         </div>
         
-        <footer class="footer">
+        <footer class="footer blur">
             <div class="container">
                 <div class="row">
                     <div class="footer-col">

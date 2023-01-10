@@ -374,6 +374,14 @@ CREATE PROCEDURE getFruitFromCommande(
     IN _id_commande TEXT
 )
 BEGIN
-    SELECT commandeFruit.id_fruit , commandeFruit.id_commande, commandeFruit.quantity FROM commandeFruit, fruit where id_commande = _id_commande and commandeFruit.id_fruit = fruit.id_fruit;
+    SELECT commandeFruit.id_fruit , commandeFruit.id_commande, commandeFruit.quantity FROM commandeFruit, fruitSAVE where id_commande = _id_commande and commandeFruit.id_fruit = fruitSAVE.id_fruit;
+END //
+DELIMITER ;
+
+
+DELIMITER //
+CREATE PROCEDURE getAllFruitSave()
+BEGIN
+    SELECT * FROM fruitSAVE;
 END //
 DELIMITER ;

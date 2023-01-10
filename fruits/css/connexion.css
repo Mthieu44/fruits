@@ -359,6 +359,7 @@ input[type="submit"]:hover {
     width: 50%;
     display: flex;
     height: 100%;
+    gap: 10px;
     flex-direction: column;
     background-color: white;
     min-width: 830px;
@@ -367,13 +368,13 @@ input[type="submit"]:hover {
     margin: auto;
     margin-top: 80px;
     padding: 50px;
-    gap: 25px;
     padding-top: 30px;
     margin-bottom: 100px;
 }
 
 .commandes h1 {
     font-size: 27px;
+    margin-bottom: 15px;
     text-align: center;
 }
 
@@ -522,17 +523,6 @@ td {
 
 }
 
-.fruitsCommande {
-    display: none;
-    position: fixed;
-    left: 45%;
-    top: 5%;
-    transform: translate(-45%, 5%);
-    border: 2px solid #666;
-    background-color: lightsalmon;
-    z-index: 9;
-}
-
 .accordion {
     background-color: rgb(255, 255, 255);
     color: rgb(0, 0, 0);
@@ -545,21 +535,28 @@ td {
     transition: 0.4s;
     border-radius: 20px;
     border: 2px solid rgb(43, 43, 43);
+    margin-bottom: 10px;
+    margin-bottom: 10px;
 }
 
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
 .active,
 .accordion:hover {
     border: 2px solid rgb(228, 153, 41);
     transition: all 0.3s ease-in-out;
     color: rgb(228, 153, 41);
 }
+
+/* Style the accordion panel. Note: hidden by default */
 .panel {
-    padding: 0 18px;
+    width: 100%;
+    padding: 20px;
     background-color: white;
-    max-height: 0;
+    display: none;
     overflow: hidden;
-    transition: max-height 0.2s ease-out;
-  }
+    border-radius: 20px;
+
+}
 
 .table td {
     padding: 10px;
@@ -576,3 +573,55 @@ td {
     justify-content: center;
     align-items: center;
 }
+
+.accordion:after {
+    content: '\02795';
+    font-size: 13px;
+      color: #777;
+      float: right;
+    margin-left: 5px;
+    margin-top: 5px;
+    }
+    
+    .active:after {
+    content: "\2796";
+    }
+
+.accordionCommande {
+    background-color: #eee;
+    color: #444;
+      cursor: pointer;
+      padding: 18px;
+      width: 100%;
+      text-align: left;
+    border: none;
+    outline: none;
+      transition: 0.4s;
+      border-radius: 15px;
+    }
+    
+    .activeCommande, .accordionCommande:hover {
+      background-color: #ccc;
+    }
+    
+    .panelCommande {
+        padding: 0 18px;
+        margin-top: -7px;
+        background-color: white;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.2s ease-out;
+    }
+
+    .accordionCommande:after {
+        content: '\02795';
+        font-size: 13px;
+          color: #777;
+          float: right;
+        margin-left: 5px;
+        margin-top: 5px;
+        }
+        
+        .activeCommande:after {
+        content: "\2796";
+        }

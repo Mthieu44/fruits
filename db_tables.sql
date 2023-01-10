@@ -57,5 +57,25 @@ ALTER TABLE
     commandeFruit ADD CONSTRAINT PK_commandeFruit PRIMARY KEY(id_commande, id_fruit);
 ALTER TABLE
     commandeFruit ADD CONSTRAINT FK_commandeFruit_commande FOREIGN KEY(id_commande) REFERENCES commande(id_commande);
+
+
+CREATE TABLE fruitSAVE(
+    id_fruit INT PRIMARY KEY AUTO_INCREMENT,
+    nom VARCHAR(20) NOT NULL,
+    prix FLOAT(2) NOT NULL,
+    description VARCHAR(2000) NOT NULL,
+    origine VARCHAR(200) NOT NULL,
+    image VARCHAR(50) NOT NULL
+); 
+
 ALTER TABLE
-    commandeFruit ADD CONSTRAINT FK_panier_fruit FOREIGN KEY(id_fruit) REFERENCES fruit(id_fruit);
+    commandeFruit ADD CONSTRAINT FK_panier_fruit FOREIGN KEY(id_fruit) REFERENCES fruitSAVE(id_fruit);
+
+DELIMITER //
+CREATE TRIGGER copier_lors_d_ajout
+AFTER INSERT ON fruit
+FOR EACH ROW
+BEGIN
+    INSERT INTO fruitSAVE (nom, prix, description, origine, image) VALUES (NEW.nom, NEW.prix, NEW.description, NEW.origine, NEW.image);
+END//
+DELIMITER ;

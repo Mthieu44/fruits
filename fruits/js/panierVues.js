@@ -1,4 +1,4 @@
-let url = 'http://srv-infoweb.iut-nantes.univ-nantes.prive/~E216120N/equipe2-1/fruits/';
+let url = "http://srv-infoweb/~E216439K/equipe2-1/fruits/";
 
 const vue = new Vue({
 	data: () => {
@@ -433,7 +433,6 @@ const vue = new Vue({
 
 	mounted() {
 		if (localStorage.getItem("ventes") != null) {
-			console.log(localStorage.getItem("ventes"));
 			this.ventes = [localStorage.getItem("ventes")];
 			localStorage.removeItem("ventes");
 		}

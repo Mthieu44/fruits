@@ -44,22 +44,22 @@ class Commande extends CI_Controller
         if ($adresse == null) {
             $adresse = $this->session->user["user"]->adresse;
         }
+
         $config['mailtype'] = 'html';
-        $dataCommande = $this->CommandeModel->CreerCommandePanier($adresse);
         $this->email->from('fruits.juiceco@gmail.com','Fruits ');
         $this->email->to($this->session->user["user"]->mail);
         $this->email->set_header('Content-Type', 'text/html');
         $this->email->subject('Merci pour votre commande !'); 
         
+        $dataCommande = $this->CommandeModel->CreerCommandePanier($adresse);
+
         $data = array(
             'name' => $this->session->user["user"]->prenom,
-            'id' => $dataCommande['id'],
             'date' => $dataCommande['date'],
-            'fruitsCommandes' => [],
+            'title' => "Merci pour votre commande ",
+            'subtitle' => "Voici un résumer de votre commande passé le ",
+            'message' => "Vous pouvez consulter votre commande ici !",
         );
-        $data['commandes'] = $this->CommandeModel->findById_User($this->session->user["user"]->id_user);
-        
-        array_push($data['fruitsCommandes'], $this->CommandeModel->getFruitFrom_IdCommande($dataCommande['id']));
         
         $this->email->message($this->load->view('MailCommande',$data,true));   
         $this->email->send();

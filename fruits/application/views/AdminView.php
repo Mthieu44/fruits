@@ -55,5 +55,3 @@
     </table>
 </div>
 </div>
-
-<script type="text/javascript" src="<?= base_url('js/accordeon.js') ?>"></script>

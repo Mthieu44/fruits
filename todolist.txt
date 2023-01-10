@@ -9,16 +9,10 @@ Patterns à faire completement
 
 Site :
 
-page client responsable etc
-bug null du total panier
-chargement image boutique
 formulaire meilleur verification en php 
 desactiver erreur de codeigniter etc pour la release
+
 chmod fichier fruit img dans scipt pull
-mail quand commande Valider
-mail quand reset de password ?? 
-slider meilleures ventes dans le panier cassé
-CGU
 
 
 patterns :

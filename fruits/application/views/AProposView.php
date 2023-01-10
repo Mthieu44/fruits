@@ -122,7 +122,7 @@
                                     @click="setSelectedCategory('Promotions')">Promotion</a></li>
                             <li><a href="<?= site_url('Boutique') ?>"
                                     @click="setSelectedCategory('Indisponibles')">Indisponibles</a></li>
-                        </ul>
+                    </ul>
                 </div>
                 <div class="footer-col">
                     <h4>Mentions légales</h4>

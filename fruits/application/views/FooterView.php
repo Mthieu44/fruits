@@ -42,3 +42,6 @@
             </div>
             <a href="#"><img src="<?= base_url('img/arrowUp') ?>" class="up"></a>
 </footer>
+
+
+        <script type="text/javascript" src="<?= base_url('js/accordeon2.js') ?>"></script>

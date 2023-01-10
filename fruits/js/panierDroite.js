@@ -14,7 +14,7 @@ function showPanier() {
     hider.style.display = "block";
     let blurring = document.getElementsByClassName("blur")
     for (elem in blurring) {
-        blurring[elem].style.filter = "blur(2px)"
+        blurring[elem].style.filter = "blur(0.5px)"
     }
 
 }
