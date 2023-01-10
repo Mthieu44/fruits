@@ -2,6 +2,7 @@
 
 class CommandeModel extends CI_Model
 {
+    /*Méthode qui va retourner toutes les commandes */
     public function findAll()
     {
         $q = $this->db->query('CALL getAllCommande()');
@@ -22,6 +23,7 @@ class CommandeModel extends CI_Model
         return $response;
     }
 
+    /*Méthode qui va retourner tous les fruits de associer à la commande associer à l'id passé en entrée*/
     public function getFruitFrom_IdCommande($id) 
     {
         $fruits = $this->FruitModel->findAllSave();
@@ -43,6 +45,7 @@ class CommandeModel extends CI_Model
         return $response;
     }
 
+    /*Méthode qui va retourner toutes les commandes d'un user*/
     public function findById_User($id)
     {
     
@@ -63,7 +66,8 @@ class CommandeModel extends CI_Model
         $q->free_result();
         return $response;
     }
-
+    
+    /*Méthode qui va delete une comande suivant son id*/
     public function deleteById($id)
     {
         $sql = 'CALL deleteCommande(?)';
@@ -72,12 +76,33 @@ class CommandeModel extends CI_Model
         $q->free_result();
     }
 
+    /*Méthode qui va créer une commande avec soit l'adresses passer dans le formulaire soir celle de l'user (dans la variable de session)*/
     public function CreerCommandePanier($adresse)
     {
         if (isset($this->session->panier)) {
             if (isset($this->session->user)) {
                 $today = getdate();
-                $date = $today['wday'].'-'.$today['mon'].'-'.$today['year'] .' '.$today['hours'].'h'.$today['minutes'];
+                $date = '';
+
+                if(strlen($today['wday']) == 1) {
+                    $date .= '0';
+                   }
+                $date .= $today['wday'].'-';
+
+                if(strlen($today['mon']) == 1) {
+                    $date .= '0';
+                   }
+                $date .= $today['mon'].'-'.$today['year'].' ';
+
+                if(strlen($today['hours']) == 1) {
+                    $date .= '0';
+                   }
+                $date .= $today['hours'].'h';
+
+                if(strlen($today['minutes']) == 1) {
+                    $date .= '0';
+                   }
+                $date .= $today['minutes'];
                 $sql = 'CALL addCommande(?,?,?,?)';
                 $q = $this->db->query($sql, array($this->session->user["user"]->id_user,$date ,$this->session->total,$adresse));
                 $id = $q->result()[0]->id_commande;

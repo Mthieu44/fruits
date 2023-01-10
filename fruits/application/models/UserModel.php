@@ -3,6 +3,7 @@
 require_once APPPATH . DIRECTORY_SEPARATOR . 'models' . DIRECTORY_SEPARATOR . "UserEntity.php";
 class UserModel extends CI_Model
 {
+    /*Méthode qui va retourner une entité user complète suivant le mail passée en entrée*/
     public function findByMail($mail)
     {
         $sql = 'CALL getUserByMail(?)';
@@ -30,6 +31,7 @@ class UserModel extends CI_Model
         return $user;
     }
 
+    /*Méthode qui va retourner tous les users*/
     public function findAll()
     {
         $sql = 'CALL getAllUser()';
@@ -54,6 +56,7 @@ class UserModel extends CI_Model
         return $response;
     }
 
+    /*Méthode qui va retourner une entité user complète suivant un id passé en entrée*/
     public function findById($id)
     {
         $sql = 'CALL getUserById(?)';
@@ -76,6 +79,7 @@ class UserModel extends CI_Model
         return $user;
     }
 
+    /*Méthode qui va supprimer un user dans la base de données suivant un id la procédure va supprimer toutes les valeurs dans les clefs secondaires*/
     public function deleteById($id)
     {
         $sql = 'CALL deleteUser(?)';
@@ -84,6 +88,7 @@ class UserModel extends CI_Model
         $q->free_result();
     }
 
+    /*Méthode qui va ajouter un user dasn la base de données*/
     public function add($user)
     {
         $sql = 'CALL addUser(?,?,?,?,?,?,?,?)';
@@ -92,6 +97,7 @@ class UserModel extends CI_Model
         $q->free_result();
     }
 
+    /*Méthode qui va modifier un user dasn la base de données*/
     public function modif($user)
     {
         $sql = 'CALL modifUser(?,?,?,?,?,?,?,?,?)';
