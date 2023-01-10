@@ -16,7 +16,7 @@ class Fruit extends CI_Controller
         $this->load->helper(array('form', 'url'));
 
         if (isset($this->session->user["user"])) {
-            if ($this->session->user["user"]->status == 'admin') {
+            if ($this->session->user["user"]->status == 'admin' || $this->session->user["user"]->status == 'responsable') {
             } else {
                 $this->load->view('accessDeniedView');
             }
