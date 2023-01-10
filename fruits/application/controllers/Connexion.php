@@ -64,6 +64,16 @@ class Connexion extends CI_Controller
 
     public function modifInformationUser()
     {
+
+        if (strip_tags($this->input->post('prenom')) != $this->input->post('prenom') || 
+            strip_tags($this->input->post('nom')) != $this->input->post('nom') ||
+            strip_tags($this->input->post('email')) != $this->input->post('email') ||
+            strip_tags($this->input->post('adresse')) != $this->input->post('adresse') ||
+            strlen($this->input->post('telephone')) != 10 ||
+            strip_tags($this->input->post('telephone')) != $this->input->post('telephone')){
+                $msg = 'Pas cool les injections';redirect('connexion');
+        }
+
         $user = $this->UserModel->findByMail($this->session->user["user"]->mail);
         $user->prenom = $this->input->post('prenom');
         $user->nom = $this->input->post('nom');
@@ -114,6 +124,7 @@ class Connexion extends CI_Controller
 
     public function registerRequest()
     {
+
         $valid = true;
         if ($this->UserModel->findByMail($this->input->post('email')) != null) {
             $msg = 'Mail dèjà utilisé';
@@ -123,6 +134,19 @@ class Connexion extends CI_Controller
             $msg = 'Mot de passe incorrect';
             $valid = false;
         }
+
+        if (strip_tags($this->input->post('prenom')) != $this->input->post('prenom') || 
+            strip_tags($this->input->post('nom')) != $this->input->post('nom') ||
+            strip_tags($this->input->post('email')) != $this->input->post('email') ||
+            strip_tags($this->input->post('adresse')) != $this->input->post('adresse') ||
+            strip_tags($this->input->post('password')) != $this->input->post('password') ||
+            strlen($this->input->post('telephone')) != 10 ||
+            strip_tags($this->input->post('telephone')) != $this->input->post('telephone')){
+                $msg = 'Pas cool les injections';
+                $valid = false;
+            }
+
+
         if (!$valid) {
             $this->session->set_flashdata('in', 1);
             $this->load->view('RegisterView', array('msg' => $msg));
