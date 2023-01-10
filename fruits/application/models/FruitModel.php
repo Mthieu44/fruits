@@ -190,4 +190,35 @@ class FruitModel extends CI_Model
         $q->free_result();
         return $response;
     }
+
+    public function findAllSave()
+    {
+        $q = $this->db->query('CALL getAllFruitSave()');
+        $response = array();
+        foreach ($q->result() as $row) {
+            $id = $row->id_fruit;
+            $isIn = false;
+            foreach ($response as $fruit) {
+                if ($fruit->id_fruit == $id) {
+                    $isIn = true;
+                }
+            }
+            if (!$isIn) {
+                $fruit = new FruitEntity(
+                    $id,
+                    $row->nom,
+                    $row->prix,
+                    $row->description,
+                    $row->image,
+                    $row->origine,
+                    []
+                );
+                array_push($response, $fruit);
+            }
+        }
+        $q->next_result();
+        $q->free_result();
+        return $response;
+        var_dump($response);die();
+    }
 }
