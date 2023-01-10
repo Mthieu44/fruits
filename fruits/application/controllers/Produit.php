@@ -18,6 +18,9 @@ class Produit extends CI_Controller
         }
     }
 
+	/*
+	Méthode qui est executé quand on accède à la page produit
+	*/
     public function index()
     {
         $this->load->helper('url');

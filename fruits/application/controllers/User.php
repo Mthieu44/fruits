@@ -7,6 +7,7 @@ require APPPATH . DIRECTORY_SEPARATOR . 'models' . DIRECTORY_SEPARATOR . "Comman
 
 class User extends CI_Controller
 {
+
     public function __construct()
     {
         parent::__construct();
@@ -14,6 +15,7 @@ class User extends CI_Controller
         $this->load->library('session');
         $this->load->model('UserModel');
 
+		// Empêche l'accès à la page si l'utilisateur n'est pas connecté ou qu'il n'est pas admin
         if (isset($this->session->user["user"])) {
             if ($this->session->user["user"]->status == 'admin') {
             } else {
@@ -24,7 +26,7 @@ class User extends CI_Controller
             $this->load->view('accessDeniedView');
             die();
         }
-
+		// créé un panier et faux panier si il ne sont pas instancié dans la variable de session
         if (!isset($this->session->panier)) {
             $this->session->set_userdata("panier", array());
         }
@@ -33,12 +35,14 @@ class User extends CI_Controller
         }
     }
 
+	// Méthode qui permet de modifier un utilisateur
     public function modif($id)
     {
         $user = $this->UserModel->findById($id);
         $this->load->view('modifUserView', array('user' => $user));
     }
 
+	//Méthode pour modifier un utilisateur dans la base de données
     public function modifUser()
     {
         $user = new UserEntity();
@@ -55,16 +59,23 @@ class User extends CI_Controller
         redirect('Connexion');
     }
 
+	/*Méthode pour supprimer un utilisateur de la base de données */
+
+
     public function delete($id)
     {
         $user = $this->UserModel->deleteById($id);
         redirect('Connexion');
     }
 
+	/* Méthode qui permet d'accéder à la page d'ajout d'un utilisateur */
+
     public function add()
     {
         $this->load->view('addUserView');
     }
+
+    /* Méthode pour ajouter un utilisateur dans la base de données */
 
     public function addUser()
     {
@@ -81,6 +92,7 @@ class User extends CI_Controller
         redirect('Connexion');
     }
 
+	// Méthode pour inscrire un utilisateur dans la base de données
     public function register()
     {
         $this->load->library('form_validation');

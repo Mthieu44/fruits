@@ -18,6 +18,7 @@ class Contact extends CI_Controller
         }
     }
 
+	// Méthode qui permet d'afficher la page de contact
     public function index()
     {
         $this->load->helper('url');
@@ -25,6 +26,7 @@ class Contact extends CI_Controller
         $this->load->view('ContactView');
     }
 
+	// Méthode qui permet d'envoyer un email à fruits.juiceco@gmail.com
     public function sendmessage()
     {
         $prenom = $this->input->post('prenom');

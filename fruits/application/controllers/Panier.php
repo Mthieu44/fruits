@@ -7,6 +7,8 @@ require APPPATH . DIRECTORY_SEPARATOR . 'models' . DIRECTORY_SEPARATOR . "UserEn
 
 class Panier extends CI_Controller
 {
+
+
     public function __construct()
     {
         parent::__construct();
@@ -22,11 +24,13 @@ class Panier extends CI_Controller
         }
     }
 
+	// Methode qui permet d'accéder a la page panier
     public function index()
     {
         $this->load->view('PanierView');
     }
 
+	// Methode qui permet d'ajouter un produit au panier
     public function addToPanier()
     {
         if (isset($_POST['id'],$_POST['quantity'],$_POST['tab'])) {
@@ -45,6 +49,7 @@ class Panier extends CI_Controller
     }
 
 
+
 	public function getPanier(){
 		$res = []; // get le panier depuis la bd par la suite
 		for ($i = 0; $i < count($this->session->panier); $i++ ){
@@ -55,6 +60,7 @@ class Panier extends CI_Controller
 		//var_dump($this->session->Panier);
 		echo json_encode($res);
 	}
+
 	public function getAllFruits(){
 		$res = $this->FruitModel->findAll();
 		$res2 = array();
