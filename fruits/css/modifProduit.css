@@ -1,45 +1,45 @@
 .editableProduct {
-    width: 250px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 0 auto;
-    padding: 20px;
-    border-radius: 10px;
-    border: 3px solid gainsboro;
+	width: 250px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin: 0 auto;
+	padding: 20px;
+	border-radius: 10px;
+	border: 3px solid gainsboro;
 }
 
 .editableProduct img {
-    width: 230px;
+	width: 230px;
 }
 
 .bottomproduct {
-    display: flex;
+	display: flex;
 }
 
 .editableProduct p {
-    font-size: 25px;
-    margin-right: 50px;
+	font-size: 25px;
+	margin-right: 50px;
 }
 
 .productsList {
-    display: grid;
-    grid-template-columns: repeat(6, 250px);
-    grid-gap: 20px;
-    margin: 20px;
-    justify-content: center;
-    margin-bottom: 100px;
+	display: grid;
+	grid-template-columns: repeat(6, 250px);
+	grid-gap: 20px;
+	margin: 20px;
+	justify-content: center;
+	margin-bottom: 100px;
 }
 
 .selectModif {
-    display: flex;
-    gap: 100px;
-    justify-content: center;
-    margin: 50px;
+	display: flex;
+	gap: 100px;
+	justify-content: center;
+	margin: 50px;
 }
 
 .mod {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+	display: flex;
+	align-items: center;
+	gap: 10px;
 }

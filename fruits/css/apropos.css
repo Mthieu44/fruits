@@ -1,34 +1,34 @@
 html {
-    background: linear-gradient(145deg,
-            var(--orange-100) 40%,
-            rgb(235, 184, 117) 60%);
-    height: 120%;
+	background: linear-gradient(145deg,
+			var(--orange-100) 40%,
+			rgb(235, 184, 117) 60%);
+	height: 120%;
 }
 
 
 .content {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    gap: 20px;
-    align-items: center;
-    background-color: white;
-    border-radius: 20px;
-    width: 40%;
-    height: auto;
-    margin: auto;
-    margin-top: 75px;
-    margin-bottom: 57px;
-    padding: 20px;
-    min-width: 800px;
-    margin-bottom: 33px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	gap: 20px;
+	align-items: center;
+	background-color: white;
+	border-radius: 20px;
+	width: 40%;
+	height: auto;
+	margin: auto;
+	margin-top: 75px;
+	margin-bottom: 57px;
+	padding: 20px;
+	min-width: 800px;
+	margin-bottom: 33px;
 }
 
 .content p {
-    width: 80%;
+	width: 80%;
 }
 
 .content img {
-    width: 85%;
-    height: auto;
+	width: 85%;
+	height: auto;
 }

@@ -287,7 +287,7 @@ const vue = new Vue({
 				if (element.id_fruit == id) {
 					element.quantity = element.quantity + Copiedfruit.quantity;
 					quantity = element.quantity;
-					
+
 					this.totalQuantity(-fruit.quantity, id); // On envoie - la quantity pour re-avoir une quantity à 0 dans l'objet fruit dans le tableaux de tous les fruits
 					fruit.quantity = 0;
 					test = false;
@@ -371,7 +371,7 @@ const vue = new Vue({
 						// Rajouter une pop up ou autre pour prévenir que mettre une quantity à 0 va supprimer le produit du panier.
 						let dlg = new Dialog({
 							caption: 'Confirmation',
-							message: 'Voulez vous vraiment supprimer le fruit : '.concat(this.panier[i].nom).concat( ' de votre panier ?') ,
+							message: 'Voulez vous vraiment supprimer le fruit : '.concat(this.panier[i].nom).concat(' de votre panier ?'),
 							showClose: false,
 							buttons: Dialog.buttons.OK_CANCEL,
 							cancelable: false,
@@ -383,10 +383,10 @@ const vue = new Vue({
 							cancelHandler: () => {
 								this.panier[i].quantity = 1;
 								dlg.close();
-							 },
-							
-						  });
-						  dlg.show()
+							},
+
+						});
+						dlg.show()
 					}
 				}
 			}
@@ -427,17 +427,17 @@ const vue = new Vue({
 			localStorage.setItem("ventes", category);
 		},
 		// Fonction qui retourne un booléen si le fruit correspondant à l'id passé en parametre à la catégorie 'Indisponible'
-		isIndisponible(id){
+		isIndisponible(id) {
 			let fruit = this.search.find((element) => element.id_fruit == id);
 			let istrue = false
 			fruit.category.forEach((cat) => {
 				if (cat.nom == "Indisponibles") {
-					istrue =  true;
+					istrue = true;
 				}
 			});
 			return istrue;
 		},
-		
+
 	},
 	// fonction qui permet d'effectuer des actions quand la vue en montée sur la page (dès le début)
 	mounted() {
