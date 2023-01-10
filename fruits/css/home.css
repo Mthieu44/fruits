@@ -108,6 +108,7 @@
     align-items: center;
     flex-direction: column;
     position: relative;
+    overflow: hidden;
 }
 
 .slider-inside-bestsellers,

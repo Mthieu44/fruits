@@ -49,8 +49,8 @@ class Panier extends CI_Controller
 		$res = []; // get le panier depuis la bd par la suite
 		for ($i = 0; $i < count($this->session->panier); $i++ ){
 			$new = $this->FruitModel->findById($this->session->panier[$i]->id);
-			$fruitDeco = new FruitQuantity($new,$this->session->panier[$i]->quantity);
-			array_push($res,$fruitDeco);
+			$new->quantity = $this->session->panier[$i]->quantity;
+			array_push($res,$new);
 		}
 		//var_dump($this->session->Panier);
 		echo json_encode($res);
