@@ -22,6 +22,10 @@ class Connexion extends CI_Controller
         }
     }
 
+    /*
+    Méthode qui est exécutée lorsqu'on accède à la page de connexion
+    et affiche la vue ConnexionView. 
+    */
     public function index()
     {
         $data['fruitsCommandes'] = array();
@@ -29,14 +33,18 @@ class Connexion extends CI_Controller
         if ($in == 1) {
             $this->load->view('ConnexionView', array('msg' => "Identifiants invalides"));
         } elseif (isset($this->session->user["user"])) {
-            $view = new UserFactory();
-            $view2 = $view->makeUser($this->session->user["user"]->status);
-            $view2->loadView();
+            $view = UserFactory::makeUser($this->session->user["user"]->status);
+            $view->loadView();
         } else {
             $this->load->view('ConnexionView');
         }
     }
 
+    /*
+    Méthode qui est exécutée lorsqu'on appuie sur le bouton "connexion" et
+    affiche la vue panierView/HomeView si les identifiants sont valides, sinon
+    affiche la vue ConnexionView avec un message d'erreur.
+    */
     public function loginCheck()
     {
         $mail = $this->input->post('mail');
@@ -56,12 +64,21 @@ class Connexion extends CI_Controller
         redirect("Connexion");
     }
 
+    /*
+    Méthode qui affiche la vue modifInformationView et qui est exécutée lorsqu'on
+    appuie sur le bouton "modifier mes informations".
+    */
     public function modifInformation()
     {
         $user = $this->session->user;
         $this->load->view('modifInformationView', array('user' => $user));
     }
 
+    /*
+    Méthode qui est exécutée lorsqu'on appuie sur le bouton "modifier" et
+    change les informations de l'utilisateur. Redirige enfin vers la vue
+    ConnexionView.
+    */
     public function modifInformationUser()
     {
 
@@ -85,11 +102,19 @@ class Connexion extends CI_Controller
         redirect('Connexion');
     }
 
+    /*
+    Méthode qui affiche la vue ModifPasswordView.
+    */
     public function modifPass()
     {
         $this->load->view('ModifPassView');
     }
 
+    /*
+    Méthode qui est exécutée lorsqu'on modifie le mot de passe et qui change le mot de passe
+    de l'utilisateur. Redirige sur la page de modification si le mot de passe confirmé est correct,
+    sinon reste sur la page.
+    */
     public function modifPassSend()
     {
         $mdpCurrent = $this->input->post('mdpCurrent');
@@ -109,6 +134,10 @@ class Connexion extends CI_Controller
         }
     }
 
+    /*
+    Méthode qui est exécutée lorsqu'on appuie sur le bouton "se déconnecter" et
+    déconnecte l'utilisateur. Redirige sur la page de connexion. Détruit la session.
+    */
     public function logout()
     {
         $this->session->unset_userdata("login");
@@ -116,12 +145,20 @@ class Connexion extends CI_Controller
         redirect("Connexion");
     }
 
+    /*
+    Méthode qui est exécutée lorsqu'on appuie sur le bouton "s'inscrire" et
+    affiche la vue InscriptionView.
+    */
     public function register()
     {
         $this->load->helper('form');
         $this->load->view('RegisterView');
     }
 
+    /* Crée un nouvel utilisateur et l'ajoute à la base de données. Effectue
+    les vérifications nécessaires. Redirige vers la vue HomeView si réussite,
+    sinon ConnexionView.
+    */
     public function registerRequest()
     {
 
@@ -146,7 +183,7 @@ class Connexion extends CI_Controller
                 $valid = false;
             }
 
-
+        //Si les données sont invalides, on envoir le message d'erreur en flashdata.
         if (!$valid) {
             $this->session->set_flashdata('in', 1);
             $this->load->view('RegisterView', array('msg' => $msg));
@@ -168,11 +205,20 @@ class Connexion extends CI_Controller
         }
     }
 
+    /*
+    Méthode qui est exécutée lorsqu'on appuie sur le bouton "mot de passe oublié" et
+    affiche la vue ForgotPasswordView.
+    */
     public function forgotPass()
     {
         $this->load->view('ResetPassView');
     }
 
+    /*
+    Méthode qui est exécutée lorsque l'on accède à la vue ResetPassView et
+    qui envoie un mail à l'utilisateur avec un nouveau mot de passe pour
+    réinitialiser son mot de passe.
+    */
     public function forgotPassSend()
     {
         $mail = $this->input->post('mail');
@@ -186,9 +232,6 @@ class Connexion extends CI_Controller
             for ($i = 0; $i < 15; $i++) {
                 $randomString .= $characters[rand(0, $charactersLength - 1)];
             }
-
-
-            
 
             $user->setPassword($randomString);
             $this->UserModel->modif($user);
@@ -213,6 +256,11 @@ class Connexion extends CI_Controller
         }
     }
 
+   /*
+    Méthode qui est exécutée lorsque l'administrateur réinitialise le mot
+    de passe d'un utilisateur et qui envoie un mail à l'utilisateur avec
+    un nouveau mot de passe.
+    */
     public function resetPass($id)
     {
         $user = $this->UserModel->findById($id);
@@ -239,15 +287,19 @@ class Connexion extends CI_Controller
 };
 
 
+//------ Design pattern Strategy & Factory ------
 
 abstract class UserStrategy
 {
-    abstract public function makeUser($statut);
+    abstract public function loadView();
 }
 
-class UserFactory extends UserStrategy
+/*
+Classe qui permet de choisir les vues à charger.
+*/
+class UserFactory
 {
-    public function makeUser($statut)
+    public static function makeUser($statut)
     {
         switch ($statut) {
             case "client":
@@ -260,7 +312,10 @@ class UserFactory extends UserStrategy
     }
 }
 
-class UserClient extends UserFactory
+/*
+Vue pour les clients.
+*/
+class UserClient extends UserStrategy
 {
     public function loadView()
     {
@@ -277,7 +332,10 @@ class UserClient extends UserFactory
     }
 }
 
-class UserResp extends UserFactory
+/*
+Vue pour les responsables.
+*/
+class UserResp extends UserStrategy
 {
     public function loadView()
     {
@@ -296,7 +354,10 @@ class UserResp extends UserFactory
     }
 }
 
-class UserAdmin extends UserFactory
+/*
+Vue pour les administrateurs.
+*/
+class UserAdmin extends UserStrategy
 {
     public function loadView()
     {
@@ -316,35 +377,3 @@ class UserAdmin extends UserFactory
         $CI->load->view('FooterView');
     }
 }
-
-
-
-/*
-if ($this->session->user["user"]->getStatus() == 'admin') {
-                $data['users'] = $this->UserModel->findAll();
-                $data['fruits'] = $this->FruitModel->findAll();
-                $data['commandes'] = $this->CommandeModel->findById_User($this->session->user["user"]->getId_user());
-
-                foreach ($data['commandes'] as $c){
-                    array_push($data['fruitsCommandes'],$this->CommandeModel->getFruitFrom_IdCommande($c->id_commande));
-                }
-                $this->load->view('ClientView', $data);
-                $this->load->view('ResponsableView');
-                $this->load->view('AdminView');
-            } elseif ($this->session->user["user"]->getStatus() == 'responsable') {
-                $data['fruits'] = $this->FruitModel->findAll();
-                $data['commandes'] = $this->CommandeModel->findById_User($this->session->user["user"]->getId_user());
-                foreach ($data['commandes'] as $c){
-                    array_push($data['fruitsCommandes'],$this->CommandeModel->getFruitFrom_IdCommande($c->id_commande));
-                }
-
-                $this->load->view('ClientView', $data);
-                $this->load->view('ResponsableView');
-            } elseif ($this->session->user["user"]->getStatus() == 'client') {
-                $users = $this->UserModel->findAll();
-                $data['commandes'] = $this->CommandeModel->findById_User($this->session->user["user"]->getId_user());
-                foreach ($data['commandes'] as $c){
-                    array_push($data['fruitsCommandes'],$this->CommandeModel->getFruitFrom_IdCommande($c->id_commande));
-                }
-                $this->load->view('ClientView', $data);
-            } */
