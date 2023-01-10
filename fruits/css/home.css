@@ -108,7 +108,6 @@
     align-items: center;
     flex-direction: column;
     position: relative;
-    overflow: hidden;
 }
 
 .slider-inside-bestsellers,
@@ -124,12 +123,13 @@
 }
 
 .fleche {
-    height: 50px;
+    height: 30px;
     position: absolute;
     cursor: pointer;
     z-index: 11;
-    margin-left: 17%;
-    margin-right: 17%;
+    margin-left: 21%;
+    margin-right: 21%;
+    z-index: 8;
 }
 
 .fleche:hover {
@@ -157,7 +157,7 @@
 .info {
     display: flex;
     margin-top: 100px;
-    margin-bottom: 100px;
+    margin-bottom: 60x;
     justify-content: center;
     gap: 20px;
 }
@@ -194,7 +194,7 @@
 .barv {
     height: 250px;
     width: 2px;
-    margin-top: 150px;
+    margin-top: 70px;
     background-color: #F9B814;
 }
 

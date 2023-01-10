@@ -7,12 +7,11 @@ th {
     border: none;
 }
 
-.tablePanier {
+table {
     border-collapse: collapse;
     width: 55%;
     margin: auto;
     margin-bottom: 10   0px;
-    margin-bottom: 100px;
 }
 
 .rightPan img {
@@ -21,7 +20,7 @@ th {
     cursor: pointer;
 }
 
-.tablePanier td {
+td {
     text-align: center;
     height: 130px;
 }
@@ -120,6 +119,12 @@ td img {
     gap: 20px;
 }
 
+.infos{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
 
 .total{
     width: 300px;
@@ -157,14 +162,14 @@ input[disabled]:hover{
   .fruitDansPanier th {
     padding: 3px 10px;
   }
-  .tablePanier .fruitDansPanier td {
+  .fruitDansPanier td {
     position: relative;
     background-color: white;
     padding: 6px 10px;
     border-bottom: 10px solid #ffd58e;
     border-top: 10px solid #ffd58e;
   }
-    .fruitDansPanier td:first-child:before {
+  .fruitDansPanier td:first-child:before {
     content: '';
     position: absolute;
     border-radius: 10px 0 0 10px;
@@ -181,4 +186,3 @@ input[disabled]:hover{
   .fruitDansPanier td:last-child {
     border-radius: 0 20px 20px 0;
   }
-  

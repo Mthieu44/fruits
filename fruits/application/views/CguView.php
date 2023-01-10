@@ -13,8 +13,6 @@
     ?><?php include 'css/home.css';
     ?><?php include 'css/produit.css';
     ?>
-    <?php include 'css/cgu.css';
-    ?>
     </style>
 </head>
 
@@ -86,99 +84,96 @@
 
 
     <body>
-        <div class="texte">
+        <br>
+        <p class="cgu">
+            Condition générale d'utilisation
+        </p>
+        <br>
+        <p class="cgu">
+            Article 1 - Objet :
 
-            <br>
-            <p class="cgu">
-                Condition générale d'utilisation
-            </p>
-            <br>
-            <p class="cgu">
-                Article 1 - Objet :
-    
-                Les présentes CGU ont pour objet de définir les modalités et conditions dans lesquelles d'une part, Fruits,
-                ci-après dénommé l'« Éditeur », met à la disposition de ses utilisateurs le site http://172.26.82.54/, et
-                les services disponibles sur le site et d'autre part, la manière par laquelle l'utilisateur accède au site
-                et utilise ses services.
-            </p><br>
-            <p class="cgu">
-                Article 2 - Acceptation :
-    
-                L'utilisation du site http://172.26.82.54/ implique l'acceptation pleine et entière des CGU. Lors de
-                l'utilisation du site, l'utilisateur accepte de se soumettre à ces CGU. Si l'utilisateur n'accepte pas ces
-                CGU, il doit renoncer à utiliser le site.
-            </p><br>
-            <p class="cgu">
-                Article 3 - Mentions légales :
-    
-                L'éditeur du site http://172.26.82.54/ est Fruits, une société Anonyme, immatriculée au 451 432 228 et ayant
-                son siège social situé au 3 Rue Maréchal Joffre, 44000 Nantes
-                . Le directeur de la publication du site est Bernard Carpette.
-    
-    
-            </p><br>
-            <p class="cgu">
-                Article 4 - Accès au site :
-    
-                Le site http://172.26.82.54/ est accessible gratuitement à tout utilisateur disposant d'un accès à Internet.
-                Tous les coûts afférents à l'accès au site, que ce soit les frais matériels, logiciels ou d'accès à
-                Internet, sont à la charge de l'utilisateur.
-            </p><br>
-            <p class="cgu">
-                Article 5 - Contenu du site :
-    
-                Fruits s'efforce de mettre à disposition sur le site des informations aussi précises que possible.
-                Toutefois, Fruits ne pourra être tenu responsable des omissions, des inexactitudes et des carences dans la
-                mise à disposition, qu'elles soient de son fait ou du fait des tiers partenaires qui lui fournissent ces
-                informations.
-    
-                Tous les informations indiquées sur le site http://172.26.82.54/ sont données à titre indicatif, et sont
-                susceptibles d'évoluer. Par ailleurs, les renseignements figurant sur le site ne sont pas exhaustifs. Ils
-                sont donnés sous réserve de modifications ayant été apportées depuis leur mise en ligne.
-            </p><br>
-            <p class="cgu">
-                Article 6 - Propriété intellectuelle :
-    
-                Fruits est propriétaire des droits de propriété intellectuelle ou détient les droits d'usage sur tous les
-                éléments accessibles sur le site, notamment les textes, images, graphismes, logo, icônes, sons, logiciels.
-            </p><br>
-            <p class="cgu">
-                Article 7 - Liens hypertextes :
-    
-                Le site http://172.26.82.54/ peut contenir des liens hypertextes vers d'autres sites présents sur le réseau
-                Internet. Les liens vers ces autres ressources vous font quitter le site http://172.26.82.54/.
-    
-                Fruits ne dispose d'aucun contrôle sur ces sites et ne répond pas de leur contenu. Les risques liés à
-                l'utilisation de ces sites incombent pleinement à l'utilisateur, qui doit se conforme à leurs conditions
-                d'utilisation.
-    
-    
-            </p><br>
-            <p class="cgu">
-                Article 8 - Responsabilité de l'éditeur :
-    
-                Fruits ne pourra être responsable d'aucun dommage direct ou indirect, quelle qu'en soit la cause, origine,
-                nature ou conséquence, découlant de l'accès au site ou de l'impossibilité d'y accéder, de l'utilisation du
-                site et/ou du crédit accordé à une quelconque information provenant directement ou indirectement de ce
-                dernier.
-            </p><br>
-            <p class="cgu">
-                Article 9 - Loi applicable et juridiction compétente :
-    
-                Tout litige en relation avec l'utilisation du site http://172.26.82.54/ est soumis au droit français. Il est
-                fait attribution exclusive de juridiction aux tribunaux compétents de Nantes.
-            </p><br>
-            <p class="cgu">
-                Article 10 - Cookies :
-    
-                Lors de la consultation du site http://172.26.82.54/, des cookies peuvent être installés sur l'ordinateur de
-                l'utilisateur. Un cookie est un fichier de petite taille, qui ne permet pas l'identification de
-                l'utilisateur, mais qui enregistre des informations relatives à la navigation d'un ordinateur sur un site.
-                Les données ainsi obtenues visent à faciliter la navigation ultérieure sur le site, et ont également
-                vocation à permettre diverses mesures de fréquentation.
-    
-            </p>
-        </div>
+            Les présentes CGU ont pour objet de définir les modalités et conditions dans lesquelles d'une part, Fruits,
+            ci-après dénommé l'« Éditeur », met à la disposition de ses utilisateurs le site http://172.26.82.54/, et
+            les services disponibles sur le site et d'autre part, la manière par laquelle l'utilisateur accède au site
+            et utilise ses services.
+        </p><br>
+        <p class="cgu">
+            Article 2 - Acceptation :
+
+            L'utilisation du site http://172.26.82.54/ implique l'acceptation pleine et entière des CGU. Lors de
+            l'utilisation du site, l'utilisateur accepte de se soumettre à ces CGU. Si l'utilisateur n'accepte pas ces
+            CGU, il doit renoncer à utiliser le site.
+        </p><br>
+        <p class="cgu">
+            Article 3 - Mentions légales :
+
+            L'éditeur du site http://172.26.82.54/ est Fruits, une société Anonyme, immatriculée au 451 432 228 et ayant
+            son siège social situé au 3 Rue Maréchal Joffre, 44000 Nantes
+            . Le directeur de la publication du site est Bernard Carpette.
+
+
+        </p><br>
+        <p class="cgu">
+            Article 4 - Accès au site :
+
+            Le site http://172.26.82.54/ est accessible gratuitement à tout utilisateur disposant d'un accès à Internet.
+            Tous les coûts afférents à l'accès au site, que ce soit les frais matériels, logiciels ou d'accès à
+            Internet, sont à la charge de l'utilisateur.
+        </p><br>
+        <p class="cgu">
+            Article 5 - Contenu du site :
+
+            Fruits s'efforce de mettre à disposition sur le site des informations aussi précises que possible.
+            Toutefois, Fruits ne pourra être tenu responsable des omissions, des inexactitudes et des carences dans la
+            mise à disposition, qu'elles soient de son fait ou du fait des tiers partenaires qui lui fournissent ces
+            informations.
+
+            Tous les informations indiquées sur le site http://172.26.82.54/ sont données à titre indicatif, et sont
+            susceptibles d'évoluer. Par ailleurs, les renseignements figurant sur le site ne sont pas exhaustifs. Ils
+            sont donnés sous réserve de modifications ayant été apportées depuis leur mise en ligne.
+        </p><br>
+        <p class="cgu">
+            Article 6 - Propriété intellectuelle :
+
+            Fruits est propriétaire des droits de propriété intellectuelle ou détient les droits d'usage sur tous les
+            éléments accessibles sur le site, notamment les textes, images, graphismes, logo, icônes, sons, logiciels.
+        </p><br>
+        <p class="cgu">
+            Article 7 - Liens hypertextes :
+
+            Le site http://172.26.82.54/ peut contenir des liens hypertextes vers d'autres sites présents sur le réseau
+            Internet. Les liens vers ces autres ressources vous font quitter le site http://172.26.82.54/.
+
+            Fruits ne dispose d'aucun contrôle sur ces sites et ne répond pas de leur contenu. Les risques liés à
+            l'utilisation de ces sites incombent pleinement à l'utilisateur, qui doit se conforme à leurs conditions
+            d'utilisation.
+
+
+        </p><br>
+        <p class="cgu">
+            Article 8 - Responsabilité de l'éditeur :
+
+            Fruits ne pourra être responsable d'aucun dommage direct ou indirect, quelle qu'en soit la cause, origine,
+            nature ou conséquence, découlant de l'accès au site ou de l'impossibilité d'y accéder, de l'utilisation du
+            site et/ou du crédit accordé à une quelconque information provenant directement ou indirectement de ce
+            dernier.
+        </p><br>
+        <p class="cgu">
+            Article 9 - Loi applicable et juridiction compétente :
+
+            Tout litige en relation avec l'utilisation du site http://172.26.82.54/ est soumis au droit français. Il est
+            fait attribution exclusive de juridiction aux tribunaux compétents de Nantes.
+        </p><br>
+        <p class="cgu">
+            Article 10 - Cookies :
+
+            Lors de la consultation du site http://172.26.82.54/, des cookies peuvent être installés sur l'ordinateur de
+            l'utilisateur. Un cookie est un fichier de petite taille, qui ne permet pas l'identification de
+            l'utilisateur, mais qui enregistre des informations relatives à la navigation d'un ordinateur sur un site.
+            Les données ainsi obtenues visent à faciliter la navigation ultérieure sur le site, et ont également
+            vocation à permettre diverses mesures de fréquentation.
+
+        </p>
     </body>
 
 </html>

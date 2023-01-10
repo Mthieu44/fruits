@@ -194,46 +194,18 @@ input[type="submit"]:hover {
 }
 
 .toutPanier {
-    overflow-y: scroll;
+    overflow: scroll;
     height: calc(100% - 250px);
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 30px;
+    gap: 20px;
 }
 
-.toutPanier .fruitDansPanier td {
-    position: relative;
-    background-color: white;
-    padding: 6px 10px;
-    height: 80px;
-    font-size: 18px;
+.right img {
+    width: 20px;
+    height: 20px;
 }
-
-    .toutPanier .fruitDansPanier td:first-child:before {
-    content: '';
-    position: absolute;
-    border-radius: 10px 0 0 10px;
-    background-color:#f9b814;
-    width: 15px;
-    height: 50%;
-    left: -12px;
-    top: 20px;
-  }
-
-  .leftCommande{
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .leftCommande img{
-    height: 70px;
-  }
-
-  .rightPan img{
-    height: 27px;
-  }
 
 .toutPanier table {
     width: 100%;
