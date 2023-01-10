@@ -141,7 +141,7 @@
 					</div>
 				</div>
 			</div>
-			<a href="#"><img src="<?= base_url('img/arrowUp') ?>" class="up"></a>
+			<a href="#"><img src="<?= base_url('img/arrowUp.png') ?>" class="up"></a>
 		</footer>
 	</div>
 </body>
