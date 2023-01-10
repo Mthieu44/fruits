@@ -1,6 +1,6 @@
-call addUser('Admin','Admin','chez ta maman','admin@test','$2y$10$JMuuaDMCavASPKf9KBcD1eaMHJ0zkeD8eYs7HjecoD8QeUVRhKQq6','123456789','homme', 'admin');
-call addUser('Client','Client','chez ta maman','client@test','$2y$10$JMuuaDMCavASPKf9KBcD1eaMHJ0zkeD8eYs7HjecoD8QeUVRhKQq6','123456789','femme', 'client');
-call addUser('Responsable','Responsable','chez ta maman','responsable@test','$2y$10$JMuuaDMCavASPKf9KBcD1eaMHJ0zkeD8eYs7HjecoD8QeUVRhKQq6','123456789','autre', 'responsable');
+call addUser('Admin','Admin','10 Rue du maréchal Joffre','admin@test','$2y$10$JMuuaDMCavASPKf9KBcD1eaMHJ0zkeD8eYs7HjecoD8QeUVRhKQq6','0123456789','homme', 'admin');
+call addUser('Client','Client','11 Rue du maréchal Joffre','client@test','$2y$10$JMuuaDMCavASPKf9KBcD1eaMHJ0zkeD8eYs7HjecoD8QeUVRhKQq6','0123456789','femme', 'client');
+call addUser('Responsable','Responsable','12 Rue du maréchal Joffre','responsable@test','$2y$10$JMuuaDMCavASPKf9KBcD1eaMHJ0zkeD8eYs7HjecoD8QeUVRhKQq6','0123456789','autre', 'responsable');
 
 
 call addCategorie('Agrumes','Très juteux et bien sucrés on adore les manger.');
@@ -13,7 +13,6 @@ call addCategorie('Promotions',"Ne pas s'en priver, votre porte-monnaie vous rem
 call addCategorie('Indisponibles',"Ce fruit n'est plus dans nos stock");
 call addCategorie('Meilleures Ventes',"C'est les meilleurs");
 call addCategorie('Fruits de saison',"c'est l'hiver il fait froid");
-
 
 
 call addFruit('Avocat',1.00,"C'est un fruit à la maturation originale qui ne peut mûrir que lorsqu'il est détaché de l'arbre. L'avocat est un fruit très calorique, riche en matières grasses. Vendu à l'unité.","Mexique","avocat.png");
@@ -104,7 +103,7 @@ call addCategorieToFruit(29,1);
 call addCategorieToFruit(30,5);
 call addCategorieToFruit(31,5);
 
-call addCategorieToFruit(6,8);
+call addCategorieToFruit(10,8);
 call addCategorieToFruit(7,8);
 call addCategorieToFruit(8,8);
 
@@ -158,17 +157,17 @@ call addCategorieToFruit(51,3);
 call addCategorieToFruit(52,3);
 call addCategorieToFruit(53,3);
 
-call addCommande(1,'03-01-2023 16h45',214.58,'la bas');
+call addCommande(1,'03-01-2023 16h45',7.14,'10 Rue du maréchal Joffre');
 call addFruitToCommande(1,1,4);
 call addFruitToCommande(1,4,1);
 call addFruitToCommande(1,25,15);
 
-call addCommande(2,'03-01-2023 46h78',214.58,'la bas');
+call addCommande(2,'03-01-2023 18h45',7.14,'11 Rue du maréchal Joffre');
 call addFruitToCommande(2,1,4);
 call addFruitToCommande(2,4,1);
 call addFruitToCommande(2,25,15);
 
-call addCommande(3,'03-01-2023 20h45',214.58,'la bas');
+call addCommande(3,'03-01-2023 20h45',7.14,'12 Rue du maréchal Joffre');
 call addFruitToCommande(3,1,4);
 call addFruitToCommande(3,4,1);
 call addFruitToCommande(3,25,15);
