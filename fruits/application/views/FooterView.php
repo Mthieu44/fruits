@@ -40,4 +40,5 @@
                     </div>
                 </div>
             </div>
-        </footer>
+            <a href="#"><img src="<?= base_url('img/arrowUp') ?>" class="up"></a>
+</footer>

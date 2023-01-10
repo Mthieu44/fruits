@@ -51,6 +51,7 @@ ul {
 
 html {
     background-color: var(--orange-100);
+    scroll-behavior: smooth;
 }
 
 /*********TYPOGRAPHIE*********/
@@ -205,6 +206,7 @@ li:hover svg path {
 
 .footer {
     background-color: #ffc37a;
+    position: relative;
     padding: 40px 0;
 }
 
@@ -278,6 +280,15 @@ li:hover svg path {
     }
 }
 
+.up{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 40px;
+    margin-bottom: 50px;
+    margin-right: 50px;
+}
+
 /*********LOADING*********/
 
 .preloader {
@@ -333,3 +344,4 @@ li:hover svg path {
 .dlg-close-button::after {
     background-color: white;
 }
+

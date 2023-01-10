@@ -1,6 +1,7 @@
 /*********ACCUEIL PHOTO*********/
 
 
+
 .slider {
     position: relative;
     height: calc(100vh - 60px);
@@ -197,6 +198,3 @@
     margin-top: 150px;
     background-color: #F9B814;
 }
-
-
-/*********FOOTER*********/

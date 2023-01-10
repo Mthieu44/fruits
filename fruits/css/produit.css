@@ -93,25 +93,15 @@ button {
     width: 400px;
 }
 
+.ajout div{
+    display: flex;
+    gap: 15px;
+}
+
 .ajout button{
     width: 800px;
 }
 
-.plusoumoins {
-    font-family: Inter;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    box-sizing: border-box;
-    margin-left: 10%;
-    height: 50px;
-    left: 1142px;
-    top: 611px;
-    background: rgb(255, 255, 255);
-    border: 3px solid rgb(250, 206, 95);
-    width: 120px;
-}
 
 .bascadre {
     margin-left: 0%;
@@ -129,7 +119,7 @@ button {
     height: 30px;
     cursor: pointer;
     font-size: 30px;
-
+    
 }
 
 .bouton-ajouter {
@@ -169,6 +159,31 @@ button {
     font-size: 40px;
     line-height: 48px;
     text-align: center;
-
+    
     color: #000000;
+}
+
+#adding{
+    position: relative;
+    width: 300px;
+}
+
+.plusoumoins {
+    font-family: Inter;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    box-sizing: border-box;
+    margin-left: 10%;
+    height: 50px;
+    left: 1142px;
+    top: 611px;
+    background: rgb(255, 255, 255);
+    border: 3px solid rgb(250, 206, 95);
+    width: 120px;
+}
+
+.grayD button{
+    cursor: default;
 }

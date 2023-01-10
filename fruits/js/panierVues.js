@@ -409,12 +409,26 @@ const vue = new Vue({
 				}
 			}
 		},
+
 		getProduct(id) {
 			return url.concat("index.php/boutique/fruit/").concat(id);
 		},
+
 		setSelectedCategory(category) {
 			localStorage.setItem("ventes", category);
 		},
+
+		isIndisponible(id){
+			let fruit = this.search.find((element) => element.id_fruit == id);
+			let istrue = false
+			fruit.category.forEach((cat) => {
+				if (cat.nom == "Indisponibles") {
+					istrue =  true;
+				}
+			});
+			return istrue;
+		},
+		
 	},
 
 	mounted() {
@@ -422,8 +436,6 @@ const vue = new Vue({
 			console.log(localStorage.getItem("ventes"));
 			this.ventes = [localStorage.getItem("ventes")];
 			localStorage.removeItem("ventes");
-		}else{
-			console.log("Rien a charger")
 		}
 
 		axios

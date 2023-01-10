@@ -105,7 +105,7 @@
         <div id="panierVolet">
             <h1 v-if="panier.length == 0 " class="vide">Votre panier est vide ! </h1>
             <div v-for="fruit in panier" v-bind:key="fruit.id_fruit" class="fruitDansPanier">
-
+               
                 <div class="cardMini">
                     <a href="<?= site_url('Produit') ?>"><img :src="getImg(fruit.id_fruit)" alt="image du fruit" /></a>
                     <div class="rightMini">
@@ -137,7 +137,12 @@
         <div class="div">
             <div class="flexible">
                 <div class="top">
-                    <img class="img" src="<?= base_url('img/fruit/') . $fruit->image?>" alt="<?= $fruit->nom?>">
+                    <div v-if="isIndisponible(<?= $fruit->id_fruit ?>)">
+                        <img class="img indisp" src="<?= base_url('img/fruit/') . $fruit->image?>" alt="<?= $fruit->nom?>">
+                    </div>
+                    <div v-else>
+                        <img class="img" src="<?= base_url('img/fruit/') . $fruit->image?>" alt="<?= $fruit->nom?>">
+                    </div>
                     <div class="rightsquare">
                         <h1><?= $fruit->nom?></h1>
                         <div class="barh"></div>
@@ -148,14 +153,26 @@
                         }?>
                         </h2>
                         <div class="bascadre">
+                        
                             <div v-for="fruit in fruits" v-bind:key="fruit.id_fruit"
                                 v-if="fruit.id_fruit === <?= $fruit->id_fruit ?>" class="ajout">
-                                <div class="plusoumoins  ">
-                                    <button v-on:click="totalQuantity(-1,fruit.id_fruit)">-</button>
-                                    <p>{{fruit.quantity}}</p>
-                                    <button v-on:click="totalQuantity(1,fruit.id_fruit)">+</button>
+                                <div v-if="isIndisponible(<?= $fruit->id_fruit ?>)">
+                                    <div class="plusoumoins grayD">
+                                        <button v-on:click="totalQuantity(-1,fruit.id_fruit)" disbaled>-</button>
+                                        <p>{{fruit.quantity}}</p>
+                                        <button v-on:click="totalQuantity(1,fruit.id_fruit)" disabled>+</button>
+                                    </div>
+                                    <button id ="adding" class="add gray " v-on:click="ajouterAuPanier(fruit.id_fruit)" disabled>Indisponible</button>
                                 </div>
-                                <button class="add" v-on:click="ajouterAuPanier(fruit.id_fruit)">Ajouter au panier</button>
+                                <div v-else>
+                                    <div class="plusoumoins  ">
+                                        <button v-on:click="totalQuantity(-1,fruit.id_fruit)">-</button>
+                                        <p>{{fruit.quantity}}</p>
+                                        <button v-on:click="totalQuantity(1,fruit.id_fruit)">+</button>
+                                    </div>
+                                    <button id ="adding" class="add" v-on:click="ajouterAuPanier(fruit.id_fruit)">Ajouter au panier</button>
+                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -165,7 +182,6 @@
                 </p>
             </div>
         </div>
-
 
         <div class="bestsellers blur">
             <div class="top-part">

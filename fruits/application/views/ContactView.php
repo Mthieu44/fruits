@@ -158,6 +158,7 @@ if (isset($this->session->user["user"])) {
                 </div>
             </div>
         </div>
+        <a href="#"><img src="<?= base_url('img/arrowUp') ?>" class="up"></a>
     </footer>
     
 </div>

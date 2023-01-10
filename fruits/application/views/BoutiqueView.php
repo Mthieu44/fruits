@@ -167,26 +167,43 @@
                 </div>
                 <div class="products">
                     <div v-for="fruit in search" v-bind:key="fruit.id_fruit">
-                        <div class="card">
-                            <a :href="getProduct(fruit.id_fruit)"><img :src="getImg(fruit.id_fruit)"
-                                    alt="Image du fruit" /></a>
-                            <div class="infos">
-                                <p class="nom">{{fruit.nom}}</p>
-                                <p class="prix">{{fruit.prix}} <?= $GLOBALS['calculator']->getCurrency() ?></p>
-                            </div>
-                            <div class="buttons">
-                                <div class="manage">
-                                    <button v-on:click="totalQuantity(-1,fruit.id_fruit)">-</button>
-                                    <span>
-                                        {{fruit.quantity}}
-                                    </span>
-                                    <button v-on:click="totalQuantity(1,fruit.id_fruit)">+</button>
+                            <div class="card">
+                                <div v-if="isIndisponible(fruit.id_fruit)">
+                                    <a :href="getProduct(fruit.id_fruit)"><img :src="getImg(fruit.id_fruit)" alt="Image du fruit" class="indisp"/></a>
                                 </div>
-                                <button id="adding" class="add" v-on:click="ajouterAuPanier(fruit.id_fruit)">Ajouter au panier</button>
+                                <div v-else>
+                                    <a :href="getProduct(fruit.id_fruit)"><img :src="getImg(fruit.id_fruit)" alt="Image du fruit" /></a>
+                                </div>
+                                <div class="infos">
+                                    <p class="nom">{{fruit.nom}}</p>
+                                    <p class="prix">{{fruit.prix}} <?= $GLOBALS['calculator']->getCurrency() ?></p>
+                                </div>
+                                <div class="buttons">
+                                    <div v-if="isIndisponible(fruit.id_fruit)">
+                                        <div class="manage gray">
+                                            <button v-on:click="totalQuantity(-1,fruit.id_fruit)" disabled class="gray">-</button>
+                                            <span>
+                                                {{fruit.quantity}}
+                                            </span>
+                                            <button v-on:click="totalQuantity(1,fruit.id_fruit)" disabled class="gray">+</button>
+                                        </div>
+                                        <button class="add gray indispBouton" v-on:click="ajouterAuPanier(fruit.id_fruit)" disabled>Indisponible</button>
+                                    </div>
+                                    <div v-else>
+                                        <div class="manage">
+                                            <button v-on:click="totalQuantity(-1,fruit.id_fruit)">-</button>
+                                            <span>
+                                                {{fruit.quantity}}
+                                            </span>
+                                            <button v-on:click="totalQuantity(1,fruit.id_fruit)">+</button>
+                                        </div>
+                                        <button id="adding" class="add" v-on:click="ajouterAuPanier(fruit.id_fruit)">Ajouter au panier</button>
+                                    </div>
                                 <script type="application/javascript"
-                                    src="<?= base_url('js/notiflix-Notiflix-dfaf93f/dist/notiflix-aio-3.2.5.min.js') ?>">
+                                src="<?= base_url('js/notiflix-Notiflix-dfaf93f/dist/notiflix-aio-3.2.5.min.js') ?>">
                                 </script>
                             </div>
+                        </div>
                         </div>
                     </div>
                 </div>
@@ -235,6 +252,7 @@
                     </div>
                 </div>
             </div>
+            <a href="#"><img src="<?= base_url('img/arrowUp') ?>" class="up"></a>
         </footer>
     </div>
 </body>
