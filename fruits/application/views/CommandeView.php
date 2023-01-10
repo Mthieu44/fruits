@@ -86,7 +86,7 @@
             </nav>
         </header>
 
-        <form action="<?= site_url('Commande/validerCommande') ?>" method="post">
+        <form action="<?= site_url('Commande/validerCommande') ?>" method="post" id="formulaire">
             <div id="carousel">
                 <div class="uppercontent">
                     <div class="content">
@@ -96,8 +96,7 @@
                             <div class="row">
                                 <div class="col">
                                     <label for="prenom">Prenom :</label>
-                                    <input id="prenom" type="text" name="prenom" placeholder="Votre prénom"
-                                        value="<?= $this->session->user["user"]->prenom ?>">
+                                    <input id="prenom" type="text" name="prenom" placeholder="Votre prénom" value="<?= $this->session->user["user"]->prenom ?>" required>
                                 </div>
                                 <div class="col">
                                     <label for="nom">Nom :</label>
@@ -113,7 +112,7 @@
                             <input type="text" id="adresse" name="adresse" placeholder="Adresse"
                                 value="<?= $this->session->user["user"]->adresse ?>">
                             <label for="telephone">Telephone :</label>
-                            <input type="text" id="telephone" name="objet" placeholder="Telephone"
+                            <input type="text" id="telephone" name="objet" placeholder="Telephone" minlength="10" maxlength="10"
                                 value="<?= $this->session->user["user"]->telephone ?>">
                         </div>
                         <div class="buttons">
@@ -183,30 +182,33 @@
                                 <div class="col">
                                     <label for="detenteur">Détenteur</label>
                                     <input id="detenteur" type="text" name="detenteur"
-                                        placeholder="Nom du détenteur de la carte" required>
+                                        placeholder="Nom du détenteur de la carte">
                                 </div>
                                 <div class="col">
                                     <label for="date">Date de validité</label>
                                     <input type="month" id="date" name="date" min="<?= date('Y')."-".date('m')?>"
-                                        placeholder="YYYY-MM" required pattern="[0-9]{4}-[0-9]{2}">
+                                        placeholder="YYYY-MM" pattern="[0-9]{4}-[0-9]{2}">
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col">
                                     <label for="numero">Numéro</label>
-                                    <input id="numero" type="text" name="numero" placeholder="XXXX-XXXX-XXXX-XXXX"
-                                        required pattern="[0-9]{16}">
+                                    <input id="numero" type="text" name="numero" placeholder="XXXX XXXX XXXX XXXX"
+                                        pattern="[0-9]{4}([ -]?)[0-9]{4}\1[0-9]{4}\1[0-9]{4}">
                                 </div>
                                 <div class="col">
                                     <label for="cryptogramme">Cryptogramme</label>
-                                    <input id="cryptogramme" type="text" name="cryptogramme" placeholder="XXX" required
+                                    <input id="cryptogramme" type="text" name="cryptogramme" placeholder="XXX"
                                         pattern="[0-9]{3}">
                                 </div>
                             </div>
                         </div>
+                        
+
+                        <p id="errPai"></p>
                         <div class="buttons">
                             <button type="button" class="prev-btn">Précédent</button>
-                            <input class="next-btn" type="submit" value="Payer">
+                            <button type="button" class="next-btn" onclick="validateForm()">Payer</button>
                         </div>
                         <div class="progress-bar">
                             <div id="progress-bar3" class="progress-bar"></div>
@@ -222,6 +224,7 @@
 
 <script type="text/javascript" src="<?= base_url('js/dialog-master/js/dialog.js') ?>"></script>
 <script type="text/javascript" src="<?= base_url('js/loader.js') ?>"></script>
+<script type="text/javascript" src="<?= base_url('js/validateForm.js') ?>"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.0/axios.min.js"></script>
 <script type="text/javascript" src="<?= base_url('js/panierVues.js') ?>"></script>
