@@ -522,17 +522,6 @@ td {
 
 }
 
-.fruitsCommande {
-    display: none;
-    position: fixed;
-    left: 45%;
-    top: 5%;
-    transform: translate(-45%, 5%);
-    border: 2px solid #666;
-    background-color: lightsalmon;
-    z-index: 9;
-}
-
 .accordion {
     background-color: rgb(255, 255, 255);
     color: rgb(0, 0, 0);
@@ -545,6 +534,7 @@ td {
     transition: 0.4s;
     border-radius: 20px;
     border: 2px solid rgb(43, 43, 43);
+    margin-bottom: 10px;
 }
 
 .active,
@@ -553,7 +543,8 @@ td {
     transition: all 0.3s ease-in-out;
 }
 .panel {
-    padding: 0 18px;
+    width: 100%;
+    padding: 20px;
     background-color: white;
     overflow: hidden; 
     display: none;
@@ -576,7 +567,7 @@ td {
 }
 
 .accordion:after {
-    content: '\02795'; /* Unicode character for "plus" sign (+) */
+    content: '\02795';
     font-size: 13px;
       color: #777;
       float: right;
@@ -585,35 +576,43 @@ td {
     }
     
     .active:after {
-    content: "\2796"; /* Unicode character for "minus" sign (-) */
+    content: "\2796";
     }
 
-
-
-
-     /* Style the buttons that are used to open and close the accordion panel */
 .accordionCommande {
-      background-color: #eee;
-      color: #444;
+    background-color: #eee;
+    color: #444;
       cursor: pointer;
       padding: 18px;
       width: 100%;
       text-align: left;
-      border: none;
-      outline: none;
+    border: none;
+    outline: none;
       transition: 0.4s;
+      border-radius: 15px;
     }
     
-    /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
     .activeCommande, .accordionCommande:hover {
       background-color: #ccc;
     }
     
-    /* Style the accordion panel. Note: hidden by default */
     .panelCommande {
-          padding: 0 18px;
+        padding: 0 18px;
         background-color: white;
         max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.2s ease-out;
-    } 
+        overflow: hidden;
+        transition: max-height 0.2s ease-out;
+    }
+
+    .accordionCommande:after {
+        content: '\02795';
+        font-size: 13px;
+          color: #777;
+          float: right;
+        margin-left: 5px;
+        margin-top: 5px;
+        }
+        
+        .activeCommande:after {
+        content: "\2796";
+        }

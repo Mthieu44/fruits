@@ -104,44 +104,17 @@
             </div>
         </div>
     </div>
+
     <div class="commandes">
-        <h1>Historique de mes commandes :</h1>
-        <table class="histo">
-            <tr class="topco">
-                <th>Date</th>
-                <th>Prix</th>
-                <th>Adresse</th>
-                <th>Numéro de Commande</th>
-                <th>v</th>
-            </tr>
-
-            <?php foreach($commandes as $commande):?>
-            <tr>
-                <td> <?=$commande->date_commande?></td>
-                <td> <?=$commande->prix?></td>
-                <td> <?=$commande->adresse?></td>
-                <td> <?=$commande->id_commande?></td>
-                <td> <button onclick="opendiv(<?=$commande->id_commande?>)"> Détails </button></td>
-
-
-            </tr>
-            <?php endif ?>
-            <?php endforeach?>
-            <?php endforeach?>
-                </table>
-            </div>
-        <?php endforeach?>
-
-        <?php foreach($commandes as $commande):?>
-            <button class="accordionCommande"><?= $GLOBALS['calculator']->getCurrency()?></button>
+    <?php foreach($commandes as $commande):?>
+            <button class="accordionCommande"><?php echo('Commande n° ' . $commande->id_commande . ' éffectuer le '. $commande->date_commande . ' pour un total de ' . $commande->prix) ?><?= $GLOBALS['calculator']->getCurrency()?></button>
             <div class="panelCommande">
-                <table class="fruitsCommande" id="<?=$commande->id_commande?>>
-            <tr class="title" style="display:none;">
+                <table id="<?=$commande->id_commande?>">
+            <tr class="title">
                 <th>Image</th>
                 <th>Article</th>
                 <th>Prix unitaire</th>
                 <th>Quantité</th>
-                <th><button onclick="closediv(<?=$commande->id_commande?>)"> X </button> </th>
             </tr>
             <?php foreach($fruitsCommandes as $fruits):?>
             <?php foreach($fruits as $fruit):?>
@@ -160,32 +133,7 @@
                 </table>
             </div>
         <?php endforeach?>
-        
-        
-        <table class="histo">
-            <tr class="topco">
-                <th>Date</th>
-                <th>Prix</th>
-                <th>Adresse</th>
-                <th>Numéro de Commande</th>
-                <th>v</th>
-            </tr>
-
-            <?php foreach($commandes as $commande):?>
-            <tr>
-                <td> <?=$commande->date_commande?></td>
-                <td> <?=$commande->prix?></td>
-                <td> <?=$commande->adresse?></td>
-                <td> <?=$commande->id_commande?></td>
-                <td> <button onclick="opendiv(<?=$commande->id_commande?>)"> Détails </button></td>
-
-
-            </tr>
-            <?php endforeach?>
-
-
-        </table>
-
+    </div>
         
 
 
