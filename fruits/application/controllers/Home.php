@@ -21,12 +21,15 @@ class Home extends CI_Controller
         }
     }
 
+	// Méthode qui permet de charger la page d'accueil du site
     public function index()
     {
         $this->load->helper('url');
         $fruits = $this->FruitModel->findAll();
         $this->load->view('HomeView', array('fruits' => $fruits));
     }
+
+	//Méthode qui permet de charger la page CguView via ConditionsGenerales
     public function ConditionsGenerales()
     {
         $this->load->view('CguView');

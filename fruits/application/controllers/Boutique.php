@@ -54,6 +54,13 @@ class Boutique extends CI_Controller
             echo $panier;
         }
     }
+
+    /*
+    Méthode qui est exécutée lorsqu'on clique sur un produit dans la boutique. Cette méthode 
+    prend en paramètre l'ID du produit et récupère le produit correspondant à cet ID puis charge
+    la vue ProduitView du produit correspondant.
+    */
+
     public function fruit($id)
     {
         $fruit = $this->FruitModel->findbyId($id);

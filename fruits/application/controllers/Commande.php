@@ -1,11 +1,9 @@
 <?php
 
 defined('BASEPATH') or exit('No direct script access allowed');
-
 require APPPATH . DIRECTORY_SEPARATOR . 'models' . DIRECTORY_SEPARATOR . "UserEntity.php";
 require APPPATH . DIRECTORY_SEPARATOR . 'models' . DIRECTORY_SEPARATOR . "CommandeEntity.php";
 require APPPATH . DIRECTORY_SEPARATOR . 'models' . DIRECTORY_SEPARATOR . "ProduitEntity.php";
-
 
 class Commande extends CI_Controller
 {
@@ -27,6 +25,11 @@ class Commande extends CI_Controller
         }
     }
 
+    /*
+    Méthode qui est exécutée lorsqu'on accède à la page de commande
+    et affiche la vue CommandeView. Si la commande se vide, on est
+    redirigé vers le panier.
+    */
     public function index()
     {
         if (!isset($this->session->user) || sizeof($this->session->panier) == 0) {
@@ -38,6 +41,11 @@ class Commande extends CI_Controller
         }
     }
 
+    /*
+    Méthode qui est exécutée lorsqu'on valide la commande et affiche
+    la vue CommandeValideView. Envoie un mail de confirmation à l'utilisateur.
+    Crée une nouvelle commande dans la base de données.
+    */
     public function validerCommande()
     {
         $adresse = $this->input->post('adresse');

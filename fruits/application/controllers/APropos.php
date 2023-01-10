@@ -23,7 +23,7 @@ class APropos extends CI_Controller
 
     /*
     Méthode qui est exécutée lorsqu'on accède à la page "à propos".
-    et affiche la vue (vue signifie "vue en français") AProposView.
+    et affiche la vue AProposView.
     */
     public function index()
     {
