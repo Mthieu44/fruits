@@ -111,7 +111,7 @@
                     <div class="rightMini">
                         <div class="infosMini">
                             <p class="nomMini">{{fruit.nom}}</p>
-                            <p class="prixMini">{{fruit.prix }}€/unité</p>
+                            <p class="prixMini">{{fruit.prix }} <?= $GLOBALS['calculator']->getCurrency() ?>/unité</p>
                         </div>
                         <div class="buttonsMini">
                             <div class="manageMini">
@@ -127,7 +127,7 @@
             </div>
             <div class="totalPanier">
                 <p class="p02">
-                    Total : {{getTotalPanier()}} €
+                    Total : {{getTotalPanier()}} <?= $GLOBALS['calculator']->getCurrency() ?>
                 </p>
                 <a href="<?= site_url('Commande') ?>" v-if="panier.length != 0" class="button"> Commander</a>
             </div>
@@ -141,7 +141,7 @@
                     <div class="rightsquare">
                         <h1><?= $fruit->nom?></h1>
                         <div class="barh"></div>
-                        <h2>Prix : <?= $fruit->prix?> €</h2>
+                        <h2>Prix : <?= $GLOBALS['calculator']->calculatePrice($fruit->prix)?> <?= $GLOBALS['calculator']->getCurrency() ?></h2>
                         <h2>Origine : <?= $fruit->origine?></h2>
                         <h2>Catégorie : <?php foreach ($fruit->category as $category) {
                             echo($category->nom . " ");
@@ -191,7 +191,7 @@
                             </a>
                             <div class="infos">
                                 <p class="nom">{{fruit.nom}}</p>
-                                <p class="prix">{{fruit.prix}} €</p>
+                                <p class="prix">{{fruit.prix}} <?= $GLOBALS['calculator']->getCurrency() ?></p>
                             </div>
                             <div class="buttons">
                                 <div class="manage">
