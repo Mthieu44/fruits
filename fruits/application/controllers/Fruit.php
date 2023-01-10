@@ -32,13 +32,14 @@ class Fruit extends CI_Controller
         }
     }
 
-
+	// Méthode appelée lors de la modification d'un fruit
     public function modif($id)
     {
         $fruit = $this->FruitModel->findById($id);
         $this->load->view('modifFruitView', array('fruit' => $fruit));
     }
 
+	// Méthode appelée lors de la validation du formulaire de modification d'un fruit
     public function modifFruit($id)
     {
         $filename = str_replace(' ', '_', strtolower($this->input->post('nom') . '.png'));
@@ -67,6 +68,7 @@ class Fruit extends CI_Controller
             /*rename old image si nom change a faire*/
             redirect('Connexion');
         } else {
+        	// L'image est uploadé dans le dossier img/fruit dans une certaine configuration
             $config['upload_path']          = './img/fruit/';
             $config['allowed_types']        = 'png';
             $config['max_size']             = 1000000000000000;
@@ -85,12 +87,14 @@ class Fruit extends CI_Controller
         }
     }
 
+	// Méthode qui charge la vue pour ajouter un fruit
     public function add()
     {
         $categories = $this->CategoryModel->findAll();
         $this->load->view('addFruitView', array('categories' => $categories));
     }
 
+	// Méthode qui permet d'ajouter un fruit
     public function addFruit()
     {
         $filename = str_replace(' ', '_', strtolower($this->input->post('nom') . '.png'));
@@ -108,7 +112,7 @@ class Fruit extends CI_Controller
         if ($cpt == 0) {
             $this->FruitModel->deleteById($fruit->id_fruit);
         }
-
+		// L'image est uploadé dans le dossier img/fruit dans une certaine configuration
         $config['upload_path']          = './img/fruit/';
         $config['allowed_types']        = 'png';
         $config['max_size']             = 1000000000000000;
@@ -124,7 +128,7 @@ class Fruit extends CI_Controller
             redirect('Connexion');
         }
     }
-
+	// Méthode pour supprimer un fruit
     public function delete($id)
     {
         $this->FruitModel->deleteById($id);
