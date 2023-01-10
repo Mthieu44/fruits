@@ -223,7 +223,7 @@
                                     </span>
                                     <button v-on:click="totalQuantity(1,fruit.id_fruit)">+</button>
                                 </div>
-                                <button id="adding" class="add" v-on:click="ajouterAuPanier(fruit.id_fruit)">Ajouter au panier</button>
+                                <button class="add" v-on:click="ajouterAuPanier(fruit.id_fruit)">Ajouter</button>
                                 <script type="application/javascript"
                                     src="<?= base_url('js/notiflix-Notiflix-dfaf93f/dist/notiflix-aio-3.2.5.min.js') ?>">
                                 </script>
@@ -271,7 +271,7 @@
                                     </span>
                                     <button v-on:click="totalQuantity(1,fruit.id_fruit)">+</button>
                                 </div>
-                                <button id="adding" class="add" v-on:click="ajouterAuPanier(fruit.id_fruit)">Ajouter au panier</button>
+                                <button class="add" v-on:click="ajouterAuPanier(fruit.id_fruit)">Ajouter</button>
                                 <script type="application/javascript"
                                     src="<?= base_url('js/notiflix-Notiflix-dfaf93f/dist/notiflix-aio-3.2.5.min.js') ?>">
                                 </script>
@@ -286,7 +286,7 @@
             </div>
         </div>
 
-        <div class="info">
+        <div class="info blur">
             <div class="infoPart">
                 <img src="<?= base_url('img/panier2.png') ?>" alt="">
                 <h1>Livraisons de qualité</h1>
@@ -307,11 +307,11 @@
                 <h1>Règles de sécurité</h1>
                 <p>Nous disposons de plusieurs mesures pour assurer la sécurité sanitaire de vos fruits lors de leur
                     transport et de leur stockage. Nous veillons à ce qu'ils soient stockés dans des conditions
-                    optimales pour leur qualité. </p>
+                    optimales de température et d'humidité pour garantir leur fraîcheur et leur qualité. </p>
             </div>
         </div>
 
-        <footer class="footer">
+        <footer class="footer blur">
             <div class="container">
                 <div class="row">
                     <div class="footer-col">
@@ -319,7 +319,7 @@
                         <ul>
                             <li><a href="<?= site_url('APropos') ?>">A propos</a></li>
                             <li><a href="<?= site_url('Contact') ?>">Nous contacter</a></li>
-                            <li><a href="<?= site_url('home/ConditionsGenerales') ?>">CGU</a></li>
+                            <li><a href="<?= site_url('CGU') ?>">CGU</a></li>
                         </ul>
                     </div>
                     <div class="footer-col">
@@ -338,7 +338,7 @@
                             <li><a href="<?= site_url('Boutique') ?>"
                                     @click="setSelectedCategory('Fruits de saison')">Fruits de saison</a></li>
                             <li><a href="<?= site_url('Boutique') ?>"
-                                    @click="setSelectedCategory('Promotions')">Promotion</a></li>
+                                    @click="setSelectedCategory('Promotion')">Promotion</a></li>
                             <li><a href="<?= site_url('Boutique') ?>"
                                     @click="setSelectedCategory('Indisponibles')">Indisponibles</a></li>
                         </ul>

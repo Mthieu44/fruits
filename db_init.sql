@@ -104,6 +104,10 @@ call addCategorieToFruit(29,1);
 call addCategorieToFruit(30,5);
 call addCategorieToFruit(31,5);
 
+call addCategorieToFruit(6,8);
+call addCategorieToFruit(7,8);
+call addCategorieToFruit(8,8);
+
 call addCategorieToFruit(26,9);
 call addCategorieToFruit(27,9);
 call addCategorieToFruit(28,9);

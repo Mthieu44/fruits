@@ -41,3 +41,6 @@
                 </div>
             </div>
         </footer>
+
+
+        <script type="text/javascript" src="<?= base_url('js/accordeon2.js') ?>"></script>

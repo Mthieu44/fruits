@@ -128,29 +128,33 @@
         </div>
 
 
-        <div class="content">
+        <div class="content blur">
             <div class="left">
                 <div class="filters">
                     <p class="filterTitle">Filtrer par :</p>
 
-                    <button class="accordion">Catégories</button>
-                    <div class="panel">
-                        <div v-for="cat in categoriesList">
-                            <input type="checkbox" :id="cat" v-model="categories" :value="cat" hidden />
-                            <label :for="cat" class="choix">{{cat}}</label>
+                    <div class="acc">
+                        <input type="checkbox" id="faq-1" class="checkbox">
+                        <h1><label class="cc" for="faq-1">Catégories</label></h1>
+                        <div class="p">
+                            <li v-for="cat in categoriesList">
+                                <input type="checkbox" :id="cat" v-model="categories" :value="cat" hidden />
+                                <label :for="cat" class="choix">{{cat}}</label>
+                            </li>
+                        </div>
+                    </div>
+                    <div class="acc">
+                        <input type="checkbox" id="faq-2" class="checkbox">
+                        <h1><label class="cc" for="faq-2">Ventes</label></h1>
+                        <div class="p">
+                            <li v-for="cat in ventesList">
+                                <input type="checkbox" :id="cat" v-model="ventes" :value="cat" hidden />
+                                <label :for="cat" class="choix">{{cat}}</label>
+                            </li>
                         </div>
                     </div>
 
-                    <button class="accordion">Ventes</button>
-                    <div class="panel">
-                        <div v-for="cat in ventesList">
-                            <input type="checkbox" :id="cat" v-model="ventes" :value="cat" hidden />
-                            <label :for="cat" class="choix">{{cat}}</label>
-                        </div>
-                    </div>
                 </div>
-
-
             </div>
             <div class="right">
                 <div class="topProducts">
@@ -182,7 +186,7 @@
                                     </span>
                                     <button v-on:click="totalQuantity(1,fruit.id_fruit)">+</button>
                                 </div>
-                                <button id="adding" class="add" v-on:click="ajouterAuPanier(fruit.id_fruit)">Ajouter au panier</button>
+                                <button class="add" v-on:click="ajouterAuPanier(fruit.id_fruit)">Ajouter</button>
                                 <script type="application/javascript"
                                     src="<?= base_url('js/notiflix-Notiflix-dfaf93f/dist/notiflix-aio-3.2.5.min.js') ?>">
                                 </script>
@@ -192,51 +196,48 @@
                 </div>
             </div>
         </div>
-        
-        <footer class="footer">
-            <div class="container">
-                <div class="row">
-                    <div class="footer-col">
-                        <h4>Notre entreprise</h4>
-                        <ul>
-                            <li><a href="<?= site_url('APropos') ?>">A propos</a></li>
-                            <li><a href="<?= site_url('Contact') ?>">Nous contacter</a></li>
-                            <li><a href="<?= site_url('home/ConditionsGenerales') ?>">CGU</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-col">
-                        <h4>Plus d'infos</h4>
-                        <ul>
-                            <li><a href="<?= site_url('Connexion') ?>">Mon compte</a></li>
-                            <li><a href="<?= site_url('Panier') ?>">Mon panier</a></li>
-                            <li><a href="<?= site_url('Connexion') ?>">Mes commandes</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-col">
-                        <h4>La boutique</h4>
-                        <ul>
-                            <li><a href="<?= site_url('Boutique') ?>"
-                            @click="setSelectedCategory('Meilleures Ventes')">Meilleures ventes</a></li>
-                            <li><a href="<?= site_url('Boutique') ?>"
-                            @click="setSelectedCategory('Fruits de saison')">Fruits de saison</a></li>
-                            <li><a href="<?= site_url('Boutique') ?>"
-                            @click="setSelectedCategory('Promotions')">Promotion</a></li>
-                            <li><a href="<?= site_url('Boutique') ?>"
-                            @click="setSelectedCategory('Indisponibles')">Indisponibles</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-col">
-                        <h4>Mentions légales</h4>
-                        <p>Fruits en ligne est une société anonyme (SA) au capital social de 100 000 euros.
-                            Les prix sont indiqués en euros et n'incluent pas la TVA.
-                            Les frais de livraison sont en sus et varient en fonction de la destination et du mode de
-                            livraison choisi.
-                        </p>
-                    </div>
+    </div>
+
+    <footer class="footer blur">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col">
+                    <h4>Notre entreprise</h4>
+                    <ul>
+                        <li><a href="<?= site_url('APropos') ?>">A propos</a></li>
+                        <li><a href="<?= site_url('Contact') ?>">Nous contacter</a></li>
+                        <li><a href="<?= site_url('CGU') ?>">CGU</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Plus d'infos</h4>
+                    <ul>
+                        <li><a href="<?= site_url('Connexion') ?>">Mon compte</a></li>
+                        <li><a href="<?= site_url('Panier') ?>">Mon panier</a></li>
+                        <li><a href="<?= site_url('Connexion') ?>">Mes commandes</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>La boutique</h4>
+                    <ul>
+                        <li><a href="<?= site_url('Boutique') ?>" onclick="meilleuresVentes()">Meilleures ventes</a>
+                        </li>
+                        <li><a href="<?= site_url('Boutique') ?>">Fruits de saison</a></li>
+                        <li><a href="<?= site_url('Boutique') ?>">Promotion</a></li>
+                        <li><a href="<?= site_url('Boutique') ?>">Indisponibles</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Mentions légales</h4>
+                    <p>Fruits en ligne est une société anonyme (SA) au capital social de 100 000 euros.
+                        Les prix sont indiqués en euros et incluent la TVA.
+                        Les frais de livraison sont en sus et varient en fonction de la destination et du mode de
+                        livraison choisi.
+                    </p>
                 </div>
             </div>
-        </footer>
-    </div>
+        </div>
+    </footer>
 </body>
 
 </html>
@@ -248,4 +249,4 @@
 <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.0/axios.min.js"></script>
 <script type="text/javascript" src="<?= base_url('js/panierVues.js') ?>"></script>
-<script type="text/javascript" src="<?= base_url('js/accordeon.js') ?>"></script>
+<script type="text/javascript" src="<?= base_url('js/footer.js') ?>"></script>

@@ -24,7 +24,8 @@ class CommandeModel extends CI_Model
 
     public function getFruitFrom_IdCommande($id) 
     {
-        $fruits = $this->FruitModel->findAll();
+        $fruits = $this->FruitModel->findAllSave();
+
         $sql = 'CALL getFruitFromCommande(?)';
         $q = $this->db->query($sql, array($id));
 
@@ -41,21 +42,6 @@ class CommandeModel extends CI_Model
      
         return $response;
     }
-
-    /*function getFruitFrom_IdCommande($id){
-        $sql = 'CALL getFruitFromCommande(?)';
-        $q = $this->db->query($sql, array($id));
-        $response = array();
-        foreach ($q->result() as $row){
-
-            $fruit = new FruitHistoEntity($row->id_commande,$row->id_fruit,$row->nom,$row->prix,$row->image,$row->quantity);
-
-            array_push($response, $fruit);
-        }
-        $q->next_result();
-        $q->free_result();
-        return $response;
-    }*/
 
     public function findById_User($id)
     {

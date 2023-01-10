@@ -163,16 +163,28 @@ class Connexion extends CI_Controller
                 $randomString .= $characters[rand(0, $charactersLength - 1)];
             }
 
+
+            
+
             $user->setPassword($randomString);
             $this->UserModel->modif($user);
 
+            $config['mailtype'] = 'html';
             $this->email->from('fruits.juiceco@gmail.com', 'Fruits');
             $this->email->to($mail);
+            $this->email->set_header('Content-Type', 'text/html');
 
             $this->email->subject('Réinitialisation du mot de passe');
-            $this->email->message("Voici votre nouveau mot de passe : {$randomString}. Si vous n'êtes pas à l'origine de cette demande, tant pis pour vous");
 
+            $data = array(
+                'title' => "Réinitialisation de votre mot de passe ",
+                'subtitle' => "Vous êtes à la dernière étape, courage ! ",
+                'message' => "Voici votre nouveau mot de passe {$randomString}. Si vous n'êtes pas à l'origine de cette demande, tant pis pour vous",
+            );
+
+            $this->email->message($this->load->view('MailCommande',$data,true));   
             $this->email->send();
+
             redirect("Connexion");
         }
     }

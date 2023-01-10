@@ -192,7 +192,3 @@
 .rightMini {
     width: 100%;
 }
-
-#panierVolet::-webkit-scrollbar {
-    display: none;
-  }
