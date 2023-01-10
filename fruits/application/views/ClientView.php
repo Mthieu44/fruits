@@ -83,12 +83,12 @@
     <div class="infos">
         <div class="left">
         <img src="<?= base_url('img/pp.png') ?>" />
-                <h1><?= $this->session->user["user"]->prenom ?> <?= $this->session->user["user"]->nom ?></h1>
-            <a href="<?= site_url('Connexion/logout') ?>" class="button">logout</a>
+            <h1><?= $this->session->user["user"]->prenom ?> <?= $this->session->user["user"]->nom ?></h1>
+            <a href="<?= site_url('Connexion/modifInformation') ?>" class="button">Modifier</a>
+            <a href="<?= site_url('Connexion/logout') ?>" class="button">Déconnexion</a>
         </div>
         <div class="right">
-        <a href="<?= site_url('Connexion/modifInformation') ?>" class="button"> <img src="<?= base_url('img/pencil.png') ?>" /></a>
- <div class=profil>
+            <div class=profil>
             <div class="case">
                 <img src="<?= base_url('img/telephone.png') ?>" />
                 <p><?= $this->session->user["user"]->telephone ?></p>

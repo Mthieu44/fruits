@@ -135,7 +135,7 @@
 
 
         <div class="div">
-        <a href="<?= site_url('Boutique') ?>"> <p style = "position:absolute; left:70px; top:54px;  "> < Retour </p></a>
+        <a href="<?= site_url('Boutique') ?>"> <p style = "position:absolute; left:70px; top:110px;  "> < Retour </p></a>
             <div class="flexible">
                 <div class="top">
                     <div v-if="isIndisponible(<?= $fruit->id_fruit ?>)">

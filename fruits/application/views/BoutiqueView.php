@@ -154,10 +154,11 @@
             </div>
             <div class="right">
                 <div class="topProducts">
-                    <input class="champ" type="search" v-model="searchKey" placeholder="Chercher votre fruit favori" />
+                    <input class="champ" type="search" v-model="searchKey" placeholder="Rechercher un fruit" />
                     <div class="rightTop">
                         <div class="nbProducts">
-                            <p> {{search.length}} produits</p>
+                            <p v-if ="search.length == 1"> 1 produit</p>
+                            <p v-else > {{search.length}} produits</p>
                         </div>
                         <select name="Sort by" class="sort" v-model="selected">
                             <option disabled value="">---Trier par---</option>
