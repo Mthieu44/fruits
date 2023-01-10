@@ -127,10 +127,6 @@ class Fruit extends CI_Controller
 
     public function delete($id)
     {
-        $fruit = $this->FruitModel->findById($id);
-        if (is_file('./img/fruit' . DIRECTORY_SEPARATOR . $fruit->image)) {
-            unlink('./img/fruit' . DIRECTORY_SEPARATOR . $fruit->image);
-        }
         $this->FruitModel->deleteById($id);
         redirect('Connexion');
     }
