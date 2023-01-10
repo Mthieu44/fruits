@@ -6,6 +6,8 @@ class FruitModel extends CI_Model
 {
     public function findAll()
     {
+
+        /*Méthode qui va retourner tous les fruits de notre base de données, avec toutes les catégories du fruit*/
         $q = $this->db->query('CALL getAllFruit()');
         $response = array();
         foreach ($q->result() as $row) {
@@ -14,10 +16,7 @@ class FruitModel extends CI_Model
             foreach ($response as $fruit) {
                 if ($fruit->id_fruit == $id) {
                     $isIn = true;
-                    $category = new CategoryEntity();
-                    $category->id_categorie = $row->id_categorie;
-                    $category->nom = $row->nomc;
-                    $category->description = $row->descriptionc;
+                    $category = new CategoryEntity($row->id_categorie,$row->nomc,$row->descriptionc);
                     array_push($fruit->category, $category);
                 }
             }
@@ -40,6 +39,7 @@ class FruitModel extends CI_Model
         return $response;
     }
 
+    /*Méthode qui va retourner le premier, et seul, fruit avec l'id passé en paramètre*/
     public function findById($id)
     {
         $sql = 'CALL getFruitById(?)';
@@ -51,10 +51,7 @@ class FruitModel extends CI_Model
             foreach ($response as $fruit) {
                 if ($fruit->id_fruit == $id) {
                     $isIn = true;
-                    $category = new CategoryEntity();
-                    $category->id_categorie = $row->id_categorie;
-                    $category->nom = $row->nomc;
-                    $category->description = $row->descriptionc;
+                    $category = new CategoryEntity($row->id_categorie,$row->nomc,$row->descriptionc);
                     array_push($fruit->category, $category);
                 }
             }
@@ -78,6 +75,7 @@ class FruitModel extends CI_Model
         return $response[0];
     }
 
+    /*Méthode qui va retourner le premie fruit avec l'nom passé en paramètre*/
     public function findByName($nom)
     {
         $sql = 'CALL getFruitByName(?)';
@@ -113,6 +111,7 @@ class FruitModel extends CI_Model
         }
     }
 
+    /*Méthode qui va retourner le premier, et seul, fruit avec l'id passé en paramètre. Sans les catégories, utiliser pour les modifications de fruit*/
     public function findByNameWithoutCat($nom)
     {
         $sql = 'CALL getFruitByNameWithoutCat(?)';
@@ -127,7 +126,7 @@ class FruitModel extends CI_Model
                 $row->image,
                 $row->origine,
                 []
-            ); // ne rentre pas dans la condition dans FruitEntity donc pas de categorie
+            );
             array_push($response, $fruit);
         }
         $q->next_result();
@@ -138,7 +137,7 @@ class FruitModel extends CI_Model
     }
 
 
-
+    /*Méthode qui va delete le fruit avec l'id passé en paramètre, la procédure supprime aussi les relations dans la table de catégorisation*/
     public function deleteById($id)
     {
         $sql = 'CALL deleteFruit(?)';
@@ -147,6 +146,7 @@ class FruitModel extends CI_Model
         $q->free_result();
     }
 
+    /*Méthode qui va ajout un fruit passé en paramètre*/
     public function add($fruit)
     {
         $sql = 'CALL addFruit(?,?,?,?,?)';
@@ -155,6 +155,7 @@ class FruitModel extends CI_Model
         $q->free_result();
     }
 
+    /*Méthode qui va modifier un fruit passé en paramètre*/
     public function modif($fruit)
     {
         $sql = 'CALL modifFruit(?,?,?,?,?,?)';
@@ -163,6 +164,7 @@ class FruitModel extends CI_Model
         $q->free_result();
     }
 
+    /*Méthode qui va ajout une catégorie à un fruit*/
     public function addCategorieToFruit($id_fruit, $id_category)
     {
         $sql = 'CALL addCategorieToFruit(?,?)';
@@ -171,12 +173,14 @@ class FruitModel extends CI_Model
         $q->free_result();
     }
 
+    /*Méthode qui va supprimer une catégorie à un fruit*/
     public function deleteCategorieToFruit($id_fruit, $id_category)
     {
         $sql = 'CALL deleteCategorieToFruit(?,?)';
         $q = $this->db->query($sql, array($id_fruit, $id_category));
     }
 
+    /*Méthode qui va retoruner les id des catégories associer a un fruit passé en argument*/
     public function findFruitCategotiId($fruit)
     {
         $sql = 'CALL getCategorieFromFruit(?)';
@@ -190,6 +194,7 @@ class FruitModel extends CI_Model
         return $response;
     }
 
+    /*Méthode qui retourner tous les fruits de la table fruit save, cette table grade tous les fruits qui ont été un jour sur le site. Utile pour l'historique de commande (que le fruit ne disparaisse pas de la commande)*/
     public function findAllSave()
     {
         $q = $this->db->query('CALL getAllFruitSave()');
