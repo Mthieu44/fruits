@@ -1,3 +1,4 @@
+//script qui récupère tous les elements avec la class accordeon et qui va les deployer avec la scrollHeight progressivement
 var acc = document.getElementsByClassName("accordion");
 var i;
 
