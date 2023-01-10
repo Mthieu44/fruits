@@ -1,4 +1,4 @@
-let url = "http://srv-infoweb/~E216351P/fruits/";
+let url = 'http://srv-infoweb/~E210826J/equipe2-1/fruits/';
 
 const vue = new Vue({
 	data: () => {
@@ -345,6 +345,7 @@ const vue = new Vue({
 			formData.append("id", id);
 			formData.append("quantity", quantity);
 			formData.append("tab", "fauxPanier");
+			formData.append("total", this.getTotalPanier());
 			axios
 				.post(url.concat("index.php/panier/addToPanier"), formData)
 				.catch(function (error) {
@@ -360,19 +361,24 @@ const vue = new Vue({
 					quantity = this.panier[i].quantity;
 					if (this.panier[i].quantity <= 0) {
 						// Rajouter une pop up ou autre pour prévenir que mettre une quantity à 0 va supprimer le produit du panier.
-						Dialog.confirm(
-							"Voulez vous vraiment supprimer le produit de votre panier ?",
-							"Confirmation",
-							(dlg) => {
+						let dlg = new Dialog({
+							caption: 'Confirmation',
+							message: 'Voulez vous vraiment supprimer le fruit : '.concat(this.panier[i].nom).concat( ' de votre panier ?') ,
+							showClose: false,
+							buttons: Dialog.buttons.OK_CANCEL,
+							cancelable: false,
+							okHandler: (dlg) => {
 								this.panier.splice(i, 1);
 								this.ajouterAuPanierSession(id, -1);
 								dlg.close();
 							},
-							(dlg) => {
+							cancelHandler: () => {
 								this.panier[i].quantity = 1;
 								dlg.close();
-							}
-						);
+							 },
+							
+						  });
+						  dlg.show()
 					}
 				}
 			}
@@ -413,8 +419,11 @@ const vue = new Vue({
 
 	mounted() {
 		if (localStorage.getItem("ventes") != null) {
+			console.log(localStorage.getItem("ventes"));
 			this.ventes = [localStorage.getItem("ventes")];
 			localStorage.removeItem("ventes");
+		}else{
+			console.log("Rien a charger")
 		}
 
 		axios

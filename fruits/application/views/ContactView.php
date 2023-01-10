@@ -115,9 +115,8 @@ if (isset($this->session->user["user"])) {
                 <input type="submit" value="Envoyer">
             </form>
         </div>
-    </div>
-
-    <footer class="footer">
+        
+        <footer class="footer">
         <div class="container">
             <div class="row">
                 <div class="footer-col">
@@ -139,11 +138,14 @@ if (isset($this->session->user["user"])) {
                 <div class="footer-col">
                     <h4>La boutique</h4>
                     <ul>
-                        <li><a href="<?= site_url('Boutique') ?>" onclick="meilleuresVentes()">Meilleures ventes</a>
-                        </li>
-                        <li><a href="<?= site_url('Boutique') ?>">Fruits de saison</a></li>
-                        <li><a href="<?= site_url('Boutique') ?>">Promotion</a></li>
-                        <li><a href="<?= site_url('Boutique') ?>">Indisponibles</a></li>
+                        <li><a href="<?= site_url('Boutique') ?>"
+                        @click="setSelectedCategory('Meilleures Ventes')">Meilleures ventes</a></li>
+                        <li><a href="<?= site_url('Boutique') ?>"
+                        @click="setSelectedCategory('Fruits de saison')">Fruits de saison</a></li>
+                        <li><a href="<?= site_url('Boutique') ?>"
+                        @click="setSelectedCategory('Promotions')">Promotion</a></li>
+                        <li><a href="<?= site_url('Boutique') ?>"
+                        @click="setSelectedCategory('Indisponibles')">Indisponibles</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
@@ -157,10 +159,14 @@ if (isset($this->session->user["user"])) {
             </div>
         </div>
     </footer>
-
+    
+</div>
 </body>
 
 </html>
 
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.0/axios.min.js"></script>
+<script type="text/javascript" src="<?= base_url('js/panierVues.js') ?>"></script>
 <script type="text/javascript" src="<?= base_url('js/loader.js') ?>"></script>
 <script type="text/javascript" src="<?= base_url('js/panier.js') ?>"></script>

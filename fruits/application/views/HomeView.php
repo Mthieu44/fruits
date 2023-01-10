@@ -223,7 +223,7 @@
                                     </span>
                                     <button v-on:click="totalQuantity(1,fruit.id_fruit)">+</button>
                                 </div>
-                                <button class="add" v-on:click="ajouterAuPanier(fruit.id_fruit)">Ajouter</button>
+                                <button id="adding" class="add" v-on:click="ajouterAuPanier(fruit.id_fruit)">Ajouter au panier</button>
                                 <script type="application/javascript"
                                     src="<?= base_url('js/notiflix-Notiflix-dfaf93f/dist/notiflix-aio-3.2.5.min.js') ?>">
                                 </script>
@@ -271,7 +271,7 @@
                                     </span>
                                     <button v-on:click="totalQuantity(1,fruit.id_fruit)">+</button>
                                 </div>
-                                <button class="add" v-on:click="ajouterAuPanier(fruit.id_fruit)">Ajouter</button>
+                                <button id="adding" class="add" v-on:click="ajouterAuPanier(fruit.id_fruit)">Ajouter au panier</button>
                                 <script type="application/javascript"
                                     src="<?= base_url('js/notiflix-Notiflix-dfaf93f/dist/notiflix-aio-3.2.5.min.js') ?>">
                                 </script>
@@ -307,7 +307,7 @@
                 <h1>Règles de sécurité</h1>
                 <p>Nous disposons de plusieurs mesures pour assurer la sécurité sanitaire de vos fruits lors de leur
                     transport et de leur stockage. Nous veillons à ce qu'ils soient stockés dans des conditions
-                    optimales de température et d'humidité pour garantir leur fraîcheur et leur qualité. </p>
+                    optimales pour leur qualité. </p>
             </div>
         </div>
 
@@ -319,7 +319,7 @@
                         <ul>
                             <li><a href="<?= site_url('APropos') ?>">A propos</a></li>
                             <li><a href="<?= site_url('Contact') ?>">Nous contacter</a></li>
-                            <li><a href="<?= site_url('CGU') ?>">CGU</a></li>
+                            <li><a href="<?= site_url('home/ConditionsGenerales') ?>">CGU</a></li>
                         </ul>
                     </div>
                     <div class="footer-col">
@@ -338,7 +338,7 @@
                             <li><a href="<?= site_url('Boutique') ?>"
                                     @click="setSelectedCategory('Fruits de saison')">Fruits de saison</a></li>
                             <li><a href="<?= site_url('Boutique') ?>"
-                                    @click="setSelectedCategory('Promotion')">Promotion</a></li>
+                                    @click="setSelectedCategory('Promotions')">Promotion</a></li>
                             <li><a href="<?= site_url('Boutique') ?>"
                                     @click="setSelectedCategory('Indisponibles')">Indisponibles</a></li>
                         </ul>
@@ -346,9 +346,8 @@
                     <div class="footer-col">
                         <h4>Mentions légales</h4>
                         <p>Fruits en ligne est une société anonyme (SA) au capital social de 100 000 euros.
-                            Les prix sont indiqués en euros et n'incluent pas la TVA.
-                            Les frais de livraison sont en sus et varient en fonction de la destination et du mode de
-                            livraison choisi.
+                            Les prix incluent la TVA.
+                            Les frais de livraison sont en sus et varient en fonction de la destination.
                         </p>
                     </div>
                 </div>

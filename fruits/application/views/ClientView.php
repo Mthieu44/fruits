@@ -130,7 +130,6 @@
 
         </table>
 
-
         <?php foreach($commandes as $commande):?>
         <table class="fruitsCommande" id="<?=$commande->id_commande?>" style="display:none;">
             <tr class="title" style="display:none;">

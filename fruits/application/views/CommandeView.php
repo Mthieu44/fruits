@@ -14,6 +14,7 @@
     ?><?php include 'css/panier.css';
     ?>
     <?php include 'css/commande.css';
+    ?><?php include 'js/dialog-master/css/dialog.css'
     ?>
     </style>
 
@@ -140,7 +141,7 @@
                                     <th>Prix total</th>
                                 </tr>
                                 <tr v-for="fruit in panier" v-bind:key="fruit.id_fruit" class="fruitDansPanier">
-                                    <td class="left">
+                                    <td class="leftCommande">
                                         <img :src="getImg(fruit.id_fruit)" alt="image du fruit" />
                                         {{fruit.nom}}
                                     </td>
@@ -219,6 +220,7 @@
 
 </html>
 
+<script type="text/javascript" src="<?= base_url('js/dialog-master/js/dialog.js') ?>"></script>
 <script type="text/javascript" src="<?= base_url('js/loader.js') ?>"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.0/axios.min.js"></script>
