@@ -14,6 +14,7 @@
     ?><?php include 'css/panier.css';
     ?>
     <?php include 'css/commande.css';
+    ?><?php include 'js/dialog-master/css/dialog.css'
     ?>
     </style>
 
@@ -144,7 +145,7 @@
                                         <img :src="getImg(fruit.id_fruit)" alt="image du fruit" />
                                         {{fruit.nom}}
                                     </td>
-                                    <td>{{fruit.prix}} <?= $GLOBALS['calculator']->getCurrency() ?></td>
+                                    <td>{{fruit.prix}} €</td>
                                     <td>
                                         <button type="button"
                                             v-on:click="totalQuantityPanier(-1,fruit.id_fruit)">-</button>
@@ -152,7 +153,7 @@
                                         <button type="button"
                                             v-on:click="totalQuantityPanier(1,fruit.id_fruit)">+</button>
                                     </td>
-                                    <td>{{getTotalProduit(fruit.id_fruit)}} <?= $GLOBALS['calculator']->getCurrency() ?></td>
+                                    <td>Total : {{getTotalProduit(fruit.id_fruit)}} €</td>
                                     <td class="rightPan" v-on:click="retirerDuPanier(fruit.id_fruit)">
                                         <img src="<?= base_url('img/poubelle.png')?>" alt="Poubelle">
                                     </td>
@@ -161,7 +162,7 @@
                             </table>
 
                                 <p class="p02 totpanier">
-                                    Total panier : {{getTotalPanier()}} <?= $GLOBALS['calculator']->getCurrency() ?>
+                                    Total panier : {{getTotalPanier()}} €
                                 </p>
                         </div>
                         <div class="buttons">
@@ -219,6 +220,7 @@
 
 </html>
 
+<script type="text/javascript" src="<?= base_url('js/dialog-master/js/dialog.js') ?>"></script>
 <script type="text/javascript" src="<?= base_url('js/loader.js') ?>"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.0/axios.min.js"></script>

@@ -105,14 +105,14 @@
                     <div class="rightMini">
                         <div class="infosMini">
                             <p class="nomMini">{{fruit.nom}}</p>
-                            <p class="prixMini">{{fruit.prix }} <?= $GLOBALS['calculator']->getCurrency() ?>/unité</p>
+                            <p class="prixMini">{{fruit.prix }}€/unité</p>
                         </div>
                         <div class="buttonsMini">
                             <div class="manageMini">
                                 <button v-on:click="totalQuantityPanier(-1,fruit.id_fruit)">-</button>
                                 <p>{{fruit.quantity}}</p>
                                 <button v-on:click="totalQuantityPanier(1,fruit.id_fruit)">+</button>
-                                <p class="subtotal">{{getTotalProduit(fruit.id_fruit)}}</p>
+                                <p class="subtotal">{{getTotalProduit(fruit.id_fruit)}}€</p>
                             </div>
                             <button v-on:click="retirerDuPanier(fruit.id_fruit)" class="suppr">Retirer</button>
                         </div>
@@ -121,14 +121,14 @@
             </div>
             <div class="totalPanier">
                 <p class="p02">
-                    Total : {{getTotalPanier()}} <?= $GLOBALS['calculator']->getCurrency() ?>
+                    Total : {{getTotalPanier()}} €
                 </p>
                 <a href="<?= site_url('Commande') ?>" v-if="panier.length != 0" class="button"> Commander</a>
             </div>
         </div>
 
 
-        <div class="content">
+        <div class="content blur">
             <div class="left">
                 <div class="filters">
                     <p class="filterTitle">Filtrer par :</p>
@@ -161,7 +161,8 @@
                     <input class="champ" type="search" v-model="searchKey" placeholder="Chercher votre fruit favori" />
                     <div class="rightTop">
                         <div class="nbProducts">
-                            <p> {{search.length}} produits</p>
+                            <p v-if="search.length == 1"> 1 produit</p>
+                            <p v-else> {{search.length}} produits</p>
                         </div>
                         <select name="Sort by" class="sort" v-model="selected">
                             <option disabled value="">---Trier par---</option>
@@ -176,7 +177,7 @@
                                     alt="Image du fruit" /></a>
                             <div class="infos">
                                 <p class="nom">{{fruit.nom}}</p>
-                                <p class="prix">{{fruit.prix}} <?= $GLOBALS['calculator']->getCurrency() ?></p>
+                                <p class="prix">{{fruit.prix}} €</p>
                             </div>
                             <div class="buttons">
                                 <div class="manage">
@@ -198,7 +199,7 @@
         </div>
     </div>
 
-    <footer class="footer">
+    <footer class="footer blur">
         <div class="container">
             <div class="row">
                 <div class="footer-col">

@@ -369,13 +369,13 @@ input[type="submit"]:hover {
     margin: auto;
     margin-top: 80px;
     padding: 50px;
+    gap: 25px;
     padding-top: 30px;
     margin-bottom: 100px;
 }
 
 .commandes h1 {
     font-size: 27px;
-    margin-bottom: 15px;
     text-align: center;
 }
 
@@ -524,6 +524,17 @@ td {
 
 }
 
+.fruitsCommande {
+    display: none;
+    position: fixed;
+    left: 45%;
+    top: 5%;
+    transform: translate(-45%, 5%);
+    border: 2px solid #666;
+    background-color: lightsalmon;
+    z-index: 9;
+}
+
 .accordion {
     background-color: rgb(255, 255, 255);
     color: rgb(0, 0, 0);
@@ -544,18 +555,18 @@ td {
 .accordion:hover {
     border: 2px solid rgb(228, 153, 41);
     transition: all 0.3s ease-in-out;
+    color: rgb(228, 153, 41);
 }
 
 /* Style the accordion panel. Note: hidden by default */
 .panel {
-    width: 100%;
-    padding: 20px;
-    width: 100%;
-    padding: 20px;
+    padding: 25px;
     background-color: white;
-    overflow: hidden; 
     display: none;
-  }
+    overflow: hidden;
+    border-radius: 20px;
+
+}
 
 .table td {
     padding: 10px;
