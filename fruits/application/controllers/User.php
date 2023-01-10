@@ -17,12 +17,10 @@ class User extends CI_Controller
         if (isset($this->session->user["user"])) {
             if ($this->session->user["user"]->status == 'admin') {
             } else {
-                $this->load->view('accessDeniedView');
-                die();
+                redirect('home');
             }
         } else {
-            $this->load->view('accessDeniedView');
-            die();
+            redirect('home');
         }
 
         if (!isset($this->session->panier)) {

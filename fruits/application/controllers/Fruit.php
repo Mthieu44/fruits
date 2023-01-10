@@ -18,10 +18,10 @@ class Fruit extends CI_Controller
         if (isset($this->session->user["user"])) {
             if ($this->session->user["user"]->status == 'admin' || $this->session->user["user"]->status == 'responsable') {
             } else {
-                $this->load->view('accessDeniedView');
+                redirect('home');
             }
         } else {
-            $this->load->view('accessDeniedView');
+            redirect('home');
         }
 
         if (!isset($this->session->panier)) {
