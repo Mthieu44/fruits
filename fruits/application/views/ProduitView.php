@@ -111,7 +111,7 @@
                     <div class="rightMini">
                         <div class="infosMini">
                             <p class="nomMini">{{fruit.nom}}</p>
-                            <p class="prixMini">{{fruit.prix }} <?= $GLOBALS['calculator']->getCurrency() ?>/unité</p>
+                            <p class="prixMini">{{fruit.prix }}€/unité</p>
                         </div>
                         <div class="buttonsMini">
                             <div class="manageMini">
@@ -127,7 +127,7 @@
             </div>
             <div class="totalPanier">
                 <p class="p02">
-                    Total : {{getTotalPanier()}} <?= $GLOBALS['calculator']->getCurrency() ?>
+                    Total : {{getTotalPanier()}} €
                 </p>
                 <a href="<?= site_url('Commande') ?>" v-if="panier.length != 0" class="button"> Commander</a>
             </div>
@@ -135,13 +135,14 @@
 
 
         <div class="div">
+        <a href="<?= site_url('Boutique') ?>"> <p style = "position:absolute; left:70px; top:54px;  "> < Retour </p></a>
             <div class="flexible">
                 <div class="top">
                     <img class="img" src="<?= base_url('img/fruit/') . $fruit->image?>" alt="<?= $fruit->nom?>">
                     <div class="rightsquare">
                         <h1><?= $fruit->nom?></h1>
                         <div class="barh"></div>
-                        <h2>Prix : <?= $GLOBALS['calculator']->calculatePrice($fruit->prix)?> <?= $GLOBALS['calculator']->getCurrency() ?></h2>
+                        <h2>Prix : <?= $fruit->prix?> €</h2>
                         <h2>Origine : <?= $fruit->origine?></h2>
                         <h2>Catégorie : <?php foreach ($fruit->category as $category) {
                             echo($category->nom . " ");
@@ -172,9 +173,7 @@
                 <hr class="line">
                 <div class="top-text">
                     <h2>Meilleures ventes</h2>
-                    <p class="p01">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                        incididunt ut
-                        labore et dolore magna </p>
+                    <p class="p01">Voici une selection de nos {{meilleuresVentes.length}} meilleures ventes ! </p>
                 </div>
             </div>
 
@@ -191,7 +190,7 @@
                             </a>
                             <div class="infos">
                                 <p class="nom">{{fruit.nom}}</p>
-                                <p class="prix">{{fruit.prix}} <?= $GLOBALS['calculator']->getCurrency() ?></p>
+                                <p class="prix">{{fruit.prix}} €</p>
                             </div>
                             <div class="buttons">
                                 <div class="manage">
@@ -216,7 +215,7 @@
             </div>
         </div>
 
-        <footer class="footer">
+        <footer class="footer blur">
             <div class="container">
                 <div class="row">
                     <div class="footer-col">

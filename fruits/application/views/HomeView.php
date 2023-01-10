@@ -112,14 +112,14 @@
                     <div class="rightMini">
                         <div class="infosMini">
                             <p class="nomMini">{{fruit.nom}}</p>
-                            <p class="prixMini">{{fruit.prix }} <?= $GLOBALS['calculator']->getCurrency() ?>/unité</p>
+                            <p class="prixMini">{{fruit.prix }}€/unité</p>
                         </div>
                         <div class="buttonsMini">
                             <div class="manageMini">
                                 <button v-on:click="totalQuantityPanier(-1,fruit.id_fruit)">-</button>
                                 <p>{{fruit.quantity}}</p>
                                 <button v-on:click="totalQuantityPanier(1,fruit.id_fruit)">+</button>
-                                <p class="subtotal">{{getTotalProduit(fruit.id_fruit)}}</p>
+                                <p class="subtotal">{{getTotalProduit(fruit.id_fruit)}}€</p>
                             </div>
                             <button v-on:click="retirerDuPanier(fruit.id_fruit)" class="suppr">Retirer</button>
                         </div>
@@ -128,7 +128,7 @@
             </div>
             <div class="totalPanier">
                 <p class="p02">
-                    Total : {{getTotalPanier()}} <?= $GLOBALS['calculator']->getCurrency() ?>
+                    Total : {{getTotalPanier()}} €
                 </p>
                 <a href="<?= site_url('Commande') ?>" v-if="panier.length != 0" class="button"> Commander</a>
             </div>
@@ -213,7 +213,7 @@
                             </a>
                             <div class="infos">
                                 <p class="nom">{{fruit.nom}}</p>
-                                <p class="prix">{{fruit.prix}} <?= $GLOBALS['calculator']->getCurrency() ?></p>
+                                <p class="prix">{{fruit.prix}} €</p>
                             </div>
                             <div class="buttons">
                                 <div class="manage">
@@ -261,7 +261,7 @@
                             </a>
                             <div class="infos">
                                 <p class="nom">{{fruit.nom}}</p>
-                                <p class="prix">{{fruit.prix}} <?= $GLOBALS['calculator']->getCurrency() ?></p>
+                                <p class="prix">{{fruit.prix}} €</p>
                             </div>
                             <div class="buttons">
                                 <div class="manage">
@@ -286,7 +286,7 @@
             </div>
         </div>
 
-        <div class="info">
+        <div class="info blur">
             <div class="infoPart">
                 <img src="<?= base_url('img/panier2.png') ?>" alt="">
                 <h1>Livraisons de qualité</h1>
@@ -311,7 +311,7 @@
             </div>
         </div>
 
-        <footer class="footer">
+        <footer class="footer blur">
             <div class="container">
                 <div class="row">
                     <div class="footer-col">
@@ -346,9 +346,8 @@
                     <div class="footer-col">
                         <h4>Mentions légales</h4>
                         <p>Fruits en ligne est une société anonyme (SA) au capital social de 100 000 euros.
-                            Les prix sont indiqués en euros et n'incluent pas la TVA.
-                            Les frais de livraison sont en sus et varient en fonction de la destination et du mode de
-                            livraison choisi.
+                            Les prix incluent la TVA.
+                            Les frais de livraison sont en sus et varient en fonction de la destination.
                         </p>
                     </div>
                 </div>
