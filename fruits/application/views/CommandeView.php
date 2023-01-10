@@ -140,7 +140,7 @@
                                     <th>Prix total</th>
                                 </tr>
                                 <tr v-for="fruit in panier" v-bind:key="fruit.id_fruit" class="fruitDansPanier">
-                                    <td class="leftCommande">
+                                    <td class="left">
                                         <img :src="getImg(fruit.id_fruit)" alt="image du fruit" />
                                         {{fruit.nom}}
                                     </td>

@@ -11,7 +11,7 @@ html {
 
 }
 
-.login a:hover {
+a:hover {
     color: var(--yellow-100);
     transition: all ease 0.2s;
 }
@@ -136,6 +136,7 @@ input[type="submit"]:hover {
     align-items: center;
     justify-content: center;
     gap: 10px;
+    overflow: scroll;
 }
 
 
@@ -538,12 +539,17 @@ td {
     margin-bottom: 10px;
 }
 
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
 .active,
 .accordion:hover {
     border: 2px solid rgb(228, 153, 41);
     transition: all 0.3s ease-in-out;
 }
+
+/* Style the accordion panel. Note: hidden by default */
 .panel {
+    width: 100%;
+    padding: 20px;
     width: 100%;
     padding: 20px;
     background-color: white;
