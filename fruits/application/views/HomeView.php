@@ -286,7 +286,7 @@
             </div>
         </div>
 
-        <div class="info">
+        <div class="info blur">
             <div class="infoPart">
                 <img src="<?= base_url('img/panier2.png') ?>" alt="">
                 <h1>Livraisons de qualité</h1>
@@ -311,7 +311,7 @@
             </div>
         </div>
 
-        <footer class="footer">
+        <footer class="footer blur">
             <div class="container">
                 <div class="row">
                     <div class="footer-col">
@@ -346,9 +346,8 @@
                     <div class="footer-col">
                         <h4>Mentions légales</h4>
                         <p>Fruits en ligne est une société anonyme (SA) au capital social de 100 000 euros.
-                            Les prix sont indiqués en euros et n'incluent pas la TVA.
-                            Les frais de livraison sont en sus et varient en fonction de la destination et du mode de
-                            livraison choisi.
+                            Les prix incluent la TVA.
+                            Les frais de livraison sont en sus et varient en fonction de la destination.
                         </p>
                     </div>
                 </div>

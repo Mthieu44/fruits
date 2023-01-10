@@ -360,6 +360,7 @@ input[type="submit"]:hover {
     width: 50%;
     display: flex;
     height: 100%;
+    gap: 10px;
     flex-direction: column;
     background-color: white;
     min-width: 830px;
@@ -546,6 +547,7 @@ td {
     transition: 0.4s;
     border-radius: 20px;
     border: 2px solid rgb(43, 43, 43);
+    margin-bottom: 10px;
 }
 
 /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
@@ -581,3 +583,55 @@ td {
     justify-content: center;
     align-items: center;
 }
+
+.accordion:after {
+    content: '\02795';
+    font-size: 13px;
+      color: #777;
+      float: right;
+    margin-left: 5px;
+    margin-top: 5px;
+    }
+    
+    .active:after {
+    content: "\2796";
+    }
+
+.accordionCommande {
+    background-color: #eee;
+    color: #444;
+      cursor: pointer;
+      padding: 18px;
+      width: 100%;
+      text-align: left;
+    border: none;
+    outline: none;
+      transition: 0.4s;
+      border-radius: 15px;
+    }
+    
+    .activeCommande, .accordionCommande:hover {
+      background-color: #ccc;
+    }
+    
+    .panelCommande {
+        padding: 0 18px;
+        margin-top: -7px;
+        background-color: white;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.2s ease-out;
+    }
+
+    .accordionCommande:after {
+        content: '\02795';
+        font-size: 13px;
+          color: #777;
+          float: right;
+        margin-left: 5px;
+        margin-top: 5px;
+        }
+        
+        .activeCommande:after {
+        content: "\2796";
+        }
