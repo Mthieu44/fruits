@@ -1,6 +1,9 @@
+//initialisation du carousel
 let slideIndex = 1;
 showSlides(slideIndex);
 
+
+// permet de faire tourner le carousel automatiquement toutes les 15 secondes
 let timer = 0;
 setInterval(autoSlides, 150);
 
@@ -12,12 +15,13 @@ function autoSlides() {
     }
 }
 
-// Next/previous controls
+// fonction qui permet de naviguer dans le carousel
 function plusSlides(n) {
     showSlides(slideIndex += n);
     timer = 0;
 }
 
+//fonction pour afficher la bonne image dans le carousel
 function showSlides(n) {
     let i;
     let slides = document.getElementsByClassName("sliderinside");

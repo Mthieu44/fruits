@@ -1,3 +1,4 @@
+// fonction qui vérifie si le formulaire de commande est rempli entièrement et l'envoie, affiche un message d'erreur si ce n'est pas le cas.
 function validateForm() {
     let inputs = document.getElementsByTagName("input")
     let err = document.getElementById("errPai")
