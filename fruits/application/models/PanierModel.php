@@ -48,5 +48,3 @@ class PanierModel extends CI_Model
 }
 
 ?>
-
-

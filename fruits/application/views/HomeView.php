@@ -10,12 +10,15 @@
 	<?php require('loader.php'); ?>
 	<style>
 		<?php include 'css/style.css';
-		?><?php include 'css/home.css';
+		?>
+
+		<?php include 'css/home.css';
 		?><?php include 'css/boutique.css';
 		?><?php include 'css/panierside.css';
 		?><?php include 'https: //cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css';
 		?><?php include 'js/dialog-master/css/dialog.css'
 		?>
+
 
 
 	</style>
@@ -324,82 +327,82 @@
 					</div>
 				</div>
 
-			<img src="<?= base_url('img/next.png') ?>" class="fleche rightfix" alt="next"
-				onclick="slideSeasonal.slideRight()" />
-			<div class="slider-hider rightfix"></div>
-		</div>
-	</div>
-
-        <div class="info blur">
-            <div class="infoPart">
-                <img src="<?= base_url('img/panier2.png') ?>" alt="">
-                <h1>Livraisons de qualité</h1>
-                <p>Nous mettons tout en œuvre pour que votre commande vous soit livrée dans les meilleurs délais, tout
-                    en veillant à ce que les fruits soient transportés dans des conditions optimales pour leur
-                    conservation. </p>
-            </div>
-            <div class="barv"></div>
-            <div class="infoPart">
-                <img src="<?= base_url('img/camion.png') ?>" alt="">
-                <h1>Livraisons rapides</h1>
-                <p>Nous avons également mis en place un système de suivi de commande en ligne, afin que vous puissiez
-                    suivre l'acheminement de votre colis à tout moment, et le recevoir rapidement. </p>
-            </div>
-            <div class="barv"></div>
-            <div class="infoPart">
-                <img src="<?= base_url('img/masque.png') ?>" alt="">
-                <h1>Règles de sécurité</h1>
-                <p>Nous disposons de plusieurs mesures pour assurer la sécurité sanitaire de vos fruits lors de leur
-                    transport et de leur stockage. Nous veillons à ce qu'ils soient stockés dans des conditions
-				optimales pour leur qualité. </p>
-            </div>
-        </div>
-
-
-	<footer class="footer blur">
-		<div class="container">
-			<div class="row">
-				<div class="footer-col">
-					<h4>Notre entreprise</h4>
-					<ul>
-						<li><a href="<?= site_url('APropos') ?>">A propos</a></li>
-						<li><a href="<?= site_url('Contact') ?>">Nous contacter</a></li>
-						<li><a href="<?= site_url('home/ConditionsGenerales') ?>">CGU</a></li>
-					</ul>
-				</div>
-				<div class="footer-col">
-					<h4>Plus d'infos</h4>
-					<ul>
-						<li><a href="<?= site_url('Connexion') ?>">Mon compte</a></li>
-						<li><a href="<?= site_url('Panier') ?>">Mon panier</a></li>
-						<li><a href="<?= site_url('Connexion') ?>">Mes commandes</a></li>
-					</ul>
-				</div>
-				<div class="footer-col">
-                    <h4>La boutique</h4>
-                    <ul>
-                            <li><a href="<?= site_url('Boutique') ?>"
-                                    @click="setSelectedCategory('Meilleures Ventes')">Meilleures ventes</a></li>
-                            <li><a href="<?= site_url('Boutique') ?>"
-                                    @click="setSelectedCategory('Fruits de saison')">Fruits de saison</a></li>
-                            <li><a href="<?= site_url('Boutique') ?>"
-                                    @click="setSelectedCategory('Promotions')">Promotion</a></li>
-                            <li><a href="<?= site_url('Boutique') ?>"
-                                    @click="setSelectedCategory('Indisponibles')">Indisponibles</a></li>
-                    </ul>
-                </div>
-				<div class="footer-col">
-					<h4>Mentions légales</h4>
-					<p>Fruits en ligne est une société anonyme (SA) au capital social de 100 000 euros.
-						Les prix sont indiqués en euros et n'incluent pas la TVA.
-						Les frais de livraison sont en sus et varient en fonction de la destination et du mode de
-						livraison choisi.
-					</p>
-				</div>
+				<img src="<?= base_url('img/next.png') ?>" class="fleche rightfix" alt="next"
+					onclick="slideSeasonal.slideRight()" />
+				<div class="slider-hider rightfix"></div>
 			</div>
 		</div>
-		<a href="#"><img src="<?= base_url('img/arrowUp') ?>" class="up"></a>
-	</footer>
+
+		<div class="info blur">
+			<div class="infoPart">
+				<img src="<?= base_url('img/panier2.png') ?>" alt="">
+				<h1>Livraisons de qualité</h1>
+				<p>Nous mettons tout en œuvre pour que votre commande vous soit livrée dans les meilleurs délais, tout
+					en veillant à ce que les fruits soient transportés dans des conditions optimales pour leur
+					conservation. </p>
+			</div>
+			<div class="barv"></div>
+			<div class="infoPart">
+				<img src="<?= base_url('img/camion.png') ?>" alt="">
+				<h1>Livraisons rapides</h1>
+				<p>Nous avons également mis en place un système de suivi de commande en ligne, afin que vous puissiez
+					suivre l'acheminement de votre colis à tout moment, et le recevoir rapidement. </p>
+			</div>
+			<div class="barv"></div>
+			<div class="infoPart">
+				<img src="<?= base_url('img/masque.png') ?>" alt="">
+				<h1>Règles de sécurité</h1>
+				<p>Nous disposons de plusieurs mesures pour assurer la sécurité sanitaire de vos fruits lors de leur
+					transport et de leur stockage. Nous veillons à ce qu'ils soient stockés dans des conditions
+					optimales pour leur qualité. </p>
+			</div>
+		</div>
+
+
+		<footer class="footer blur">
+			<div class="container">
+				<div class="row">
+					<div class="footer-col">
+						<h4>Notre entreprise</h4>
+						<ul>
+							<li><a href="<?= site_url('APropos') ?>">A propos</a></li>
+							<li><a href="<?= site_url('Contact') ?>">Nous contacter</a></li>
+							<li><a href="<?= site_url('home/ConditionsGenerales') ?>">CGU</a></li>
+						</ul>
+					</div>
+					<div class="footer-col">
+						<h4>Plus d'infos</h4>
+						<ul>
+							<li><a href="<?= site_url('Connexion') ?>">Mon compte</a></li>
+							<li><a href="<?= site_url('Panier') ?>">Mon panier</a></li>
+							<li><a href="<?= site_url('Connexion') ?>">Mes commandes</a></li>
+						</ul>
+					</div>
+					<div class="footer-col">
+						<h4>La boutique</h4>
+						<ul>
+							<li><a href="<?= site_url('Boutique') ?>"
+									@click="setSelectedCategory('Meilleures Ventes')">Meilleures ventes</a></li>
+							<li><a href="<?= site_url('Boutique') ?>"
+									@click="setSelectedCategory('Fruits de saison')">Fruits de saison</a></li>
+							<li><a href="<?= site_url('Boutique') ?>"
+									@click="setSelectedCategory('Promotions')">Promotion</a></li>
+							<li><a href="<?= site_url('Boutique') ?>"
+									@click="setSelectedCategory('Indisponibles')">Indisponibles</a></li>
+						</ul>
+					</div>
+					<div class="footer-col">
+						<h4>Mentions légales</h4>
+						<p>Fruits en ligne est une société anonyme (SA) au capital social de 100 000 euros.
+							Les prix sont indiqués en euros et n'incluent pas la TVA.
+							Les frais de livraison sont en sus et varient en fonction de la destination et du mode de
+							livraison choisi.
+						</p>
+					</div>
+				</div>
+			</div>
+			<a href="#"><img src="<?= base_url('img/arrowUp') ?>" class="up"></a>
+		</footer>
 	</div>
 </body>
 

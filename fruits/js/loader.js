@@ -15,5 +15,3 @@ window.addEventListener("load", function () {
 		el.parentNode.removeChild(el);
 	}, 500);
 });
-
-

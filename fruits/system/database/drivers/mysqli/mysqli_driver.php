@@ -529,6 +529,8 @@ class CI_DB_mysqli_driver extends CI_DB
 		$this->conn_id->close();
 	}
 
+
+	/*Va vider le cache de requete sql et donc permet de faire plusieur requete dans une meme focntion vue ou modèle*/
 	public function next_result()
 	{
 		if (is_object($this->conn_id)) {
