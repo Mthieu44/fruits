@@ -63,11 +63,16 @@ DELIMITER ;
 
 DELIMITER //
 CREATE PROCEDURE deleteUser(
-    IN _id TEXT
+    IN _id_user TEXT
 )
 BEGIN
+    DELETE FROM commandeFruit
+    WHERE id_commande in (SELECT id_commande from commande where id_user = _id_user);
+
+    DELETE FROM commande
+    WHERE id_user = _id_user;
     DELETE FROM usertab
-    WHERE id_user = _id;
+    WHERE id_user = _id_user;
 END //
 DELIMITER ;
 
@@ -330,6 +335,8 @@ BEGIN
     WHERE id_commande = _id_commande;
 END //
 DELIMITER ;
+
+
 
 
 DELIMITER //
