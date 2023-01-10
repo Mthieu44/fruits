@@ -115,7 +115,7 @@
         </div>
         <div class="autre">
         <img src="<?= base_url('img/login.png') ?>"/>
-        <input type="password" name="passwordComfirm" placeholder=" Confirmer mot de passe" required>
+        <input type="password" name="passwordComfirm" placeholder="Confirmer mot de passe" required>
         </div>
         <p class="erreur petit">
             <?php

@@ -11,7 +11,7 @@ html {
 
 }
 
-.login a:hover {
+.login a:hover, .infos a:hover {
     color: var(--yellow-100);
     transition: all ease 0.2s;
 }
@@ -221,12 +221,26 @@ input[type="submit"]:hover {
     align-self: flex-start;
     margin-left: 16%;
     gap: 10px;
+    margin-bottom: 20px;
 }
 
 .sexe label {
     margin: 0;
     padding: 5;
     font-size: 18px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 50px;
+    gap: 20px;
+}
+
+.buttons input {
+    margin-top:10px;
 }
 
 /*********FORGOT PASSWORD********/
@@ -443,6 +457,8 @@ h2 {
 .modifmdp p {
     margin-bottom: 0;
 }
+
+
 
 /*********RESPONSABLE VIEW*********/
 

@@ -1,5 +1,6 @@
 "use strict"
 
+// classe pour les sliders de produits
 class sliderProduit {
 
     constructor(insideSlider) {
@@ -7,14 +8,17 @@ class sliderProduit {
         this.slider = document.getElementsByClassName(insideSlider)
     }
 
+    //décale vers la gauche
     slideLeft() {
         this.showCartes(-1)
     }
 
+    //décale vers la droite
     slideRight() {
         this.showCartes(1)
     }
 
+    //décale le slider d'un certain nombre de cran, utilisé par les 2 fonctions d'au-dessus
     showCartes(n) {
         this.pos += n;
         if (this.pos < 3) { this.pos = this.slider.length - 2 }
@@ -26,6 +30,7 @@ class sliderProduit {
     }
 }
 
+// Fonction pour que le slider réagisse lors du roulage de la molette
 function roulage1(event) {
     event.preventDefault()
     if (event.deltaY > 0) {
@@ -44,10 +49,11 @@ function roulage2(event) {
     }
 }
 
-
+// Déclaration des sliders
 const slideBestsellers = new sliderProduit("card-product-top")
 const slideSeasonal = new sliderProduit("card-product-bottom")
 
+// Initialisation des sliders
 let isinit = 0
 function initSliders() {
     if (isinit == 0) {

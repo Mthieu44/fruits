@@ -223,6 +223,5 @@ class FruitModel extends CI_Model
         $q->next_result();
         $q->free_result();
         return $response;
-        var_dump($response);die();
     }
 }
