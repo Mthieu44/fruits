@@ -108,7 +108,7 @@
     <div class="commandes">
         <h1>Votre historique de commande</h1>
     <?php foreach($commandes as $commande):?>
-            <button class="accordionCommande"><?php echo('Commande n° ' . $commande->id_commande . ' éffectuer le '. $commande->date_commande . ' pour un total de ' . $commande->prix) ?><?= $GLOBALS['calculator']->getCurrency()?></button>
+            <button class="accordionCommande"><?php echo('Commande n° ' . $commande->id_commande . ' effectuée le '. $commande->date_commande . ' pour un total de ' . $commande->prix) ?><?= $GLOBALS['calculator']->getCurrency()?></button>
             <div class="panelCommande">
                 <table id="<?=$commande->id_commande?>">
             <tr class="title">
