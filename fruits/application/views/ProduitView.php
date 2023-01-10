@@ -37,7 +37,7 @@
 
                 <ul>
                     <li><a href="<?= site_url('Home') ?>">Accueil</a></li>
-                    <li><a href=" <?= site_url('Boutique') ?>">Boutique</a></li>
+                    <li><a href=" <?= site_url('Boutique') ?>" class="yellow">Boutique</a></li>
                     <li><a href=" <?= site_url('APropos') ?>" class="propos">A propos</a></li>
                     <li><a href="<?= site_url('Contact') ?>">Contact</a></li>
                     <li class="connexion">
@@ -135,6 +135,7 @@
 
 
         <div class="div">
+        <a href="<?= site_url('Boutique') ?>"> <p style = "position:absolute; left:70px; top:54px;  "> < Retour </p></a>
             <div class="flexible">
                 <div class="top">
                     <img class="img" src="<?= base_url('img/fruit/') . $fruit->image?>" alt="<?= $fruit->nom?>">
@@ -216,7 +217,7 @@
             </div>
         </div>
 
-        <footer class="footer">
+        <footer class="footer blur">
             <div class="container">
                 <div class="row">
                     <div class="footer-col">

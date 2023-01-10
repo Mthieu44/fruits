@@ -2851,6 +2851,8 @@ $(function() {
 });
 JS;
 
+global $country;
+$country = $GLOBALS['script'];
 
 abstract class PriceCalculator {
     public function __construct() {
@@ -2869,19 +2871,19 @@ abstract class PriceCalculator {
 
 class ArgentinaPriceCalculator extends PriceCalculator {
     public function getCountryFactor() {
-        return 85.957;
+        return 193.38;
     }
     public function getCurrency() {
         return "ARS";
     }
 }
 
-class EcuadorPriceCalculator extends PriceCalculator {
+class USAPriceCalculator extends PriceCalculator {
     public function getCountryFactor() {
-        return 4.332;
+        return 1.07;
     }
     public function getCurrency() {
-        return "ECS";
+        return "$";
     }
 }
 
@@ -2896,35 +2898,47 @@ class FrancePriceCalculator extends PriceCalculator {
 
 class UnitedKingdomPriceCalculator extends PriceCalculator {
     public function getCountryFactor() {
-        return 0.906;
+        return 0.88;
     }
     public function getCurrency() {
-        return "GBP";
+        return "£";
     }
 }
 
-class GreecePriceCalculator extends PriceCalculator {
+class JapanPriceCalculator extends PriceCalculator {
     public function getCountryFactor() {
-        return 0.86;
+        return 141.52;
     }
     public function getCurrency() {
-        return "€";
+        return "¥";
+    }
+}
+
+class RussiaPriceCalculator extends PriceCalculator {
+    public function getCountryFactor() {
+        return 74.52;
+    }
+    public function getCurrency() {
+        return "₽";
     }
 }
 
 class PriceCalculatorFactory {
     public static function createCalculator() {
-        $country = $GLOBALS['script'];
-        if ($country === 'Argentina') {
+        if ($GLOBALS['country'] === 'Argentina') {
             return new ArgentinaPriceCalculator();
-        } else if ($country === 'Ecuador') {
-            return new EcuadorPriceCalculator();
-        } else if ($country === 'France') {
+        } else if ($GLOBALS['country'] === 'Ecuador') {
+            return new USAPriceCalculator();
+        } else if ($GLOBALS['country'] === 'France') {
             return new FrancePriceCalculator();
-        } else if ($country === 'United Kingdom') {
+        } else if ($GLOBALS['country'] === 'United Kingdom') {
             return new UnitedKingdomPriceCalculator();
-        } else if ($country === 'Greece') {
-            return new GreecePriceCalculator();
+        } else if ($GLOBALS['country'] === 'Japan') {
+            return new JapanPriceCalculator();
+        } else if ($GLOBALS['country'] === 'Russia') {
+            return new RussiaPriceCalculator();
+        } else if ($GLOBALS['country'] === 'United States of America') {
+            return new USAPriceCalculator();
         } else {
             return new FrancePriceCalculator();
         }

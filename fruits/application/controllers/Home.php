@@ -3,6 +3,7 @@
 defined('BASEPATH') or exit('No direct script access allowed');
 require_once APPPATH . DIRECTORY_SEPARATOR . 'models' . DIRECTORY_SEPARATOR . "ProduitEntity.php";
 require APPPATH . DIRECTORY_SEPARATOR . 'models' . DIRECTORY_SEPARATOR . "UserEntity.php";
+require_once APPPATH . DIRECTORY_SEPARATOR . 'libraries' . DIRECTORY_SEPARATOR . "Prices.php";
 
 class Home extends CI_Controller
 {
@@ -28,7 +29,6 @@ class Home extends CI_Controller
     }
     public function ConditionsGenerales()
     {
-
         $this->load->view('CguView');
     }
 }

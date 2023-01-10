@@ -286,7 +286,7 @@
             </div>
         </div>
 
-        <div class="info">
+        <div class="info blur">
             <div class="infoPart">
                 <img src="<?= base_url('img/panier2.png') ?>" alt="">
                 <h1>Livraisons de qualité</h1>
@@ -307,11 +307,11 @@
                 <h1>Règles de sécurité</h1>
                 <p>Nous disposons de plusieurs mesures pour assurer la sécurité sanitaire de vos fruits lors de leur
                     transport et de leur stockage. Nous veillons à ce qu'ils soient stockés dans des conditions
-                    optimales pour leur qualité. </p>
+                    optimales de température et d'humidité pour garantir leur fraîcheur et leur qualité. </p>
             </div>
         </div>
 
-        <footer class="footer">
+        <footer class="footer blur">
             <div class="container">
                 <div class="row">
                     <div class="footer-col">
