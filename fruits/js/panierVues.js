@@ -1,12 +1,12 @@
-let url = "http://srv-infoweb/~E210826J/equipe2-1/fruits/";
+let url = "http://srv-infoweb/~E216351P/fruits/";
 
 const vue = new Vue({
 	data: () => {
 		return {
-			fruits: [],
-			panier: [],
-			searchKey: "",
-			options: ["Prix croissant", "Prix décroissant", "Nom (A-Z)", "Nom (Z-A)"],
+			fruits: [], // tableau de tous les fruits
+			panier: [], // tableau du panier courant
+			searchKey: "", // string qui prend en temps réel le contenu de la barre de recherche
+			options: ["Prix croissant", "Prix décroissant", "Nom (A-Z)", "Nom (Z-A)"], // options de tris
 			categoriesList: [
 				"Agrumes",
 				"Fruits exotiques",
@@ -14,19 +14,20 @@ const vue = new Vue({
 				"Fruits à coque",
 				"Fruits à pépins",
 				"Fruits à noyau",
-			],
+			], // Toutes les catégories
 			ventesList: [
 				"Meilleures Ventes",
 				"Promotions",
 				"Indisponibles",
 				"Fruits de saison",
-			],
-			categories: [],
-			ventes: [],
-			selected: "",
+			], // Toutes les catégories de ventes
+			categories: [], // Tableau des catégories selectionées en temps réel
+			ventes: [], // Tableau des ventes selectionées en temps réel
+			selected: "", // String du critère de filtre selectionnée (Par prix croissant, etc ..)
 		};
 	},
 	computed: {
+		// Fonction qui renvoi un tableau contenant tous les fruits possédants la catégorie Meilleurs Ventes
 		meilleuresVentes() {
 			let tab = [];
 			this.fruits.forEach((fruit) => {
@@ -40,6 +41,7 @@ const vue = new Vue({
 			});
 			return tab;
 		},
+		// Fonction qui renvoi un tableau contenant tous les fruits possédants la catégorie Fruits de Saison
 		fruitsDeSaison() {
 			let tab = [];
 			this.fruits.forEach((fruit) => {
@@ -53,6 +55,8 @@ const vue = new Vue({
 			});
 			return tab;
 		},
+		// retourne en temps réel le tableau des fruits correspondant aux différents critères de recherche, en fonction des ventes, des catégories, du tris souhaité
+		// ou encore en fonction du contenu de la barre de recherche
 		search() {
 			if (this.categories.length > 0) {
 				iteratorCat = this.categories.values();
@@ -263,9 +267,11 @@ const vue = new Vue({
 		},
 	},
 	methods: {
+		// Va chercher le fruit correspondant à l'id mis en paramètre et l'ajoute dans le tableau panier et envoie la nouvelle valeur dans le panier de session php avec
+		// une reqûete en http
 		ajouterAuPanier(id) {
-			let fruit = this.fruits.find((element) => element.id_fruit == id);
-			let Copiedfruit = Object.assign({}, fruit);
+			let fruit = this.fruits.find((element) => element.id_fruit == id); // recherche du fruit en fonction de son id	
+			let Copiedfruit = Object.assign({}, fruit); // On fait une copie du fruit car en vueJs c'est des tableaux de pointeurs donc sans copies cela aurait envoyé vers le meme élément et on n'aurait pu le modifier indépendamment
 			let quantity = Copiedfruit.quantity;
 			if (Copiedfruit.quantity == 0) {
 				Notiflix.Notify.info("Quantité invalide", {
@@ -281,12 +287,12 @@ const vue = new Vue({
 				if (element.id_fruit == id) {
 					element.quantity = element.quantity + Copiedfruit.quantity;
 					quantity = element.quantity;
-
-					this.totalQuantity(-fruit.quantity, id);
+					
+					this.totalQuantity(-fruit.quantity, id); // On envoie - la quantity pour re-avoir une quantity à 0 dans l'objet fruit dans le tableaux de tous les fruits
 					fruit.quantity = 0;
 					test = false;
 					this.ajouterAuPanierSession(id, quantity);
-					showPanier();
+					showPanier(); // fonction qui affiche le panier sur le côté
 				}
 			});
 			if (test) {
@@ -298,24 +304,24 @@ const vue = new Vue({
 				showPanier();
 			}
 		},
-
+		// retire le fruit correspondant à l'id mis en parametre du panier
 		retirerDuPanier(id) {
 			for (let i = 0; i < this.panier.length; i++) {
 				if (this.panier[i].id_fruit == id) {
 					this.panier.splice(i, 1);
-					this.ajouterAuPanierSession(id, -1); // avec -1 cela delete le produit
+					this.ajouterAuPanierSession(id, -1); // avec -1 cela delete le produit dans le panier session
 					break;
 				}
 			}
 		},
-
+		// Renvoie le total d'un fruit correspondant à l'id mis en parametre
 		getTotalProduit(id) {
 			let total = 0;
 			let fruit = this.panier.find((element) => element.id_fruit == id);
 			total += fruit.quantity * fruit.prix;
-			return total.toFixed(2);
+			return total.toFixed(2); // 2 chiffres après la virgule
 		},
-
+		// Renvoie le total du panier
 		getTotalPanier() {
 			let total = 0;
 			this.panier.forEach((element) => {
@@ -324,6 +330,7 @@ const vue = new Vue({
 			return total.toFixed(2);
 		},
 
+		// Calcul la quantity chosie en temps réel pour un fruit(- / +) et l'affecte aux fruits dans la variable de session php pour que cette quantity soit la meme dans toutes les pages pour un fruit 
 		totalQuantity(n, id) {
 			let quantity = 0;
 			for (let i = 0; i < this.fruits.length; i++) {
@@ -352,6 +359,7 @@ const vue = new Vue({
 					console.log(error);
 				});
 		},
+		// Calcul la quantity chosie en temps réel pour un fruit présent dans le panier (- / +) et l'affecte aux fruits dans la variable de session php pour que cette quantity soit la meme dans toutes les pages pour un fruit 
 
 		totalQuantityPanier(n, id) {
 			let quantity = 0;
@@ -384,7 +392,8 @@ const vue = new Vue({
 			}
 			this.ajouterAuPanierSession(id, quantity);
 		},
-
+		// Envoie une requete HTTP en post sur ma méthode addToPanier du controler panier en lui passant en parametre,
+		// l'id du fruit concerné, sa quantity, le total, et le tableau sur lequelle il doit faire le changement
 		ajouterAuPanierSession(id, quantity) {
 			let formData = new FormData();
 			formData.append("id", id);
@@ -401,7 +410,7 @@ const vue = new Vue({
 					console.log(error);
 				});
 		},
-
+		// récupère une image d'un fruit en fonction de son id
 		getImg(id) {
 			for (let i = 0; i < this.fruits.length; i++) {
 				if (this.fruits[i].id_fruit == id) {
@@ -409,15 +418,15 @@ const vue = new Vue({
 				}
 			}
 		},
-
+		// affiche la page produit correspondant à l'id passé en parametre
 		getProduct(id) {
 			return url.concat("index.php/boutique/fruit/").concat(id);
 		},
-
+		// récupère la category selectionnée dans une autre page pour pouvoir remplir le tableau et donc affiché les bons fruits
 		setSelectedCategory(category) {
 			localStorage.setItem("ventes", category);
 		},
-
+		// Fonction qui retourne un booléen si le fruit correspondant à l'id passé en parametre à la catégorie 'Indisponible'
 		isIndisponible(id){
 			let fruit = this.search.find((element) => element.id_fruit == id);
 			let istrue = false
@@ -430,13 +439,14 @@ const vue = new Vue({
 		},
 		
 	},
-
+	// fonction qui permet d'effectuer des actions quand la vue en montée sur la page (dès le début)
 	mounted() {
+		// condition pour affecter ou non à la catégorie par rapport au contenu du localSotrage de items 'ventes'
 		if (localStorage.getItem("ventes") != null) {
 			this.ventes = [localStorage.getItem("ventes")];
 			localStorage.removeItem("ventes");
 		}
-
+		// récupère tous les fruits en appelant la méthode getAllFruits et affecte ce résultat au tableau 'fruits'
 		axios
 			.get(url.concat("index.php/panier/getAllFruits"))
 			.then((res) => res.data)
@@ -446,6 +456,7 @@ const vue = new Vue({
 			.catch(function (error) {
 				console.log(error);
 			});
+		// récupère le panier courant en appelant la méthode getPanier et affecte ce résultat au tableau 'panier'
 		axios
 			.get(url.concat("index.php/panier/getPanier"))
 			.then((res) => res.data)
