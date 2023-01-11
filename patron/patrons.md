@@ -15,11 +15,13 @@ Lorsqu'il est combiné avec le design pattern Factory, cela permet de créer des
 
 
 ![factory-strategy](img/factory-strategy.png)
-_Schéma uml réprésentant les design paterns factory et strategy_
+_Schéma UML réprésentant les design paterns factory et strategy_
 
 ### **_Pourquoi on les utilise ?_** 
 
+Dans notre contexte, les design patterns Strategy et Factory sont utilisés pour gérer les vues qui sont chargées en fonction du statut d'utilisateur (client, responsable, admin). 
 
+Ainsi, en utilisant ces deux patrons de conception ensemble, il est possible de facilement ajouter ou supprimer des vues ou des statuts d'utilisateur sans avoir à modifier les parties du code qui dépendent de ces vues ou de ces statuts. Le code est également plus facile à maintenir et plus extensible.
 
 
 ```php
@@ -64,6 +66,13 @@ class UserClient extends UserStrategy
     }
 }
 ```
+
+### **_Comment ça marche ?_** 
+
+La classe UserStrategy définit une méthode abstraite loadView() qui sera implémentée par les classes filles UserClient, UserResp et UserAdmin, chacune pour gérer les différentes vues pour chaque statut d'utilisateur.
+
+La classe UserFactory, quant à elle, fournit une méthode statique makeUser() qui permet de créer des objets de type UserStrategy en fonction de la valeur de $status. Cette factory permet de déléguer la logique de création d'objet dans une classe unique et de centraliser les conditions de création d'objet.
+
 ## **_Decorator_**
 
 Le patron de conception **"Decorator"** est utilisé dans cet exemple avec la classe abstraite FruitDecorator qui étend la classe FruitEntity (déclarée avec le mot-clé extends). La classe FruitDecorator sert de classe de base pour les classes FruitQuantity et FruitCommande, qui héritent de cette classe.
