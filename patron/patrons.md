@@ -5,22 +5,65 @@
 
 
 
-## **_Factory_**
+## **_Factory - Strategy_**
 
-Le patron de conception **"Factory"** est utilisé dans cet exemple avec la classe UserFactory, qui est une classe abstraite (déclarée avec le mot-clé abstract). La classe UserFactory définit une méthode abstraite makeUser() qui prend en paramètre un statut et renvoie un objet de type User.
+### **_C'est quoi ?_**
 
-Ce patron de conception permet de centraliser la logique de création des objets dans une seule et même classe (ici UserFactory), ce qui peut être utile lorsque la création de ces objets est complexe ou nécessite de nombreuses étapes. Cela permet également de rendre le code plus facile à maintenir et à modifier, car toutes les modifications à apporter à la création des objets peuvent être effectuées dans une seule et même classe.
+Un design pattern Strategy est un patron de conception qui permet de définir une famille d'algorithmes, encapsuler chacun d'entre eux et les rendre interchangeable. Cela permet de changer l'algorithme utilisé sans avoir à changer le reste du code. 
 
-## **_Strategy_**
-
-Le patron de conception **"Strategy"** est également utilisé dans cet exemple, avec la classe abstraite UserStrategy qui définit une méthode abstraite loadView(). Les classes UserClient, UserResp et UserAdmin héritent de UserStrategy et définissent chacune leur propre implémentation de la méthode loadView().
-
-Ce patron de conception permet de définir une stratégie de traitement pour chaque type d'objet (ici chaque type d'utilisateur), en encapsulant cette stratégie dans une classe dédiée. Cela permet de rendre le code plus modulaire et flexible, car il est possible de changer de stratégie de traitement en modifiant simplement la classe utilisée, sans avoir à modifier le reste du code.
+Lorsqu'il est combiné avec le design pattern Factory, cela permet de créer des objets en utilisant des algorithmes différents en fonction des besoins spécifiques de l'application. La Factory crée les objets en utilisant les algorithmes appropriés, tandis que le Strategy définit les algorithmes eux-mêmes. En utilisant ces deux patrons ensemble, il est possible de créer des systèmes flexibles et évolutifs qui peuvent facilement gérer différents types d'algorithmes et de données.
 
 
 ![factory-strategy](img/factory-strategy.png)
-![factory-strategy_code1](img/factory-strategy_code1.png)
-![factory-strategy_code1](img/factory-strategy_code2.png)
+_Schéma uml réprésentant les design paterns factory et strategy_
+
+### **_Pourquoi on les utilise ?_** 
+
+
+
+
+```php
+abstract class UserStrategy
+{
+    abstract public function loadView();
+}
+
+/*
+Classe qui permet de choisir les vues à charger.
+*/
+class UserFactory
+{
+    public static function makeUser($statut)
+    {
+        switch ($statut) {
+            case "client":
+                return new UserClient();
+            case "responsable":
+                return new UserResp();
+            case "admin":
+                return new UserAdmin();
+        }
+    }
+}  
+```
+```php
+class UserClient extends UserStrategy
+{
+    public function loadView()
+    {
+        $CI =& get_instance();
+        $data['fruitsCommandes'] = array();
+
+        $users = $CI->UserModel->findAll();
+        $data['commandes'] = $CI->CommandeModel->findById_User($CI->session->user["user"]->id_user);
+        foreach ($data['commandes'] as $c) {
+            array_push($data['fruitsCommandes'], $CI->CommandeModel->getFruitFrom_IdCommande($c->id_commande));
+        }
+        $CI->load->view('ClientView', $data);
+        $CI->load->view('FooterView');
+    }
+}
+```
 ## **_Decorator_**
 
 Le patron de conception **"Decorator"** est utilisé dans cet exemple avec la classe abstraite FruitDecorator qui étend la classe FruitEntity (déclarée avec le mot-clé extends). La classe FruitDecorator sert de classe de base pour les classes FruitQuantity et FruitCommande, qui héritent de cette classe.
