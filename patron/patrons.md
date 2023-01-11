@@ -15,6 +15,7 @@ Lorsqu'il est combiné avec le design pattern Factory, cela permet de créer des
 
 
 ![factory-strategy](img/factory-strategy.png)
+
 _Schéma UML réprésentant les design paterns factory et strategy_
 
 ### **_Pourquoi on les utilise ?_** 
@@ -80,6 +81,7 @@ La classe UserFactory, quant à elle, fournit une méthode statique makeUser() q
 Le design pattern Decorator est un patron de conception utilisé pour ajouter des fonctionnalités supplémentaires à un objet existant, sans changer son code source. Cela permet une flexibilité accrue dans l'ajout et la suppression de comportements à un objet, car cela se fait en utilisant des objets décorateurs plutôt que de modifier directement l'objet cible. Cela a pour effet de rendre le code plus maintenable et réutilisable, car les décorateurs peuvent être facilement combinés et enchaînés pour créer des comportements complexes, sans avoir à créer de nouvelles classes pour chaque combinaison.
 
 ![decorator](img/decorator.png)
+
 _Schéma UML représentant le design pattern Decorator_
 
 ### Pourquoi on les utilise ?
@@ -139,6 +141,6 @@ class FruitCommande extends FruitDecorator
 
 ### _Comment ça marche ?_
 
-La classe FruitCommande ici va hérité de la classe FruitEntity par le biais d'une autre classe. On peut voir que le constructeur des classes Decorator utilise le decorator parent et rajoute les bon attribut dans notre cas l'attribut quantity et id_commande
+La classe FruitCommande ici va hériter de la classe FruitEntity par le biais d'une autre classe. On peut voir que le constructeur des classes Decorator utilise le decorator parent et rajoute les bon attribut dans notre cas l'attribut quantity et id_commande
 
  En résumé le patron de conception "Decorator" permet de rendre le code plus modulaire et flexible, car il est possible d'ajouter de nouvelles responsabilités à un objet sans avoir à en modifier la classe de base. Cela peut être utile lorsque vous avez besoin d'ajouter de nouvelles fonctionnalités à un objet de manière dynamique, sans avoir à créer de nouvelles classes pour chaque combinaison de responsabilités.
