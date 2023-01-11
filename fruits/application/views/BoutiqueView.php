@@ -218,9 +218,8 @@
 				</div>
 			</div>
 		</div>
-	</div>
-
-	<footer class="footer blur">
+		
+		<footer class="footer blur">
 		<div class="container">
 			<div class="row">
 				<div class="footer-col">
@@ -243,13 +242,13 @@
 					<h4>La boutique</h4>
 					<ul>
 						<li><a href="<?= site_url('Boutique') ?>"
-								@click="setSelectedCategory('Meilleures Ventes')">Meilleures ventes</a></li>
+						@click="setSelectedCategory('Meilleures Ventes')">Meilleures ventes</a></li>
 						<li><a href="<?= site_url('Boutique') ?>"
-								@click="setSelectedCategory('Fruits de saison')">Fruits de saison</a></li>
+						@click="setSelectedCategory('Fruits de saison')">Fruits de saison</a></li>
 						<li><a href="<?= site_url('Boutique') ?>"
-								@click="setSelectedCategory('Promotions')">Promotion</a></li>
+						@click="setSelectedCategory('Promotions')">Promotion</a></li>
 						<li><a href="<?= site_url('Boutique') ?>"
-								@click="setSelectedCategory('Indisponibles')">Indisponibles</a></li>
+						@click="setSelectedCategory('Indisponibles')">Indisponibles</a></li>
 					</ul>
 				</div>
 				<div class="footer-col">
@@ -264,6 +263,7 @@
 		</div>
 		<a href="#"><img src="<?= base_url('img/arrowUp.png') ?>" class="up"></a>
 	</footer>
+	</div>
 	</div>
 </body>
 

@@ -107,7 +107,7 @@
 						<ul>
 							<li><a href="<?= site_url('APropos') ?>">A propos</a></li>
 							<li><a href="<?= site_url('Contact') ?>">Nous contacter</a></li>
-							<li><a href="<?= site_url('CGU') ?>">CGU</a></li>
+							<li><a href="<?= site_url('home/ConditionsGenerales') ?>">CGU</a></li>
 						</ul>
 					</div>
 					<div class="footer-col">

@@ -19,6 +19,7 @@
 		?><?php include 'css/panierside.css';
 		?>
 
+
 	</style>
 </head>
 
@@ -60,9 +61,7 @@
                             if (!isset($this->session->user)) {
                                 echo("Connexion");
                             } else {
-                                echo($this->session->user["user"]->prenom);
-                            }
-    ?>
+                                echo($this->session->user["user"]->prenom);}?>
 						</a>
 					</li>
 					<li class="panier">
@@ -80,9 +79,7 @@
 							</svg>
 							<div>
 								<p id="quantityPanier">
-									<?=
-            count($this->session->panier);
-    ?>
+									<?=count($this->session->panier);?>
 								</p>
 							</div>
 						</a>
@@ -192,100 +189,124 @@
 						<p class="description">
 							<?= $fruit->description?>
 						</p>
+					</div>
 		</div>
-	</div>
 
-	<div class="bestsellers blur">
-		<div class="top-part">
-			<hr class="line">
-			<div class="top-text">
-				<h2>Meilleures ventes</h2>
-				<p class="p01">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-					incididunt ut
-					labore et dolore magna </p>
+		<div class="bestsellers blur">
+			<div class="top-part">
+				<hr class="line">
+				<div class="top-text">
+					<h2>Meilleures ventes</h2>
+					<p class="p01">Voici une selection de nos {{meilleuresVentes.length}} meilleures ventes ! </p>
+				</div>
 			</div>
-		</div>
 
-		<div class="fruit-menu">
-			<div class="slider-hider leftfix"></div>
-			<img src="<?= base_url('img/back.png') ?>" class="fleche leftfix" alt="back"
-				onclick="slideBestsellers.slideLeft()" />
+			<div class="fruit-menu">
+				<div class="slider-hider leftfix"></div>
+				<img src="<?= base_url('img/back.png') ?>" class="fleche leftfix" alt="back"
+					onclick="slideBestsellers.slideLeft()" />
 
-			<div class="slider-inside-bestsellers" id="slider-bestsellers">
-				<div v-for="fruit in meilleuresVentes" v-bind:key="fruit.id_fruit">
-					<div class="card card-product-top">
-						<a :href="getProduct(fruit.id_fruit)">
-							<img :src="getImg(fruit.id_fruit)" alt="image du fruit" />
-						</a>
-						<div class="infos">
-							<p class="nom">{{fruit.nom}}</p>
-							<p class="prix">{{fruit.prix}} <?= $GLOBALS['calculator']->getCurrency() ?></p>
-						</div>
-						<div class="buttons">
-							<div class="manage">
-								<button v-on:click="totalQuantity(-1,fruit.id_fruit)">-</button>
-								<span>
-									{{fruit.quantity}}
-								</span>
-								<button v-on:click="totalQuantity(1,fruit.id_fruit)">+</button>
+				<div class="slider-inside-bestsellers" id="slider-bestsellers">
+					<div v-for="fruit in meilleuresVentes" v-bind:key="fruit.id_fruit">
+						<div class="card card-product-top">
+							<div v-if="isIndisponible(fruit.id_fruit)">
+								<a :href="getProduct(fruit.id_fruit)"><img :src="getImg(fruit.id_fruit)"
+										alt="Image du fruit" class="indisp" /></a>
 							</div>
-							<button id="adding" class="add" v-on:click="ajouterAuPanier(fruit.id_fruit)">Ajouter au
-								panier</button>
-							<script type="application/javascript"
-								src="<?= base_url('js/notiflix-Notiflix-dfaf93f/dist/notiflix-aio-3.2.5.min.js') ?>">
-							</script>
+							<div v-else>
+								<a :href="getProduct(fruit.id_fruit)"><img :src="getImg(fruit.id_fruit)"
+										alt="Image du fruit" /></a>
+							</div>
+							<div class="infos">
+								<p class="nom">{{fruit.nom}}</p>
+								<p class="prix">{{fruit.prix}} <?= $GLOBALS['calculator']->getCurrency() ?></p>
+							</div>
+							<div class="buttons">
+								<div v-if="isIndisponible(fruit.id_fruit)">
+									<div class="manage gray">
+										<button v-on:click="totalQuantity(-1,fruit.id_fruit)" disabled
+											class="gray">-</button>
+										<span>
+											{{fruit.quantity}}
+										</span>
+										<button v-on:click="totalQuantity(1,fruit.id_fruit)" disabled
+											class="gray">+</button>
+									</div>
+									<button class="add gray indispBouton" v-on:click="ajouterAuPanier(fruit.id_fruit)"
+										disabled>Indisponible</button>
+								</div>
+								<div v-else>
+									<div class="manage">
+										<button v-on:click="totalQuantity(-1,fruit.id_fruit)">-</button>
+										<span>
+											{{fruit.quantity}}
+										</span>
+										<button v-on:click="totalQuantity(1,fruit.id_fruit)">+</button>
+									</div>
+									<button class="add" v-on:click="ajouterAuPanier(fruit.id_fruit)">Ajouter
+										au panier</button>
+								</div>
+								<script type="application/javascript"
+									src="<?= base_url('js/notiflix-Notiflix-dfaf93f/dist/notiflix-aio-3.2.5.min.js') ?>">
+								</script>
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
 
-			<img src="<?= base_url('img/next.png') ?>" class="fleche rightfix" alt="next"
-				onclick="slideBestsellers.slideRight()" />
-			<div class="slider-hider rightfix"></div>
-		</div>
-	</div>
-
-	<footer class="footer blur">
-		<div class="container">
-			<div class="row">
-				<div class="footer-col">
-					<h4>Notre entreprise</h4>
-					<ul>
-						<li><a href="<?= site_url('APropos') ?>">A propos</a></li>
-						<li><a href="<?= site_url('Contact') ?>">Nous contacter</a></li>
-						<li><a href="<?= site_url('CGU') ?>">CGU</a></li>
-					</ul>
-				</div>
-				<div class="footer-col">
-					<h4>Plus d'infos</h4>
-					<ul>
-						<li><a href="<?= site_url('Connexion') ?>">Mon compte</a></li>
-						<li><a href="<?= site_url('Panier') ?>">Mon panier</a></li>
-						<li><a href="<?= site_url('Connexion') ?>">Mes commandes</a></li>
-					</ul>
-				</div>
-				<div class="footer-col">
-					<h4>La boutique</h4>
-					<ul>
-						<li><a href="<?= site_url('Boutique') ?>" onclick="meilleuresVentes()">Meilleures ventes</a>
-						</li>
-						<li><a href="<?= site_url('Boutique') ?>">Fruits de saison</a></li>
-						<li><a href="<?= site_url('Boutique') ?>">Promotion</a></li>
-						<li><a href="<?= site_url('Boutique') ?>">Indisponibles</a></li>
-					</ul>
-				</div>
-				<div class="footer-col">
-					<h4>Mentions légales</h4>
-					<p>Fruits en ligne est une société anonyme (SA) au capital social de 100 000 euros.
-						Les prix sont indiqués en euros et n'incluent pas la TVA.
-						Les frais de livraison sont en sus et varient en fonction de la destination et du mode de
-						livraison choisi.
-					</p>
-				</div>
+				<img src="<?= base_url('img/next.png') ?>" class="fleche rightfix" alt="next"
+					onclick="slideBestsellers.slideRight()" />
+				<div class="slider-hider rightfix"></div>
 			</div>
 		</div>
-	</footer>
-	</div>
+		
+
+		<footer class="footer">
+				<div class="container">
+					<div class="row">
+						<div class="footer-col">
+							<h4>Notre entreprise</h4>
+							<ul>
+								<li><a href="<?= site_url('APropos') ?>">A propos</a></li>
+								<li><a href="<?= site_url('Contact') ?>">Nous contacter</a></li>
+								<li><a href="<?= site_url('home/ConditionsGenerales') ?>">CGU</a></li>
+							</ul>
+						</div>
+						<div class="footer-col">
+							<h4>Plus d'infos</h4>
+							<ul>
+								<li><a href="<?= site_url('Connexion') ?>">Mon compte</a></li>
+								<li><a href="<?= site_url('Panier') ?>">Mon panier</a></li>
+								<li><a href="<?= site_url('Connexion') ?>">Mes commandes</a></li>
+							</ul>
+						</div>
+						<div class="footer-col">
+							<h4>La boutique</h4>
+							<ul>
+								<li><a href="<?= site_url('Boutique') ?>"
+										@click="setSelectedCategory('Meilleures Ventes')">Meilleures ventes</a></li>
+								<li><a href="<?= site_url('Boutique') ?>"
+										@click="setSelectedCategory('Fruits de saison')">Fruits de saison</a></li>
+								<li><a href="<?= site_url('Boutique') ?>"
+										@click="setSelectedCategory('Promotions')">Promotion</a></li>
+								<li><a href="<?= site_url('Boutique') ?>"
+										@click="setSelectedCategory('Indisponibles')">Indisponibles</a></li>
+							</ul>
+						</div>
+						<div class="footer-col">
+							<h4>Mentions légales</h4>
+							<p>Fruits en ligne est une société anonyme (SA) au capital social de 100 000 euros.
+								Les prix sont indiqués en euros et incluent la TVA.
+								Les frais de livraison sont en sus et varient en fonction de la destination et du mode de
+								livraison choisi.
+							</p>
+						</div>
+					</div>
+				</div>
+				<a href="#"><img src="<?= base_url('img/arrowUp.png') ?>" class="up"></a>
+			</footer>
+		</div>
+		</div>
 </body>
 
 <script type="text/javascript" src="<?= base_url('js/sliderProduit.js') ?>"></script>

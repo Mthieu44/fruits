@@ -10,9 +10,8 @@
 	<?php require('loader.php'); ?>
 	<style>
 		<?php include 'css/style.css';
-		?>
-
-		<?php include 'css/connexion.css';
+		?><?php include 'css/connexion.css';
+		?><?php include 'css/historique.css';
 		?>
 
 	</style>
@@ -113,7 +112,7 @@
 		<?php foreach($commandes as $commande):?>
 		<button
 			class="accordionCommande"><?php echo('Commande n° ' . $commande->id_commande . ' effectuée le '. $commande->date_commande . ' pour un total de ' . $commande->prix) ?><?= $GLOBALS['calculator']->getCurrency()?></button>
-		<div class="panelCommande">
+		<div class="panelCommande toutPanier">
 			<table id="<?=$commande->id_commande?>">
 				<tr class="title">
 					<th>Image</th>
@@ -125,7 +124,7 @@
 				<?php foreach($fruits as $fruit):?>
 				<?php if($fruit->id_commande == $commande->id_commande):?>
 				<tr class="fruitDansPanier">
-					<td class="left">
+					<td class="leftCommande">
 						<img src="<?= base_url('img/fruit/').$fruit->image ?>" alt="image du fruit" />
 					</td>
 					<td> <?= $fruit->nom ?></td>
