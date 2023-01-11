@@ -18,7 +18,7 @@ Lorsqu'il est combiné avec le design pattern Factory, cela permet de créer des
 
 _Schéma UML réprésentant les design paterns factory et strategy_
 
-### **_Pourquoi on les utilise ?_** 
+### Pourquoi utiliser un pattern strategy et un pattern factory ?
 
 Dans notre contexte, les design patterns Strategy et Factory sont utilisés pour gérer les vues qui sont chargées en fonction du statut d'utilisateur (client, responsable, admin). 
 
@@ -84,7 +84,7 @@ Le design pattern Decorator est un patron de conception utilisé pour ajouter de
 
 _Schéma UML représentant le design pattern Decorator_
 
-### Pourquoi on les utilise ?
+### Pourquoi utiliser un decorator pattern ?
 
 Ce pattern est une bonne solution d'utiliser le design pattern Decorator dans notre situation car cela permet d'ajouter des fonctionnalités supplémentaires à un objet FruitEntity existant.Cela se fait en utilisant des objets décorateurs tels que FruitQuantity et FruitCommande, qui étendent FruitEntity et ajoutent des attributs supplémentaires tels que quantity et id_commande. Ces classes vont être utile et utiliser dans l'historique de commande de notre site ou bien dans la gestion des quantités dans le panier de fruit.
 
@@ -156,7 +156,7 @@ _Schéma UML du Template Method_
 
 ### Pourquoi utiliser un template method ?
 
-En utilisant un template method pour définir un algorithme de calcul de prix de base, avec des étapes spécifiques à chaque pays laissées à implémenter par des sous-classes, on peut s'assurer que tous les produits sont traités de manière homogène dans tous les pays. Cela facilite également les mises à jour futures en un seul endroit si les règles de calcul évoluent. De plus, ce template method est facilement extensible, on peut rajouter plus de pays si on souhaite étendre l'accesibilité du site, et il est facile de modifier les pays déjà éxistants.
+En utilisant un template method pour définir un algorithme de calcul de prix de base, avec des étapes spécifiques à chaque pays laissées à implémenter par des sous-classes, on peut s'assurer que tous les produits sont traités de manière homogène dans tous les pays. Cela facilite également les mises à jour futures en un seul endroit si les règles de calcul évoluent. De plus, ce template method est facilement extensible, on peut rajouter plus de pays si on souhaite étendre l'accessibilité du site, et il est facile de modifier les pays déjà existants.
 
 ```php
 abstract class PriceCalculator {
