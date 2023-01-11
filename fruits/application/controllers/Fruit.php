@@ -42,8 +42,13 @@ class Fruit extends CI_Controller
 	// Méthode appelée lors de la validation du formulaire de modification d'un fruit
     public function modifFruit($id)
     {
+        $oldFruit = $this->FruitModel->findById($id);
         $filename = str_replace(' ', '_', strtolower($this->input->post('nom') . '.png'));
         $fruit = new fruitEntity($id, $this->input->post('nom'), $this->input->post('prix'), $this->input->post('description'), $filename, $this->input->post('origine'), []);
+        if (empty($_FILES['userfile']['name'])) {
+            $fruit->image = $oldFruit->image;
+        }
+
         $this->FruitModel->modif($fruit);
         $fruit = $this->FruitModel->findByName($fruit->nom);
         $categories = $this->CategoryModel->findAll();
@@ -65,7 +70,6 @@ class Fruit extends CI_Controller
             }
         }
         if (empty($_FILES['userfile']['name'])) {
-            /*rename old image si nom change a faire*/
             redirect('Connexion');
         } else {
         	// L'image est uploadé dans le dossier img/fruit dans une certaine configuration
