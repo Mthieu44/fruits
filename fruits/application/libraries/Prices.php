@@ -1,5 +1,6 @@
 <?php
 
+// Fonction pour récupérer le pays
 global $script;
 $script = <<< JS
 $(function() {
@@ -2851,24 +2852,28 @@ $(function() {
 });
 JS;
 
+// Appel de la fonction et stockage du pays 
 global $country;
 $country = $GLOBALS['script'];
 
+// Classe abstraite pour le calculateur
 abstract class PriceCalculator {
-    public function __construct() {
-        if (static::class === PriceCalculator::class) {
-            throw new TypeError("Cannot construct Abstract instances directly");
-        }
-    }
+	public function __construct() {
+		if (static::class === PriceCalculator::class) {
+			throw new TypeError("Cannot construct Abstract instances directly");
+		}
+	}
 
-    abstract public function getCountryFactor();
-    abstract public function getCurrency();
+	abstract public function getCountryFactor();
+	abstract public function getCurrency();
 
-    public function calculatePrice($price) {
-        return number_format($price * $this->getCountryFactor(), 2);
-    }
+	public function calculatePrice($price) {
+		return number_format($price * $this->getCountryFactor(), 2);
+	}
 }
 
+// Classes concrètes qui donne le taux de conversion de euro à la devise locale
+// et le symbole de la devise
 class ArgentinaPriceCalculator extends PriceCalculator {
     public function getCountryFactor() {
         return 193.38;
@@ -2923,6 +2928,8 @@ class RussiaPriceCalculator extends PriceCalculator {
     }
 }
 
+// Pseudo-factory qui permet de choisir quel calculator utiliser en fonction du
+// pays récupéré précédemment
 class PriceCalculatorFactory {
     public static function createCalculator() {
         if ($GLOBALS['country'] === 'Argentina') {
