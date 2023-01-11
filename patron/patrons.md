@@ -80,11 +80,11 @@ La classe UserFactory, quant à elle, fournit une méthode statique makeUser() q
 
 Le design pattern Decorator est un patron de conception utilisé pour ajouter des fonctionnalités supplémentaires à un objet existant, sans changer son code source. Cela permet une flexibilité accrue dans l'ajout et la suppression de comportements à un objet, car cela se fait en utilisant des objets décorateurs plutôt que de modifier directement l'objet cible. Cela a pour effet de rendre le code plus maintenable et réutilisable, car les décorateurs peuvent être facilement combinés et enchaînés pour créer des comportements complexes, sans avoir à créer de nouvelles classes pour chaque combinaison.
 
+### Pourquoi on les utilise ?
+
 ![decorator](img/decorator.png)
 
 _Schéma UML représentant le design pattern Decorator_
-
-### Pourquoi on les utilise ?
 
 Ce pattern est une bonne solution d'utiliser le design pattern Decorator dans notre situation car cela permet d'ajouter des fonctionnalités supplémentaires à un objet FruitEntity existant.Cela se fait en utilisant des objets décorateurs tels que FruitQuantity et FruitCommande, qui étendent FruitEntity et ajoutent des attributs supplémentaires tels que quantity et id_commande. Ces classes vont être utile et utiliser dans l'historique de commande de notre site ou bien dans la gestion des quantités dans le panier de fruit.
 
