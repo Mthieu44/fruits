@@ -172,10 +172,11 @@
 				</tr>
 				<tr v-for="fruit in panier" v-bind:key="fruit.id_fruit" class="fruitDansPanier">
 					<td>
-						<img :src="getImg(fruit.id_fruit)" alt="image du fruit" />
+					<a :href="getProduct(fruit.id_fruit)"><img :src="getImg(fruit.id_fruit)"
+										alt="Image du fruit" /></a>
 					</td>
 					<td>
-						{{fruit.nom}}
+					<a :href="getProduct(fruit.id_fruit)">{{fruit.nom}}</a>
 					</td>
 					<td>{{fruit.prix}} <?= $GLOBALS['calculator']->getCurrency() ?></td>
 					<td>

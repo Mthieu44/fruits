@@ -5,31 +5,145 @@
 
 
 
-## **_Factory_**
+## **_Factory - Strategy_**
 
-Le patron de conception **"Factory"** est utilisé dans cet exemple avec la classe UserFactory, qui est une classe abstraite (déclarée avec le mot-clé abstract). La classe UserFactory définit une méthode abstraite makeUser() qui prend en paramètre un statut et renvoie un objet de type User.
+### **_C'est quoi ?_**
 
-Ce patron de conception permet de centraliser la logique de création des objets dans une seule et même classe (ici UserFactory), ce qui peut être utile lorsque la création de ces objets est complexe ou nécessite de nombreuses étapes. Cela permet également de rendre le code plus facile à maintenir et à modifier, car toutes les modifications à apporter à la création des objets peuvent être effectuées dans une seule et même classe.
+Un design pattern Strategy est un patron de conception qui permet de définir une famille d'algorithmes, encapsuler chacun d'entre eux et les rendre interchangeable. Cela permet de changer l'algorithme utilisé sans avoir à changer le reste du code. 
 
-## **_Strategy_**
-
-Le patron de conception **"Strategy"** est également utilisé dans cet exemple, avec la classe abstraite UserStrategy qui définit une méthode abstraite loadView(). Les classes UserClient, UserResp et UserAdmin héritent de UserStrategy et définissent chacune leur propre implémentation de la méthode loadView().
-
-Ce patron de conception permet de définir une stratégie de traitement pour chaque type d'objet (ici chaque type d'utilisateur), en encapsulant cette stratégie dans une classe dédiée. Cela permet de rendre le code plus modulaire et flexible, car il est possible de changer de stratégie de traitement en modifiant simplement la classe utilisée, sans avoir à modifier le reste du code.
+Lorsqu'il est combiné avec le design pattern Factory, cela permet de créer des objets en utilisant des algorithmes différents en fonction des besoins spécifiques de l'application. La Factory crée les objets en utilisant les algorithmes appropriés, tandis que le Strategy définit les algorithmes eux-mêmes. En utilisant ces deux patrons ensemble, il est possible de créer des systèmes flexibles et évolutifs qui peuvent facilement gérer différents types d'algorithmes et de données.
 
 
 ![factory-strategy](img/factory-strategy.png)
-![factory-strategy_code1](img/factory-strategy_code1.png)
-![factory-strategy_code1](img/factory-strategy_code2.png)
+
+_Schéma UML réprésentant les design paterns factory et strategy_
+
+### **_Pourquoi on les utilise ?_** 
+
+Dans notre contexte, les design patterns Strategy et Factory sont utilisés pour gérer les vues qui sont chargées en fonction du statut d'utilisateur (client, responsable, admin). 
+
+Ainsi, en utilisant ces deux patrons de conception ensemble, il est possible de facilement ajouter ou supprimer des vues ou des statuts d'utilisateur sans avoir à modifier les parties du code qui dépendent de ces vues ou de ces statuts. Le code est également plus facile à maintenir et plus extensible.
+
+
+```php
+abstract class UserStrategy
+{
+    abstract public function loadView();
+}
+
+/*
+Classe qui permet de choisir les vues à charger.
+*/
+class UserFactory
+{
+    public static function makeUser($statut)
+    {
+        switch ($statut) {
+            case "client":
+                return new UserClient();
+            case "responsable":
+                return new UserResp();
+            case "admin":
+                return new UserAdmin();
+        }
+    }
+}  
+```
+```php
+class UserClient extends UserStrategy
+{
+    public function loadView()
+    {
+        $CI =& get_instance();
+        $data['fruitsCommandes'] = array();
+
+        $users = $CI->UserModel->findAll();
+        $data['commandes'] = $CI->CommandeModel->findById_User($CI->session->user["user"]->id_user);
+        foreach ($data['commandes'] as $c) {
+            array_push($data['fruitsCommandes'], $CI->CommandeModel->getFruitFrom_IdCommande($c->id_commande));
+        }
+        $CI->load->view('ClientView', $data);
+        $CI->load->view('FooterView');
+    }
+}
+```
+
+### **_Comment ça marche ?_** 
+
+La classe UserStrategy définit une méthode abstraite loadView() qui sera implémentée par les classes filles UserClient, UserResp et UserAdmin, chacune pour gérer les différentes vues pour chaque statut d'utilisateur.
+
+La classe UserFactory, quant à elle, fournit une méthode statique makeUser() qui permet de créer des objets de type UserStrategy en fonction de la valeur de $status. Cette factory permet de déléguer la logique de création d'objet dans une classe unique et de centraliser les conditions de création d'objet.
+
 ## **_Decorator_**
 
-Le patron de conception **"Decorator"** est utilisé dans cet exemple avec la classe abstraite FruitDecorator qui étend la classe FruitEntity (déclarée avec le mot-clé extends). La classe FruitDecorator sert de classe de base pour les classes FruitQuantity et FruitCommande, qui héritent de cette classe.
+### C'est quoi ?
 
-Le patron de conception "Decorator" permet de ajouter de nouvelles responsabilités à un objet de manière transparente, en enveloppant l'objet dans un autre objet qui possède ces responsabilités supplémentaires. Dans cet exemple, la classe FruitDecorator ajoute la responsabilité de stocker une quantité de fruits et un identifiant de commande à l'objet FruitEntity.
+Le design pattern Decorator est un patron de conception utilisé pour ajouter des fonctionnalités supplémentaires à un objet existant, sans changer son code source. Cela permet une flexibilité accrue dans l'ajout et la suppression de comportements à un objet, car cela se fait en utilisant des objets décorateurs plutôt que de modifier directement l'objet cible. Cela a pour effet de rendre le code plus maintenable et réutilisable, car les décorateurs peuvent être facilement combinés et enchaînés pour créer des comportements complexes, sans avoir à créer de nouvelles classes pour chaque combinaison.
 
-Les classes FruitQuantity et FruitCommande sont des exemples de classes "decorators" qui héritent de FruitDecorator et ajoutent ces responsabilités à l'objet FruitEntity. La classe FruitQuantity ajoute simplement la responsabilité de stocker une quantité de fruits, tandis que la classe FruitCommande ajoute également la responsabilité de stocker un identifiant de commande.
+![decorator](img/decorator.png)
 
-Le patron de conception "Decorator" permet de rendre le code plus modulaire et flexible, car il est possible d'ajouter de nouvelles responsabilités à un objet sans avoir à en modifier la classe de base. Cela peut être utile lorsque vous avez besoin d'ajouter de nouvelles fonctionnalités à un objet de manière dynamique, sans avoir à créer de nouvelles classes pour chaque combinaison de responsabilités.
+_Schéma UML représentant le design pattern Decorator_
+
+### Pourquoi on les utilise ?
+
+Ce pattern est une bonne solution d'utiliser le design pattern Decorator dans notre situation car cela permet d'ajouter des fonctionnalités supplémentaires à un objet FruitEntity existant.Cela se fait en utilisant des objets décorateurs tels que FruitQuantity et FruitCommande, qui étendent FruitEntity et ajoutent des attributs supplémentaires tels que quantity et id_commande. Ces classes vont être utile et utiliser dans l'historique de commande de notre site ou bien dans la gestion des quantités dans le panier de fruit.
+
+```php
+class FruitEntity
+    {
+        public int $id_fruit;
+        public string $nom;
+        public string $prix;
+        public string $description;
+        public array $category = [];
+        public string $origine;
+        public string $image;
+
+        public function __construct($id_fruit,$nom,$prix,$description,$image,$origine,$category) {
+            $this->id_fruit = $id_fruit;
+            $this->nom = $nom;
+            $this->prix = $prix;
+            $this->description =$description;
+            $this->origine = $origine;
+            $this->category = $category;
+            $this->image = $image;
+        }
+        /*Méthode qui permet d'ajouter une catégorie dans l'attribut category (un tableau)*/
+        public function addCategory(int $idCategory, string $nom, string $description): void
+        {
+            $category = new CategoryEntity($idCategory,$nom,$description);
+            array_push($this->category, $category);
+        }
+    };
+```
+```php
+class FruitCommande extends FruitDecorator
+    {
+        public $quantity;
+        public $id_commande;
+
+        public function __construct(FruitEntity $fruit, $quantity, $id_commande)
+        {
+            parent::__construct(
+                $fruit->id_fruit,
+                $fruit->nom,
+                $GLOBALS['calculator']->calculatePrice($fruit->prix),
+                $fruit->description,
+                $fruit->image,
+                $fruit->origine,
+                $fruit->category
+            );
+            $this->quantity = $quantity;
+            $this->id_commande = $id_commande;
+        }
+    }
+```
+
+### _Comment ça marche ?_
+
+La classe FruitCommande ici va hériter de la classe FruitEntity par le biais d'une autre classe. On peut voir que le constructeur des classes Decorator utilise le decorator parent et rajoute les bon attribut dans notre cas l'attribut quantity et id_commande
+
+ En résumé le patron de conception "Decorator" permet de rendre le code plus modulaire et flexible, car il est possible d'ajouter de nouvelles responsabilités à un objet sans avoir à en modifier la classe de base. Cela peut être utile lorsque vous avez besoin d'ajouter de nouvelles fonctionnalités à un objet de manière dynamique, sans avoir à créer de nouvelles classes pour chaque combinaison de responsabilités.
 
 ## **_Template Method_**
 
