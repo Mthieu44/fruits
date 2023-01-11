@@ -310,7 +310,7 @@ class UserFactory
                 return new UserAdmin();
         }
     }
-}
+}   
 
 /*
 Vue pour les clients.
