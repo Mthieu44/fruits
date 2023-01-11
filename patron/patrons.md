@@ -75,10 +75,70 @@ La classe UserFactory, quant à elle, fournit une méthode statique makeUser() q
 
 ## **_Decorator_**
 
-Le patron de conception **"Decorator"** est utilisé dans cet exemple avec la classe abstraite FruitDecorator qui étend la classe FruitEntity (déclarée avec le mot-clé extends). La classe FruitDecorator sert de classe de base pour les classes FruitQuantity et FruitCommande, qui héritent de cette classe.
+### C'est quoi ?
 
-Le patron de conception "Decorator" permet de ajouter de nouvelles responsabilités à un objet de manière transparente, en enveloppant l'objet dans un autre objet qui possède ces responsabilités supplémentaires. Dans cet exemple, la classe FruitDecorator ajoute la responsabilité de stocker une quantité de fruits et un identifiant de commande à l'objet FruitEntity.
+Le design pattern Decorator est un patron de conception utilisé pour ajouter des fonctionnalités supplémentaires à un objet existant, sans changer son code source. Cela permet une flexibilité accrue dans l'ajout et la suppression de comportements à un objet, car cela se fait en utilisant des objets décorateurs plutôt que de modifier directement l'objet cible. Cela a pour effet de rendre le code plus maintenable et réutilisable, car les décorateurs peuvent être facilement combinés et enchaînés pour créer des comportements complexes, sans avoir à créer de nouvelles classes pour chaque combinaison.
 
-Les classes FruitQuantity et FruitCommande sont des exemples de classes "decorators" qui héritent de FruitDecorator et ajoutent ces responsabilités à l'objet FruitEntity. La classe FruitQuantity ajoute simplement la responsabilité de stocker une quantité de fruits, tandis que la classe FruitCommande ajoute également la responsabilité de stocker un identifiant de commande.
+![decorator](img/decorator.png)
+_Schéma UML représentant le design pattern Decorator_
 
-Le patron de conception "Decorator" permet de rendre le code plus modulaire et flexible, car il est possible d'ajouter de nouvelles responsabilités à un objet sans avoir à en modifier la classe de base. Cela peut être utile lorsque vous avez besoin d'ajouter de nouvelles fonctionnalités à un objet de manière dynamique, sans avoir à créer de nouvelles classes pour chaque combinaison de responsabilités.
+### Pourquoi on les utilise ?
+
+Ce pattern est une bonne solution d'utiliser le design pattern Decorator dans notre situation car cela permet d'ajouter des fonctionnalités supplémentaires à un objet FruitEntity existant.Cela se fait en utilisant des objets décorateurs tels que FruitQuantity et FruitCommande, qui étendent FruitEntity et ajoutent des attributs supplémentaires tels que quantity et id_commande. Ces classes vont être utile et utiliser dans l'historique de commande de notre site ou bien dans la gestion des quantités dans le panier de fruit.
+
+```php
+class FruitEntity
+    {
+        public int $id_fruit;
+        public string $nom;
+        public string $prix;
+        public string $description;
+        public array $category = [];
+        public string $origine;
+        public string $image;
+
+        public function __construct($id_fruit,$nom,$prix,$description,$image,$origine,$category) {
+            $this->id_fruit = $id_fruit;
+            $this->nom = $nom;
+            $this->prix = $prix;
+            $this->description =$description;
+            $this->origine = $origine;
+            $this->category = $category;
+            $this->image = $image;
+        }
+        /*Méthode qui permet d'ajouter une catégorie dans l'attribut category (un tableau)*/
+        public function addCategory(int $idCategory, string $nom, string $description): void
+        {
+            $category = new CategoryEntity($idCategory,$nom,$description);
+            array_push($this->category, $category);
+        }
+    };
+```
+```php
+class FruitCommande extends FruitDecorator
+    {
+        public $quantity;
+        public $id_commande;
+
+        public function __construct(FruitEntity $fruit, $quantity, $id_commande)
+        {
+            parent::__construct(
+                $fruit->id_fruit,
+                $fruit->nom,
+                $GLOBALS['calculator']->calculatePrice($fruit->prix),
+                $fruit->description,
+                $fruit->image,
+                $fruit->origine,
+                $fruit->category
+            );
+            $this->quantity = $quantity;
+            $this->id_commande = $id_commande;
+        }
+    }
+```
+
+### _Comment ça marche ?_
+
+La classe FruitCommande ici va hérité de la classe FruitEntity par le biais d'une autre classe. On peut voir que le constructeur des classes Decorator utilise le decorator parent et rajoute les bon attribut dans notre cas l'attribut quantity et id_commande
+
+ En résumé le patron de conception "Decorator" permet de rendre le code plus modulaire et flexible, car il est possible d'ajouter de nouvelles responsabilités à un objet sans avoir à en modifier la classe de base. Cela peut être utile lorsque vous avez besoin d'ajouter de nouvelles fonctionnalités à un objet de manière dynamique, sans avoir à créer de nouvelles classes pour chaque combinaison de responsabilités.
