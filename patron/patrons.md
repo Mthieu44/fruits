@@ -19,7 +19,8 @@ Ce patron de conception permet de définir une stratégie de traitement pour cha
 
 
 ![factory-strategy](img/factory-strategy.png)
-
+![factory-strategy_code1](img/factory-strategy_code1.png)
+![factory-strategy_code1](img/factory-strategy_code2.png)
 ## **_Decorator_**
 
 Le patron de conception **"Decorator"** est utilisé dans cet exemple avec la classe abstraite FruitDecorator qui étend la classe FruitEntity (déclarée avec le mot-clé extends). La classe FruitDecorator sert de classe de base pour les classes FruitQuantity et FruitCommande, qui héritent de cette classe.
